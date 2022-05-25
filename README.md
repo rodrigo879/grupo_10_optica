@@ -1,2 +1,19 @@
 # grupo_10_optica
-E-Commerce lentes
+
+URL REPO https://github.com/rodrigo879/grupo_10_optica.git
+
+# Tematica del sitio
+- E-Commerce. Tienda virtual de lentes (anteojeos de sol y recetados)
+
+# Publico Objetivo
+- Ofrecemos venta de anteojos de sol, recetados, lentes de contactos para publico en general.
+
+# Listado de Paginas Referentes
+*[Multiopticas] (https://multiopticas.com.ar/)
+*[Optical] (https://www.tiendadelentes.com.ar/))
+*[Glasses] (https://www.glasses.com/)
+*[Smart Glasses] (https://www.smartbuyglasses.com.ar/)
+*[WarbyParker] (https://www.warbyparker.com/)
+
+# Listado del grupo con una breve descripción
+
