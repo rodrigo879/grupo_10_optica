@@ -17,6 +17,6 @@ URL REPO https://github.com/rodrigo879/grupo_10_optica.git
 
 # Listado del grupo con una breve descripción
 * Alvarez Rodrigo:
-* Leonardo Francisco:
+* Leonardo Francisco: Loading programmer;
 * Sandoval Facundo:
 * Roman Ivan:
