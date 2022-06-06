@@ -18,5 +18,5 @@ URL REPO https://github.com/rodrigo879/grupo_10_optica.git
 # Listado del grupo con una breve descripción
 * Alvarez Rodrigo:
 * Leonardo Francisco: Loading programmer;
-* Sandoval Facundo:
+* Sandoval Facundo: Futuro politólogo estudiando programación web full stack;
 * Roman Ivan: Hincha de Boca. estudiante de programación.
