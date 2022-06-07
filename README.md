@@ -16,7 +16,7 @@ URL REPO https://github.com/rodrigo879/grupo_10_optica.git
 *[WarbyParker](https://www.warbyparker.com/)
 
 # Listado del grupo con una breve descripción
-* Alvarez Rodrigo:
+* Alvarez Rodrigo: Loquito barbaro
 * Leonardo Francisco: Loading programmer;
 * Sandoval Facundo: Futuro politólogo estudiando programación web full stack;
 * Roman Ivan: Hincha de Boca. estudiante de programación.
