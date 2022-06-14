@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opctica RIFF</title>
+    <link rel="stylesheet" href="/css/base.css">
+    <link href="https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:wght@300;400;700&family=Montserrat:wght@300;400;700&family=Roboto:wght@300;400;700&family=Source+Serif+Pro:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400;700&family=Libre+Baskerville:wght@400;700&family=Lora:wght@400;700&family=Source+Sans+Pro:wght@300;400;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a281ea592b.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="/images/logos/favicon.jpg">
+</head>
+<body>
+    <header>
+        <div class="main-header">
+            <div class="main-hamburguer">
+                <!--El boton Hamburguesa, que despliega el menu de opciones en la vista movile/tablets-->
+                <a href="#" class="hamburguer-buttom"><i class="fa-solid fa-bars"></i></a>
+                <p>Menú</p>
+            </div>
+            <div class="main-logo">
+                <a href="/"><img src="/images/logos/logo.png" alt="Optica RIFF"></a>
+            </div>
+            <div class="main-buscar-carrito">
+                <a href="/cart.html"><i class='fa-solid fa-magnifying-glass'></i></a>
+                <a href="/productCart.html"><i class="fa-solid fa-cart-shopping"></i></a>
+            </div>
+        </div>    
+        <nav class="main-navbar">
+            <ul class="navbar-left">
+                <!--Aca ya estan creados algunos de los links que vamos a poner, hay que ver bien los nombre y ponerlos-->
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Ofertas</a></li>
+                <li><a href="#">Anteojos Recetados</a></li>
+                <li><a href="#">Anteojos para Sol</a></li>
+                <li><a href="#">Lentes de Contacto</a></li>
+                <li><a href="#">Accesorios</a></li> 
+                <li><a href="/contact.html">Contacto</a></li>
+                <li>
+                    <form action="/" method="get">
+                        <div class="div-form-buscar-productos">
+                            <label><input class="buscar-productos" value="" type="text" placeholder="Buscar productos.."><a href="#"><i class='fa-solid fa-magnifying-glass'></i></a></label>
+                        </div>
+                    </form>
+                </li>
+            </ul>
+            <ul class="navbar-right">
+                <li>
+                    <form action="#" method="get" class="buscador">   
+                        <!--Input text para el buscador-->
+                        <div class="buscar-productos">
+                            <input id="search" class="buscar-productos" name="search" value="" type="text" placeholder="Buscar productos.."><a href="#"><i class='fa-solid fa-magnifying-glass'></i></a>
+                        </div>
+                    </form>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+
+    </main>
+    <footer>
+        <div class="main-footer">
+            <div class="footer-navegacion">
+                <h4>NAVEGACION</h4>
+                <ul>
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href="#">Ofertas</a></li>
+                    <li><a href="#">Anteojos Recetados</a></li>
+                    <li><a href="#">Anteojos para Sol</a></li>
+                    <li><a href="#">Lentes de Contacto</a></li>
+                    <li><a href="#">Accesorios</a></li> 
+                    <li><a href="/contact.html">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-contactenos">
+                <h4>CONTACTENOS</h4>
+                <ul>
+                    <li><a href="#"><i class="fa-solid fa-phone"></i>1111111</a></li>
+                    <li><a href="#"><i class="fa-solid fa-envelope"></i>opticaRIFF@gmail.com</a></li>
+                    <li><a href="#"><i class="fa-solid fa-location-dot"></i>Av. Siempre Viva 972</a></li>
+                </ul>
+            </div>
+            <div class="footer-redesSociales">
+                <h4>REDES SOCIALES</h4>
+                <ul>
+                    <li><a href="https://www.instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
+                    <li><a href="https://www.facebook.com" target="_blank"><i class="fa-brands fa-facebook-square"></i></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <h5>Copyright © 1999-2020 Optica RIFF S.R.L.</h5>
+        </div>
+    </footer> 
+</body>
+<script>
+
+    const containerImg = document.getElementById('containerImg');
+    const punto = document.querySelectorAll('.punto');
+    
+    punto.forEach( (cadaPunto, i) => {
+        punto[i].addEventListener('click', () => {
+            let posicion = i;
+            //posicion es 0 transformX es 0
+            //posicion es 1 transformX es -50%
+            //operacion = posicion *-50;
+            let operacion = posicion * (-25);
+            containerImg.style.transform = `translateX(${operacion}%)`
+            punto.forEach ( (cadaPunto, i) => {
+                punto[i].classList.remove('activo');
+            })
+            punto[i].classList.add('activo');
+        });
+    });
+
+    const containerInfo = document.getElementById('containerInfo');
+    const punto1 = document.querySelectorAll('.punto1');
+    
+    punto1.forEach( (cadaPunto, i) => {
+        punto1[i].addEventListener('click', () => {
+            let posicion = i;
+            let operacion = posicion * (-100/3);
+            containerInfo.style.transform = `translateX(${operacion}%)`
+            punto1.forEach ( (cadaPunto, i) => {
+                punto1[i].classList.remove('activo1');
+            })
+            punto1[i].classList.add('activo1');
+        });
+    });
+</script>
+</html>

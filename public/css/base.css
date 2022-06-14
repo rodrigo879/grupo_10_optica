@@ -1,0 +1,174 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*----------Vista Movile----------*/
+
+body {
+    font-family: 'Montserrat','Roboto';
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; 
+    background-color: #ADB2B5; 
+}
+
+h1 {
+    display: none;
+}
+
+/*----------Header----------*/
+
+header {
+    padding: 2vw;
+    background-color: white;
+}
+
+.main-header {
+    display: flex;
+}
+
+.main-hamburguer, .main-buscar-carrito {
+    display: flex;
+    width: 80px;
+    height: 47px;
+    font-size: 18px;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: center;  
+}
+
+.main-hamburguer a, .main-buscar-carrito a{
+    color: #000000;
+}
+
+.main-hamburguer p {
+    font-size: 12px;
+    color: #ADB2B5;
+    margin: 4px;
+}
+
+.main-buscar-carrito a {
+    margin-right: 2vw;
+}
+
+.main-logo {
+    width: 50%;
+    height: 40px;
+    margin: auto;
+    /* border: solid; */
+}
+
+.main-logo img {
+    width: 100%;
+    height: 85%;
+}
+
+.main-navbar {
+    display: none;
+}
+
+.div-form-buscar-productos {
+    background-color: white;
+    border: solid #000000 2px;
+    border-radius: 10px;
+    width: 100%;
+    height: 40px;
+    position: relative;
+    padding: 7px 10px;
+}
+
+.div-form-buscar-productos i {
+    position: absolute;
+    right: 0;
+    color: lightgrey;
+    padding-right: 5px;
+    margin-top: 5px;
+}
+
+.buscar-productos {
+    border: none;
+    width: 90%;
+    margin-top: 5px;
+}
+
+
+/*----------Main----------*/
+
+
+
+/*----------Footer----------*/
+
+footer {
+    font-family: 'Roboto';
+    background-color: #000000;
+    color: #FFFFFF;
+    margin: 2vw;
+}
+
+footer li {
+    list-style: none;
+}
+
+footer a {
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+.main-footer {
+    margin: 2vW;
+}
+
+.footer-navegacion {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+footer h4 {
+    width: 100%;
+    padding: 5px 0px;
+}
+
+footer ul {
+    padding: 10px;
+}
+
+footer li {
+    padding: 5px 0px;
+}
+
+.footer-navegacion ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.footer-navegacion li{
+    width: 40%;
+}
+
+.footer-contactenos i {
+    width: 7%;
+}
+
+.footer-redesSociales ul {
+    display: flex;
+}
+
+.footer-redesSociales li {
+    font-size: xx-large;
+    margin-right: 15px;
+}
+
+.footer-redesSociales i {
+    width: 100%;
+}
+
+footer h5 {
+    display: flex;
+    margin: 8px;
+    text-align: left;
+    justify-content: flex-start;
+    color: #c3c6c8;
+}

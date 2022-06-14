@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opctica RIFF</title>
+    <link rel="stylesheet" href="/css/index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:wght@300;400;700&family=Montserrat:wght@300;400;700&family=Roboto:wght@300;400;700&family=Source+Serif+Pro:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400;700&family=Libre+Baskerville:wght@400;700&family=Lora:wght@400;700&family=Source+Sans+Pro:wght@300;400;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a281ea592b.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="/images/logos/favicon.jpg">
+</head>
+<body>
+    <header>
+        <div class="main-header">
+            <div class="main-hamburguer">
+                <!--El boton Hamburguesa, que despliega el menu de opciones en la vista movile/tablets-->
+                <a href="#" class="hamburguer-buttom"><i class="fa-solid fa-bars"></i></a>
+                <p>Menú</p>
+            </div>
+            <div class="main-logo">
+                <a href="/"><img src="/images/logos/logo.png" alt="Optica RIFF"></a>
+            </div>
+            <div class="main-buscar-carrito">
+                <a href="/cart.html"><i class='fa-solid fa-magnifying-glass'></i></a>
+                <a href="/productCart.html"><i class="fa-solid fa-cart-shopping"></i></a>
+            </div>
+        </div>    
+        <nav class="main-navbar">
+            <ul class="navbar-left">
+                <!--Aca ya estan creados algunos de los links que vamos a poner, hay que ver bien los nombre y ponerlos-->
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Ofertas</a></li>
+                <li><a href="#">Anteojos Recetados</a></li>
+                <li><a href="#">Anteojos para Sol</a></li>
+                <li><a href="#">Lentes de Contacto</a></li>
+                <li><a href="#">Accesorios</a></li> 
+                <li><a href="/contact.html">Contacto</a></li>
+                <li>
+                    <form action="/" method="get">
+                        <div class="div-form-buscar-productos">
+                            <label><input class="buscar-productos" value="" type="text" placeholder="Buscar productos.."><a href="#"><i class='fa-solid fa-magnifying-glass'></i></a></label>
+                        </div>
+                    </form>
+                </li>
+            </ul>
+            <ul class="navbar-right">
+                <li>
+                    <form action="#" method="get" class="buscador">   
+                        <!--Input text para el buscador-->
+                        <div class="buscar-productos">
+                            <input id="search" class="buscar-productos" name="search" value="" type="text" placeholder="Buscar productos.."><a href="#"><i class='fa-solid fa-magnifying-glass'></i></a>
+                        </div>
+                    </form>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main class="main-main">
+        <div class="main-carrousel">
+            <div class="container-img" id="containerImg">
+                <img src="/images/banners/carrousel-1-movile.jpg" alt="Imagen 1" class="img">
+                <img src="/images/banners/carrousel-2-movile.jpg" alt="Imagen 2" class="img">
+                <img src="/images/banners/carrousel-3-movile.jpg" alt="Imagen 3" class="img">
+                <img src="/images/banners/carrousel-4-movile.jpg" alt="Imagen 4" class="img">
+            </div>
+            <ul class="puntos">
+                <li class="punto activo"></li>
+                <li class="punto"></li>
+                <li class="punto"></li>
+                <li class="punto"></li>
+            </ul>
+        </div>
+        <div class="secondary-carrousel">
+            <div class="container-info" id="containerInfo">
+                <div class="enviamos-tu-compra">
+                    <div class="icon-truck">
+                        <i class="fa-solid fa-truck"></i>
+                    </div>
+                    <div class="copy-header">
+                        <h6>
+                            <strong>ENVIAMOS TU COMPRA</strong>
+                        </h6>
+                        <p>Entregas a todo el país</p>
+                    </div>
+                </div>
+                <div class="paga-como-quieras">
+                    <div class="icon-truck">
+                        <i class="fa-regular fa-credit-card"></i>
+                    </div>
+                    <div class="copy-header">
+                        <h6>
+                            <strong>PAGÁ COMO QUIERAS</strong>
+                        </h6>
+                        <p>Tarjetas de crédito o efectivo</p>
+                    </div>
+                </div>
+                <div class="compra-con-seguridad">
+                    <div class="icon-truck">
+                        <i class="fa-solid fa-lock"></i>
+                    </div>
+                    <div class="copy-header">
+                        <h6>
+                            <strong>COMPRÁ CON SEGURIDAD</strong>
+                        </h6>
+                        <p>Tus datos siempre protegidos</p>
+                    </div>
+                </div>
+            </div>
+            <ul class="puntos1">
+                <li class="punto1 activo1"></li>
+                <li class="punto1"></li>
+                <li class="punto1"></li>
+            </ul>
+        </div>
+        <div class="secciones">
+            <div class="contenedor-imagenes">
+                <div class="seccion-imagen">
+                    <a href="#"><img src="/images/banners/anteojos-para-sol.webp" alt="Imagen 1"></a>
+                </div>
+                <div class="seccion-imagen">
+                    <a href="#"><img src="/images/banners/anteojos-recetados.webp" alt="Imagen 2"></a>
+                </div>
+                <div class="seccion-imagen">
+                    <a href="#"><img src="/images/banners/lentes-de-contacto.webp" alt="Imagen 3"></a>
+                </div>
+            </div>
+        </div>
+        <section>
+            <h2>&#128293 Ofertas &#128293</h2>
+            <div class="main-section-div">
+                <article class="main-section-product">
+                    <div class="main-section-img">
+                        <img src="/images/productos/lentesRecetados/lentesRecetados1.jpg" alt="Lentes Recetado 1">
+                    </div>
+                    <div class="main-section-info">
+                        <div class="informacion-precio-descuento">
+                            <i class="fa-solid fa-truck"></i>
+                            <p class="precio-producto">$6.770</p>
+                            <p class="precio-con-descuento">$4.062</p>
+                            <p class="descuento-producto">40% OFF</p>
+                        </div>
+                        <div class="section-h3">
+                            <h3>Lentes Recetado 1</h3>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="main-section-product">
+                    <div class="main-section-img">
+                        <img src="/images/productos/lentesRecetados/lentesRecetados2.jpg" alt="Lentes Recetado 2">
+                    </div>
+                    <div class="main-section-info">
+                        <div class="informacion-precio-descuento">
+                            <i class="fa-solid fa-truck"></i>
+                            <p class="precio-producto">$10.000</p>
+                            <p class="precio-con-descuento">$8.200</p>
+                            <p class="descuento-producto">18% OFF</p>
+                        </div>
+                        <div class="section-h3">
+                            <h3>Lentes Recetado 2</h3>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="main-section-product">
+                    <div class="main-section-img">
+                        <img src="/images/productos/lentesSol/lentesSol1.jpg" alt="Lentes Sol 1">
+                    </div>
+                    <div class="main-section-info">
+                        <div class="informacion-precio-descuento">
+                            <i class="fa-solid fa-truck"></i>
+                            <p class="precio-producto">$45.500</p>
+                            <p class="precio-con-descuento">$27.300</p>
+                            <p class="descuento-producto">40% OFF</p>
+                        </div>
+                        <div class="section-h3">
+                            <h3>Lentes Sol 1</h3>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="main-section-product">
+                    <div class="main-section-img">
+                        <img src="/images/productos/lentesSol/lentesSol2.jpg" alt="Lentes Sol 2">
+                    </div>
+                    <div class="main-section-info">
+                        <div class="informacion-precio-descuento">
+                            <i class="fa-solid fa-truck"></i>
+                            <p class="precio-producto">$38.500</p>
+                            <p class="precio-con-descuento">$21.175</p>
+                            <p class="descuento-producto">45% OFF</p>
+                        </div>
+                        <div class="section-h3">
+                            <h3>Lentes Sol 2</h3>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="main-section-product">
+                    <div class="main-section-img">
+                        <img src="/images/productos/lentesRecetados/lentesRecetados3.jpg" alt="Lentes Recetado 3">
+                    </div>
+                    <div class="main-section-info">
+                        <div class="informacion-precio-descuento">
+                            <i class="fa-solid fa-truck"></i>
+                            <p class="precio-producto">$23.200</p>
+                            <p class="precio-con-descuento">$15.080</p>
+                            <p class="descuento-producto">35% OFF</p>
+                        </div>
+                        <div class="section-h3">
+                            <h3>Lentes Recetado 3</h3>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="main-section-product">
+                    <div class="main-section-img">
+                        <img src="/images/productos/lentesRecetados/lentesRecetados4.jpg" alt="Lentes Recetado 4">
+                    </div>
+                    <div class="main-section-info">
+                        <div class="informacion-precio-descuento">
+                            <i class="fa-solid fa-truck"></i>
+                            <p class="precio-producto">$7.900</p>
+                            <p class="precio-con-descuento">$7.505</p>
+                            <p class="descuento-producto">5% OFF</p>
+                        </div>
+                        <div class="section-h3">
+                            <h3>Lentes Recetado 4</h3>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="main-section-product">
+                    <div class="main-section-img">
+                        <img src="/images/productos/lentesSol/lentesSol3.jpg" alt="Lentes Sol 3">
+                    </div>
+                    <div class="main-section-info">
+                        <div class="informacion-precio-descuento">
+                            <i class="fa-solid fa-truck"></i>
+                            <p class="precio-producto">$17.400</p>
+                            <p class="precio-con-descuento">$13.050</p>
+                            <p class="descuento-producto">25% OFF</p>
+                        </div>
+                        <div class="section-h3">
+                            <h3>Lentes Sol 3</h3>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="main-section-product">
+                    <div class="main-section-img">
+                        <img src="/images/productos/lentesSol/lentesSol4.jpg" alt="Lentes Sol 4">
+                    </div>
+                    <div class="main-section-info">
+                        <div class="informacion-precio-descuento">
+                            <i class="fa-solid fa-truck"></i>
+                            <p class="precio-producto">$17.450</p>
+                            <p class="precio-con-descuento">$13.960</p>
+                            <p class="descuento-producto">20% OFF</p>
+                        </div>
+                        <div class="section-h3">
+                            <h3>Lentes Sol 4</h3>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="main-section-product">
+                    <div class="main-section-img">
+                        <img src="/images/productos/lentesContacto/lentesContacto1.jpg" alt="Lentes Contacto 1">
+                    </div>
+                    <div class="main-section-info">
+                        <div class="informacion-precio-descuento">
+                            <i class="fa-solid fa-truck"></i>
+                            <p class="precio-producto">$23.960</p>
+                            <p class="precio-con-descuento">$17.970</p>
+                            <p class="descuento-producto">25% OFF</p>
+                        </div>
+                        <div class="section-h3">
+                            <h3>Lentes Contacto 1</h3>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="main-section-product">
+                    <div class="main-section-img">
+                        <img src="/images/productos/lentesContacto/lentesContacto2.jpg" alt="Lentes Contacto 2">
+                    </div>
+                    <div class="main-section-info">
+                        <div class="informacion-precio-descuento">
+                            <i class="fa-solid fa-truck"></i>
+                            <p class="precio-producto">$27.600</p>
+                            <p class="precio-con-descuento">$20.760</p>
+                            <p class="descuento-producto">25% OFF</p>
+                        </div>
+                        <div class="section-h3">
+                            <h3>Lentes Contacto 2</h3>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="main-section-product">
+                    <div class="main-section-img">
+                        <img src="/images/productos/lentesRecetados/lentesRecetados5.jpg" alt="Lentes Recetado 5">
+                    </div>
+                    <div class="main-section-info">
+                        <div class="informacion-precio-descuento">
+                            <i class="fa-solid fa-truck"></i>
+                            <p class="precio-producto">$25.750</p>
+                            <p class="precio-con-descuento">$21.115</p>
+                            <p class="descuento-producto">18% OFF</p>
+                        </div>
+                        <div class="section-h3">
+                            <h3>Lentes Recetado 5</h3>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="main-section-product">
+                    <div class="main-section-img">
+                        <img src="/images/productos/lentesRecetados/lentesRecetados6.jpg" alt="Lentes Recetado 6">
+                    </div>
+                    <div class="main-section-info">
+                        <div class="informacion-precio-descuento">
+                            <i class="fa-solid fa-truck"></i>
+                            <p class="precio-producto">$18.500</p>
+                            <p class="precio-con-descuento">$15.170</p>
+                            <p class="descuento-producto">18% OFF</p>
+                        </div>
+                        <div class="section-h3">
+                            <h3>Lentes Recetado 6</h3>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="main-section-product">
+                    <div class="main-section-img">
+                        <img src="/images/productos/lentesRecetados/lentesRecetados7.jpg" alt="Lentes Recetado 7">
+                    </div>
+                    <div class="main-section-info">
+                        <div class="informacion-precio-descuento">
+                            <i class="fa-solid fa-truck"></i>
+                            <p class="precio-producto">$23.900</p>
+                            <p class="precio-con-descuento">$15.535</p>
+                            <p class="descuento-producto">35% OFF</p>
+                        </div>
+                        <div class="section-h3">
+                            <h3>Lentes Recetado 7</h3>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="main-section-product">
+                    <div class="main-section-img">
+                        <img src="/images/productos/lentesSol/lentesSol5.jpg" alt="Lentes Sol 5">
+                    </div>
+                    <div class="main-section-info">
+                        <div class="informacion-precio-descuento">
+                            <i class="fa-solid fa-truck"></i>
+                            <p class="precio-producto">$10.300</p>
+                            <p class="precio-con-descuento">$4.635</p>
+                            <p class="descuento-producto">55% OFF</p>
+                        </div>
+                        <div class="section-h3">
+                            <h3>Lentes Sol 5</h3>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="main-footer">
+            <div class="footer-navegacion">
+                <h4>NAVEGACION</h4>
+                <ul>
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href="#">Ofertas</a></li>
+                    <li><a href="#">Anteojos Recetados</a></li>
+                    <li><a href="#">Anteojos para Sol</a></li>
+                    <li><a href="#">Lentes de Contacto</a></li>
+                    <li><a href="#">Accesorios</a></li> 
+                    <li><a href="/contact.html">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-contactenos">
+                <h4>CONTACTENOS</h4>
+                <ul>
+                    <li><a href="#"><i class="fa-solid fa-phone"></i>1111111</a></li>
+                    <li><a href="#"><i class="fa-solid fa-envelope"></i>opticaRIFF@gmail.com</a></li>
+                    <li><a href="#"><i class="fa-solid fa-location-dot"></i>Av. Siempre Viva 972</a></li>
+                </ul>
+            </div>
+            <div class="footer-redesSociales">
+                <h4>REDES SOCIALES</h4>
+                <ul>
+                    <li><a href="https://www.instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
+                    <li><a href="https://www.facebook.com" target="_blank"><i class="fa-brands fa-facebook-square"></i></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <h5>Copyright © 1999-2020 Optica RIFF S.R.L.</h5>
+        </div>
+    </footer> 
+</body>
+<script>
+
+    const containerImg = document.getElementById('containerImg');
+    const punto = document.querySelectorAll('.punto');
+    
+    punto.forEach( (cadaPunto, i) => {
+        punto[i].addEventListener('click', () => {
+            let posicion = i;
+            //posicion es 0 transformX es 0
+            //posicion es 1 transformX es -50%
+            //operacion = posicion *-50;
+            let operacion = posicion * (-25);
+            containerImg.style.transform = `translateX(${operacion}%)`
+            punto.forEach ( (cadaPunto, i) => {
+                punto[i].classList.remove('activo');
+            })
+            punto[i].classList.add('activo');
+        });
+    });
+
+    const containerInfo = document.getElementById('containerInfo');
+    const punto1 = document.querySelectorAll('.punto1');
+    
+    punto1.forEach( (cadaPunto, i) => {
+        punto1[i].addEventListener('click', () => {
+            let posicion = i;
+            let operacion = posicion * (-100/3);
+            containerInfo.style.transform = `translateX(${operacion}%)`
+            punto1.forEach ( (cadaPunto, i) => {
+                punto1[i].classList.remove('activo1');
+            })
+            punto1[i].classList.add('activo1');
+        });
+    });
+</script>
+</html>
