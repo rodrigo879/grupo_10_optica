@@ -23,34 +23,28 @@
                 <a href="/"><img src="/images/logos/logo.png" alt="Optica RIFF"></a>
             </div>
             <div class="main-buscar-carrito">
-                <a href="/cart.html"><i class='fa-solid fa-magnifying-glass'></i></a>
-                <a href="/productCart.html"><i class="fa-solid fa-cart-shopping"></i></a>
+                <p><a href="/register">Crear Cuenta</a>|<a href="/login">Iniciar Sesion</a></p>
+                <a href="#"><i class='fa-solid fa-magnifying-glass'></i></a>
+                <a href="/productCart"><i class="fa-solid fa-cart-shopping"></i></a>
             </div>
         </div>    
         <nav class="main-navbar">
-            <ul class="navbar-left">
+            <ul class="navbar">
                 <!--Aca ya estan creados algunos de los links que vamos a poner, hay que ver bien los nombre y ponerlos-->
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#">Ofertas</a></li>
-                <li><a href="#">Anteojos Recetados</a></li>
-                <li><a href="#">Anteojos para Sol</a></li>
-                <li><a href="#">Lentes de Contacto</a></li>
-                <li><a href="#">Accesorios</a></li> 
-                <li><a href="/contact.html">Contacto</a></li>
+                <li class="li-hover"><a href="#">Inicio</a></li>
+                <li class="li-hover"><a href="#">Ofertas</a></li>
+                <li class="li-hover"><a href="#">Anteojos Recetados</a></li>
+                <li class="li-hover"><a href="#">Anteojos para Sol</a></li>
+                <li class="li-hover"><a href="#">Lentes de Contacto</a></li>
+                <li class="li-hover"><a href="#">Accesorios</a></li> 
+                <li class="li-hover"><a href="/contact.html">Contacto</a></li>
                 <li>
                     <form action="/" method="get">
                         <div class="div-form-buscar-productos">
-                            <label><input class="buscar-productos" value="" type="text" placeholder="Buscar productos.."><a href="#"><i class='fa-solid fa-magnifying-glass'></i></a></label>
-                        </div>
-                    </form>
-                </li>
-            </ul>
-            <ul class="navbar-right">
-                <li>
-                    <form action="#" method="get" class="buscador">   
-                        <!--Input text para el buscador-->
-                        <div class="buscar-productos">
-                            <input id="search" class="buscar-productos" name="search" value="" type="text" placeholder="Buscar productos.."><a href="#"><i class='fa-solid fa-magnifying-glass'></i></a>
+                            <label>
+                                <input name="buscar-productos" class="buscar-productos" value="" type="text" placeholder="Buscar productos..">
+                                <a href="#"><i class='fa-solid fa-magnifying-glass'></i></a>
+                            </label>
                         </div>
                     </form>
                 </li>
@@ -58,7 +52,7 @@
         </nav>
     </header>
     <main>
-
+        <!-- ----------------AGREGAR CODIGO NUEVO---------------- -->
     </main>
     <footer>
         <div class="main-footer">
@@ -71,7 +65,7 @@
                     <li><a href="#">Anteojos para Sol</a></li>
                     <li><a href="#">Lentes de Contacto</a></li>
                     <li><a href="#">Accesorios</a></li> 
-                    <li><a href="/contact.html">Contacto</a></li>
+                    <li><a href="/contact">Contacto</a></li>
                 </ul>
             </div>
             <div class="footer-contactenos">
@@ -95,39 +89,4 @@
         </div>
     </footer> 
 </body>
-<script>
-
-    const containerImg = document.getElementById('containerImg');
-    const punto = document.querySelectorAll('.punto');
-    
-    punto.forEach( (cadaPunto, i) => {
-        punto[i].addEventListener('click', () => {
-            let posicion = i;
-            //posicion es 0 transformX es 0
-            //posicion es 1 transformX es -50%
-            //operacion = posicion *-50;
-            let operacion = posicion * (-25);
-            containerImg.style.transform = `translateX(${operacion}%)`
-            punto.forEach ( (cadaPunto, i) => {
-                punto[i].classList.remove('activo');
-            })
-            punto[i].classList.add('activo');
-        });
-    });
-
-    const containerInfo = document.getElementById('containerInfo');
-    const punto1 = document.querySelectorAll('.punto1');
-    
-    punto1.forEach( (cadaPunto, i) => {
-        punto1[i].addEventListener('click', () => {
-            let posicion = i;
-            let operacion = posicion * (-100/3);
-            containerInfo.style.transform = `translateX(${operacion}%)`
-            punto1.forEach ( (cadaPunto, i) => {
-                punto1[i].classList.remove('activo1');
-            })
-            punto1[i].classList.add('activo1');
-        });
-    });
-</script>
 </html>

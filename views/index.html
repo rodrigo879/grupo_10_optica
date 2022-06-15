@@ -23,25 +23,28 @@
                 <a href="/"><img src="/images/logos/logo.png" alt="Optica RIFF"></a>
             </div>
             <div class="main-buscar-carrito">
-                <p><a href="/register.html">Crear Cuenta</a>|<a href="/login.html">Iniciar Sesion</a></p>
-                <a href="/cart.html"><i class='fa-solid fa-magnifying-glass'></i></a>
-                <a href="/productCart.html"><i class="fa-solid fa-cart-shopping"></i></a>
+                <p><a href="/register">Crear Cuenta</a>|<a href="/login">Iniciar Sesion</a></p>
+                <a href="#"><i class='fa-solid fa-magnifying-glass'></i></a>
+                <a href="/productCart"><i class="fa-solid fa-cart-shopping"></i></a>
             </div>
         </div>    
         <nav class="main-navbar">
             <ul class="navbar">
                 <!--Aca ya estan creados algunos de los links que vamos a poner, hay que ver bien los nombre y ponerlos-->
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#">Ofertas</a></li>
-                <li><a href="#">Anteojos Recetados</a></li>
-                <li><a href="#">Anteojos para Sol</a></li>
-                <li><a href="#">Lentes de Contacto</a></li>
-                <li><a href="#">Accesorios</a></li> 
-                <li><a href="/contact.html">Contacto</a></li>
+                <li class="li-hover"><a href="#">Inicio</a></li>
+                <li class="li-hover"><a href="#">Ofertas</a></li>
+                <li class="li-hover"><a href="#">Anteojos Recetados</a></li>
+                <li class="li-hover"><a href="#">Anteojos para Sol</a></li>
+                <li class="li-hover"><a href="#">Lentes de Contacto</a></li>
+                <li class="li-hover"><a href="#">Accesorios</a></li> 
+                <li class="li-hover"><a href="/contact.html">Contacto</a></li>
                 <li>
                     <form action="/" method="get">
                         <div class="div-form-buscar-productos">
-                            <label><input class="buscar-productos" value="" type="text" placeholder="Buscar productos.."><a href="#"><i class='fa-solid fa-magnifying-glass'></i></a></label>
+                            <label>
+                                <input name="buscar-productos" class="buscar-productos" value="" type="text" placeholder="Buscar productos..">
+                                <a href="#"><i class='fa-solid fa-magnifying-glass'></i></a>
+                            </label>
                         </div>
                     </form>
                 </li>
@@ -51,10 +54,14 @@
     <main class="main-main">
         <div class="main-carrousel">
             <div class="container-img" id="containerImg">
-                <img src="/images/banners/carrousel-1-movile.jpg" alt="Imagen 1" class="img">
-                <img src="/images/banners/carrousel-2-movile.jpg" alt="Imagen 2" class="img">
-                <img src="/images/banners/carrousel-3-movile.jpg" alt="Imagen 3" class="img">
-                <img src="/images/banners/carrousel-4-movile.jpg" alt="Imagen 4" class="img">
+                <img src="/images/banners/carrousel-1-movile.jpg" alt="Imagen 1" class="img-movile-tablet">
+                <img src="/images/banners/carrousel-2-movile.jpg" alt="Imagen 2" class="img-movile-tablet">
+                <img src="/images/banners/carrousel-3-movile.jpg" alt="Imagen 3" class="img-movile-tablet">
+                <img src="/images/banners/carrousel-4-movile.jpg" alt="Imagen 4" class="img-movile-tablet">
+                <img src="/images/banners/carrousel-1-desktop.jpg" alt="Imagen 1" class="img-desktop">
+                <img src="/images/banners/carrousel-2-desktop.jpg" alt="Imagen 2" class="img-desktop">
+                <img src="/images/banners/carrousel-3-desktop.jpg" alt="Imagen 3" class="img-desktop">
+                <img src="/images/banners/carrousel-4-desktop.jpg" alt="Imagen 4" class="img-desktop">
             </div>
             <ul class="puntos">
                 <li class="punto activo"></li>
@@ -104,6 +111,41 @@
                 <li class="punto1"></li>
                 <li class="punto1"></li>
             </ul>
+        </div>
+        <div class="container-info-desktop">
+            <div class="enviamos-tu-compra">
+                <div class="icon-truck">
+                    <i class="fa-solid fa-truck"></i>
+                </div>
+                <div class="copy-header">
+                    <h6>
+                        <strong>ENVIAMOS TU COMPRA</strong>
+                    </h6>
+                    <p>Entregas a todo el país</p>
+                </div>
+            </div>
+            <div class="paga-como-quieras">
+                <div class="icon-truck">
+                    <i class="fa-regular fa-credit-card"></i>
+                </div>
+                <div class="copy-header">
+                    <h6>
+                        <strong>PAGÁ COMO QUIERAS</strong>
+                    </h6>
+                    <p>Tarjetas de crédito o efectivo</p>
+                </div>
+            </div>
+            <div class="compra-con-seguridad">
+                <div class="icon-truck">
+                    <i class="fa-solid fa-lock"></i>
+                </div>
+                <div class="copy-header">
+                    <h6>
+                        <strong>COMPRÁ CON SEGURIDAD</strong>
+                    </h6>
+                    <p>Tus datos siempre protegidos</p>
+                </div>
+            </div>
         </div>
         <div class="secciones">
             <div class="contenedor-imagenes">
@@ -325,7 +367,7 @@
                     </div>
                 </article>
 
-                <article class="main-section-product">
+                <!-- <article class="main-section-product">
                     <div class="main-section-img">
                         <img src="/images/productos/lentesRecetados/lentesRecetados7.jpg" alt="Lentes Recetado 7">
                     </div>
@@ -358,6 +400,40 @@
                         </div>
                     </div>
                 </article>
+
+                <article class="main-section-product">
+                    <div class="main-section-img">
+                        <img src="/images/productos/lentesSol/lentesSol6.jpg" alt="Lentes Sol 6">
+                    </div>
+                    <div class="main-section-info">
+                        <div class="informacion-precio-descuento">
+                            <i class="fa-solid fa-truck"></i>
+                            <p class="precio-producto">$15.000</p>
+                            <p class="precio-con-descuento">$12.750</p>
+                            <p class="descuento-producto">15% OFF</p>
+                        </div>
+                        <div class="section-h3">
+                            <h3>Lentes Sol 5</h3>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="main-section-product">
+                    <div class="main-section-img">
+                        <img src="/images/productos/lentesRecetados/lentesRecetados9.jpg" alt="Lentes Recetados 8">
+                    </div>
+                    <div class="main-section-info">
+                        <div class="informacion-precio-descuento">
+                            <i class="fa-solid fa-truck"></i>
+                            <p class="precio-producto">$12.700</p>
+                            <p class="precio-con-descuento">$11.430</p>
+                            <p class="descuento-producto">10% OFF</p>
+                        </div>
+                        <div class="section-h3">
+                            <h3>Lentes Sol 5</h3>
+                        </div>
+                    </div>
+                </article> -->
             </div>
         </section>
     </main>
@@ -372,7 +448,7 @@
                     <li><a href="#">Anteojos para Sol</a></li>
                     <li><a href="#">Lentes de Contacto</a></li>
                     <li><a href="#">Accesorios</a></li> 
-                    <li><a href="/contact.html">Contacto</a></li>
+                    <li><a href="/contact">Contacto</a></li>
                 </ul>
             </div>
             <div class="footer-contactenos">

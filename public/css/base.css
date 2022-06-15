@@ -31,9 +31,9 @@ header {
 
 .main-hamburguer, .main-buscar-carrito {
     display: flex;
-    width: 80px;
-    height: 47px;
-    font-size: 18px;
+    width: 20%;
+    height: 10vw;
+    font-size: 4vw;
     justify-content: center;
     flex-wrap: wrap;
     align-content: center;  
@@ -44,9 +44,9 @@ header {
 }
 
 .main-hamburguer p {
-    font-size: 12px;
+    font-size: 3vw;
     color: #ADB2B5;
-    margin: 4px;
+    margin: 0.5vw;
 }
 
 .main-buscar-carrito a {
@@ -55,48 +55,21 @@ header {
 
 .main-logo {
     width: 50%;
-    height: 40px;
     margin: auto;
     /* border: solid; */
 }
 
 .main-logo img {
     width: 100%;
-    height: 85%;
 }
 
-.main-navbar {
+.main-navbar, .main-buscar-carrito p {
     display: none;
 }
 
-.div-form-buscar-productos {
-    background-color: white;
-    border: solid #000000 2px;
-    border-radius: 10px;
-    width: 100%;
-    height: 40px;
-    position: relative;
-    padding: 7px 10px;
-}
-
-.div-form-buscar-productos i {
-    position: absolute;
-    right: 0;
-    color: lightgrey;
-    padding-right: 5px;
-    margin-top: 5px;
-}
-
-.buscar-productos {
-    border: none;
-    width: 90%;
-    margin-top: 5px;
-}
-
-
 /*----------Main----------*/
 
-
+/*----------------------------------------------------------------------AGREGAR CODIGO PARA LA PAGINA MODO MOVILE------------------------------------------------------*/
 
 /*----------Footer----------*/
 
@@ -149,7 +122,7 @@ footer li {
 }
 
 .footer-contactenos i {
-    width: 7%;
+    width: 30px;
 }
 
 .footer-redesSociales ul {
@@ -171,4 +144,189 @@ footer h5 {
     text-align: left;
     justify-content: flex-start;
     color: #c3c6c8;
+}
+
+@media (min-width: 768px)  {
+
+    /*----------Vista Tablet----------*/
+
+    body {
+        background-color: #FFFFFF;
+    }
+
+    main {
+        width: 95%;
+        margin: auto;
+        padding: 0px 2vw 2vw;
+    }
+    /*----------Main----------*/
+
+/*----------------------------------------------------------------------AGREGAR CODIGO PARA LA PAGINA MODO TABLET------------------------------------------------------*/
+
+    /*----------Footer----------*/
+
+    footer {
+        margin: 0;
+    }
+
+    .main-footer {
+        display: flex;
+        justify-content: center;
+        margin: 2vw 2vw 0;
+    }
+
+    .footer-navegacion, .footer-contactenos, .footer-redesSociales {
+        margin: 0px 5vw;
+    }
+
+    .main-footer ul {
+        padding: 0;
+    }
+
+    .footer-navegacion ul {
+        flex-direction: column;
+    }
+
+    .footer-navegacion li {
+        width: 100%;
+    }
+
+    .copyright {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+@media (min-width: 1023px) {
+
+    /*----------Vista Desktop----------*/
+
+    /*----------Header----------*/
+
+    header {
+        padding: 0px 2vw;
+    }
+    
+    .main-hamburguer {
+        display: none;
+    }
+
+    .main-header {
+        justify-content: space-between;
+    }
+
+    .main-logo {
+        width: 30%;
+        margin-left: 0px;
+    }
+
+    .main-buscar-carrito .fa-magnifying-glass {
+        display: none;
+    }
+
+    /*------------------------*/
+
+    .main-navbar {
+        display: flex;
+        height: 4vw;
+        position: relative;
+    }
+    
+    .main-buscar-carrito p{
+        display: initial;
+        font-size: 1.3vw;
+    }
+
+    .main-buscar-carrito p a {
+        margin-left: 2vw;
+        text-decoration: none;
+    }
+
+    .main-buscar-carrito {
+        width: 40%;
+        height: 5vw;
+        align-items: center;
+    }
+
+    .main-buscar-carrito i {
+        font-size: 2.5vw;
+        padding: 2vw 0px;
+    }
+
+    .main-navbar ul {
+        list-style: none;
+        display: flex;
+        align-items: center;
+        background-color: #000000;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .main-navbar a {
+        margin: 15px 5px;
+        font-size: 1.3vw;
+        color: #c3c6c8;
+        text-decoration: none;
+    }
+
+    .main-navbar li {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        margin: 0 5px;
+    }
+
+    .main-navbar .li-hover:hover {
+        border-top: #c3c6c8 solid;
+        border-bottom: #c3c6c8 solid 2px;
+    }
+
+    header form {
+        height: 75%;
+    }
+
+    .div-form-buscar-productos {
+        display: flex;
+        background-color: white;
+        border: solid #000000 2px;
+        border-radius: 10px;
+        width: 100%;
+        height: 100%;
+        position: relative;
+        padding: 0px 10px;
+    }
+
+    .div-form-buscar-productos label {
+        display: flex;
+        align-items: center;
+        width: 95%;
+    }
+    
+    .div-form-buscar-productos i {
+        position: absolute;
+        right: 0.8vw;
+        top: 1.2vh;
+        color: lightgrey;
+    }
+
+    .buscar-productos {
+        border: none;
+        width: 90%;
+        height: 100%;
+    }
+
+    .div-form-buscar-productos:focus-within {
+        position: absolute;
+        width: 45%;
+        max-height: 3vw;
+        /* top: 5px; */
+        right: 5px;
+    }
+
+    .buscar-productos:focus {
+        border: none;
+    }
+
+    /*----------Main----------*/
+    /*----------------------------------------------------------------------AGREGAR CODIGO PARA LA PAGINA MODO DESKTOP------------------------------------------------------*/
 }

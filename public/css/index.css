@@ -61,37 +61,11 @@ header {
 
 .main-logo img {
     width: 100%;
-    height: 7vw;
 }
 
 .main-navbar, .main-buscar-carrito p {
     display: none;
 }
-
-.div-form-buscar-productos {
-    background-color: white;
-    border: solid #000000 2px;
-    border-radius: 10px;
-    width: 100%;
-    height: 40px;
-    position: relative;
-    padding: 7px 10px;
-}
-
-.div-form-buscar-productos i {
-    position: absolute;
-    right: 0;
-    color: lightgrey;
-    padding-right: 5px;
-    margin-top: 5px;
-}
-
-.buscar-productos {
-    border: none;
-    width: 90%;
-    margin-top: 5px;
-}
-
 
 /*----------Main----------*/
 
@@ -120,11 +94,15 @@ header {
     position: relative;
 }
 
-.main-carrousel .img {
+.main-carrousel .img-movile-tablet {
     width: calc(100%/4);
     height: 100%;
     /* background-color: lime; */
     /* border-radius: 10px; */
+}
+
+.main-carrousel .img-desktop {
+    display: none;
 }
 
 .main-carrousel .puntos {
@@ -155,6 +133,10 @@ header {
 }
 
 /*------------------------*/
+
+.container-info-desktop {
+    display: none;
+}
 
 .secondary-carrousel {
     width: 100%;
@@ -259,7 +241,7 @@ section img {
 
 .main-section-product {
     width: 50%;
-    height: 72vh;
+    height: 70vw;
     background-color: white;
     padding-bottom: 10px;
     /* margin: 10px 0; */
@@ -278,14 +260,16 @@ section img {
     border-top: #ADB2B5 solid 1px;
     padding-top: 20px;
     margin: 0px 5px;
+    flex-wrap: wrap;
 }
 
 .informacion-precio-descuento {
     display: flex;
     align-items: center;
+    width: 100%;
 }
 
-main section article i{
+.informacion-precio-descuento i{
     display: block;
     font-size: 16px;
     padding: 5px;
@@ -297,7 +281,7 @@ main section article i{
     border-radius: 50%;
     position: absolute;
     left: 36vw;
-    top: 55vh;
+    top: 51.5vw;
 }
 
 section p {
@@ -316,9 +300,10 @@ section .precio-con-descuento {
     font-weight: bold;
 }
 
-.section-h3 {
-    font-size: 16px;
-    display: none;
+.section-h3 h3 {
+    font-size: 12px;
+    font-weight: 300;
+    margin-left: 0.5em;
 }
 
 section .descuento-producto {
@@ -383,7 +368,7 @@ footer li {
 }
 
 .footer-contactenos i {
-    width: 7%;
+    width: 30px;
 }
 
 .footer-redesSociales ul {
@@ -407,21 +392,99 @@ footer h5 {
     color: #c3c6c8;
 }
 
-@media (min-width: 426px)  {
+@media (min-width: 768px)  {
+
+    /*----------Vista Tablet----------*/
+
+    body {
+        background-color: #FFFFFF;
+    }
+
+    main {
+        width: 95%;
+        margin: auto;
+        padding: 0px 2vw 2vw;
+    }
+
+    .main-carrousel {
+        height: 35vw;
+    }
+
+    .main-carrousel .img-movile-tablet {
+        display: none;
+    }
+
+    .main-carrousel .img-desktop {
+        display: initial;
+        width: calc(100%/4);
+        height: 100%;
+    }
+
     .main-carrousel .puntos {
-        top: 75vw;
+        top: 44vw;
     }
 
     .secondary-carrousel .puntos1 {
-        top: 100vw;
+        top: 62vw;
     }
 
-    main section article i{
-        left: 40vw;
+    .contenedor-imagenes {
+        display: flex;
+        justify-content: center;
+    }
+
+    .main-section-product {
+        width: 33%;
+        height: 45vw;
+    }
+
+    .informacion-precio-descuento i{
+        top: 34vw;
+        left: 24vw;
+    }
+
+    footer {
+        margin: 0;
+    }
+
+    .main-footer {
+        display: flex;
+        justify-content: center;
+        margin: 2vw 2vw 0;
+    }
+
+    .footer-navegacion, .footer-contactenos, .footer-redesSociales {
+        margin: 0px 5vw;
+    }
+
+    .main-footer ul {
+        padding: 0;
+    }
+
+    .footer-navegacion ul {
+        flex-direction: column;
+    }
+
+    .footer-navegacion li {
+        width: 100%;
+    }
+
+    .copyright {
+        display: flex;
+        justify-content: center;
     }
 }
 
-@media (min-width: 769px) {
+@media (min-width: 1023px) {
+
+    /*----------Vista Desktop----------*/
+
+    /*----------Header----------*/
+
+    header {
+        padding: 0px 2vw;
+    }
+    
     .main-hamburguer {
         display: none;
     }
@@ -431,32 +494,177 @@ footer h5 {
     }
 
     .main-logo {
-        margin-left: 0;
+        width: 30%;
+        margin-left: 0px;
     }
 
     .main-buscar-carrito .fa-magnifying-glass {
         display: none;
     }
 
+    /*------------------------*/
+
     .main-navbar {
         display: flex;
+        height: 4vw;
+        position: relative;
     }
     
     .main-buscar-carrito p{
         display: initial;
+        font-size: 1.3vw;
+    }
+
+    .main-buscar-carrito p a {
+        margin-left: 2vw;
+        text-decoration: none;
     }
 
     .main-buscar-carrito {
         width: 40%;
+        height: 5vw;
         align-items: center;
     }
 
-    .main-buscar-carrito p {
-        font-size: 1.8vw;
+    .main-buscar-carrito i {
+        font-size: 2.5vw;
+        padding: 2vw 0px;
     }
+
     .main-navbar ul {
         list-style: none;
         display: flex;
         align-items: center;
+        background-color: #000000;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .main-navbar a {
+        margin: 15px 5px;
+        font-size: 1.3vw;
+        color: #c3c6c8;
+        text-decoration: none;
+    }
+
+    .main-navbar li {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        margin: 0 5px;
+    }
+
+    .main-navbar .li-hover:hover {
+        border-top: #c3c6c8 solid;
+        border-bottom: #c3c6c8 solid 2px;
+    }
+
+    header form {
+        height: 75%;
+    }
+
+    .div-form-buscar-productos {
+        display: flex;
+        background-color: white;
+        border: solid #000000 2px;
+        border-radius: 10px;
+        width: 100%;
+        height: 100%;
+        position: relative;
+        padding: 0px 10px;
+    }
+
+    .div-form-buscar-productos label {
+        display: flex;
+        align-items: center;
+        width: 95%;
+    }
+    
+    .div-form-buscar-productos i {
+        position: absolute;
+        right: 0.8vw;
+        top: 1.2vh;
+        color: lightgrey;
+    }
+
+    .buscar-productos {
+        border: none;
+        width: 90%;
+        height: 100%;
+    }
+
+    .div-form-buscar-productos:focus-within {
+        position: absolute;
+        width: 45%;
+        max-height: 3vw;
+        /* top: 5px; */
+        right: 5px;
+    }
+
+    .buscar-productos:focus {
+        border: none;
+    }
+
+    /*----------Main----------*/
+
+    .main-carrousel {
+        height: 25vw;
+    }
+
+    .main-carrousel .puntos {
+        top: 30vw;
+    }
+
+    /*------------------------*/
+
+    .secondary-carrousel {
+        display: none;
+    }
+    
+    .container-info-desktop {
+        display: flex;
+        margin: 2vw;
+    }
+
+    .enviamos-tu-compra, .paga-como-quieras {
+        border-right: solid 1px;
+    }
+
+    .icon-truck {
+        font-size: 2vw;
+    }
+    
+    .copy-header h6 {
+        font-size: 1.5vw;
+    }
+    
+    .copy-header p {
+        font-size: 1.25vw;
+        color: #8F8F8F
+    }
+
+    /*------------------------*/
+
+    section h2 {
+        margin: 1.5em;
+    }
+
+    .main-section-div {
+        width: 80%;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .main-section-product {
+        width: 24%;
+        height: 40vh;
+        margin: 0.25vw;
+        /* border: none; */
+    }
+
+    .informacion-precio-descuento i {
+        left: 13vw;
+        top: 30vh;
     }
 }

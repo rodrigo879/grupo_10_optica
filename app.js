@@ -8,23 +8,23 @@ app.get('/', function(req,res){
     res.sendFile(path.resolve(__dirname,'./views/index.html'))
 })
 
-app.get('/base.html', function(req,res){
+app.get('/base', function(req,res){
     res.sendFile(path.resolve(__dirname,'./views/base.html'))
 })
 
-app.get('/login.html', function(req,res){
+app.get('/login', function(req,res){
     res.sendFile(path.resolve(__dirname,'./views/login.html'))
 })
 
-app.get('/register.html', function(req,res){
+app.get('/register', function(req,res){
     res.sendFile(path.resolve(__dirname,'./views/register.html'))
 })
 
-app.get('/productDetail.html', function(req,res){
+app.get('/productDetail', function(req,res){
     res.sendFile(path.resolve(__dirname,'./views/productDetail.html'))
 })
 
-app.get('/productCart.html', function(req,res){
+app.get('/productCart', function(req,res){
     res.sendFile(path.resolve(__dirname,'./views/productCart.html'))
 })
 
