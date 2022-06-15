@@ -1,0 +1,475 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*----------Vista Movile----------*/
+
+body {
+  font-family: "Montserrat", "Roboto";
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #adb2b5;
+}
+
+h1 {
+  display: none;
+}
+
+/*----------Header----------*/
+
+header {
+  padding: 2vw;
+  background-color: white;
+}
+
+.main-header {
+  display: flex;
+}
+
+.main-hamburguer,
+.main-buscar-carrito {
+  display: flex;
+  width: 20%;
+  height: 10vw;
+  font-size: 4vw;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-content: center;
+}
+
+.main-hamburguer a,
+.main-buscar-carrito a {
+  color: #000000;
+}
+
+.main-hamburguer p {
+  font-size: 3vw;
+  color: #adb2b5;
+  margin: 0.5vw;
+}
+
+.main-buscar-carrito a {
+  margin-right: 2vw;
+}
+
+.main-logo {
+  width: 50%;
+  margin: auto;
+  /* border: solid; */
+}
+
+.main-logo img {
+  width: 100%;
+}
+
+.main-navbar,
+.main-buscar-carrito p {
+  display: none;
+}
+
+/*----------Main----------*/
+
+main {
+  margin: 2vw;
+}
+
+.form {
+  background-color: white;
+  padding: 4.5 em 3m;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px -5px rgb(0 0 0 / 30%);
+  text-align: center;
+}
+
+.form_title {
+  font-size: 2rem;
+  margin-bottom: 0.5em;
+}
+
+.form_paragraph {
+  font-weight: 400;
+}
+
+.form_link {
+  font-weight: 400;
+  color: #000;
+}
+
+.form_conteiner {
+  margin-top: 3em;
+  display: grid;
+  gap: 2.5em;
+}
+
+.form_group {
+  position: relative;
+  --color: #5757577e;
+}
+
+.form_input {
+  font-family: "Montserrat", sans-serif;
+  width: 100%;
+  background: none;
+  color: #706c6c;
+  font-size: 1rem;
+  padding: 0.6em 0.3em;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid var(--color);
+}
+
+.form_input:not(:placeholder-shown) ~ .form_line {
+  color: #4d4646;
+  /* trabaja sobre el imput: cuando no se muestre el placeholder, tenga un color mas oscuro*/
+}
+
+.form_input:focus + .form_label,
+.form_input:not(:placeholder-shown) + .form_label {
+  transform: translateY(-12px) scale(0.7);
+  transform-origin: left top;
+  color: #3866f2;
+}
+
+.form_label {
+  color: var(--color);
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 5px;
+  transform: translateY(10px);
+  transition: transform 0.5s, color 0.3s;
+}
+
+.div_checkbox {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.form_checkbox {
+  font-size: 14px;
+}
+
+.form_submit {
+  margin: auto;
+  width: 50%;
+}
+
+.form_submit,
+.button_g,
+.button_i {
+  font-family: "Montserrat", sans-serif;
+  background: #39606f;
+  color: #dcdcdc;
+  font-weight: 300;
+  font-size: 1rem;
+  padding: 0.8em 0;
+  border: none;
+  border-radius: 0.5em;
+}
+
+.div_button {
+  display: flex;
+  justify-content: space-between;
+}
+
+.div_button i {
+  color: #ffffff;
+}
+
+.button_g {
+  width: 48%;
+  margin: 2vw;
+  background-color: #b03a2c;
+}
+
+.button_i {
+  width: 48%;
+  margin: 2vw;
+  background-color: #032332;
+}
+
+.form_line {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #3866f2;
+  transform: scale(0);
+  transform: left bottom;
+  transition: transform 0.4s;
+  /* En conjunto modifica y da transiciones al texto en NOMBRE, USUARIO, CONTRA.*/
+}
+
+.form_input:focus ~ .form_label,
+.form_input:not(:placeholder-shown) ~ .form_line {
+  transform: scale(1);
+}
+
+/*----------Footer----------*/
+
+footer {
+  font-family: "Roboto";
+  background-color: #000000;
+  color: #ffffff;
+  margin: 0 2vw;
+  border-radius: 10px;
+}
+
+footer li {
+  list-style: none;
+}
+
+footer a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.main-footer {
+  margin: 2vw;
+}
+
+.footer-navegacion {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+footer h4 {
+  width: 100%;
+  padding: 5px 0px;
+}
+
+footer ul {
+  padding: 10px;
+}
+
+footer li {
+  padding: 5px 0px;
+}
+
+.footer-navegacion ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.footer-navegacion li {
+  width: 40%;
+}
+
+.footer-contactenos i {
+  width: 30px;
+}
+
+.footer-redesSociales ul {
+  display: flex;
+}
+
+.footer-redesSociales li {
+  font-size: xx-large;
+  margin-right: 15px;
+}
+
+.footer-redesSociales i {
+  width: 100%;
+}
+
+footer h5 {
+  display: flex;
+  margin: 8px;
+  text-align: left;
+  justify-content: flex-start;
+  color: #c3c6c8;
+}
+
+@media (min-width: 768px) {
+  /*----------Vista Tablet----------*/
+
+  body {
+    background-color: #ffffff;
+  }
+
+  main {
+    width: 95%;
+    margin: auto;
+    padding: 0px 2vw 2vw;
+  }
+  /*----------Main----------*/
+
+  /*----------------------------------------------------------------------AGREGAR CODIGO PARA LA PAGINA MODO TABLET------------------------------------------------------*/
+
+  /*----------Footer----------*/
+
+  footer {
+    margin: 0;
+  }
+
+  .main-footer {
+    display: flex;
+    justify-content: center;
+    margin: 2vw 2vw 0;
+  }
+
+  .footer-navegacion,
+  .footer-contactenos,
+  .footer-redesSociales {
+    margin: 0px 5vw;
+  }
+
+  .main-footer ul {
+    padding: 0;
+  }
+
+  .footer-navegacion ul {
+    flex-direction: column;
+  }
+
+  .footer-navegacion li {
+    width: 100%;
+  }
+
+  .copyright {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@media (min-width: 1023px) {
+  /*----------Vista Desktop----------*/
+
+  /*----------Header----------*/
+
+  header {
+    padding: 0px 2vw;
+  }
+
+  .main-hamburguer {
+    display: none;
+  }
+
+  .main-header {
+    justify-content: space-between;
+  }
+
+  .main-logo {
+    width: 30%;
+    margin-left: 0px;
+  }
+
+  .main-buscar-carrito .fa-magnifying-glass {
+    display: none;
+  }
+
+  /*------------------------*/
+
+  .main-navbar {
+    display: flex;
+    height: 4vw;
+    position: relative;
+  }
+
+  .main-buscar-carrito p {
+    display: initial;
+    font-size: 1.3vw;
+  }
+
+  .main-buscar-carrito p a {
+    margin-left: 2vw;
+    text-decoration: none;
+  }
+
+  .main-buscar-carrito {
+    width: 40%;
+    height: 5vw;
+    align-items: center;
+  }
+
+  .main-buscar-carrito i {
+    font-size: 2.5vw;
+    padding: 2vw 0px;
+  }
+
+  .main-navbar ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    background-color: #000000;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .main-navbar a {
+    margin: 15px 5px;
+    font-size: 1.3vw;
+    color: #c3c6c8;
+    text-decoration: none;
+  }
+
+  .main-navbar li {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    margin: 0 5px;
+  }
+
+  .main-navbar .li-hover:hover {
+    border-top: #c3c6c8 solid;
+    border-bottom: #c3c6c8 solid 2px;
+  }
+
+  header form {
+    height: 75%;
+  }
+
+  .div-form-buscar-productos {
+    display: flex;
+    background-color: white;
+    border: solid #000000 2px;
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    padding: 0px 10px;
+  }
+
+  .div-form-buscar-productos label {
+    display: flex;
+    align-items: center;
+    width: 95%;
+  }
+
+  .div-form-buscar-productos i {
+    position: absolute;
+    right: 0.8vw;
+    top: 1.2vh;
+    color: lightgrey;
+  }
+
+  .buscar-productos {
+    border: none;
+    width: 90%;
+    height: 100%;
+  }
+
+  .div-form-buscar-productos:focus-within {
+    position: absolute;
+    width: 45%;
+    max-height: 3vw;
+    /* top: 5px; */
+    right: 5px;
+  }
+
+  .buscar-productos:focus {
+    border: none;
+  }
+
+  /*----------Main----------*/
+
+  .form{
+    width: 50%;
+    margin: auto;
+  }
+  /*----------------------------------------------------------------------AGREGAR CODIGO PARA LA PAGINA MODO DESKTOP------------------------------------------------------*/
+}
