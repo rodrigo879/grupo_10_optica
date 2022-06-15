@@ -31,9 +31,9 @@ header {
 
 .main-hamburguer, .main-buscar-carrito {
     display: flex;
-    width: 80px;
-    height: 47px;
-    font-size: 18px;
+    width: 20%;
+    height: 10vw;
+    font-size: 4vw;
     justify-content: center;
     flex-wrap: wrap;
     align-content: center;  
@@ -44,9 +44,9 @@ header {
 }
 
 .main-hamburguer p {
-    font-size: 12px;
+    font-size: 3vw;
     color: #ADB2B5;
-    margin: 4px;
+    margin: 0.5vw;
 }
 
 .main-buscar-carrito a {
@@ -55,17 +55,16 @@ header {
 
 .main-logo {
     width: 50%;
-    height: 40px;
     margin: auto;
     /* border: solid; */
 }
 
 .main-logo img {
     width: 100%;
-    height: 85%;
+    height: 7vw;
 }
 
-.main-navbar {
+.main-navbar, .main-buscar-carrito p {
     display: none;
 }
 
@@ -98,6 +97,7 @@ header {
 
 .main-carrousel {
     width: 100%;
+    height: 72vw;
     max-width: 120em;
     /* padding: 2em; */
     /* background-color: lightblue; */
@@ -107,6 +107,7 @@ header {
 
 .main-carrousel .container-img {
     width: 400%;
+    height: 100%;
     /* background-color: orange; */
     display: flex;
     flex-direction: row;
@@ -121,8 +122,8 @@ header {
 
 .main-carrousel .img {
     width: calc(100%/4);
+    height: 100%;
     /* background-color: lime; */
-    height: 50vh;
     /* border-radius: 10px; */
 }
 
@@ -137,7 +138,7 @@ header {
     justify-content: center;
     align-items: center;
     position: absolute;
-    top: 390px;
+    top: 73vw;
     left: 40%;
 }
 .main-carrousel .punto {
@@ -157,6 +158,7 @@ header {
 
 .secondary-carrousel {
     width: 100%;
+    height: 20vw;
     max-width: 120em;
     /* padding: 2em; */
     /* background-color: lightblue; */
@@ -166,6 +168,7 @@ header {
 
 .secondary-carrousel .container-info {
     width: 300%;
+    height: 100%;
     /* background-color: orange; */
     display: flex;
     flex-direction: row;
@@ -180,8 +183,8 @@ header {
 
 .enviamos-tu-compra, .paga-como-quieras, .compra-con-seguridad {
     width: calc(100%/3);
+    height: 95%;
     /* background-color: lime; */
-    height: 17vh;
     /* border-radius: 10px; */
     margin: 0.2em;
     text-align: center;
@@ -200,7 +203,7 @@ header {
     justify-content: center;
     align-items: center;
     position: absolute;
-    top: 500px;
+    top: 98vw;
     left: 40%;
 }
 .secondary-carrousel .punto1 {
@@ -217,14 +220,15 @@ header {
 }
 
 .icon-truck {
-    font-size: 20px;
+    font-size: 4vw;
 }
 
 .copy-header h6 {
-    font-size: large;
+    font-size: 3vw;
 }
 
 .copy-header p {
+    font-size: 2.5vw;
     color: #8F8F8F
 }
 
@@ -255,7 +259,7 @@ section img {
 
 .main-section-product {
     width: 50%;
-    height: 42vh;
+    height: 72vh;
     background-color: white;
     padding-bottom: 10px;
     /* margin: 10px 0; */
@@ -292,8 +296,8 @@ main section article i{
     background-color: #FFF;
     border-radius: 50%;
     position: absolute;
-    left: 160px;
-    top: 53.5vw;
+    left: 36vw;
+    top: 55vh;
 }
 
 section p {
@@ -401,4 +405,58 @@ footer h5 {
     text-align: left;
     justify-content: flex-start;
     color: #c3c6c8;
+}
+
+@media (min-width: 426px)  {
+    .main-carrousel .puntos {
+        top: 75vw;
+    }
+
+    .secondary-carrousel .puntos1 {
+        top: 100vw;
+    }
+
+    main section article i{
+        left: 40vw;
+    }
+}
+
+@media (min-width: 769px) {
+    .main-hamburguer {
+        display: none;
+    }
+
+    .main-header {
+        justify-content: space-between;
+    }
+
+    .main-logo {
+        margin-left: 0;
+    }
+
+    .main-buscar-carrito .fa-magnifying-glass {
+        display: none;
+    }
+
+    .main-navbar {
+        display: flex;
+    }
+    
+    .main-buscar-carrito p{
+        display: initial;
+    }
+
+    .main-buscar-carrito {
+        width: 40%;
+        align-items: center;
+    }
+
+    .main-buscar-carrito p {
+        font-size: 1.8vw;
+    }
+    .main-navbar ul {
+        list-style: none;
+        display: flex;
+        align-items: center;
+    }
 }
