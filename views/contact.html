@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Opctica RIFF</title>
-    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/contact.css">
     <link href="https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:wght@300;400;700&family=Montserrat:wght@300;400;700&family=Roboto:wght@300;400;700&family=Source+Serif+Pro:wght@300;400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400;700&family=Libre+Baskerville:wght@400;700&family=Lora:wght@400;700&family=Source+Sans+Pro:wght@300;400;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a281ea592b.js" crossorigin="anonymous"></script>
@@ -31,13 +31,13 @@
         <nav class="main-navbar">
             <ul class="navbar">
                 <!--Aca ya estan creados algunos de los links que vamos a poner, hay que ver bien los nombre y ponerlos-->
-                <li class="li-hover"><a href="#">Inicio</a></li>
+                <li class="li-hover"><a href="/">Inicio</a></li>
                 <li class="li-hover"><a href="#">Ofertas</a></li>
                 <li class="li-hover"><a href="#">Anteojos Recetados</a></li>
                 <li class="li-hover"><a href="#">Anteojos para Sol</a></li>
                 <li class="li-hover"><a href="#">Lentes de Contacto</a></li>
                 <li class="li-hover"><a href="#">Accesorios</a></li> 
-                <li class="li-hover"><a href="/contact.html">Contacto</a></li>
+                <li class="li-hover"><a href="/contact">Contacto</a></li>
                 <li>
                     <form action="/" method="get">
                         <div class="div-form-buscar-productos">
@@ -52,7 +52,43 @@
         </nav>
     </header>
     <main>
-        <!-- ----------------AGREGAR CODIGO NUEVO---------------- -->
+        <div class="form-controller">
+            <div class="ruta-login">
+                <a href="/">Home</a>/<p>Contact</p>
+            </div>
+            <div class="container-form">
+                <div class="container-img-contacto">
+                    <img src="/images/banners/img-contacto.jpeg" alt="">
+                </div>
+                <div class="datos-contacto">
+                    <ul>
+                        <li><a href="#"><i class="fa-solid fa-phone"></i>011-1234567</a></li>
+                        <li><a href="#"><i class="fa-solid fa-envelope"></i>opticaRIFF@gmail.com</a></li>
+                        <li><a href="/images/banners/img-direccion.jpg" target="_blank"><i class="fa-solid fa-location-dot"></i>Av. Siempreviva 742</a></li>
+                        <li><a href="https://www.instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i>Siguenos en Instagram</a></li>
+                        <li><a href="https://www.facebook.com" target="_blank"><i class="fa-brands fa-facebook-square"></i>Siguenos Facebook</a></li>
+                    </ul>
+                </div>
+                <form action="#" method="get" class="formulario">
+                    <div class="div-input-text">
+                        <i class="fa-solid fa-user"></i><input required id="name" class="input-text" name="name" type="text" placeholder="Nombre">  
+                    </div>
+                    <div class="div-input-email">
+                        <i class="fa-solid fa-envelope"></i><input required id="email" class="input-email" name="email" type="text" placeholder="Email">  
+                    </div>
+                    <div class="div-input-phone">
+                        <i class="fa-solid fa-phone"></i><input id="phone" class="input-phone" name="phone" type="tel" placeholder="Telefono (Optional)">  
+                    </div>
+                    <div class="div-input-textArea">
+                        <textarea class="input-textArea" name="text-area" id="text-area" cols="30" rows="10" placeholder="Dejanos tu mensaje"></textarea>
+                    </div>
+
+                    <div class="div-btn-login">
+                        <button id="btnLogin" class="btn-login" type="button">SEND</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </main>
     <footer>
         <div class="main-footer">

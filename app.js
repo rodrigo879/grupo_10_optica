@@ -28,6 +28,10 @@ app.get('/productCart', function(req,res){
     res.sendFile(path.resolve(__dirname,'./views/productCart.html'))
 })
 
+app.get('/contact', function(req,res){
+    res.sendFile(path.resolve(__dirname,'./views/contact.html'))
+})
+
 app.listen(3000, function(){
     console.log('listening on http://localhost:3000');
 })

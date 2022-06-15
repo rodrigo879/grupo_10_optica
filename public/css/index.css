@@ -450,15 +450,25 @@ footer h5 {
     .main-footer {
         display: flex;
         justify-content: center;
-        margin: 2vw 2vw 0;
+        margin: 2vw 2vw 0 10vw;
     }
 
     .footer-navegacion, .footer-contactenos, .footer-redesSociales {
-        margin: 0px 5vw;
+        margin: 0px 3vw;
+        width: 30%;
+    }
+
+    .footer-contactenos {
+        width: 40%;
+        margin: 0px 3vw;
     }
 
     .main-footer ul {
         padding: 0;
+    }
+
+    footer h4 {
+        width: 75%;
     }
 
     .footer-navegacion ul {
@@ -591,6 +601,7 @@ footer h5 {
         border: none;
         width: 90%;
         height: 100%;
+        outline: none;
     }
 
     .div-form-buscar-productos:focus-within {

@@ -69,7 +69,110 @@ header {
 
 /*----------Main----------*/
 
-/*----------------------------------------------------------------------AGREGAR CODIGO PARA LA PAGINA MODO MOVILE------------------------------------------------------*/
+.form-controller {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background: #FFFFFF;
+    width: 100%;
+    /* height: 100%;   */
+    margin: auto;
+    /* min-height: 750px; */
+}
+
+.ruta-login {
+    margin: 20px auto;
+}
+
+.ruta-login, .ruta-login a {
+    text-decoration: none;
+    color: #ADB2B5;
+}
+
+.ruta-login p {
+    display: inline-block;
+    font-weight: bold;
+    color: #8f8f8f;
+}
+
+.container-img-contacto {
+    display: none;
+}
+
+.datos-contacto {
+    margin: 0 auto;
+    width: 75%;
+    height: 85% ;
+    user-select: none;
+}
+
+.datos-contacto li {
+    list-style: none;
+    padding: 5px 0px;
+}
+
+.datos-contacto a {
+    text-decoration: none;
+    color: #ADB2B5;
+}
+
+.datos-contacto i {
+    width: 7%;
+}
+
+.formulario {
+    justify-content: center;
+    flex-direction: column;
+    margin: 5vw auto;
+    width: 75%;
+    height: 85% ;
+    border-bottom: #FFFFFF;
+}
+
+.div-input-text, .div-input-email, .div-input-phone {
+    background-color: #FFFFFF;
+    border: solid #8f8f8f;
+    margin: 5% 0; 
+    border-radius: 5px;
+    height: 40px;
+}
+
+.div-input-textArea {
+    background-color: #FFFFFF;
+    border: solid #8f8f8f;
+    margin: 5% 0;
+    border-radius: 5px;
+    height: 160px;
+}
+
+.input-text, .input-email, .input-phone {
+    border: none;
+    height: 100%;
+    width: 80%;
+    padding-left: 10px;
+}
+
+.input-textArea {
+    border: none;
+    width: 100%;
+    padding: 2px 2px 2px 5px;
+}
+
+.div-input-text i, .div-input-email i, .div-input-phone i {
+    margin: 0 1vw;
+}
+
+.btn-login {
+    background-color: #39606F;
+    border-color: #39606F;
+    height: 40px;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 20px;
+    font-weight: bold;
+    box-shadow: 2px 2px 5px #8f8f8f;
+    color: #ADB2B5;
+}
 
 /*----------Footer----------*/
 
@@ -339,5 +442,39 @@ footer h5 {
     }
 
     /*----------Main----------*/
-    /*----------------------------------------------------------------------AGREGAR CODIGO PARA LA PAGINA MODO DESKTOP------------------------------------------------------*/
+
+    .container-form {
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: nowrap;
+    }
+
+    .container-img-contacto {
+        display: initial;
+        width: 25%;
+        height: 145px;
+    }
+
+    .container-img-contacto img{
+        width: 100%;
+        height: 100%;
+    }
+
+    .datos-contacto {
+        width: 30%;
+        margin: 0;
+    }
+
+    .formulario {
+        width: 40%;
+        margin: 0;
+    }
+
+    .div-input-text {
+        margin-top: 0;
+    }
+
+    .datos-contacto i {
+        margin: 0 10px;
+    }
 }
