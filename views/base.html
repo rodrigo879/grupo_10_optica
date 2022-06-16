@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Opctica RIFF</title>
-    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/index.css">
     <link href="https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:wght@300;400;700&family=Montserrat:wght@300;400;700&family=Roboto:wght@300;400;700&family=Source+Serif+Pro:wght@300;400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400;700&family=Libre+Baskerville:wght@400;700&family=Lora:wght@400;700&family=Source+Sans+Pro:wght@300;400;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a281ea592b.js" crossorigin="anonymous"></script>
@@ -16,7 +16,7 @@
         <div class="main-header">
             <div class="main-hamburguer">
                 <!--El boton Hamburguesa, que despliega el menu de opciones en la vista movile/tablets-->
-                <a href="#" class="hamburguer-buttom"><i class="fa-solid fa-bars"></i></a>
+                <a class="hamburguer-buttom" id="btn_hamburguer" onclick="desplegarMenu()"><i class="fa-solid fa-bars"></i></a>
                 <p>Menú</p>
             </div>
             <div class="main-logo">
@@ -28,17 +28,19 @@
                 <a href="/productCart"><i class="fa-solid fa-cart-shopping"></i></a>
             </div>
         </div>    
-        <nav class="main-navbar">
+        <nav class="main-navbar" id="mainNavbar">
             <ul class="navbar">
                 <!--Aca ya estan creados algunos de los links que vamos a poner, hay que ver bien los nombre y ponerlos-->
-                <li class="li-hover"><a href="#">Inicio</a></li>
+                <li class="li-hover btn"><button class="btn-cerrar" onclick="desplegarMenu()" type="button">X</button></li>
+                <li class="li-hover"><a href="/">Inicio</a></li>
                 <li class="li-hover"><a href="#">Ofertas</a></li>
                 <li class="li-hover"><a href="#">Anteojos Recetados</a></li>
                 <li class="li-hover"><a href="#">Anteojos para Sol</a></li>
                 <li class="li-hover"><a href="#">Lentes de Contacto</a></li>
                 <li class="li-hover"><a href="#">Accesorios</a></li> 
-                <li class="li-hover"><a href="/contact.html">Contacto</a></li>
-                <li>
+                <li class="li-hover"><a href="/contact">Contacto</a></li>
+                <li class="li-hover despliega"><i class="fa-solid fa-user"></i><a href="/register">Crear Cuenta</a>|<a href="/login">Iniciar Sesion</a></li>
+                <li class="li-buscar">
                     <form action="/" method="get">
                         <div class="div-form-buscar-productos">
                             <label>
@@ -52,7 +54,6 @@
         </nav>
     </header>
     <main>
-        <!-- ----------------AGREGAR CODIGO NUEVO---------------- -->
     </main>
     <footer>
         <div class="main-footer">
@@ -89,4 +90,5 @@
         </div>
     </footer> 
 </body>
+<script src="/js/function.js"></script>
 </html>

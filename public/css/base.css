@@ -12,6 +12,7 @@ body {
     flex-direction: column;
     min-height: 100vh; 
     background-color: #ADB2B5; 
+    position: relative;
 }
 
 h1 {
@@ -22,7 +23,12 @@ h1 {
 
 header {
     padding: 2vw;
+    width: 100%;
     background-color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 20;
 }
 
 .main-header {
@@ -63,13 +69,59 @@ header {
     width: 100%;
 }
 
-.main-navbar, .main-buscar-carrito p {
+.main-buscar-carrito p, .main-navbar .li-buscar {
+    display: none!important;
+}
+
+.main-navbar {
     display: none;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 60%;
+    z-index: 30;
+}
+
+.main-navbar ul {
+    background-color: #FFFFFF;
+}
+
+.main-navbar .btn {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.main-navbar li {
+    list-style: none;
+    margin: 10px;
+    border-bottom: solid 1px lightgray;
+    height: 30px;
+}
+
+.main-navbar a {
+    text-decoration: none;
+    color: #000000;
+}
+
+.main-navbar .btn-cerrar {
+    background-color: white;
+    border: none;
+    font-weight: 900;
+}
+
+.main-navbar .despliega a {
+    margin: 18px;
 }
 
 /*----------Main----------*/
 
-/*----------------------------------------------------------------------AGREGAR CODIGO PARA LA PAGINA MODO MOVILE------------------------------------------------------*/
+main {
+    padding-top: 14vw;
+}
+
+
 
 /*----------Footer----------*/
 
@@ -157,11 +209,13 @@ footer h5 {
     main {
         width: 95%;
         margin: auto;
-        padding: 0px 2vw 2vw;
+        padding: 14vw 2vw 2vw;
     }
-    /*----------Main----------*/
+    /*--------------------*/
 
-/*----------------------------------------------------------------------AGREGAR CODIGO PARA LA PAGINA MODO TABLET------------------------------------------------------*/
+    /*----------MAIN----------*/
+
+    /*--------------------*/
 
     /*----------Footer----------*/
 
@@ -175,7 +229,7 @@ footer h5 {
         margin: 2vw 2vw 0 10vw;
     }
 
-    .footer-navegacion, .footer-redesSociales {
+    .footer-navegacion, .footer-contactenos, .footer-redesSociales {
         margin: 0px 3vw;
         width: 30%;
     }
@@ -216,6 +270,10 @@ footer h5 {
     header {
         padding: 0px 2vw;
     }
+
+    main {
+        padding-top: 9vw;
+    }
     
     .main-hamburguer {
         display: none;
@@ -236,8 +294,20 @@ footer h5 {
 
     /*------------------------*/
 
+    .main-navbar, .main-navbar li, .main-navbar a {
+        all: unset;
+    }
+
+    .main-buscar-carrito p, .main-navbar .li-buscar {
+        display: flex!important;
+    }
+
+    .main-navbar .btn, .main-navbar .despliega {
+        display: none;
+    }
+
     .main-navbar {
-        display: flex;
+        display: flex!important;
         height: 4vw;
         position: relative;
     }
@@ -339,5 +409,5 @@ footer h5 {
     }
 
     /*----------Main----------*/
-    /*----------------------------------------------------------------------AGREGAR CODIGO PARA LA PAGINA MODO DESKTOP------------------------------------------------------*/
+
 }
