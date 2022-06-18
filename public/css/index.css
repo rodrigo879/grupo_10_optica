@@ -62,7 +62,7 @@ header {
 .main-logo {
     width: 50%;
     margin: auto;
-    /* border: solid; */
+     border: /* solid; */;
 }
 
 .main-logo img {

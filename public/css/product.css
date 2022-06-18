@@ -1,0 +1,402 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*----------Vista Movile----------*/
+
+body {
+    font-family: 'Montserrat','Roboto';
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; 
+    background-color: #ADB2B5; 
+    position: relative;
+}
+
+h1 {
+    display: none;
+}
+
+/*----------Header----------*/
+
+header {
+    padding: 2vw;
+    width: 100%;
+    background-color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 20;
+}
+
+.main-header {
+    display: flex;
+}
+
+.main-hamburguer, .main-buscar-carrito {
+    display: flex;
+    width: 20%;
+    height: 10vw;
+    font-size: 4vw;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: center;  
+}
+
+.main-hamburguer a, .main-buscar-carrito a{
+    color: #000000;
+}
+
+.main-hamburguer p {
+    font-size: 3vw;
+    color: #ADB2B5;
+    margin: 0.5vw;
+}
+
+.main-buscar-carrito a {
+    margin-right: 2vw;
+}
+
+.main-logo {
+    width: 50%;
+    margin: auto;
+    border: /* solid; */;
+}
+
+.main-logo img {
+    width: 100%;
+}
+
+.main-buscar-carrito p, .main-navbar .li-buscar {
+    display: none!important;
+}
+
+.main-navbar {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 60%;
+    z-index: 30;
+}
+
+.main-navbar ul {
+    background-color: #FFFFFF;
+}
+
+.main-navbar .btn {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.main-navbar li {
+    list-style: none;
+    margin: 10px;
+    border-bottom: solid 1px lightgray;
+    height: 30px;
+}
+
+.main-navbar a {
+    text-decoration: none;
+    color: #000000;
+}
+
+.main-navbar .btn-cerrar {
+    background-color: white;
+    border: none;
+    font-weight: 900;
+}
+
+.main-navbar .despliega a {
+    margin: 18px;
+}
+
+/*---------Main-------*/
+main{
+    background-color:#FFFFFF ;
+    
+}
+
+main .ubicacion{
+    color:#ADB2B5;
+    position:relative;
+    top: 35px
+}
+
+main h4{
+    font-family: 'Roboto';
+    font-weight: lighter;
+}
+
+
+
+
+
+main .imagen-producto{
+    box-sizing: border-box;
+    position: relative;
+    width: 300px;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    border: solid #ADB2B5 1px;
+    margin-bottom: 20px;
+}
+
+main .nombre-producto{
+    font-weight: normal;
+    padding-bottom: 5px;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+main .precio-producto{
+    padding-bottom:3px;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+
+main .separador {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin: 15px 20px 15px 20px;
+    border-top: #ADB2B5 solid 0.5px;
+    border-bottom: #ADB2B5 solid 0.5px;
+    flex-direction: column;
+}
+
+
+
+main .cuotas{
+    margin: 10px;
+    padding: 10px;
+    border: #ADB2B5 1px solid;
+}
+
+main .medios-de-pago{
+    box-sizing: border-box;
+    display:block;
+    color: #000000;
+    margin-top: 20px;
+    margin-bottom:20px;
+}
+
+main .cantidad{
+    display:flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+main .formulario{
+    box-sizing: border-box;
+    margin-left: 10px;
+}
+
+main .contenedor-compra{
+    text-align: center;
+    display: flex ;
+    justify-content: center; 
+    padding-top: 10px;
+    margin: 20px 15px 20px 15px;
+    padding-bottom: 10px;
+    border-top: #ADB2B5 solid 0.5px;
+    border-bottom: #ADB2B5 solid 0.5px;
+    }
+
+main div .boton-carrito{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 70%;
+    height: 50px;
+    background-color: #000000;
+    color: #FFFFFF;
+    font-weight:500;
+    font-family: 'Roboto';
+    font-size: larger;
+    text-transform: uppercase;
+    transition-property: color, background-color;
+    transition-duration: all 3s;
+    border: none
+}   
+
+.boton-carrito:hover{
+    color:#000000;
+    background-color:#FFFFFF;
+}
+
+/*----------Otros Productos------*/
+.main-section-div {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+section h2 {
+    font-size: 24px;
+    margin: 0.5em;
+    text-align: center;
+    color: #000000;
+}
+
+section img {
+    width: 100%;
+    max-height: 100%;
+}
+
+.main-section-product {
+    width: 50%;
+    height: 70vw;
+    background-color: white;
+    padding-bottom: 10px;
+    /* margin: 10px 0; */
+    position: relative;
+    border: solid 0.5px;
+}
+
+.main-section-img {
+    height: 82%;
+    display: flex;
+    align-items: center;
+}
+
+.main-section-info {
+    display: flex;
+    border-top: #ADB2B5 solid 1px;
+    padding-top: 20px;
+    margin: 0px 5px;
+    flex-wrap: wrap;
+}
+
+.informacion-precio-descuento {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.informacion-precio-descuento i{
+    display: block;
+    font-size: 16px;
+    padding: 5px;
+    width: 30px;
+    height: 30px;
+    color: #39b54a;
+    border: 1px solid #39b54a;
+    background-color: #FFF;
+    border-radius: 50%;
+    position: absolute;
+    left: 36vw;
+    top: 51.5vw;
+}
+
+section p {
+    margin-left: 0.5em;
+}
+
+section .precio-otro-producto {
+    font-size: 14px;
+    font-weight: bold;
+    color: #8F8F8F;
+}
+
+section .precio-con-descuento {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.section-h3 h3 {
+    font-size: 12px;
+    font-weight: 300;
+    margin-left: 0.5em;
+}
+
+section .descuento-otro-producto {
+    font-size: 16px;
+    font-weight: bold;
+    color: #FFFFFF;
+    position: absolute;
+    top: 10px;
+    left: 0px;
+    background-color: #000000;
+    opacity: 0.6;
+}
+
+/* --------Footer------*/
+footer {
+    font-family: 'Roboto';
+    background-color: #000000;
+    color: #FFFFFF;
+    margin: 2vw;
+}
+
+footer li {
+    list-style: none;
+}
+
+footer a {
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+.main-footer {
+    margin: 2vW;
+}
+
+.footer-navegacion {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+footer h4 {
+    width: 100%;
+    padding: 5px 0px;
+}
+
+footer ul {
+    padding: 10px;
+}
+
+footer li {
+    padding: 5px 0px;
+}
+
+.footer-navegacion ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.footer-navegacion li{
+    width: 40%;
+}
+
+.footer-contactenos i {
+    width: 30px;
+}
+
+.footer-redesSociales ul {
+    display: flex;
+}
+
+.footer-redesSociales li {
+    font-size: xx-large;
+    margin-right: 15px;
+}
+
+.footer-redesSociales i {
+    width: 100%;
+}
+
+footer h5 {
+    display: flex;
+    margin: 8px;
+    text-align: left;
+    justify-content: flex-start;
+    color: #c3c6c8;
+}
