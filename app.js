@@ -32,6 +32,10 @@ app.get('/contact', function(req,res){
     res.sendFile(path.resolve(__dirname,'./views/contact.html'))
 })
 
+app.get('*', function(req,res){
+    res.sendFile(path.resolve(__dirname,'./views/404.html'))
+})
+
 app.listen(3000, function(){
     console.log('listening on http://localhost:3000');
 })
