@@ -121,6 +121,116 @@ main {
     padding-top: 14vw;
 }
 
+.main-section-div {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.ruta-login {
+    margin: 20px auto;
+    text-align: center;
+}
+
+.ruta-login, .ruta-login a {
+    text-decoration: none;
+    color: #ADB2B5;
+}
+
+.ruta-login p {
+    display: inline-block;
+    font-weight: bold;
+    color: #8f8f8f;
+}
+
+.menu-desplegable {
+    display: flex;
+    justify-content: flex-end;
+    margin: 15px;
+}
+
+section img {
+    width: 100%;
+    max-height: 100%;
+}
+
+.main-section-product {
+    width: 50%;
+    height: 70vw;
+    background-color: white;
+    padding-bottom: 10px;
+    /* margin: 10px 0; */
+    position: relative;
+    border: solid 0.5px;
+}
+
+.main-section-img {
+    height: 82%;
+    display: flex;
+    align-items: center;
+}
+
+.main-section-info {
+    display: flex;
+    border-top: #ADB2B5 solid 1px;
+    padding-top: 20px;
+    margin: 0px 5px;
+    flex-wrap: wrap;
+}
+
+.informacion-precio-descuento {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.informacion-precio-descuento i{
+    display: block;
+    font-size: 16px;
+    padding: 5px;
+    width: 30px;
+    height: 30px;
+    color: #39b54a;
+    border: 1px solid #39b54a;
+    background-color: #FFF;
+    border-radius: 50%;
+    position: absolute;
+    left: 36vw;
+    top: 51.5vw;
+}
+
+section p {
+    margin-left: 0.5em;
+}
+
+section .precio-producto {
+    font-size: 14px;
+    font-weight: bold;
+    color: #8F8F8F;
+    text-decoration: line-through;
+}
+
+section .precio-con-descuento {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.section-h3 h3 {
+    font-size: 12px;
+    font-weight: 300;
+    margin-left: 0.5em;
+}
+
+section .descuento-producto {
+    font-size: 16px;
+    font-weight: bold;
+    color: #FFFFFF;
+    position: absolute;
+    top: 10px;
+    left: 0px;
+    background-color: #000000;
+    opacity: 0.6;
+}
+
 
 
 /*----------Footer----------*/
@@ -214,6 +324,16 @@ footer h5 {
     /*--------------------*/
 
     /*----------MAIN----------*/
+
+    .main-section-product {
+        width: 33%;
+        height: 45vw;
+    }
+
+    .informacion-precio-descuento i{
+        top: 34vw;
+        left: 24vw;
+    }
 
     /*--------------------*/
 
@@ -359,7 +479,7 @@ footer h5 {
 
     .main-navbar .li-hover:hover {
         border-top: #c3c6c8 solid;
-        border-bottom: #c3c6c8 solid;
+        border-bottom: #c3c6c8 solid 2px;
         cursor: pointer;
     }
 
@@ -411,5 +531,22 @@ footer h5 {
     }
 
     /*----------Main----------*/
+    .main-section-div {
+        width: 80%;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+    }
 
+    .main-section-product {
+        width: 24%;
+        height: 50vh;
+        margin: 0.25vw;
+        /* border: none; */
+    }
+
+    .informacion-precio-descuento i {
+        left: 13vw;
+        top: 37vh;
+    }
 }

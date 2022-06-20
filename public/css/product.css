@@ -62,7 +62,7 @@ header {
 .main-logo {
     width: 50%;
     margin: auto;
-    border: /* solid; */;
+    /* border: solid; */
 }
 
 .main-logo img {
@@ -495,6 +495,7 @@ footer h4 {
         display: flex!important;
         height: 4vw;
         position: relative;
+        border: solid #000000;
     }
     
     .main-buscar-carrito p{
@@ -543,7 +544,8 @@ footer h4 {
 
     .main-navbar .li-hover:hover {
         border-top: #c3c6c8 solid;
-        border-bottom: #c3c6c8 solid 2px;
+        border-bottom: #c3c6c8 solid;
+        cursor: pointer;
     }
 
     header form {

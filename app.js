@@ -24,6 +24,10 @@ app.get('/product', function(req,res){
     res.sendFile(path.resolve(__dirname,'./views/product.html'))
 })
 
+app.get('/anteojos-sol', function(req,res){
+    res.sendFile(path.resolve(__dirname,'./views/anteojosSol.html'))
+})
+
 app.get('/productCart', function(req,res){
     res.sendFile(path.resolve(__dirname,'./views/productCart.html'))
 })
