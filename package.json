@@ -1,7 +1,7 @@
 {
   "name": "proyectofinal",
   "version": "1.0.0",
-  "description": "",
+  "description": "- URL REPO https://github.com/rodrigo879/grupo_10_optica.git\r - URL TABLERO https://trello.com/b/kVvPG0Gz/proyectointegradorgrupo10optica",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,5 +11,14 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rodrigo879/grupo_10_optica.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rodrigo879/grupo_10_optica/issues"
+  },
+  "homepage": "https://github.com/rodrigo879/grupo_10_optica#readme",
+  "devDependencies": {}
 }
