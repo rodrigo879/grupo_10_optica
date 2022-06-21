@@ -117,22 +117,25 @@ header {
 
 /*---------Main-------*/
 main{
-    background-color:#FFFFFF ;
+    background-color:#FFFFFF;
+    padding-top: 14vw;
     
 }
 
-main .ubicacion{
-    color:#ADB2B5;
-    font-weight: bold;
-    font-size: large;
-    position:relative;
-    top: 35px;
-    width: 120%;
+.ruta-login {
+    margin: 20px auto;
+    text-align: center;
 }
 
-main h4{
-    font-family: 'Roboto';
-    font-weight: lighter;
+.ruta-login, .ruta-login a {
+    text-decoration: none;
+    color: #ADB2B5;
+}
+
+.ruta-login p {
+    display: inline-block;
+    font-weight: bold;
+    color: #8f8f8f;
 }
 
 /*------Detalles del Producto-----*/
@@ -156,7 +159,6 @@ main .precio-producto{
     text-align: left;
 }
 
-
 main .separador {
     text-align: center;
     display: flex;
@@ -166,8 +168,6 @@ main .separador {
     border-bottom: #ADB2B5 solid 0.5px;
     flex-direction: column;
 }
-
-
 
 main .cuotas{
     margin: 10px;
@@ -192,6 +192,7 @@ main .cantidad{
 main .formulario{
     box-sizing: border-box;
     margin-left: 10px;
+    width: 30%;
 }
 
 main .contenedor-compra{
@@ -203,7 +204,7 @@ main .contenedor-compra{
     padding-bottom: 10px;
     border-top: #ADB2B5 solid 0.5px;
     border-bottom: #ADB2B5 solid 0.5px;
-    }
+}
 
 main div .boton-carrito{
     display: inline-flex;
@@ -217,8 +218,9 @@ main div .boton-carrito{
     font-family: 'Roboto';
     font-size: larger;
     text-transform: uppercase;
-    transition-property: color, background-color;
-    transition-duration: all 3s;
+    /* transition-property: color, background-color; */
+    /* transition-duration: all 3s; */
+    transition: all 3s;
     border: none
 }   
 
@@ -266,7 +268,7 @@ section img {
 .main-section-info {
     display: flex;
     border-top: #ADB2B5 solid 0.5px;
-    padding-top: 5px;
+    padding-top: 20px;
     margin: 0px 5px;
     flex-wrap: wrap;
 }
@@ -274,30 +276,15 @@ section img {
 .informacion-precio-descuento {
     display: flex;
     align-items: center;
-    width: 50%;
+    width: 100%;
+    margin-left: 0.5em;
 }
 
-.informacion-precio-descuento i{
-    display: block;
-    font-size: 10px;
-    padding-top: 0px;
-    padding-bottom: 5px;
-    width: 20px;
-    height: 20px;
-    color: #39b54a;
-    border: 1px solid #39b54a;
-    background-color: #FFF;
-    border-radius: 50%;
-    position: absolute;
-    left: 15vw;
-    top: 51.5vw;
-}
-
-section .precio-otro-producto {
+/* section .precio-otro-producto {
     font-size: 14px;
     font-weight: bold;
     color: #8F8F8F;
-}
+} */
 
 section .precio-con-descuento {
     font-size: 12px;
@@ -310,7 +297,7 @@ section .precio-con-descuento {
     margin-left: 0.5em;
 }
 
-section .descuento-otro-producto {
+/* section .descuento-otro-producto {
     font-size: 16px;
     font-weight: bold;
     color: #FFFFFF;
@@ -319,7 +306,7 @@ section .descuento-otro-producto {
     left: 0px;
     background-color: #000000;
     opacity: 0.6;
-}
+} */
 
 /*--------Ver Más------*/
 .ver-mas{
@@ -343,7 +330,8 @@ footer {
     font-family: 'Roboto';
     background-color: #000000;
     color: #FFFFFF;
-    margin: 10%;
+    /* margin: 10%; */
+    margin: 2vw;
 }
 
 footer li {
@@ -422,42 +410,6 @@ footer h5 {
     left: 24vw;
 }
 
-footer {
-    margin: 0;
-}
-
-.main-footer {
-    display: flex;
-    justify-content: center;
-    margin: 2vw 2vw 0 10vw;
-}
-
-.footer-navegacion, .footer-contactenos, .footer-redesSociales {
-    margin: 0px 3vw;
-    width: 30%;
-}
-
-.footer-contactenos {
-    width: 40%;
-    margin: 0px 3vw;
-}
-
-.main-footer ul {
-    padding: 0;
-}
-
-footer h4 {
-    width: 75%;
-}
-
-.footer-navegacion ul {
-    flex-direction: column;
-}
-
-.footer-navegacion li {
-    width: 100%;
-}
-
 @media (min-width: 768px)  {
 
     /*----------Vista Tablet----------*/
@@ -475,20 +427,18 @@ footer h4 {
     /*--------------------*/
 
     /*----------MAIN----------*/
-    main .ubicacion{
+    /* main .ubicacion{
     margin-bottom: 50px;
     color:#ADB2B5;
     font-weight: bold;
     font-size: x-large;
     width: 120%;
-    }
+    } */
     
     /*-------OTROS PRODUCTOS----------*/
     
     .main-section-div {
-        display: flex;
-        flex-wrap: wrap;
-        margin-top: 60px;
+        margin-top: 15px;
         margin-bottom: 60px;
     }
 
@@ -500,23 +450,23 @@ footer h4 {
     }
     
     section .precio-con-descuento {
-        font-size: 25px;
+        font-size: 18px;
         font-weight: bold;
     }
     
     .section-h3 h3 {
-        font-size: 20px;
+        font-size: 16px;
         font-weight: 300;
         margin-left: 0.5em;
     }
     
-/*--------Ver Más------*/
-.ver-mas{
-    box-sizing: border-box;
-    text-align: center;
-    margin-top:40px;
-    margin-bottom: 50px;
-}
+    /*--------Ver Más------*/
+    .ver-mas{
+        box-sizing: border-box;
+        text-align: center;
+        margin-top:40px;
+        margin-bottom: 50px;
+    }
     /*----------Footer----------*/
 
     footer {
@@ -720,113 +670,133 @@ footer h4 {
     }
 
     main .imagen-producto{
-        width: 40%;
+        width: 45%;
         height: 20%;
         border: solid #ADB2B5 1px;
+        margin: 0px 0px 0px 12px;
     }
-    
 
-    main .produto-principal .imagen-producto{
-        width:50%;
+    main .info-producto-principal {
+        width: 50%;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
     }
 
     main .produto-principal .info-producto{
-        width:50%;
+        width:100%;
     }
+
     main .nombre-producto{
         font-weight: normal;
-        font-size:xx-large;
-        font-size: 50px;
-        padding-bottom: 5px;
+        /* font-size:xx-large; */
+        font-size: 30px;
+        /* padding-bottom: 5px;
         box-sizing: border-box;
-        text-align: left;
+        text-align: left; */
+        width: 60%;
+        margin: 0px 0px 0px 1.2vw;
     }
     
     main .precio-producto{
-        padding-bottom:3px;
-        box-sizing: border-box;
-        text-align: left;
-        font-size: xx-large;
-        font-size:50px;
-        margin-bottom: 30px;
-        }
+        /* padding-bottom:3px; */
+        /* box-sizing: border-box;
+        text-align: left; */
+        /* font-size: xx-large; */
+        /* margin-bottom: 30px; */
+        font-size:30px;
+        margin: 0px 0px 0px 1.2vw;
+    }
+
+    main .separador {
+        margin: 0.5vw 0px 0px 1.5vw;
+        align-items: center;
+        width: 100%;
+    }
 
     main .cuotas{
-        margin: 30px;
-        padding: 30px;
-        border: #ADB2B5 1px solid;
+        margin: 1.5vw;
+        padding: 1.5vw;
+        /* border: #ADB2B5 1px solid; */
+        width: 60%;
     }
         
-        main .medios-de-pago{
-            box-sizing: border-box;
-            display:block;
-            color: #000000;
-            margin-top: 30px;
-            margin-bottom:40px;
-        }
+    main .medios-de-pago{
+        margin: 0 0 2vw;
+        /* box-sizing: border-box;
+        display:block;
+        color: #000000;
+        margin-top: 30px;
+        margin-bottom:40px; */
+    }
         
-        main .cantidad{
-            display:flex;
-            justify-content: center;
-            flex-direction: row;
-            margin-top: 30px;
-            margin-bottom: 30px;
-        }
+    main .cantidad{
+        /* display:flex;
+        justify-content: center;
+        flex-direction: row; */
+        margin: 1.5vw 0;
+        align-items: center;
+        width: 100%;
+    }
         
-        main .formulario{
-            box-sizing: border-box;
-            margin-left: 10px;
-        }
+    main .formulario{
+        /* box-sizing: border-box; */
+        /* margin-left: 10px; */
+        height: 2vw;
+    }
+
+    main .formulario input {
+        height: 100%;
+    }
         
-        main .contenedor-compra{
-            text-align: center;
-            display: flex ;
-            justify-content: center; 
-            padding-top: 45px;
-            margin: 30px 15px 30px 15px;
-            padding-bottom: 45px;
-            border-top: #ADB2B5 solid 0.5px;
-            }
+    main .contenedor-compra{
+        /* text-align: center;
+        display: flex ;
+        justify-content: center;  */
+        padding: 2vw 0;
+        margin: 0.5vw 0 0 1.5vw;
+        width: 100%;
+        /* padding-bottom: 20px; */
+        /* border-top: #ADB2B5 solid 0.5px; */
+    }
         
-        main div .boton-carrito{
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 70%;
-            height: 50px;
-            background-color: #000000;
-            color: #FFFFFF;
-            font-weight:500;
-            font-family: 'Roboto';
-            font-size: larger;
-            text-transform: uppercase;
-            transition-property: color, background-color;
-            transition-duration: all 3s;
-            border: none
-        }   
+    /* main div .boton-carrito{
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 70%;
+        height: 50px;
+        background-color: #000000;
+        color: #FFFFFF;
+        font-weight:500;
+        font-family: 'Roboto';
+        font-size: larger;
+        text-transform: uppercase;
+        transition-property: color, background-color;
+        transition-duration: all 3s;
+        border: none
+    }    */
         
-        .boton-carrito:hover{
-            color:#000000;
-            background-color:#FFFFFF;
-        }
+    /* .boton-carrito:hover{
+        color:#000000;
+        background-color:#FFFFFF;
+    } */
+
     /*----------Otros Productos------*/
-    .main-section-div {
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 50px;
-    margin-bottom: 100px;
-    }
-
-    main .otros-productos{
-        margin-top: 60px;
-    }
-
-     
     .main-section-div {
         display: flex;
         flex-wrap: wrap;
-        margin-top: 60px;
-        margin-bottom: 100px;
+        margin: 1vw auto 6vw;
+        /* margin-bottom: 100px; */
+        width: 80%;
+    }
+
+    main .otros-productos{
+        margin: 60px 0 0;
+    }
+
+    .main-section-product {
+        height: 40vw;
     }
 
     section h2 {
@@ -835,17 +805,20 @@ footer h4 {
         text-align: center;
         color: #000000;
     }
-    
+
     section .precio-con-descuento {
-        font-size: 40px;
+        font-size: 25px;
         font-weight: bold;
     }
     
     .section-h3 h3 {
         text-align: left;
         display: block;
-        font-size: 35px;
+        font-size: 20px;
         font-weight: 300;
     }
 
+    main section .ver-mas .link-home {
+        padding: 3%;
+    }
 }

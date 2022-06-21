@@ -327,13 +327,13 @@ section img {
     padding: 5px;
     width: 30px;
     height: 30px;
-    color: #39b54a;
-    border: 1px solid #39b54a;
+    color: #ADB2B5;
+    border: 1px solid #ADB2B5;
     background-color: #FFF;
     border-radius: 50%;
     position: absolute;
-    left: 36vw;
-    top: 51.5vw;
+    right: 15px;
+    top: 15px;
 }
 
 section p {
@@ -488,11 +488,6 @@ footer h5 {
     .main-section-product {
         width: 33%;
         height: 45vw;
-    }
-
-    .informacion-precio-descuento i{
-        top: 34vw;
-        left: 24vw;
     }
 
     footer {
@@ -739,13 +734,9 @@ footer h5 {
 
     .main-section-product {
         width: 24%;
-        height: 50vh;
+        height: 24vw;
         margin: 0.25vw;
         /* border: none; */
     }
 
-    .informacion-precio-descuento i {
-        left: 13vw;
-        top: 37vh;
-    }
 }

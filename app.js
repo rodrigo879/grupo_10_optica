@@ -24,8 +24,20 @@ app.get('/product', function(req,res){
     res.sendFile(path.resolve(__dirname,'./views/product.html'))
 })
 
-app.get('/anteojos-sol', function(req,res){
+app.get('/anteojosSol', function(req,res){
     res.sendFile(path.resolve(__dirname,'./views/anteojosSol.html'))
+})
+
+app.get('/anteojosRecetados', function(req,res){
+    res.sendFile(path.resolve(__dirname,'./views/anteojosRecetados.html'))
+})
+
+app.get('/anteojosLentesContacto', function(req,res){
+    res.sendFile(path.resolve(__dirname,'./views/anteojosLentesContacto.html'))
+})
+
+app.get('/accesorios', function(req,res){
+    res.sendFile(path.resolve(__dirname,'./views/accesorios.html'))
 })
 
 app.get('/productCart', function(req,res){
