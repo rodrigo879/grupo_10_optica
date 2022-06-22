@@ -523,6 +523,7 @@ footer h5 {
 
     main {
         padding-top: 9vw;
+        width: 90%;
     }
     
     .main-hamburguer {
@@ -667,10 +668,11 @@ footer h5 {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
+        justify-content: center;
     }
 
     main .imagen-producto{
-        width: 45%;
+        width: 35%;
         height: 20%;
         border: solid #ADB2B5 1px;
         margin: 0px 0px 0px 12px;
@@ -690,7 +692,7 @@ footer h5 {
     main .nombre-producto{
         font-weight: normal;
         /* font-size:xx-large; */
-        font-size: 30px;
+        font-size: 2.5vw;
         /* padding-bottom: 5px;
         box-sizing: border-box;
         text-align: left; */
@@ -704,7 +706,7 @@ footer h5 {
         text-align: left; */
         /* font-size: xx-large; */
         /* margin-bottom: 30px; */
-        font-size:30px;
+        font-size: 2vw;
         margin: 0px 0px 0px 1.2vw;
     }
 
@@ -715,14 +717,18 @@ footer h5 {
     }
 
     main .cuotas{
-        margin: 1.5vw;
-        padding: 1.5vw;
+        margin: 1vw;
+        padding: 1vw;
         /* border: #ADB2B5 1px solid; */
         width: 60%;
     }
+
+    main .cuotas p, main .cuotas b, main .medios-de-pago {
+        font-size: 1.4vw;
+    }
         
     main .medios-de-pago{
-        margin: 0 0 2vw;
+        margin: 0 0 1vw;
         /* box-sizing: border-box;
         display:block;
         color: #000000;
@@ -734,27 +740,34 @@ footer h5 {
         /* display:flex;
         justify-content: center;
         flex-direction: row; */
-        margin: 1.5vw 0;
+        margin: 1.2vw 0;
         align-items: center;
         width: 100%;
+    }
+
+    main .cantidad p {
+        font-size: 1.4vw;
     }
         
     main .formulario{
         /* box-sizing: border-box; */
         /* margin-left: 10px; */
-        height: 2vw;
+        height: 2.2vw;
     }
 
     main .formulario input {
         height: 100%;
+        width: 25%;
+        font-size: 1vw;
+        padding-left: 5px;
     }
         
     main .contenedor-compra{
         /* text-align: center;
         display: flex ;
         justify-content: center;  */
-        padding: 2vw 0;
-        margin: 0.5vw 0 0 1.5vw;
+        padding: 1.2vw 0;
+        margin: 0 0 0 1.5vw;
         width: 100%;
         /* padding-bottom: 20px; */
         /* border-top: #ADB2B5 solid 0.5px; */
@@ -793,6 +806,7 @@ footer h5 {
 
     main .otros-productos{
         margin: 60px 0 0;
+        font-size: 2vw;
     }
 
     .main-section-product {
