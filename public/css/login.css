@@ -119,15 +119,29 @@ header {
 
 main {
   padding-top: 14vw;
+  margin: 2vw 2vw 0;
 }
 
-main {
-  margin: 2vw;
+.ruta-login {
+  margin: 0 auto 4.5em;
+  padding-top: 10px;
+}
+
+.ruta-login, .ruta-login a {
+  text-decoration: none;
+  color: #ADB2B5;
+  text-align: center;
+}
+
+.ruta-login p {
+  display: inline-block;
+  font-weight: bold;
+  color: #8f8f8f;
 }
 
 .form {
   background-color: white;
-  padding: 4.5 em 3m;
+  padding: 0 3em 4.5em;
   border-radius: 10px;
   box-shadow: 0 5px 10px -5px rgb(0 0 0 / 30%);
   text-align: center;
@@ -175,7 +189,28 @@ main {
   /* trabaja sobre el imput: cuando no se muestre el placeholder, tenga un color mas oscuro*/
 }
 
-.form_input:focus + .form_label,
+.form_input:focus + .form_label {
+  /* transform: translateY(-12px) scale(0.7); */
+  /* transform-origin: left top; */
+  top: -10px;
+  color: #3866f2;
+}
+
+.form_input:not(:placeholder-shown) + .form_label {
+  transform: translateY(-10px) scale(1);
+}
+
+.form_label {
+  color: var(--color);
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 5px;
+  transform: translateY(10px);
+  transition: color 0.3s;
+}
+
+/* .form_input:focus + .form_label,
 .form_input:not(:placeholder-shown) + .form_label {
   transform: translateY(-12px) scale(0.7);
   transform-origin: left top;
@@ -190,15 +225,42 @@ main {
   left: 5px;
   transform: translateY(10px);
   transition: transform 0.5s, color 0.3s;
+} */
+
+.checkboxPass {
+  display: flex;
+  align-content: center;
+  width: 20%;
+}
+
+.checkboxPass label {
+  display: flex;
+  align-items: center;
+}
+
+#eye {
+  display: none;
+}
+
+input[id=checkPassword] {
+	visibility: hidden;
+}
+
+.checkboxPass i {
+  position: absolute;
+  top: 15px;
+  right: 15px;
 }
 
 .div_checkbox {
   display: flex;
   justify-content: flex-end;
+  margin-top: 10px;
 }
 
 .form_checkbox {
   font-size: 14px;
+  margin-right: 5px;
 }
 
 .form_submit {
@@ -350,6 +412,8 @@ footer h5 {
   /*--------------------*/
 
   /*----------MAIN----------*/
+
+
 
   /*--------------------*/
 
@@ -550,7 +614,7 @@ footer h5 {
 
   .form{
       width: 50%;
-      margin: auto;
+      margin: 2% auto;
     }
 
 }

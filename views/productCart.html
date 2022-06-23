@@ -34,10 +34,10 @@
                 <li class="li-hover btn"><button class="btn-cerrar" onclick="desplegarMenu()" type="button">X</button></li>
                 <li class="li-hover"><a href="/">Inicio</a></li>
                 <li class="li-hover"><a href="/#ofertas">Ofertas</a></li>
-                <li class="li-hover"><a href="#">Anteojos Recetados</a></li>
-                <li class="li-hover"><a href="#">Anteojos para Sol</a></li>
-                <li class="li-hover"><a href="#">Lentes de Contacto</a></li>
-                <li class="li-hover"><a href="#">Accesorios</a></li> 
+                <li class="li-hover"><a href="/anteojosRecetados">Anteojos Recetados</a></li>
+                <li class="li-hover"><a href="/anteojosSol">Anteojos para Sol</a></li>
+                <li class="li-hover"><a href="/anteojosLentesContacto">Lentes de Contacto</a></li>
+                <li class="li-hover"><a href="/accesorios">Accesorios</a></li> 
                 <li class="li-hover"><a href="/contact">Contacto</a></li>
                 <li class="li-hover despliega"><i class="fa-solid fa-user"></i><a href="/register">Crear Cuenta</a>|<a href="/login">Iniciar Sesion</a></li>
                 <li class="li-buscar">
@@ -56,15 +56,17 @@
     <main>
         <div class="container">
             <div class="ruta-cart">
-                <a href="/">Home</a>/<p>Cart</p>
+                <a href="/">Inicio</a>/<p>Carrito de compras</p>
             </div>
             <section>
                 <div class="productos">
-                    <div class="container-imagenes"><img src="/images/productos/lentesRecetados/lentesRecetados1.jpg"></div>
+                    <div class="container-imagenes">
+                        <img src="/images/productos/lentesRecetados/lentesRecetados1.jpg">
+                    </div>
                     <div class="container-info">
                         <div class="info-top">
-                            <p>Descripcion del producto</p>
-                            <button type="button">x</button>
+                            <p>Lentes Recetados 1</p>
+                            <button type="button"><i class="fa-solid fa-trash-can"></i></button>
                         </div>
                         <div class="info-bottom">
                             <div class="btn-controller-cant">
@@ -79,11 +81,11 @@
                     </div>
                 </div>
                 <div class="productos">
-                    <div class="container-imagenes"><img src="/images/productos/lentesRecetados/lentesRecetados10.jpg"></div>
+                    <div class="container-imagenes"><img src="/images/productos/lentesSol/lentesSol11.jpg"></div>
                     <div class="container-info">
                         <div class="info-top">
-                            <p>Descripcion del producto</p>
-                            <button type="button">x</button>
+                            <p>Lentes Sol 11</p>
+                            <button type="button"><i class="fa-solid fa-trash-can"></i></button>
                         </div>
                         <div class="info-bottom">
                             <div class="btn-controller-cant">
@@ -98,11 +100,11 @@
                     </div>
                 </div>
                 <div class="productos">
-                    <div class="container-imagenes"><img src="/images/productos/lentesRecetados/lentesRecetados11.jpg"></div>
+                    <div class="container-imagenes"><img src="/images/productos/accesorios/accesorios15.jpg"></div>
                     <div class="container-info">
                         <div class="info-top">
-                            <p>Descripcion del producto</p>
-                            <button type="button">x</button>
+                            <p>Accesorio 15</p>
+                            <button type="button"><i class="fa-solid fa-trash-can"></i></button>
                         </div>
                         <div class="info-bottom">
                             <div class="btn-controller-cant">
@@ -117,38 +119,40 @@
                     </div>
                 </div>
             </section>
-            <div class="subtotal-productos">
-                <h5>
-                    <span>Subtotal:</span>
-                    <strong>$ 45.825,00</strong>
-                </h5>
-            </div>
-            <div class="medios-envio">
-                <div class="cp-calcular-envio">
-                    <div class="codigo-postal">
-                        <input type="text" placeholder="Enter Zip Code">
+            <div class="container-secondary">
+                <div class="subtotal-productos">
+                    <h5>
+                        <span>Subtotal:</span>
+                        <strong>$ 45.825,00</strong>
+                    </h5>
+                </div>
+                <div class="medios-envio">
+                    <div class="cp-calcular-envio">
+                        <div class="codigo-postal">
+                            <input type="text" placeholder="Codigo Postal">
+                        </div>
+                        <div class="calcular-envio">
+                            <button class="btn-calcular">CALCULATE</button>
+                        </div>
                     </div>
-                    <div class="calcular-envio">
-                        <button class="btn-calcular">CALCULATE</button>
+                    <a href="https://www.correoargentino.com.ar/formularios/cpa" target="_blank">Desconoces tu codigo postal?</a>
+                    <div class="calculo-del-envio">
+                        <!--Aca apareceria el costo del envio, el cual se sumaria al subtotal.-->
                     </div>
                 </div>
-                <a href="https://www.correoargentino.com.ar/formularios/cpa" target="_blank">I don't know my zip code</a>
-                <div class="calculo-del-envio">
-                    <!--Aca apareceria el costo del envio, el cual se sumaria al subtotal.-->
+                <div class="total-productos-envio">
+                    <h5>
+                        <span>Total:</span>
+                        <strong>$ 45.825,00</strong>
+                    </h5>
                 </div>
-            </div>
-            <div class="total-productos-envio">
-                <h5>
-                    <span>Total:</span>
-                    <strong>$ 45.825,00</strong>
-                </h5>
-            </div>
-            <div class="formulario">
-                <div class="btn-agregarProductos-finalizar">
-                    <button id="btn-agregarProductos" class="btn-agregarProductos" type="button">ADD MORE PRODUCTS</button>
-                    <button id="btn-finalizar" class="btn-finalizar" type="button">FINALIZE</i></button>
+                <div class="formulario">
+                    <div class="btn-agregarProductos-finalizar">
+                        <button id="btn-agregarProductos" class="btn-agregarProductos" type="button">AGREGAR MAS PRODUCTOS</button>
+                        <button id="btn-finalizar" class="btn-finalizar" type="button">FINALIZAR</i></button>
+                    </div>
                 </div>
-            </div>
+            </div>    
         </div>
     </main>
     <footer>
@@ -157,11 +161,11 @@
                 <h4>NAVEGACION</h4>
                 <ul>
                     <li><a href="/">Inicio</a></li>
-                    <li><a href="/#ofertas">Ofertas</a></li>
-                    <li><a href="#">Anteojos Recetados</a></li>
-                    <li><a href="#">Anteojos para Sol</a></li>
-                    <li><a href="#">Lentes de Contacto</a></li>
-                    <li><a href="#">Accesorios</a></li> 
+                    <li><a href="#ofertas">Ofertas</a></li>
+                    <li><a href="/anteojosRecetados">Anteojos Recetados</a></li>
+                    <li><a href="/anteojosSol">Anteojos para Sol</a></li>
+                    <li><a href="/anteojosLentesContacto">Lentes de Contacto</a></li>
+                    <li><a href="/accesorios">Accesorios</a></li> 
                     <li><a href="/contact">Contacto</a></li>
                 </ul>
             </div>

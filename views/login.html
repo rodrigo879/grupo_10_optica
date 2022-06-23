@@ -55,46 +55,44 @@
     </header>
     <main>
         <form class="form">
-          <h2 class="form_title">Inicia Sesion</h2>
-          <p class="form_paragraph">
-            ¿Aún no tienes una cuenta?
-            <a href="#" class="form_link">Entra aquí</a>
-          </p>
-  
+          <div class="ruta-login">
+            <a href="/">Inicio</a>/<p>Iniciar Sesion</p>
+          </div>
           <div class="form_conteiner">
             <div class="form_group">
-              <input type="text" id="user" class="form_input" placeholder=" " />
-              <label for="user" class="form_label">Usuario:</label>
-              <span class="form_line"></span>
+              <input required type="text" id="user" class="form_input" placeholder=" " />
+              <label for="user" class="form_label">Usuario:</label>              
             </div>
             <div class="form_group">
-              <input
-                type="password"
-                id="password"
-                class="form_input"
-                placeholder=" "
-              />
+              <input required type="password" id="password" class="form_input" placeholder=" "/>
               <label for="password" class="form_label">Contraseña:</label>
-              <span class="form_line"></span>
+              <div class="checkboxPass">
+                <input type="checkbox" id="checkPassword" onclick="mostrarPassword()">
+                <label for="checkPassword">
+                    <i class="fa-solid fa-eye-slash" id="eyeSlash"></i>
+                    <i class="fa-solid fa-eye" id="eye"></i>
+                </label>
+              </div>              
               <div class="div_checkbox">
                 <label for="true" class="form_checkbox">Recordar Usuario</label>
                 <input type="checkbox" name="true" />
               </div>
             </div>
-            <input type="submit" class="form_submit" value="Entrar" />
-          </div>
-          <div class="div_button">
-            <button class="button_g">
-              <a
-                href="https://accounts.google.com/signin/v2/identifier?hl=es-419&passive=true&continue=https%3A%2F%2Fwww.google.com%2F&ec=GAZAmgQ&flowName=GlifWebSignIn&flowEntry=ServiceLogin"
-                ><i class="fa-brands fa-google"></i
-              ></a>
-            </button>
-            <button class="button_i">
-              <a href="https://www.instagram.com/"
-                ><i class="fa-brands fa-instagram"></i
-              ></a>
-            </button>
+            <div>
+              <input type="submit" class="form_submit" value="Entrar" />
+              <div class="div_button">
+                <button class="button_g">
+                  <a href="https://accounts.google.com/signin/v2/identifier?hl=es-419&passive=true&continue=https%3A%2F%2Fwww.google.com%2F&ec=GAZAmgQ&flowName=GlifWebSignIn&flowEntry=ServiceLogin"><i class="fa-brands fa-google"></i></a>
+                </button>
+                <button class="button_i">
+                  <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+                </button>
+              </div>
+            </div>
+            <p class="form_paragraph">
+              ¿Aún no tienes una cuenta?
+              <a href="#" class="form_link">Entra aquí</a>
+            </p>
           </div>
         </form>
     </main>

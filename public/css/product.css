@@ -119,7 +119,6 @@ header {
 main{
     background-color:#FFFFFF;
     padding-top: 14vw;
-    
 }
 
 .ruta-login {
@@ -144,19 +143,28 @@ main .imagen-producto{
     display: block;
     margin:0px auto;
     border: solid #ADB2B5 1px;
+    width: 45%;
+    height: 20%;
+}
+
+main .info-producto-principal {
+    width: 75%;
+    margin: auto;
+}
+
+main .cuotas p, main .cuotas b, main .medios-de-pago {
+    font-size: 2.4vw;
 }
 
 main .nombre-producto{
     font-weight: normal;
     padding-bottom: 5px;
-    box-sizing: border-box;
-    text-align: left;
+    font-size: 3.5vw;
 }
 
 main .precio-producto{
     padding-bottom:3px;
-    box-sizing: border-box;
-    text-align: left;
+    font-size: 3vw;
 }
 
 main .separador {
@@ -176,7 +184,6 @@ main .cuotas{
 }
 
 main .medios-de-pago{
-    box-sizing: border-box;
     display:block;
     color: #000000;
     margin-top: 20px;
@@ -187,12 +194,28 @@ main .cantidad{
     display:flex;
     justify-content: center;
     flex-direction: row;
+    margin: 1.2vw 0;
+    align-items: center;
+    width: 100%;
 }
 
+main .cantidad p {
+    font-size: 2.4vw;
+}
+    
 main .formulario{
-    box-sizing: border-box;
     margin-left: 10px;
-    width: 30%;
+    height: 3.2vw;
+    width: 10%;
+    display: flex;
+    align-items: center;
+}
+
+main .formulario input {
+    height: 100%;
+    width: 95%;
+    font-size: 2vw;
+    padding-left: 5px;
 }
 
 main .contenedor-compra{
@@ -211,15 +234,12 @@ main div .boton-carrito{
     align-items: center;
     justify-content: center;
     width: 70%;
-    height: 50px;
+    height: 7.5vw;
     background-color: #000000;
     color: #FFFFFF;
     font-weight:500;
-    font-family: 'Roboto';
-    font-size: larger;
+    font-size: 3.5vw;
     text-transform: uppercase;
-    /* transition-property: color, background-color; */
-    /* transition-duration: all 3s; */
     transition: all 3s;
     border: none
 }   
@@ -233,7 +253,7 @@ main div .boton-carrito{
 .main-section-div {
     display: flex;
     flex-wrap: wrap;
-    margin-top: 45px;
+    margin-top: 15px;
     margin-bottom: 40px;
 }
 
@@ -280,12 +300,6 @@ section img {
     margin-left: 0.5em;
 }
 
-/* section .precio-otro-producto {
-    font-size: 14px;
-    font-weight: bold;
-    color: #8F8F8F;
-} */
-
 section .precio-con-descuento {
     font-size: 12px;
     font-weight: bold;
@@ -297,20 +311,8 @@ section .precio-con-descuento {
     margin-left: 0.5em;
 }
 
-/* section .descuento-otro-producto {
-    font-size: 16px;
-    font-weight: bold;
-    color: #FFFFFF;
-    position: absolute;
-    top: 10px;
-    left: 0px;
-    background-color: #000000;
-    opacity: 0.6;
-} */
-
 /*--------Ver Más------*/
 .ver-mas{
-    box-sizing: border-box;
     text-align: center;
     margin-top:20px;
     margin-bottom: 30px;
@@ -330,7 +332,6 @@ footer {
     font-family: 'Roboto';
     background-color: #000000;
     color: #FFFFFF;
-    /* margin: 10%; */
     margin: 2vw;
 }
 
@@ -427,18 +428,15 @@ footer h5 {
     /*--------------------*/
 
     /*----------MAIN----------*/
-    /* main .ubicacion{
-    margin-bottom: 50px;
-    color:#ADB2B5;
-    font-weight: bold;
-    font-size: x-large;
-    width: 120%;
-    } */
+    main div .boton-carrito{
+        width: 70%;
+        height: 50px;
+        font-size: larger;
+    }   
     
     /*-------OTROS PRODUCTOS----------*/
     
     .main-section-div {
-        margin-top: 15px;
         margin-bottom: 60px;
     }
 
@@ -462,8 +460,6 @@ footer h5 {
     
     /*--------Ver Más------*/
     .ver-mas{
-        box-sizing: border-box;
-        text-align: center;
         margin-top:40px;
         margin-bottom: 50px;
     }
@@ -523,6 +519,7 @@ footer h5 {
 
     main {
         padding-top: 9vw;
+        width: 90%;
     }
     
     .main-hamburguer {
@@ -667,10 +664,11 @@ footer h5 {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
+        justify-content: center;
     }
 
     main .imagen-producto{
-        width: 45%;
+        width: 35%;
         height: 20%;
         border: solid #ADB2B5 1px;
         margin: 0px 0px 0px 12px;
@@ -683,29 +681,26 @@ footer h5 {
         align-items: center;
     }
 
+    main .cuotas p, main .cuotas b, main .medios-de-pago {
+        font-size: 1.4vw;
+    }
+  
     main .produto-principal .info-producto{
         width:100%;
     }
 
     main .nombre-producto{
         font-weight: normal;
-        /* font-size:xx-large; */
-        font-size: 30px;
-        /* padding-bottom: 5px;
-        box-sizing: border-box;
-        text-align: left; */
         width: 60%;
         margin: 0px 0px 0px 1.2vw;
+        text-align: left;
+        font-size: 2.5vw;
     }
     
     main .precio-producto{
-        /* padding-bottom:3px; */
-        /* box-sizing: border-box;
-        text-align: left; */
-        /* font-size: xx-large; */
-        /* margin-bottom: 30px; */
-        font-size:30px;
         margin: 0px 0px 0px 1.2vw;
+        font-size: 2vw;
+        text-align: left;
     }
 
     main .separador {
@@ -714,85 +709,45 @@ footer h5 {
         width: 100%;
     }
 
+    main .cantidad p {
+        font-size: 1.4vw;
+    }
+
     main .cuotas{
-        margin: 1.5vw;
-        padding: 1.5vw;
-        /* border: #ADB2B5 1px solid; */
+        margin: 1vw;
+        padding: 1vw;
         width: 60%;
     }
-        
+      
     main .medios-de-pago{
-        margin: 0 0 2vw;
-        /* box-sizing: border-box;
-        display:block;
-        color: #000000;
-        margin-top: 30px;
-        margin-bottom:40px; */
+        margin: 0 0 1vw;
     }
-        
-    main .cantidad{
-        /* display:flex;
-        justify-content: center;
-        flex-direction: row; */
-        margin: 1.5vw 0;
-        align-items: center;
-        width: 100%;
-    }
-        
+
     main .formulario{
-        /* box-sizing: border-box; */
-        /* margin-left: 10px; */
-        height: 2vw;
+        height: 2.2vw;
     }
-
+    
     main .formulario input {
-        height: 100%;
+        font-size: 1vw;
     }
-        
+      
     main .contenedor-compra{
-        /* text-align: center;
-        display: flex ;
-        justify-content: center;  */
-        padding: 2vw 0;
-        margin: 0.5vw 0 0 1.5vw;
+        padding: 1.2vw 0;
+        margin: 0 0 0 1.5vw;
         width: 100%;
-        /* padding-bottom: 20px; */
-        /* border-top: #ADB2B5 solid 0.5px; */
     }
         
-    /* main div .boton-carrito{
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 70%;
-        height: 50px;
-        background-color: #000000;
-        color: #FFFFFF;
-        font-weight:500;
-        font-family: 'Roboto';
-        font-size: larger;
-        text-transform: uppercase;
-        transition-property: color, background-color;
-        transition-duration: all 3s;
-        border: none
-    }    */
-        
-    /* .boton-carrito:hover{
-        color:#000000;
-        background-color:#FFFFFF;
-    } */
-
     /*----------Otros Productos------*/
     .main-section-div {
         display: flex;
         flex-wrap: wrap;
         margin: 1vw auto 6vw;
-        /* margin-bottom: 100px; */
         width: 80%;
     }
 
     main .otros-productos{
         margin: 60px 0 0;
+        font-size: 2vw;
     }
 
     .main-section-product {
