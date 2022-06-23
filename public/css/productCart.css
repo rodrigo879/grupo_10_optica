@@ -201,6 +201,7 @@ section {
     width: 100%;
     display: flex;
     justify-content: flex-end;
+    font-weight: 900;
 }
 
 .btn-controller-cant-unid {
