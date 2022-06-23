@@ -116,8 +116,7 @@ header {
 
 /*------ Main -------*/
 main {
-    margin: 2vw;
-    /* height: 90vh; */
+    padding-top: 14vw;
 }
 
 .container {
