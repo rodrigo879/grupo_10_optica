@@ -117,6 +117,7 @@ header {
 /*------ Main -------*/
 main {
     margin: 2vw;
+    padding-top: 14vw;
     /* height: 90vh; */
 }
 
@@ -124,7 +125,7 @@ main {
     display: flex;
     /* justify-content: center; */
     flex-direction: column;
-    background: #292727;
+    background: #eee;;
     width: 100%;
     /* height: 100%;   */
     margin: auto;
@@ -157,6 +158,7 @@ section {
     margin: 10px;
     height: 40%;
     display: flex;
+    border-radius: 1%;
 }
 
 .container-info {
@@ -439,7 +441,11 @@ footer h5 {
     /*--------------------*/
 
     /*----------MAIN----------*/
-
+    section{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
     /*--------------------*/
 
     /*----------Footer----------*/
