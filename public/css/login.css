@@ -227,6 +227,31 @@ main {
   transition: transform 0.5s, color 0.3s;
 } */
 
+.checkboxPass {
+  display: flex;
+  align-content: center;
+  width: 20%;
+}
+
+.checkboxPass label {
+  display: flex;
+  align-items: center;
+}
+
+#eye {
+  display: none;
+}
+
+input[id=checkPassword] {
+	visibility: hidden;
+}
+
+.checkboxPass i {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
 .div_checkbox {
   display: flex;
   justify-content: flex-end;

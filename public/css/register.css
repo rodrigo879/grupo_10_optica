@@ -226,6 +226,31 @@
     transform: translateY(10px);
     transition: transform 0.5s, color 0.3s;
   } */
+
+  .checkboxPass, .checkboxPassConfirm {
+    display: flex;
+    align-content: center;
+    width: 20%;
+  }
+
+  .checkboxPass label, .checkboxPassConfirm label {
+    display: flex;
+    align-items: center;
+  }
+
+  #eye, #eyeConfirm {
+    display: none;
+  }
+
+  input[type=checkbox] {
+    visibility: hidden;
+  }
+
+  .checkboxPass i, .checkboxPassConfirm i {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+  }
   
   .form_submit {
     margin: auto;

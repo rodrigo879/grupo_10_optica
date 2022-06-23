@@ -39,3 +39,37 @@ function desplegarMenu() {
         mainNavbar.style.display = "flex";
     }
 }
+
+function mostrarPassword() {
+    let inputPassword = document.getElementById("password");
+    let checkbox = document.getElementById("checkPassword");
+    let iconEyeSlash = document.getElementById("eyeSlash");
+    let iconEye = document.getElementById("eye");
+
+    if(inputPassword.type == "password" && checkbox.checked){
+        inputPassword.type = "text";
+        iconEyeSlash.style.display = "none";
+        iconEye.style.display = "initial";
+    }else{
+        inputPassword.type = "password";
+        iconEyeSlash.style.display = "initial";
+        iconEye.style.display = "none   ";
+    }
+}
+
+function mostrarConfirmPassword() {
+    let inputConfirmPassword = document.getElementById("confirmPassword");
+    let checkboxConfirm = document.getElementById("checkPasswordConfirm");
+    let iconEyeSlashConfirm = document.getElementById("eyeSlashConfirm");
+    let iconEyeConfirm = document.getElementById("eyeConfirm");
+
+    if(inputConfirmPassword.type == "password" && checkboxConfirm.checked){
+        inputConfirmPassword.type = "text";
+        iconEyeSlashConfirm.style.display = "none";
+        iconEyeConfirm.style.display = "initial";
+    }else{
+        inputConfirmPassword.type = "password";
+        iconEyeSlashConfirm.style.display = "initial";
+        iconEyeConfirm.style.display = "none";
+    }
+}

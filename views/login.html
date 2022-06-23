@@ -58,21 +58,21 @@
           <div class="ruta-login">
             <a href="/">Inicio</a>/<p>Iniciar Sesion</p>
           </div>
-          <!-- <h2 class="form_title">Inicia Sesion</h2> -->
-          <!-- <p class="form_paragraph">
-            ¿Aún no tienes una cuenta?
-            <a href="#" class="form_link">Entra aquí</a>
-          </p> -->
-  
           <div class="form_conteiner">
             <div class="form_group">
-              <input type="text" id="user" class="form_input" placeholder=" " />
+              <input required type="text" id="user" class="form_input" placeholder=" " />
               <label for="user" class="form_label">Usuario:</label>              
             </div>
             <div class="form_group">
-              <input type="password" id="password" class="form_input" placeholder=" "/>
+              <input required type="password" id="password" class="form_input" placeholder=" "/>
               <label for="password" class="form_label">Contraseña:</label>
-              
+              <div class="checkboxPass">
+                <input type="checkbox" id="checkPassword" onclick="mostrarPassword()">
+                <label for="checkPassword">
+                    <i class="fa-solid fa-eye-slash" id="eyeSlash"></i>
+                    <i class="fa-solid fa-eye" id="eye"></i>
+                </label>
+              </div>              
               <div class="div_checkbox">
                 <label for="true" class="form_checkbox">Recordar Usuario</label>
                 <input type="checkbox" name="true" />
