@@ -129,6 +129,7 @@ main {
     /* background-color: lightblue; */
     overflow: hidden;
     margin: auto;
+    position: relative;
 }
 
 .main-carrousel .container-img {
@@ -143,7 +144,6 @@ main {
     /* padding: 2em; */
     transition: all 1s ease;
     transform: translateX(0%);
-    position: relative;
 }
 
 .main-carrousel .img-movile-tablet {
@@ -168,7 +168,7 @@ main {
     justify-content: center;
     align-items: center;
     position: absolute;
-    top: 73vw;
+    bottom: 1vw;
     left: 40%;
 }
 .main-carrousel .punto {
@@ -176,12 +176,12 @@ main {
     border-radius: 50%;
     width: 0.5em;
     height: 0.5em;
-    background-color: #8F8F8F;
+    background-color: #000000;
     margin: 0.2em;
 }
 
 .main-carrousel .punto.activo {
-    background-color: #000000;
+    background-color: #F77B5F;
 }
 
 /*------------------------*/
@@ -198,6 +198,7 @@ main {
     /* background-color: lightblue; */
     overflow: hidden;
     margin: auto;
+    position: relative;
 }
 
 .secondary-carrousel .container-info {
@@ -212,7 +213,6 @@ main {
     /* padding: 2em; */
     transition: all 1s ease;
     transform: translateX(0%);
-    position: relative;
 }
 
 .enviamos-tu-compra, .paga-como-quieras, .compra-con-seguridad {
@@ -223,7 +223,7 @@ main {
     margin: 0.2em;
     text-align: center;
     background-color: #FFFFFF;
-    padding: 30px;
+    padding: 5vw;
 }
 
 .secondary-carrousel .puntos1 {
@@ -237,7 +237,7 @@ main {
     justify-content: center;
     align-items: center;
     position: absolute;
-    top: 103vw;
+    top: 17vw;
     left: 40%;
 }
 .secondary-carrousel .punto1 {
@@ -245,12 +245,12 @@ main {
     border-radius: 50%;
     width: 0.5em;
     height: 0.5em;
-    background-color: #8F8F8F;
+    background-color: #000000;
     margin: 0.2em;
 }
 
 .secondary-carrousel .punto1.activo1 {
-    background-color: #000000;
+    background-color: #F77B5F;
 }
 
 .icon-truck {
@@ -310,7 +310,7 @@ section img {
 .main-section-info {
     display: flex;
     border-top: #ADB2B5 solid 1px;
-    padding-top: 20px;
+    padding-top: 1vw;
     margin: 0px 5px;
     flex-wrap: wrap;
 }
@@ -472,12 +472,12 @@ footer h5 {
         height: 100%;
     }
 
-    .main-carrousel .puntos {
-        top: 44vw;
+    .main-carrousel .punto, .secondary-carrousel .punto1 {
+        background-color: #8F8F8F;
     }
-
-    .secondary-carrousel .puntos1 {
-        top: 62vw;
+    
+    .main-carrousel .punto.activo, .secondary-carrousel .punto1.activo1 {
+        background-color: #000000;
     }
 
     .contenedor-imagenes {
@@ -685,10 +685,6 @@ footer h5 {
 
     .main-carrousel {
         height: 25vw;
-    }
-
-    .main-carrousel .puntos {
-        top: 30vw;
     }
 
     /*------------------------*/

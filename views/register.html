@@ -23,61 +23,51 @@
   <body>
     <header>
       <div class="main-header">
-        <div class="main-hamburguer">
-          <!--El boton Hamburguesa, que despliega el menu de opciones en la vista movile/tablets-->
-          <a href="#" class="hamburguer-buttom"
-            ><i class="fa-solid fa-bars"></i
-          ></a>
-          <p>Menú</p>
-        </div>
-        <div class="main-logo">
-          <a href="/"><img src="/images/logos/logo.png" alt="Optica RIFF" /></a>
-        </div>
-        <div class="main-buscar-carrito">
-          <p>
-            <a href="/register">Crear Cuenta</a>|<a href="/login"
-              >Iniciar Sesion</a
-            >
-          </p>
-          <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
-          <a href="/productCart"><i class="fa-solid fa-cart-shopping"></i></a>
-        </div>
-      </div>
-      <nav class="main-navbar">
-        <ul class="navbar">
-          <!--Aca ya estan creados algunos de los links que vamos a poner, hay que ver bien los nombre y ponerlos-->
-          <li class="li-hover"><a href="#">Inicio</a></li>
-          <li class="li-hover"><a href="#">Ofertas</a></li>
-          <li class="li-hover"><a href="#">Anteojos Recetados</a></li>
-          <li class="li-hover"><a href="#">Anteojos para Sol</a></li>
-          <li class="li-hover"><a href="#">Lentes de Contacto</a></li>
-          <li class="li-hover"><a href="#">Accesorios</a></li>
-          <li class="li-hover"><a href="/contact.html">Contacto</a></li>
-          <li>
-            <form action="/" method="get">
-              <div class="div-form-buscar-productos">
-                <label>
-                  <input
-                    name="buscar-productos"
-                    class="buscar-productos"
-                    value=""
-                    type="text"
-                    placeholder="Buscar productos.."
-                  />
-                  <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
-                </label>
-              </div>
-            </form>
-          </li>
-        </ul>
+          <div class="main-hamburguer">
+              <!--El boton Hamburguesa, que despliega el menu de opciones en la vista movile/tablets-->
+              <a class="hamburguer-buttom" id="btn_hamburguer" onclick="desplegarMenu()"><i class="fa-solid fa-bars"></i></a>
+              <p>Menú</p>
+          </div>
+          <div class="main-logo">
+              <a href="/"><img src="/images/logos/logo.png" alt="Optica RIFF"></a>
+          </div>
+          <div class="main-buscar-carrito">
+              <p><a href="/register">Crear Cuenta</a>|<a href="/login">Iniciar Sesion</a></p>
+              <a href="#"><i class='fa-solid fa-magnifying-glass'></i></a>
+              <a href="/productCart"><i class="fa-solid fa-cart-shopping"></i></a>
+          </div>
+      </div>    
+      <nav class="main-navbar" id="mainNavbar">
+          <ul class="navbar">
+              <!--Aca ya estan creados algunos de los links que vamos a poner, hay que ver bien los nombre y ponerlos-->
+              <li class="li-hover btn"><button class="btn-cerrar" onclick="desplegarMenu()" type="button">X</button></li>
+              <li class="li-hover"><a href="/">Inicio</a></li>
+              <li class="li-hover"><a href="/#ofertas">Ofertas</a></li>
+              <li class="li-hover"><a href="/anteojosRecetados">Anteojos Recetados</a></li>
+              <li class="li-hover"><a href="/anteojosSol">Anteojos para Sol</a></li>
+              <li class="li-hover"><a href="/anteojosLentesContacto">Lentes de Contacto</a></li>
+              <li class="li-hover"><a href="/accesorios">Accesorios</a></li> 
+              <li class="li-hover"><a href="/contact">Contacto</a></li>
+              <li class="li-hover despliega"><i class="fa-solid fa-user"></i><a href="/register">Crear Cuenta</a>|<a href="/login">Iniciar Sesion</a></li>
+              <li class="li-buscar">
+                  <form action="/" method="get">
+                      <div class="div-form-buscar-productos">
+                          <label>
+                              <input name="buscar-productos" class="buscar-productos" value="" type="text" placeholder="Buscar productos..">
+                              <a href="#"><i class='fa-solid fa-magnifying-glass'></i></a>
+                          </label>
+                      </div>
+                  </form>
+              </li>
+          </ul>
       </nav>
     </header>
     <main>
       <!-- ----------------AGREGAR CODIGO NUEVO---------------- -->
-      <div class="ruta-login">
-        <a href="/">Inicio</a>/<p>Crear cuenta</p>
-      </div>
       <form class="form">
+        <div class="ruta-login">
+          <a href="/">Inicio</a>/<p>Crear cuenta</p>
+        </div>
         <!-- <h2 class="form_title">Optica Riff</h2>  -->
         <div class="form_conteiner">
           <div class="form_group">
@@ -93,97 +83,57 @@
             <label for="email" class="form_label">Email:</label>
           </div>
           <div class="form_group">
-            <input
-              type="password"
-              id="password"
-              class="form_input"
-              placeholder=" "
-            />
+            <input type="password" id="password" class="form_input" placeholder=" "/>
             <label for="password" class="form_label">Contraseña:</label>
-            <div class="form_group">
-              <input
-                type="password"
-                id="password"
-                class="form_input"
-                placeholder=" "
-              />
-              <label for="password" class="form_label">Confirmar contraseña:</label>
-              <nav class="nav-rigth">
+          </div>
+          <div class="form_group">
+              <input type="password" id="confirmPassword" class="form_input" placeholder=" "/>
+              <label for="confirmPassword" class="form_label">Confirmar contraseña:</label>
+          </div>
+          <div>
+            <input type="submit" class="form_submit" value="Entrar" />
+          </div>
                 <p class="main-paragraph-first">
                   ¿Ya tenés una cuenta?
                   <a href="/login" class="form-link">Iniciá sesión</a>
                 </p>
-              </nav>
-          </div>
-          <input type="submit" class="form_submit" value="Entrar" />
         </div>
-        <!-- <div class="div_button">
-          <button class="button_g">
-            <a
-              href="https://accounts.google.com/signin/v2/identifier?hl=es-419&passive=true&continue=https%3A%2F%2Fwww.google.com%2F&ec=GAZAmgQ&flowName=GlifWebSignIn&flowEntry=ServiceLogin"
-              ><i class="fa-brands fa-google"></i
-            ></a>
-          </button>
-          <button class="button_i">
-            <a href="https://www.instagram.com/"
-              ><i class="fa-brands fa-instagram"></i
-            ></a>
-          </button>
-        </div> -->
       </form>
     </main>
     <footer>
       <div class="main-footer">
-        <div class="footer-navegacion">
-          <h4>NAVEGACION</h4>
-          <ul>
-            <li><a href="/">Inicio</a></li>
-            <li><a href="#">Ofertas</a></li>
-            <li><a href="#">Anteojos Recetados</a></li>
-            <li><a href="#">Anteojos para Sol</a></li>
-            <li><a href="#">Lentes de Contacto</a></li>
-            <li><a href="#">Accesorios</a></li>
-            <li><a href="/contact">Contacto</a></li>
-          </ul>
-        </div>
-        <div class="footer-contactenos">
-          <h4>CONTACTENOS</h4>
-          <ul>
-            <li>
-              <a href="#"><i class="fa-solid fa-phone"></i>011-1234567</a>
-            </li>
-            <li>
-              <a href="#"
-                ><i class="fa-solid fa-envelope"></i>opticaRIFF@gmail.com</a
-              >
-            </li>
-            <li>
-              <a href="/images/banners/img-direccion.jpg" target="_blank"
-                ><i class="fa-solid fa-location-dot"></i>Av. Siempreviva 742</a
-              >
-            </li>
-          </ul>
-        </div>
-        <div class="footer-redesSociales">
-          <h4>REDES SOCIALES</h4>
-          <ul>
-            <li>
-              <a href="https://www.instagram.com" target="_blank"
-                ><i class="fa-brands fa-instagram"></i
-              ></a>
-            </li>
-            <li>
-              <a href="https://www.facebook.com" target="_blank"
-                ><i class="fa-brands fa-facebook-square"></i
-              ></a>
-            </li>
-          </ul>
-        </div>
+          <div class="footer-navegacion">
+              <h4>NAVEGACION</h4>
+              <ul>
+                  <li><a href="/">Inicio</a></li>
+                  <li><a href="#ofertas">Ofertas</a></li>
+                  <li><a href="/anteojosRecetados">Anteojos Recetados</a></li>
+                  <li><a href="/anteojosSol">Anteojos para Sol</a></li>
+                  <li><a href="/anteojosLentesContacto">Lentes de Contacto</a></li>
+                  <li><a href="/accesorios">Accesorios</a></li> 
+                  <li><a href="/contact">Contacto</a></li>
+              </ul>
+          </div>
+          <div class="footer-contactenos">
+              <h4>CONTACTENOS</h4>
+              <ul>
+                  <li><a href="#"><i class="fa-solid fa-phone"></i>011-1234567</a></li>
+                  <li><a href="#"><i class="fa-solid fa-envelope"></i>opticaRIFF@gmail.com</a></li>
+                  <li><a href="/images/banners/img-direccion.jpg" target="_blank"><i class="fa-solid fa-location-dot"></i>Av. Siempreviva 742</a></li>
+              </ul>
+          </div>
+          <div class="footer-redesSociales">
+              <h4>REDES SOCIALES</h4>
+              <ul>
+                  <li><a href="https://www.instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
+                  <li><a href="https://www.facebook.com" target="_blank"><i class="fa-brands fa-facebook-square"></i></a></li>
+              </ul>
+          </div>
       </div>
       <div class="copyright">
-        <h5>Copyright © 1999-2020 Optica RIFF S.R.L.</h5>
+          <h5>Copyright © 1999-2020 Optica RIFF S.R.L.</h5>
       </div>
-    </footer>
+    </footer> 
   </body>
 </html>
 

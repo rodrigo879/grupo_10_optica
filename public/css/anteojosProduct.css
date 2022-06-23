@@ -183,7 +183,7 @@ section img {
 .main-section-info {
     display: flex;
     border-top: #ADB2B5 solid 1px;
-    padding-top: 20px;
+    padding-top: 1vw;
     margin: 0px 5px;
     flex-wrap: wrap;
 }

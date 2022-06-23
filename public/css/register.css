@@ -119,15 +119,29 @@
   
   main {
     padding-top: 14vw;
+    margin: 2vw;
   }
   
-  main {
-    margin: 2vw;
+  .ruta-login {
+    margin: 0 auto 4.5em;
+    padding-top: 10px;
+  }
+  
+  .ruta-login, .ruta-login a {
+    text-decoration: none;
+    color: #ADB2B5;
+    text-align: center;
+  }
+  
+  .ruta-login p {
+    display: inline-block;
+    font-weight: bold;
+    color: #8f8f8f;
   }
   
   .form {
     background-color: white;
-    padding: 4.5 em 3m;
+    padding: 0 3em 4.5em;
     border-radius: 10px;
     box-shadow: 0 5px 10px -5px rgb(0 0 0 / 30%);
     text-align: center;
@@ -174,8 +188,29 @@
     color: #4d4646;
     /* trabaja sobre el imput: cuando no se muestre el placeholder, tenga un color mas oscuro*/
   }
+
+  .form_input:focus + .form_label {
+    /* transform: translateY(-12px) scale(0.7); */
+    /* transform-origin: left top; */
+    top: -10px;
+    color: #3866f2;
+  }
   
-  .form_input:focus + .form_label,
+  .form_input:not(:placeholder-shown) + .form_label {
+    transform: translateY(-10px) scale(1);
+  }
+  
+  .form_label {
+    color: var(--color);
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 5px;
+    transform: translateY(10px);
+    transition: color 0.3s;
+  }
+  
+  /* .form_input:focus + .form_label,
   .form_input:not(:placeholder-shown) + .form_label {
     transform: translateY(-12px) scale(0.7);
     transform-origin: left top;
@@ -190,10 +225,7 @@
     left: 5px;
     transform: translateY(10px);
     transition: transform 0.5s, color 0.3s;
-  }
-  
-
-
+  } */
   
   .form_submit {
     margin: auto;
