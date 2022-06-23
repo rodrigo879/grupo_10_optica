@@ -116,7 +116,7 @@ header {
 
 /*------ Main -------*/
 main {
-    margin: 2vw;
+    /* margin: 2vw; */
     padding-top: 14vw;
     /* height: 90vh; */
 }
@@ -125,7 +125,7 @@ main {
     display: flex;
     /* justify-content: center; */
     flex-direction: column;
-    background: #eee;;
+    background: #eee;
     width: 100%;
     /* height: 100%;   */
     margin: auto;
@@ -159,6 +159,7 @@ section {
     height: 40%;
     display: flex;
     border-radius: 1%;
+    position: relative;
 }
 
 .container-info {
@@ -170,12 +171,18 @@ section {
 }
 
 .info-top button {
-    color: #FFFFFF;
-    background-color: #B03A2C;
+    background-color: #ADB2B5;
     border-radius: 3px;
     border: none;
     padding: 2px;
     width: 20px;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+
+.info-top button:hover {
+    color: #B03A2C;
 }
 
 .info-top, .info-bottom {
@@ -266,7 +273,13 @@ section {
     width: 100%;
 }
 
-.calcular-envio {
+.codigo-postal input::placeholder {
+    color: #F6C01C;
+    opacity: 0.6;
+
+}
+
+.calcular-envio, .codigo-postal {
     width: 50%;
 }
 
@@ -274,7 +287,7 @@ section {
     background-color: #F6C01C;
     border-color: #F6C01C;
     color: #032332;
-    height: 40px;
+    height: 38px;
     border-radius: 0 5px 5px 0;
     width: 100%;
     font-size: 12px;
@@ -282,10 +295,10 @@ section {
 }
 
 .medios-envio a {
-    margin-left: 41px;
+    margin-left: 10.2vw;
     text-decoration: none;
     color: #8f8f8f;
-
+    font-size: 14px
 }
 
 .total-productos-envio {
@@ -318,14 +331,14 @@ section {
     justify-content: center;
     flex-direction: column;
     margin: 5vw auto;
-    width: 75%;
+    width: 85%;
     height: 85% ;
-    border-bottom: #FFFFFF;
+    /* border-bottom: #FFFFFF; */
 }
 
 .btn-agregarProductos-finalizar {
     display: flex;
-    box-shadow: 2px 2px 5px #8f8f8f;
+    background-color: #eee;
 }
 
 .btn-agregarProductos {
@@ -337,6 +350,7 @@ section {
     width: 100%;
     font-size: 12px;
     font-weight: bold;
+    box-shadow: 2px 2px 5px #8f8f8f;
 }
 
 .btn-finalizar {
@@ -348,6 +362,7 @@ section {
     width: 100%;
     font-size: 14px;
     font-weight: bold;
+    box-shadow: 2px 2px 5px #8f8f8f;
 }
 
 /*----------Footer----------*/
@@ -446,6 +461,11 @@ footer h5 {
         flex-direction: column;
         align-items: center;
     }
+
+    .medios-envio a {
+        margin-left: 9.2vw;
+    }
+
     /*--------------------*/
 
     /*----------Footer----------*/
@@ -643,38 +663,60 @@ footer h5 {
 
     /*----------Main----------*/
 
-    .container-form {
-        display: flex;
-        justify-content: space-evenly;
-        flex-wrap: nowrap;
-    }
-
-    .container-img-contacto {
-        display: initial;
-        width: 25%;
-        height: 145px;
-    }
-
-    .container-img-contacto img{
-        width: 100%;
-        height: 100%;
-    }
-
-    .datos-contacto {
-        width: 30%;
+    /* .formulario {
+        width: 40%;
         margin: 0;
+    } */
+
+    main {
+        padding-bottom: 1vw;
+    }
+
+    section {
+        width: 50%;
+    }
+
+    .ruta-cart {
+        width: 100%;
+        text-align: center;
+    }
+
+    .container {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .container-secondary {
+        display: flex;
+        flex-direction: column;
+        margin: 10px;
+        width: 35%;
     }
 
     .formulario {
-        width: 40%;
-        margin: 0;
+        margin: 0 auto;
     }
 
-    .div-input-text {
-        margin-top: 0;
+    .subtotal-productos {
+        height: 100px;
+        margin: 1vw;
     }
 
-    .datos-contacto i {
-        margin: 0 10px;
+    .medios-envio a {
+        margin-left: 3.2vw;
     }
+
+    .total-productos-envio h5 {
+        padding: 50px 0;
+    }
+
+    .btn-agregarProductos-finalizar {
+        flex-wrap: wrap;
+    }
+
+    .btn-agregarProductos, .btn-finalizar {
+        margin: 20px 0 0;
+    }
+
 }
