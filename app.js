@@ -1,16 +1,34 @@
+//PAQUETES REQUERIDOS INSTALADOS
 const express = require('express');
+const methodOverride = require('method-override')
 const path = require('path')
 const app = express();
 
+//ARCHIVOS REQUERIDOS DEL PROYECTO
+const indexRoute = require('./routes/indexRoute');
+
+const PORT = process.env.PORT || 3000;
+const HOST = process.env.HOST || 'localhost';
+
+//CONFIGURACION DEL EJS
+app.set('view engine', 'ejs');
+
+//ARCHIVOS ESTATICOS (PUBLIC)
 app.use(express.static(path.resolve(__dirname,'./public')));
 
-app.get('/', function(req,res){
-    res.sendFile(path.resolve(__dirname,'./views/index.html'))
+//PARA PODER CAPTURAR LA INFORMACION QUE VIENEN DE LOS FORMULARIOS
+app.use(express.urlencoded({extended: false}));
+app.use(express.json());
+//PARA PODER UTILIZAR PUT DELETE ETC..
+app.use(methodOverride('_method'));
+
+// PAGINA INDEX
+app.use('/', indexRoute);
+app.get('/create', (req,res) => {
+    res.render('./products/create')
 })
 
-app.get('/base', function(req,res){
-    res.sendFile(path.resolve(__dirname,'./views/base.html'))
-})
+
 
 app.get('/login', function(req,res){
     res.sendFile(path.resolve(__dirname,'./views/login.html'))
@@ -44,14 +62,10 @@ app.get('/productCart', function(req,res){
     res.sendFile(path.resolve(__dirname,'./views/productCart.html'))
 })
 
-app.get('/contact', function(req,res){
-    res.sendFile(path.resolve(__dirname,'./views/contact.html'))
-})
+// CUALQUIER DIRECCION QUE NO EXISTA NOS DIRIGE A LA PAGINA DE NOT FOUND.
+app.use((req,res,next) => {res.status(404).render('notFound')});
 
-app.get('*', function(req,res){
-    res.sendFile(path.resolve(__dirname,'./views/404.html'))
-})
-
-app.listen(3000, function(){
-    console.log('listening on http://localhost:3000');
+//SERVIDOR LEVANTADO EN LA VARIABLE PORT
+app.listen(PORT, function(){
+    console.log(`listening on http://localhost:${PORT}`);
 })

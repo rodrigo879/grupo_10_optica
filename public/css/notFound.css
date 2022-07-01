@@ -1,0 +1,26 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    position: relative; 
+    text-align: center;
+}
+
+body img {
+    width: 85%;
+}
+
+body a {
+    position: absolute;
+    top:800px;
+    left: 38%;
+    background-color: black;
+    color: white;
+    font-size: 25px;
+    text-decoration: none;
+    max-height: 80%;
+}
+

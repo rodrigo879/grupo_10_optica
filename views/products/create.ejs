@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- HEAD -->
+    <%- include('../partials/head', {variant:'/css/register.css'}) %>
+  <body>
+    <!-- HEADER -->
+    <%- include('../partials/header') %>
+
+    <main>
+      <!-- ----------------AGREGAR CODIGO NUEVO---------------- -->
+      <form class="form" action="/" method="get">
+        <div class="ruta-login">
+          <a href="/">Inicio</a>/<p>Crear Producto</p>
+        </div>
+        <!-- <h2 class="form_title">Optica Riff</h2>  -->
+        <div class="form_conteiner">
+          <div class="form_group">
+            <input required type="text" class="form_input" id="nameProduct" name="nameProduct" placeholder=" "/> 
+            <label for="nameProduct" class="form_label">Nombre del Producto:</label>
+          </div>
+          <div class="form_group">
+            <textarea required style="vertical-align: bottom; resize: none;" class="form_input" id="descriptionProduct" name="descriptionProduct" placeholder=" "></textarea>
+            <label for="descriptionProduct" class="form_label">Descripción:</label>
+          </div>
+          <div class="form_group">
+            <input required accept="png, jpeg, jpg" type="file" class="form_input" id="imageProduct" name="imageProduct" placeholder=" "/> 
+            <label for="imageProduct" class="form_label">Nombre del Producto:</label>
+          </div>
+          <div class="form_group">
+            <select name="categoryProduct" id="categoryProduct" class="form_input">
+              <option>ANTEOJOS PARA SOL</option>
+              <option>ANTEOJOS RECETADOS</option>
+              <option>LENTES DE CONTACTO</option>
+              <option>ACCESORIOS</option>
+            </select>
+            <label for="categoryProduct" class="form_label">Categoria:</label>
+          </div>
+          <div class="form_group">
+            <input required type="text" class="form_input" id="trademarkProduct" name="trademarkProduct" placeholder=" "/> 
+            <label for="trademarkProduct" class="form_label">Marca:</label>
+          </div>
+          <div class="form_group">
+            <input required type="number" class="form_input" id="priceProduct" name="priceProduct" placeholder=" "/> 
+            <label for="trademarkProduct" class="form_label">Precio:</label>
+          </div>
+          <div>
+            <input type="submit" class="form_submit" value="ACEPTAR" />
+          </div>
+        </div>
+      </form>
+    </main>
+
+    <!-- FOOTER -->
+    <%- include('../partials/footer') %>
+  </body>
+<script src="/js/function.js"></script>
+</html>
