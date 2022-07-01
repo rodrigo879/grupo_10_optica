@@ -4,7 +4,7 @@ let indexController = {
     },
     contact: (req, res) => {
         res.render('contact');
-    }
+    }  
 }
 
 module.exports = indexController;

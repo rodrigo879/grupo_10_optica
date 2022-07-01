@@ -6,6 +6,7 @@ const app = express();
 
 //ARCHIVOS REQUERIDOS DEL PROYECTO
 const indexRoute = require('./routes/indexRoute');
+const usersRoute = require('./routes/usersRoute');
 
 const PORT = process.env.PORT || 3000;
 const HOST = process.env.HOST || 'localhost';
@@ -28,7 +29,7 @@ app.get('/create', (req,res) => {
     res.render('./products/create')
 })
 
-
+app.use('/users', usersRoute);
 
 app.get('/login', function(req,res){
     res.sendFile(path.resolve(__dirname,'./views/login.html'))

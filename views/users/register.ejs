@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/head', {variant: '/css/register.css'})%>
+  <body>
+    <%- include('../partials/header')%>
+    <main>
+      <!-- ----------------AGREGAR CODIGO NUEVO---------------- -->
+      <form class="form" action="/" method="get">
+        <div class="ruta-login">
+          <a href="/">Inicio</a>/<p>Crear cuenta</p>
+        </div>
+        <!-- <h2 class="form_title">Optica Riff</h2>  -->
+        <div class="form_conteiner">
+          <div class="form_group">
+            <input required type="text" id="name" class="form_input" placeholder=" " /> 
+            <label for="name" class="form_label">Nombre y apellido:</label>
+          </div>
+          <div class="form_group">
+            <input required type="text" id="user" class="form_input" placeholder=" " />
+            <label for="user" class="form_label">Usuario:</label>
+          </div>
+          <div class="form_group">
+            <input required type="email" id="email" class="form_input" placeholder=" " />
+            <label for="email" class="form_label">Email:</label>
+          </div>
+          <div class="form_group">
+            <input required type="password" id="password" class="form_input" placeholder=" "/>
+            <label for="password" class="form_label">Contraseña:</label>
+            <div class="checkboxPass">
+              <input type="checkbox" id="checkPassword" onclick="mostrarPassword()">
+              <label for="checkPassword">
+                  <i class="fa-solid fa-eye-slash" id="eyeSlash"></i>
+                  <i class="fa-solid fa-eye" id="eye"></i>
+              </label>
+            </div>
+          </div>
+          <div class="form_group">
+            <input required type="password" id="confirmPassword" class="form_input" placeholder=" "/>
+            <label for="confirmPassword" class="form_label">Confirmar contraseña:</label>
+            <div class="checkboxPassConfirm">
+              <input type="checkbox" id="checkPasswordConfirm" onclick="mostrarConfirmPassword()">
+              <label for="checkPasswordConfirm">
+                <i class="fa-solid fa-eye-slash" id="eyeSlashConfirm"></i>
+                <i class="fa-solid fa-eye" id="eyeConfirm"></i>
+              </label>
+            </div>
+          </div>
+          <div>
+            <input type="submit" class="form_submit" value="Entrar" />
+          </div>
+                <p class="main-paragraph-first">
+                  ¿Ya tenés una cuenta?
+                  <a href="/login" class="form-link">Iniciá sesión</a>
+                </p>
+        </div>
+      </form>
+    </main>
+    <%- include('../partials/footer')%> 
+  </body>
+<script src="/js/function.js"></script>
+</html>
+
