@@ -8,7 +8,7 @@
 
     <main>
       <!-- ----------------AGREGAR CODIGO NUEVO---------------- -->
-      <form class="form" action="/" method="get">
+      <form class="form" action="/create" method="post">
         <div class="ruta-login">
           <a href="/">Inicio</a>/<p>Crear Producto</p>
         </div>
@@ -19,7 +19,7 @@
             <label for="nameProduct" class="form_label">Nombre del Producto:</label>
           </div>
           <div class="form_group">
-            <textarea required class="form_input form_textArea" id="descriptionProduct" rows="1" name="descriptionProduct" placeholder=" "></textarea>
+            <textarea class="form_input form_textArea" id="descriptionProduct" rows="1" name="descriptionProduct" placeholder=" "></textarea>
             <label for="descriptionProduct" class="form_label">Descripción:</label>
           </div>
           <div class="form_group">
@@ -46,7 +46,7 @@
             <label for="trademarkProduct" class="form_label">Marca:</label>
           </div>
           <div class="form_group">
-            <input required type="number" class="form_input" id="priceProduct" name="priceProduct" placeholder=" "/> 
+            <input required step="0.01" type="number" class="form_input" id="priceProduct" name="priceProduct" placeholder=" "/> 
             <label for="trademarkProduct" class="form_label">Precio:</label>
           </div>
           <div>

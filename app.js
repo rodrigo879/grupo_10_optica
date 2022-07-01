@@ -5,7 +5,7 @@ const path = require('path')
 const app = express();
 
 //ARCHIVOS REQUERIDOS DEL PROYECTO
-const indexRoute = require('./routes/indexRoute');
+const mainRoute = require('./routes/mainRoute');
 const usersRoute = require('./routes/usersRoute');
 
 const PORT = process.env.PORT || 3000;
@@ -20,24 +20,16 @@ app.use(express.static(path.resolve(__dirname,'./public')));
 //PARA PODER CAPTURAR LA INFORMACION QUE VIENEN DE LOS FORMULARIOS
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
+
 //PARA PODER UTILIZAR PUT DELETE ETC..
 app.use(methodOverride('_method'));
 
-// PAGINA INDEX
-app.use('/', indexRoute);
-app.get('/create', (req,res) => {
-    res.render('./products/create')
-})
+// PAGINAS MAIN
+app.use('/', mainRoute);
 
+// PAGINAS USERS
 app.use('/users', usersRoute);
 
-app.get('/login', function(req,res){
-    res.sendFile(path.resolve(__dirname,'./views/login.html'))
-})
-
-app.get('/register', function(req,res){
-    res.sendFile(path.resolve(__dirname,'./views/register.html'))
-})
 
 app.get('/product', function(req,res){
     res.sendFile(path.resolve(__dirname,'./views/product.html'))

@@ -12,6 +12,8 @@
             <p><a href="/users/register">Crear Cuenta</a>|<a href="/users/login">Iniciar Sesion</a></p>
             <a href="#"><i class='fa-solid fa-magnifying-glass'></i></a>
             <a href="/productCart"><i class="fa-solid fa-cart-shopping"></i></a>
+            <!-- Hacer visible solo para administrador -->
+            <a href="/create"><i class="fa-solid fa-box-archive"></i></a>            
         </div>
     </div>    
     <nav class="main-navbar" id="mainNavbar">
@@ -31,7 +33,7 @@
                     <div class="div-form-buscar-productos">
                         <label>
                             <input name="buscar-productos" class="buscar-productos" value="" type="text" placeholder="Buscar productos..">
-                            <a href="#"><i class='fa-solid fa-magnifying-glass'></i></a>
+                            <button type="submit" class="form-submit"><i class='fa-solid fa-magnifying-glass'></i></a></button>
                         </label>
                     </div>
                 </form>

@@ -1,3 +1,5 @@
+const fs = require('fs');
+
 const imageCarrousel = [
     {
         src: 'carrousel-1-movile.jpg',
@@ -140,14 +142,44 @@ const product = [
     }
 ]
 
-let indexController = {
+let mainController = {
     index: (req, res) => {
         res.render('index', {imageCarrousel, product});
     },
     contact: (req, res) => {
         res.render('contact');
-    }  
+    },
+    showForm: (req, res) => {
+        res.render('./products/create')
+    },
+    create: (req, res) => {
+        let productsCreate = {
+            nameProduct: req.body.nameProduct,
+            descriptionProduct: req.body.descriptionProduct,
+            imageProduct: req.body.imageProduct,
+            categoryProduct: req.body.categoryProduct,
+            trademarkProduct: req.body.trademarkProduct,
+            priceProduct: req.body.priceProduct,
+        }
+
+            let archivoProducts = fs.readFileSync('./database/products.json', {encoding: 'utf-8'})
+            let products;
+            
+            if(archivoProducts == ""){
+                products = [];
+            } else {
+                products = JSON.parse(archivoProducts);
+            }
+            
+            products.push(productsCreate);
+
+            productsJSON = JSON.stringify(products);
+            
+            fs.writeFileSync('./database/products.json', productsJSON);
+
+            res.render('./products/create');
+    },  
 }
 
-module.exports = indexController;
+module.exports = mainController;
 
