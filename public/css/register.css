@@ -183,6 +183,41 @@
     outline: none;
     border-bottom: 1px solid var(--color);
   }
+
+  /* PARA PODER REUTILIZAR EL ARCHIVO CSS EN EL FORMULARIO DE CREAR PRODUCTO */
+  /* ---------------------------------- */
+  .form_textArea {
+    resize: none;
+    vertical-align: middle;
+    margin-top: 5px;
+  }
+
+  .form_input_file {
+    display: none;
+  }
+
+  .form_imageFile {
+    display: flex;
+    width: 50%;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    background-color: #39606f;
+    color: #dcdcdc;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+
+  .form_imageFile i {
+    padding: 5px;
+  }
+
+  .form_select {
+    margin-top: 5px;
+  }
+
+  /* ---------------------------------- */
   
   .form_input:not(:placeholder-shown) ~ .form_line {
     color: #4d4646;
