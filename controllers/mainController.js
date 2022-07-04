@@ -140,7 +140,55 @@ const product = [
         discount: '18% OFF',
         title: 'Lente Recetado 6'
     }
-]
+];
+
+const accesorios =
+    {
+        ruta: 'Accesorios',
+        src: 'accesorios/accesorios',
+        extension: '.jpg',
+        alt: 'Accesorio ',
+        price: '$6.770',
+        priceDisc: '$4.062',
+        discount: '40% OFF',
+        title: 'Accesorio '
+    };
+
+const lentesSol =
+    {
+        ruta: 'Lentes de Sol',
+        src: 'lentesSol/lentesSol',
+        extension: '.jpg',
+        alt: 'Lente Sol ',
+        price: '$6.770',
+        priceDisc: '$4.062',
+        discount: '40% OFF',
+        title: 'Lente Sol '
+    };
+
+const lentesRecetado =
+    {
+        ruta: 'Lentes Recetados',
+        src: 'lentesRecetados/lentesRecetados',
+        extension: '.jpg',
+        alt: 'Lente Recetado ',
+        price: '$6.770',
+        priceDisc: '$4.062',
+        discount: '40% OFF',
+        title: 'Lente Recetado '
+    };
+
+const lentesContacto =
+    {
+        ruta: 'Lentes de Contacto',
+        src: 'lentesContacto/lentesContacto',
+        extension: '.jpg',
+        alt: 'Lente Contacto ',
+        price: '$6.770',
+        priceDisc: '$4.062',
+        discount: '40% OFF',
+        title: 'Lente Contacto '
+    };
 
 let mainController = {
     index: (req, res) => {
@@ -178,7 +226,20 @@ let mainController = {
             fs.writeFileSync('./database/products.json', productsJSON);
 
             res.render('./products/create');
-    },  
+    },
+    accesorios: (req, res) => {
+        res.render('./products/listProducts', {products: accesorios})
+    },
+    lentesSol: (req, res) => {
+        res.render('./products/listProducts', {products: lentesSol})
+    },
+    lentesRecetado: (req, res) => {
+        res.render('./products/listProducts', {products: lentesRecetado})
+    },
+    lentesContacto: (req, res) => {
+        res.render('./products/listProducts', {products: lentesContacto})
+    }
+
 }
 
 module.exports = mainController;

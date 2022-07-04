@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- HEAD -->
+    <%- include('../partials/head', {variant:'/css/listProducts.css'}) %>
+<body>
+    <!-- HEADER -->
+    <%- include('../partials/header') %>
+    <main>
+        <div class="ruta-login">
+            <a href="/">Inicio</a>/<p><%- products.ruta %></p>
+        </div>
+        <div class="menu-desplegable">
+            <form>
+                <label for="ordenar">Ordenar por:</label>
+                <select name="ordenar">
+                    <option value="">Novedades</option>
+                    <option value="">Menor Precio</option>
+                    <option value="">Mayor Precio</option>
+                </select>
+            </form>
+        </div>
+        <section>
+            <div class="main-section-div">
+                <% for(let i = 0; i < 12; i++) { %>
+                    <!-- accesorios/accesorios1.jpg -->
+                    <article class="main-section-product">
+                        <a href="/product">
+                            <div class="main-section-img">
+                                <img src="/images/productos/<%- products.src + [i+1] + products.extension %>" alt="<%- products.alt + [i+1] %>">
+                            </div>
+                        </a>
+                        <div class="main-section-info">
+                            <div class="informacion-precio-descuento">
+                                <i class="fa-solid fa-truck"></i>
+                                <p class="precio-producto"><%- products.price %></p>
+                                <p class="precio-con-descuento"><%- products.priceDisc %></p>
+                                <p class="descuento-producto"><%- products.discount %></p>
+                            </div>
+                            <div class="section-h3">
+                                <h3><%- products.title + [i+1] %></h3>
+                            </div>
+                        </div>
+                    </article>
+
+                <% } %>
+            </div>
+        </section>
+    </main>
+    <%- include('../partials/footer') %>
+</body>
+<script src="/js/function.js"></script>
+</html>

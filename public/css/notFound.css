@@ -10,13 +10,20 @@ body {
 }
 
 body img {
-    width: 85%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.container-btn {
+    position: absolute;
+    top: 1000px;
+    left: 40%;
+    z-index: 10;
 }
 
 body a {
-    position: absolute;
-    top:800px;
-    left: 38%;
     background-color: black;
     color: white;
     font-size: 25px;
