@@ -17,7 +17,13 @@
 
             <div class ="produto-principal"> 
                 <div class = "imagen-producto">
-                    <img src="/images/productos/lentesSol/lentesSol20.jpg" alt="Lentes de Sol 1">
+                    <% for (let i=0; i<products.length ; i++ )   {%>
+                        <% if (idParam == products[i].id) { %>
+                            <img src="/images/productos/ <%= products[i].src + products[i].id + products[i].extension %>  " alt="Lentes de Sol 1">
+                            <div>  <%= products[i].src + products[i].id + products[i].extension %></div>
+                        <%  } %> 
+
+                    <%  } %>
                 </div>
                 <div class="info-producto-principal">
                     <div class="info-producto">
