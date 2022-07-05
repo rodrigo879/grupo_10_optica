@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- HEAD -->
+    <%- include('../partials/head', {variant:'/css/product.css'}) %>
+<body>
+    <!-- HEADER -->
+    <%- include('../partials/header') %>
+ 
+    <main>
+        <section>
+            <!-- <div class="ubicacion">
+                <h4> Inicio / Anteojos Para Sol</h4>
+            </div> -->
+            <div class="ruta-login">
+                <a href="/">Inicio</a>/<a href="/anteojosSol">Anteojos Para Sol</a>/<p>Anteojos Sol 1</p>
+            </div>
+
+            <div class ="produto-principal"> 
+                <div class = "imagen-producto">
+                    <img src="/images/productos/lentesSol/lentesSol20.jpg" alt="Lentes de Sol 1">
+                </div>
+                <div class="info-producto-principal">
+                    <div class="info-producto">
+                        <h2 class = "nombre-producto"> Lentes de Sol 1 </h2>
+                        <h2 class="precio-producto"> $4.000  </h2>
+                    </div>
+
+                    <div class= "separador">
+                        <div class= "cuotas"> 
+                            <p> 6 CUOTAS SIN INTERÉS DE </p> <b> $666,66</b> 
+                        </div>
+                        <a class = "medios-de-pago" href="views/medios-de-pago"> VER MEDIOS DE PAGO</a>
+                    </div>
+
+                    <div class="cantidad">
+                        <p> CANTIDAD</p>
+                        <form class="formulario"action="/carrito" method="POST">
+                            <input type="number" name="cantidad" min="0" value="1">
+                        </form>
+                        </div>
+                            <div class ="contenedor-compra"> 
+                                <button class="boton-carrito"> <span> AGREGAR AL CARRITO <span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="otros-productos"> Otros Productos </h2>
+            <div class="main-section-div">
+                <article class="main-section-product">
+                    <div class="main-section-img">
+                        <img src="/images/productos/lentesRecetados/lentesRecetados1.jpg" alt="Lentes Recetado 1">
+                    </div>
+                    <div class="main-section-info">
+                        <div class="informacion-precio-descuento">
+                            <p class="precio-con-descuento">$4.062</p>
+                        </div>
+                        <div class="section-h3">
+                            <h3>Lentes Recetado 1</h3>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="main-section-product">
+                    <div class="main-section-img">
+                        <img src="/images/productos/lentesRecetados/lentesRecetados2.jpg" alt="Lentes Recetado 2">
+                    </div>
+                    <div class="main-section-info">
+                        <div class="informacion-precio-descuento">
+                            <p class="precio-con-descuento">$8.200</p>
+                        </div>
+                        <div class="section-h3">
+                            <h3>Lentes Recetado 2</h3>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="main-section-product">
+                    <div class="main-section-img">
+                        <img src="/images/productos/lentesSol/lentesSol2.jpg" alt="Lentes Sol 2">
+                    </div>
+                    <div class="main-section-info">
+                        <div class="informacion-precio-descuento">
+                            <p class="precio-con-descuento">$21.175</p>
+                        </div>
+                        <div class="section-h3">                       
+                            <h3><p> Lentes Sol 2</p><h3>
+                        </div>
+                    </div>
+                </article>
+        </section>
+        
+        <section> 
+            <div class="ver-mas">
+                <a class="link-home" href="/">Ver más</a>
+            </div>
+        </section>
+    </main>
+    
+    <!-- FOOTER -->
+    <%- include('../partials/footer') %>
+</body>
+<script src="/js/function.js"></script>
+</html>

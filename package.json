@@ -25,6 +25,6 @@
   },
   "homepage": "https://github.com/rodrigo879/grupo_10_optica#readme",
   "devDependencies": {
-    "nodemon": "^2.0.16"
+    "nodemon": "^1.3.3"
   }
 }

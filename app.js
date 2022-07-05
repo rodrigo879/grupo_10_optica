@@ -7,6 +7,7 @@ const app = express();
 //ARCHIVOS REQUERIDOS DEL PROYECTO
 const mainRoute = require('./routes/mainRoute');
 const usersRoute = require('./routes/usersRoute');
+const productRoute= require('./routes/productRoute');
 
 const PORT = process.env.PORT || 3000;
 const HOST = process.env.HOST || 'localhost';
@@ -30,10 +31,8 @@ app.use('/', mainRoute);
 // PAGINAS USERS
 app.use('/users', usersRoute);
 
-
-app.get('/product', function(req,res){
-    res.sendFile(path.resolve(__dirname,'./views/product.html'))
-})
+//PAGINAS PRODUCT
+app.use ('/product', productRoute);
 
 app.get('/anteojosSol', function(req,res){
     res.sendFile(path.resolve(__dirname,'./views/anteojosSol.html'))
