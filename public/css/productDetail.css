@@ -162,9 +162,12 @@ main .nombre-producto{
     font-size: 3.5vw;
 }
 
-main .precio-producto{
-    padding-bottom:3px;
-    font-size: 3vw;
+main .precio-producto {
+    font-size: 14px;
+    font-weight: bold;
+    color: #8F8F8F;
+    text-decoration: line-through;
+    margin-left: 0.5vw;
 }
 
 main .separador {
@@ -297,12 +300,24 @@ section img {
     display: flex;
     align-items: center;
     width: 100%;
-    margin-left: 0.5em;
+    /* margin-left: 0.5em; */
 }
 
 section .precio-con-descuento {
     font-size: 12px;
     font-weight: bold;
+    margin-left: 0.5vw;
+}
+
+section .descuento-producto {
+    font-size: 16px;
+    font-weight: bold;
+    color: #FFFFFF;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #000000;
+    opacity: 0.6;
 }
 
 .section-h3 h3 {
@@ -406,11 +421,6 @@ footer h5 {
     height: 45vw;
 }
 
-.informacion-precio-descuento i{
-    top: 34vw;
-    left: 24vw;
-}
-
 @media (min-width: 768px)  {
 
     /*----------Vista Tablet----------*/
@@ -449,7 +459,6 @@ footer h5 {
     
     section .precio-con-descuento {
         font-size: 18px;
-        font-weight: bold;
     }
     
     .section-h3 h3 {
@@ -698,12 +707,6 @@ footer h5 {
         font-size: 2.5vw;
     }
     
-    main .precio-producto{
-        margin: 0px 0px 0px 1.2vw;
-        font-size: 2vw;
-        text-align: left;
-    }
-
     main .separador {
         margin: 0.5vw 0px 0px 1.5vw;
         align-items: center;
@@ -761,12 +764,11 @@ footer h5 {
         text-align: center;
         color: #000000;
     }
-
-    section .precio-con-descuento {
-        font-size: 25px;
-        font-weight: bold;
-    }
     
+    section .precio-con-descuento {
+        font-size: 22px;
+    }
+  
     .section-h3 h3 {
         text-align: left;
         display: block;

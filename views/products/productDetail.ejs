@@ -31,7 +31,7 @@
                     <div class= "separador">
                         <div class= "cuotas"> 
                             <p>6 CUOTAS SIN INTERÉS DE</p> 
-                            <b><%= "$" + (products[i].priceProduct / 6).toFixed(2) %></b> 
+                            <b><%= "$" + (products[i].priceDiscount / 6).toFixed(2) %></b> 
                         </div>
                             <% } %>
                         
@@ -65,10 +65,16 @@
                         </a>
                         <div class="main-section-info">
                             <div class="informacion-precio-descuento">
-                                <p class="precio-con-descuento"><%= "$" + products[pruebaResult].priceProduct %></p>
+                                <% if (products[pruebaResult].discount > 0) { %>
+                                    <p class="precio-producto"><%= "$" + products[pruebaResult].priceProduct %></p>
+                                    <p class="precio-con-descuento"><%= "$" + products[pruebaResult].priceDiscount %></p>
+                                    <p class="descuento-producto"><%= products[pruebaResult].discount + '% OFF' %></p>
+                                <% } else { %>
+                                    <p class="precio-con-descuento"><%= "$" + products[pruebaResult].priceDiscount %></p>
+                                <% } %> 
                             </div>
                             <div class="section-h3">
-                                <h3><%= "$" + products[pruebaResult].nameProduct %></h3>
+                                <h3><%= products[pruebaResult].nameProduct %></h3>
                             </div>
                         </div>                    
                     </article>

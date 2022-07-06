@@ -6,6 +6,8 @@
   "trademarkProduct": "EGO",
   "priceProduct": "4062",
   "image": "product-1657110953499.jpg",
+  "discount": 25,
+  "priceDiscount": 3046.5,
   "id": 1
  },
  {
@@ -15,6 +17,8 @@
   "trademarkProduct": "CX",
   "priceProduct": "6590",
   "image": "product-1657113824499.jpg",
+  "discount": 10,
+  "priceDiscount": 5931,
   "id": 2
  },
  {
@@ -24,6 +28,8 @@
   "trademarkProduct": "ANDREA",
   "priceProduct": "8295",
   "image": "product-1657113994191.jpg",
+  "discount": 30,
+  "priceDiscount": 5806.5,
   "id": 3
  },
  {
@@ -33,6 +39,8 @@
   "trademarkProduct": "AY NOT DEAD",
   "priceProduct": "18880",
   "image": "product-1657114413101.jpg",
+  "discount": 18,
+  "priceDiscount": 15481.6,
   "id": 4
  },
  {
@@ -42,6 +50,8 @@
   "trademarkProduct": "VULK",
   "priceProduct": "12400",
   "image": "product-1657114505674.jpg",
+  "discount": 25,
+  "priceDiscount": 9300,
   "id": 5
  },
  {
@@ -51,6 +61,8 @@
   "trademarkProduct": "VULK",
   "priceProduct": "12400",
   "image": "product-1657114667174.jpg",
+  "discount": 15,
+  "priceDiscount": 10540,
   "id": 6
  },
  {
@@ -60,6 +72,8 @@
   "trademarkProduct": "SATURDAY",
   "priceProduct": "9200",
   "image": "product-1657114884368.jpg",
+  "discount": 13,
+  "priceDiscount": 8004,
   "id": 7
  },
  {
@@ -69,6 +83,8 @@
   "trademarkProduct": "PUCCINI",
   "priceProduct": "11750",
   "image": "product-1657116325181.jpg",
+  "discount": 13,
+  "priceDiscount": 10222.5,
   "id": 8
  },
  {
@@ -78,6 +94,8 @@
   "trademarkProduct": "ATLANTIS",
   "priceProduct": "15300",
   "image": "product-1657116674604.jpg",
+  "discount": 12,
+  "priceDiscount": 13464,
   "id": 9
  },
  {
@@ -87,6 +105,8 @@
   "trademarkProduct": "VULK",
   "priceProduct": "9500",
   "image": "product-1657118866152.jpg",
+  "discount": 22,
+  "priceDiscount": 7410,
   "id": 10
  },
  {
@@ -96,6 +116,8 @@
   "trademarkProduct": "CIMA",
   "priceProduct": "18800",
   "image": "product-1657118975763.jpg",
+  "discount": 40,
+  "priceDiscount": 16920,
   "id": 11
  },
  {
@@ -105,6 +127,8 @@
   "trademarkProduct": "CIMA",
   "priceProduct": "23600",
   "image": "product-1657119011305.jpg",
+  "discount": 0,
+  "priceDiscount": 23600,
   "id": 12
  },
  {
@@ -114,6 +138,8 @@
   "trademarkProduct": "RUSTY",
   "priceProduct": "12647.25",
   "image": "product-1657122800642.jpg",
+  "discount": 0,
+  "priceDiscount": 12647.25,
   "id": 13
  },
  {
@@ -123,6 +149,8 @@
   "trademarkProduct": "UNION",
   "priceProduct": "13300",
   "image": "product-1657122832740.jpg",
+  "discount": 10,
+  "priceDiscount": 11970,
   "id": 14
  },
  {
@@ -132,6 +160,8 @@
   "trademarkProduct": "JORDAN",
   "priceProduct": "9900",
   "image": "product-1657122852749.jpg",
+  "discount": 47,
+  "priceDiscount": 5247,
   "id": 15
  },
  {
@@ -141,6 +171,8 @@
   "trademarkProduct": "VULK",
   "priceProduct": "9817.50",
   "image": "product-1657122875724.jpg",
+  "discount": 20,
+  "priceDiscount": 7854,
   "id": 16
  },
  {
@@ -150,6 +182,8 @@
   "trademarkProduct": "EGO",
   "priceProduct": "2938.95",
   "image": "product-1657122923380.jpg",
+  "discount": 0,
+  "priceDiscount": 2938.95,
   "id": 17
  },
  {
@@ -159,6 +193,8 @@
   "trademarkProduct": "SATURDAY",
   "priceProduct": "5145",
   "image": "product-1657122991860.jpg",
+  "discount": 11,
+  "priceDiscount": 4579.05,
   "id": 18
  },
  {
@@ -168,6 +204,8 @@
   "trademarkProduct": "JORDAN",
   "priceProduct": "9900",
   "image": "product-1657123010595.jpg",
+  "discount": 17,
+  "priceDiscount": 8217,
   "id": 19
  },
  {
@@ -177,6 +215,8 @@
   "trademarkProduct": "JORDAN",
   "priceProduct": "9900",
   "image": "product-1657123031700.jpg",
+  "discount": 15,
+  "priceDiscount": 8415,
   "id": 20
  },
  {
@@ -186,6 +226,8 @@
   "trademarkProduct": "EGO",
   "priceProduct": "10890",
   "image": "product-1657123166123.jpg",
+  "discount": 0,
+  "priceDiscount": 10890,
   "id": 21
  },
  {
@@ -195,6 +237,8 @@
   "trademarkProduct": "EGO",
   "priceProduct": "7900",
   "image": "product-1657123190635.jpg",
+  "discount": 10,
+  "priceDiscount": 7110,
   "id": 22
  },
  {
@@ -204,6 +248,8 @@
   "trademarkProduct": "VULK",
   "priceProduct": "10890",
   "image": "product-1657123217843.jpg",
+  "discount": 13,
+  "priceDiscount": 9474.3,
   "id": 23
  },
  {
@@ -213,6 +259,8 @@
   "trademarkProduct": "VIV",
   "priceProduct": "11900",
   "image": "product-1657123237649.jpg",
+  "discount": 0,
+  "priceDiscount": 11900,
   "id": 24
  },
  {
@@ -222,6 +270,8 @@
   "trademarkProduct": "ACUVUE",
   "priceProduct": "5600",
   "image": "product-1657123360394.jpg",
+  "discount": 0,
+  "priceDiscount": 5600,
   "id": 25
  },
  {
@@ -231,6 +281,8 @@
   "trademarkProduct": "ACUVUE",
   "priceProduct": "6380",
   "image": "product-1657123382762.jpg",
+  "discount": 0,
+  "priceDiscount": 6380,
   "id": 26
  },
  {
@@ -240,6 +292,8 @@
   "trademarkProduct": "ACUVUE",
   "priceProduct": "7100",
   "image": "product-1657123412825.jpg",
+  "discount": 0,
+  "priceDiscount": 7100,
   "id": 27
  },
  {
@@ -249,6 +303,8 @@
   "trademarkProduct": "ACUVUE",
   "priceProduct": "25500",
   "image": "product-1657123454770.jpg",
+  "discount": 20,
+  "priceDiscount": 20400,
   "id": 28
  },
  {
@@ -258,6 +314,8 @@
   "trademarkProduct": "ACUVUE",
   "priceProduct": "12000",
   "image": "product-1657123507126.jpg",
+  "discount": 0,
+  "priceDiscount": 12000,
   "id": 29
  },
  {
@@ -267,6 +325,8 @@
   "trademarkProduct": "ACUVUE",
   "priceProduct": "12800",
   "image": "product-1657123540449.jpg",
+  "discount": 0,
+  "priceDiscount": 12800,
   "id": 30
  },
  {
@@ -276,6 +336,8 @@
   "trademarkProduct": "OPTIX",
   "priceProduct": "8100",
   "image": "product-1657123580759.jpg",
+  "discount": 0,
+  "priceDiscount": 8100,
   "id": 31
  },
  {
@@ -285,6 +347,8 @@
   "trademarkProduct": "FRESHLOOK",
   "priceProduct": "6600",
   "image": "product-1657123636656.jpg",
+  "discount": 0,
+  "priceDiscount": 6600,
   "id": 32
  },
  {
@@ -294,6 +358,8 @@
   "trademarkProduct": "PROCLEAR",
   "priceProduct": "14800",
   "image": "product-1657123661631.jpg",
+  "discount": 10,
+  "priceDiscount": 13320,
   "id": 33
  },
  {
@@ -303,6 +369,8 @@
   "trademarkProduct": "BIOFINITY",
   "priceProduct": "12400",
   "image": "product-1657123691271.jpg",
+  "discount": 0,
+  "priceDiscount": 12400,
   "id": 34
  },
  {
@@ -312,6 +380,8 @@
   "trademarkProduct": "BIOMEDICS",
   "priceProduct": "7800",
   "image": "product-1657123730784.jpg",
+  "discount": 0,
+  "priceDiscount": 7800,
   "id": 35
  },
  {
@@ -321,6 +391,8 @@
   "trademarkProduct": "SOFLENS",
   "priceProduct": "6300",
   "image": "product-1657123776217.jpg",
+  "discount": 0,
+  "priceDiscount": 6300,
   "id": 36
  },
  {
@@ -330,6 +402,8 @@
   "trademarkProduct": "HOLDER",
   "priceProduct": "485",
   "image": "product-1657124613263.jpg",
+  "discount": 0,
+  "priceDiscount": 485,
   "id": 37
  },
  {
@@ -339,6 +413,8 @@
   "trademarkProduct": "WOLF",
   "priceProduct": "590",
   "image": "product-1657124774168.jpg",
+  "discount": 0,
+  "priceDiscount": 590,
   "id": 38
  },
  {
@@ -348,6 +424,8 @@
   "trademarkProduct": "SKALA",
   "priceProduct": "320",
   "image": "product-1657124814908.jpg",
+  "discount": 0,
+  "priceDiscount": 320,
   "id": 39
  },
  {
@@ -357,6 +435,8 @@
   "trademarkProduct": "ARIANA",
   "priceProduct": "760",
   "image": "product-1657124861621.jpg",
+  "discount": 0,
+  "priceDiscount": 760,
   "id": 40
  },
  {
@@ -366,6 +446,8 @@
   "trademarkProduct": "PARAISO",
   "priceProduct": "1590",
   "image": "product-1657124901716.jpg",
+  "discount": 0,
+  "priceDiscount": 1590,
   "id": 41
  },
  {
@@ -375,6 +457,8 @@
   "trademarkProduct": "INFINIT",
   "priceProduct": "1500",
   "image": "product-1657124934143.jpg",
+  "discount": 0,
+  "priceDiscount": 1500,
   "id": 42
  },
  {
@@ -384,6 +468,8 @@
   "trademarkProduct": "KTI",
   "priceProduct": "1391",
   "image": "product-1657124971982.jpg",
+  "discount": 0,
+  "priceDiscount": 1391,
   "id": 43
  },
  {
@@ -391,8 +477,10 @@
   "descriptionProduct": "Accesorio",
   "categoryProduct": "accesorios",
   "trademarkProduct": "PARAISO",
-  "priceProduct": "4400",
+  "priceProduct": "440",
   "image": "product-1657125067400.jpg",
+  "discount": 0,
+  "priceDiscount": 440,
   "id": 44
  },
  {
@@ -402,6 +490,8 @@
   "trademarkProduct": "SKALA",
   "priceProduct": "405",
   "image": "product-1657125173130.jpg",
+  "discount": 0,
+  "priceDiscount": 405,
   "id": 45
  },
  {
@@ -411,6 +501,8 @@
   "trademarkProduct": "HOLDER",
   "priceProduct": "715",
   "image": "product-1657125207141.jpg",
+  "discount": 0,
+  "priceDiscount": 715,
   "id": 46
  },
  {
@@ -420,6 +512,8 @@
   "trademarkProduct": "ARIANA",
   "priceProduct": "760",
   "image": "product-1657125265591.jpg",
+  "discount": 0,
+  "priceDiscount": 760,
   "id": 47
  },
  {
@@ -429,6 +523,8 @@
   "trademarkProduct": "PARAISO",
   "priceProduct": "950",
   "image": "product-1657125305982.jpg",
+  "discount": 0,
+  "priceDiscount": 950,
   "id": 48
  }
 ]

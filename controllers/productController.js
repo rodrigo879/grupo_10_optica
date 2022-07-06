@@ -28,8 +28,8 @@ let productController= {
         if(req.file) {
             let productsCreate = req.body;
             productsCreate.image = req.file.filename;
+            productsCreate.priceDiscount = req.body.priceProduct * (100 - productsCreate.discount) / 100;
             productsId = productsModel.create(productsCreate);
-            console.log(req.file)
             res.render('./products/create');
         }
     },

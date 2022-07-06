@@ -32,9 +32,13 @@
                         <div class="main-section-info">
                             <div class="informacion-precio-descuento">
                                 <i class="fa-solid fa-truck"></i>
-                                <p class="precio-producto"><%= "$" + products[i].priceProduct %></p>
-                                <p class="precio-con-descuento"><%- products.priceDisc %></p>
-                                <p class="descuento-producto"><%- products.discount %></p>
+                                <% if (products[i].discount > 0) { %>
+                                    <p class="precio-producto"><%= "$" + products[i].priceProduct %></p>
+                                    <p class="precio-con-descuento"><%= "$" + products[i].priceDiscount %></p>
+                                    <p class="descuento-producto"><%= products[i].discount + '% OFF' %></p>
+                                <% } else { %>
+                                    <p class="precio-con-descuento"><%= "$" + products[i].priceDiscount %></p>
+                                <% } %> 
                             </div>
                             <div class="section-h3">
                                 <h3><%- products[i].nameProduct %></h3>

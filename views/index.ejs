@@ -126,9 +126,9 @@
                         <div class="main-section-info">
                             <div class="informacion-precio-descuento">
                                 <i class="fa-solid fa-truck"></i>
-                                <p class="precio-producto"><%= "$" + products[pruebaResult].priceProduct %></p>
-                                <p class="precio-con-descuento"><%= '$4800' %></p>
-                                <p class="descuento-producto"><%= '40% OFF' %></p>
+                                    <p class="precio-producto"><%= "$" + products[pruebaResult].priceProduct %></p>
+                                    <p class="precio-con-descuento"><%= "$" + products[pruebaResult].priceDiscount %></p>
+                                    <p class="descuento-producto"><%= products[pruebaResult].discount + '% OFF' %></p>
                             </div>
                             <div class="section-h3">
                                 <h3><%= products[pruebaResult].nameProduct %></h3>

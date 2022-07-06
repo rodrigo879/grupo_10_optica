@@ -45,14 +45,16 @@ const imageCarrousel = [
     },
 ];
 
-function ramdonResult() {
+function ramdonResult(products) {
     let result = [];
     let i = 0;
     do {
-        let ramdomI = Math.floor(Math.random() * 36)
-        if(result.find(element => element == ramdomI) == undefined) {
-            result.push(ramdomI)
-            i = i + 1;
+        let ramdomI = Math.floor(Math.random() * 48)
+        if(products[ramdomI].discount > 0) {
+            if(result.find(element => element == ramdomI) == undefined) {
+                result.push(ramdomI)
+                i = i + 1;
+            }
         }
     } while (i < 12);
     return result
@@ -61,7 +63,8 @@ function ramdonResult() {
 let mainController = {
     index: (req, res) => {
         let products = productsModel.readFile();
-        res.render('index', {imageCarrousel, products, result : ramdonResult()});
+        let result = ramdonResult(products);
+        res.render('index', {imageCarrousel, products, result});
     },
     contact: (req, res) => {
         res.render('contact');
