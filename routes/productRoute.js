@@ -35,4 +35,7 @@ router.get('/anteojosSol', productController.lentesSol);
 router.get('/anteojosLentesContacto', productController.lentesContacto);
 router.get('/accesorios', productController.accesorios);
 
+// ProductCart
+router.get('/productCart', productController.productCart);
+
 module.exports= router;

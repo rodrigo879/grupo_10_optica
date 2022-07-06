@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<!-- <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,12 +10,13 @@
     <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400;700&family=Libre+Baskerville:wght@400;700&family=Lora:wght@400;700&family=Source+Sans+Pro:wght@300;400;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a281ea592b.js" crossorigin="anonymous"></script>
     <link rel="shortcut icon" href="/images/logos/favicon.jpg">
-</head>
+</head> -->
+    <%- include('../partials/head', {variant:'/css/productCart.css'}) %>
 <body>
-    <header>
+    <!-- <header>
         <div class="main-header">
             <div class="main-hamburguer">
-                <!--El boton Hamburguesa, que despliega el menu de opciones en la vista movile/tablets-->
+                El boton Hamburguesa, que despliega el menu de opciones en la vista movile/tablets
                 <a class="hamburguer-buttom" id="btn_hamburguer" onclick="desplegarMenu()"><i class="fa-solid fa-bars"></i></a>
                 <p>Menú</p>
             </div>
@@ -30,7 +31,7 @@
         </div>    
         <nav class="main-navbar" id="mainNavbar">
             <ul class="navbar">
-                <!--Aca ya estan creados algunos de los links que vamos a poner, hay que ver bien los nombre y ponerlos-->
+                Aca ya estan creados algunos de los links que vamos a poner, hay que ver bien los nombre y ponerlos
                 <li class="li-hover btn"><button class="btn-cerrar" onclick="desplegarMenu()" type="button">X</button></li>
                 <li class="li-hover"><a href="/">Inicio</a></li>
                 <li class="li-hover"><a href="/#ofertas">Ofertas</a></li>
@@ -52,7 +53,8 @@
                 </li>
             </ul>
         </nav>
-    </header>
+    </header> -->
+    <%- include('../partials/header') %>
     <main>
         <div class="container">
             <div class="ruta-cart">
@@ -61,7 +63,7 @@
             <section>
                 <div class="productos">
                     <div class="container-imagenes">
-                        <img src="/images/productos/lentesRecetados/lentesRecetados1.jpg">
+                        <img src="/images/productos/lentesRecetados/product-1657110953499.jpg">
                     </div>
                     <div class="container-info">
                         <div class="info-top">
@@ -81,7 +83,7 @@
                     </div>
                 </div>
                 <div class="productos">
-                    <div class="container-imagenes"><img src="/images/productos/lentesSol/lentesSol11.jpg"></div>
+                    <div class="container-imagenes"><img src="/images/productos/lentesSol/product-1657122832740.jpg"></div>
                     <div class="container-info">
                         <div class="info-top">
                             <p>Lentes Sol 11</p>
@@ -100,7 +102,7 @@
                     </div>
                 </div>
                 <div class="productos">
-                    <div class="container-imagenes"><img src="/images/productos/accesorios/accesorios15.jpg"></div>
+                    <div class="container-imagenes"><img src="/images/productos/accesorios/product-1657125067400.jpg"></div>
                     <div class="container-info">
                         <div class="info-top">
                             <p>Accesorio 15</p>
@@ -155,7 +157,7 @@
             </div>    
         </div>
     </main>
-    <footer>
+    <!-- <footer>
         <div class="main-footer">
             <div class="footer-navegacion">
                 <h4>NAVEGACION</h4>
@@ -188,7 +190,9 @@
         <div class="copyright">
             <h5>Copyright © 1999-2020 Optica RIFF S.R.L.</h5>
         </div>
-    </footer> 
+    </footer> -->
+    <%- include('../partials/footer') %>
+
 </body>
 <script src="/js/function.js"></script>
 </html>

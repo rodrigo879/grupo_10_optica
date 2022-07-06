@@ -48,6 +48,9 @@ let productController= {
     lentesContacto: (req, res) => {
         let products = productsModel.readFile().filter(element => element.categoryProduct == 'lentesContacto')
         res.render('./products/listProducts', {products})
+    },
+    productCart: (req, res) => {
+        res.render('./products/productCart');
     }
 }
 

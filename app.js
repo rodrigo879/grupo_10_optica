@@ -34,11 +34,6 @@ app.use('/users', usersRoute);
 //PAGINAS PRODUCT
 app.use ('/products', productRoute);
 
-// PAGINA PRODUCT CART
-app.get('/productCart', function(req,res){
-    res.sendFile(path.resolve(__dirname,'./views/productCart.html'))
-})
-
 // CUALQUIER DIRECCION QUE NO EXISTA NOS DIRIGE A LA PAGINA DE NOT FOUND.
 app.use((req,res,next) => {res.status(404).render('notFound')});
 
