@@ -66,7 +66,7 @@
                         <div class="main-section-info">
                             <div class="informacion-precio-descuento">
                                 <% if (products[pruebaResult].discount > 0) { %>
-                                    <p class="precio-producto"><%= "$" + products[pruebaResult].priceProduct %></p>
+                                    <p class="precio-producto-tachado"><%= "$" + products[pruebaResult].priceProduct %></p>
                                     <p class="precio-con-descuento"><%= "$" + products[pruebaResult].priceDiscount %></p>
                                     <p class="descuento-producto"><%= products[pruebaResult].discount + '% OFF' %></p>
                                 <% } else { %>

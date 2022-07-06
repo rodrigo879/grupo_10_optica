@@ -162,7 +162,7 @@ main .nombre-producto{
     font-size: 3.5vw;
 }
 
-main .precio-producto {
+main .precio-producto-tachado {
     font-size: 14px;
     font-weight: bold;
     color: #8F8F8F;
