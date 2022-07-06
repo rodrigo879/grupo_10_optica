@@ -34,22 +34,7 @@ app.use('/users', usersRoute);
 //PAGINAS PRODUCT
 app.use ('/product', productRoute);
 
-app.get('/anteojosSol', function(req,res){
-    res.sendFile(path.resolve(__dirname,'./views/anteojosSol.html'))
-})
-
-app.get('/anteojosRecetados', function(req,res){
-    res.sendFile(path.resolve(__dirname,'./views/anteojosRecetados.html'))
-})
-
-app.get('/anteojosLentesContacto', function(req,res){
-    res.sendFile(path.resolve(__dirname,'./views/anteojosLentesContacto.html'))
-})
-
-app.get('/accesorios', function(req,res){
-    res.sendFile(path.resolve(__dirname,'./views/accesorios.html'))
-})
-
+// PAGINA PRODUCT CART
 app.get('/productCart', function(req,res){
     res.sendFile(path.resolve(__dirname,'./views/productCart.html'))
 })

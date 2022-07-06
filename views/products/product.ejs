@@ -12,53 +12,59 @@
                 <h4> Inicio / Anteojos Para Sol</h4>
             </div> -->
             <div class="ruta-login">
-                <a href="/">Inicio</a>/<a href="/anteojosSol">Anteojos Para Sol</a>/<p>Anteojos Sol 1</p>
+                <% for (let i= 0; i<products.length; i++) { %>
+                    <% if (idParam == products[i].id) { %>
+                <a href="/">Inicio</a>/<a href="#"> <%= products[i]. ruta %> </a>/<p> <%= products[i].title + products[i].id %> </p>
+                  <% } %>
+                <% } %>
             </div>
 
             <div class ="produto-principal"> 
                 <div class = "imagen-producto">
                     <% for (let i=0; i<products.length ; i++ )   {%>
                         <% if (idParam == products[i].id) { %>
-                            <img src="/images/productos/ <%= products[i].src + products[i].id + products[i].extension %>  " alt="Lentes de Sol 1">
-                            <div>  <%= products[i].src + products[i].id + products[i].extension %></div>
-                        <%  } %> 
-
-                    <%  } %>
-                </div>
-                <div class="info-producto-principal">
-                    <div class="info-producto">
-                        <h2 class = "nombre-producto"> Lentes de Sol 1 </h2>
-                        <h2 class="precio-producto"> $4.000  </h2>
-                    </div>
-
-                    <div class= "separador">
-                        <div class= "cuotas"> 
-                            <p> 6 CUOTAS SIN INTERÉS DE </p> <b> $666,66</b> 
+                            <img src="/images/productos/<%= products[i].src + products[i].id + products[i].extension %>" alt="<%= products[i].alt + products[i].id %>">
                         </div>
-                        <a class = "medios-de-pago" href="views/medios-de-pago"> VER MEDIOS DE PAGO</a>
-                    </div>
-
-                    <div class="cantidad">
-                        <p> CANTIDAD</p>
-                        <form class="formulario"action="/carrito" method="POST">
-                            <input type="number" name="cantidad" min="0" value="1">
-                        </form>
-                        </div>
+                        <div class="info-producto-principal">
+                            <div class="info-producto">
+                                <h2 class = "nombre-producto"> <%= products[i].title + products[i].id %> </h2>
+                                <h2 class="precio-producto"> <%= "$" + products[i].price %> </h2>
+                            </div>
+                            
+                            <div class= "separador">
+                                <div class= "cuotas"> 
+                                    <p> 6 CUOTAS SIN INTERÉS DE </p> <b> <%= "$" + (products[i].price /6).toFixed(2)  %> </b> 
+                                </div>
+                                <%  } %>
+                    
+                            <%  } %>
+                                <a class = "medios-de-pago" href="views/medios-de-pago"> VER MEDIOS DE PAGO</a>
+                            </div>
+                            
+                            <div class="cantidad">
+                                <p> CANTIDAD</p>
+                                <form class="formulario"action="/carrito" method="POST">
+                                    <input type="number" name="cantidad" min="0" value="1">
+                                </form>
+                            </div>
                             <div class ="contenedor-compra"> 
                                 <button class="boton-carrito"> <span> AGREGAR AL CARRITO <span></button>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <section>
+            </section>
+            
+            <section>
             <h2 class="otros-productos"> Otros Productos </h2>
             <div class="main-section-div">
+                <% for(let i = 0; i < 3; i++) { %>
+
                 <article class="main-section-product">
+                    
                     <div class="main-section-img">
-                        <img src="/images/productos/lentesRecetados/lentesRecetados1.jpg" alt="Lentes Recetado 1">
+                        <img src="/images/productos/<%= products[i].src + products[i].id + products[i].extension %>  " alt="<%= products[i].alt + products[i].id %>">
                     </div>
                     <div class="main-section-info">
                         <div class="informacion-precio-descuento">
@@ -67,36 +73,12 @@
                         <div class="section-h3">
                             <h3>Lentes Recetado 1</h3>
                         </div>
-                    </div>
+                    </div>                    
                 </article>
+                <% } %>
+            </div>
 
-                <article class="main-section-product">
-                    <div class="main-section-img">
-                        <img src="/images/productos/lentesRecetados/lentesRecetados2.jpg" alt="Lentes Recetado 2">
-                    </div>
-                    <div class="main-section-info">
-                        <div class="informacion-precio-descuento">
-                            <p class="precio-con-descuento">$8.200</p>
-                        </div>
-                        <div class="section-h3">
-                            <h3>Lentes Recetado 2</h3>
-                        </div>
-                    </div>
-                </article>
 
-                <article class="main-section-product">
-                    <div class="main-section-img">
-                        <img src="/images/productos/lentesSol/lentesSol2.jpg" alt="Lentes Sol 2">
-                    </div>
-                    <div class="main-section-info">
-                        <div class="informacion-precio-descuento">
-                            <p class="precio-con-descuento">$21.175</p>
-                        </div>
-                        <div class="section-h3">                       
-                            <h3><p> Lentes Sol 2</p><h3>
-                        </div>
-                    </div>
-                </article>
         </section>
         
         <section> 
