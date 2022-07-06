@@ -101,13 +101,13 @@
         <div class="secciones">
             <div class="contenedor-imagenes">
                 <div class="seccion-imagen">
-                    <a href="/anteojosSol"><img src="/images/banners/anteojos-para-sol.webp" alt="Imagen 1"></a>
+                    <a href="/products/anteojosSol"><img src="/images/banners/anteojos-para-sol.webp" alt="Imagen 1"></a>
                 </div>
                 <div class="seccion-imagen">
-                    <a href="/anteojosRecetados"><img src="/images/banners/anteojos-recetados.webp" alt="Imagen 2"></a>
+                    <a href="/products/anteojosRecetados"><img src="/images/banners/anteojos-recetados.webp" alt="Imagen 2"></a>
                 </div>
                 <div class="seccion-imagen">
-                    <a href="/anteojosLentesContacto"><img src="/images/banners/lentes-de-contacto.webp" alt="Imagen 3"></a>
+                    <a href="/products/anteojosLentesContacto"><img src="/images/banners/lentes-de-contacto.webp" alt="Imagen 3"></a>
                 </div>
             </div>
         </div>
@@ -115,22 +115,23 @@
         <section>
             <h2 id="ofertas">&#128293 Ofertas &#128293</h2>
             <div class="main-section-div">
-                <% for(let i = 0; i < product.length; i++) { %>
+                <% for(let i = 0; i < 12; i++) { %>
+                    <% let pruebaResult = result[i] %> 
                     <article class="main-section-product">
-                        <a href="/product">
+                        <a href="/products/product/<%- products[pruebaResult].id %> ">
                             <div class="main-section-img">
-                                <img src="/images/productos/<%= product[i].src %>" alt="<%= product[i].alt %>">
+                                <img src="/images/productos/<%= products[pruebaResult].categoryProduct + '/' + products[pruebaResult].image %>" alt="<%= products[pruebaResult].descriptionProduct + " " + products[pruebaResult].id %>">
                             </div>
                         </a>
                         <div class="main-section-info">
                             <div class="informacion-precio-descuento">
                                 <i class="fa-solid fa-truck"></i>
-                                <p class="precio-producto"><%= product[i].price %></p>
-                                <p class="precio-con-descuento"><%= product[i].priceDisc %></p>
-                                <p class="descuento-producto"><%= product[i].discount %></p>
+                                <p class="precio-producto"><%= "$" + products[pruebaResult].priceProduct %></p>
+                                <p class="precio-con-descuento"><%= '$4800' %></p>
+                                <p class="descuento-producto"><%= '40% OFF' %></p>
                             </div>
                             <div class="section-h3">
-                                <a href = "/product"> <h3> <%= product[i].title %></h3></a>
+                                <h3><%= products[pruebaResult].nameProduct %></h3>
                             </div>
                         </div>
                     </article>

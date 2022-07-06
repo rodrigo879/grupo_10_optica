@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- HEAD -->
+    <%- include('../partials/head', {variant:'/css/productDetail.css'}) %>
+<body>
+    <!-- HEADER -->
+    <%- include('../partials/header') %>
+ 
+    <main>
+        <section>
+            <div class="ruta-login">
+                <% for (let i = 0; i < products.length; i++) { %>
+                    <% if (idParam == products[i].id) { %>
+                        <a href="/">Inicio</a>/<a href="#"> <%= products[i].descriptionProduct %> </a>/<p> <%= products[i].nameProduct %> </p>
+                    <% } %>
+                <% } %>
+            </div>
+
+            <div class ="produto-principal"> 
+                <div class = "imagen-producto">
+                    <% for (let i = 0; i < products.length; i++) { %>
+                        <% if (idParam == products[i].id) { %>
+                            <img src="/images/productos/<%= products[i].categoryProduct + '/' + products[i].image %>" alt="<%= products[i].descriptionProduct + " " + products[i].id %>">
+                </div>
+                <div class="info-producto-principal">
+                    <div class="info-producto">
+                        <h2 class = "nombre-producto"> <%= products[i].nameProduct %> </h2>
+                        <h2 class="precio-producto"> <%= "$" + products[i].priceProduct %> </h2>
+                    </div>
+                            
+                    <div class= "separador">
+                        <div class= "cuotas"> 
+                            <p>6 CUOTAS SIN INTERÉS DE</p> 
+                            <b><%= "$" + (products[i].priceProduct / 6).toFixed(2) %></b> 
+                        </div>
+                            <% } %>
+                        
+                        <% } %>
+                        <a class = "medios-de-pago" href="views/medios-de-pago"> VER MEDIOS DE PAGO</a>
+                    </div>
+                            
+                    <div class="cantidad">
+                        <p> CANTIDAD</p>
+                        <form class="formulario"action="/carrito" method="POST">
+                            <input type="number" name="cantidad" min="0" value="1">
+                        </form>
+                    </div>
+                    <div class ="contenedor-compra"> 
+                        <button class="boton-carrito"> <span> AGREGAR AL CARRITO <span></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+            
+        <section>
+            <h2 class="otros-productos"> Otros Productos </h2>
+            <div class="main-section-div">
+                <% for(let i = 0; i < 3; i++) { %>
+                    <% let pruebaResult = result[i] %> 
+                    <article class="main-section-product">
+                        <a href="/products/product/<%- products[pruebaResult].id %>">
+                            <div class="main-section-img">
+                                <img src="/images/productos/<%= products[pruebaResult].categoryProduct + '/' + products[pruebaResult].image %>" alt="<%= products[pruebaResult].descriptionProduct + " " + products[pruebaResult].id %>">
+                            </div>
+                        </a>
+                        <div class="main-section-info">
+                            <div class="informacion-precio-descuento">
+                                <p class="precio-con-descuento"><%= "$" + products[pruebaResult].priceProduct %></p>
+                            </div>
+                            <div class="section-h3">
+                                <h3><%= "$" + products[pruebaResult].nameProduct %></h3>
+                            </div>
+                        </div>                    
+                    </article>
+                <% } %>
+            </div>
+        </section>
+        
+        <section> 
+            <div class="ver-mas">
+                <a class="link-home" href="/">Ver más</a>
+            </div>
+        </section>
+    </main>
+    
+    <!-- FOOTER -->
+    <%- include('../partials/footer') %>
+</body>
+<script src="/js/function.js"></script>
+</html>

@@ -1,91 +1,54 @@
+const jsonTable = require('../database/jsonTable');
 
-const products= [
-    {   
-        id: 1,
-        ruta: 'Lentes Recetados',
-        src: 'lentesRecetados/lentesRecetados',
-        extension: '.jpg',
-        alt: 'Lente Recetado ',
-        price: '6770',
-        priceDisc: '4.062',
-        discount: '40% OFF',
-        title: 'Lente Recetado '
-    },
-    {   
-        id: 2,
-        ruta: 'Lentes Recetados',
-        src: 'lentesRecetados/lentesRecetados',
-        extension: '.jpg',
-        alt: 'Lente Recetado ',
-        price: '6770',
-        priceDisc: '4.062',
-        discount: '40% OFF',
-        title: 'Lente Recetado '
-    },
-    {   
-        id: 3,
-        ruta: 'Lentes Recetados',
-        src: 'lentesRecetados/lentesRecetados',
-        extension: '.jpg',
-        alt: 'Lente Recetado ',
-        price: '6770',
-        priceDisc: '4.062',
-        discount: '40% OFF',
-        title: 'Lente Recetado '
-    },
-    {   
-        id: 4,
-        ruta: 'Lentes Recetados',
-        src: 'lentesRecetados/lentesRecetados',
-        extension: '.jpg',
-        alt: 'Lente Recetado ',
-        price: '6770',
-        priceDisc: '4.062',
-        discount: '40% OFF',
-        title: 'Lente Recetado '
-    },
-    {   
-        id: 5,
-        ruta: 'Lentes Recetados',
-        src: 'lentesRecetados/lentesRecetados',
-        extension: '.jpg',
-        alt: 'Lente Recetado ',
-        price: '6770',
-        priceDisc: '4.062',
-        discount: '40% OFF',
-        title: 'Lente Recetado '
-    },
-    {   
-        id: 6,
-        ruta: 'Lentes Recetados',
-        src: 'lentesRecetados/lentesRecetados',
-        extension: '.jpg',
-        alt: 'Lente Recetado ',
-        price: '6770',
-        priceDisc: '4.062',
-        discount: '40% OFF',
-        title: 'Lente Recetado '
-    },
-    {   
-        id: 7,
-        ruta: 'Lentes Recetados',
-        src: 'lentesRecetados/lentesRecetados',
-        extension: '.jpg',
-        alt: 'Lente Recetado ',
-        price: '5699',
-        priceDisc: '4.062',
-        discount: '40% OFF',
-        title: 'Lente Recetado '
-    },
-];
+const productsModel = jsonTable('products')
+
+function ramdonResult() {
+    let result = [];
+    let i = 0;
+    do {
+        let ramdomI = Math.floor(Math.random() * 36)
+        if(result.find(element => element == ramdomI) == undefined) {
+            result.push(ramdomI)
+            i = i + 1;
+        }
+    } while (i < 12);
+    return result
+}
 
 let productController= {
     product: (req,res) => {
         let idParam= req.params.id
-        res.render('./products/product' , {products,idParam});
+        let products = productsModel.readFile();
+        res.render('./products/productDetail' , {products, idParam, result: ramdonResult()});
     },
-    
-
+    showForm: (req, res) => {
+        res.render('./products/create')
+    },
+    create: (req, res) => {
+        if(req.file) {
+            let productsCreate = req.body;
+            productsCreate.image = req.file.filename;
+            productsId = productsModel.create(productsCreate);
+            console.log(req.file)
+            res.render('./products/create');
+        }
+    },
+    accesorios: (req, res) => {
+        let products = productsModel.readFile().filter(element => element.categoryProduct == 'accesorios')
+        res.render('./products/listProducts', {products})
+    },
+    lentesSol: (req, res) => {
+        let products = productsModel.readFile().filter(element => element.categoryProduct == 'lentesSol')
+        res.render('./products/listProducts', {products})
+    },
+    lentesRecetado: (req, res) => {
+        let products = productsModel.readFile().filter(element => element.categoryProduct == 'lentesRecetados')
+        res.render('./products/listProducts', {products})
+    },
+    lentesContacto: (req, res) => {
+        let products = productsModel.readFile().filter(element => element.categoryProduct == 'lentesContacto')
+        res.render('./products/listProducts', {products})
+    }
 }
 
 module.exports= productController;

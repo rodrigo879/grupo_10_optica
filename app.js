@@ -32,7 +32,7 @@ app.use('/', mainRoute);
 app.use('/users', usersRoute);
 
 //PAGINAS PRODUCT
-app.use ('/product', productRoute);
+app.use ('/products', productRoute);
 
 // PAGINA PRODUCT CART
 app.get('/productCart', function(req,res){
@@ -46,3 +46,4 @@ app.use((req,res,next) => {res.status(404).render('notFound')});
 app.listen(PORT, function(){
     console.log(`listening on http://localhost:${PORT}`);
 })
+

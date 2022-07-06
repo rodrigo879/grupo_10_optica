@@ -7,7 +7,7 @@
     <%- include('../partials/header') %>
     <main>
         <div class="ruta-login">
-            <a href="/">Inicio</a>/<p><%- products.ruta %></p>
+            <a href="/">Inicio</a>/<p><%- products[0].descriptionProduct %></p>
         </div>
         <div class="menu-desplegable">
             <form>
@@ -24,20 +24,20 @@
                 <% for(let i = 0; i < 12; i++) { %>
                     <!-- accesorios/accesorios1.jpg -->
                     <article class="main-section-product">
-                        <a href="/product">
+                        <a href="/products/product/<%- products[i].id %> ">
                             <div class="main-section-img">
-                                <img src="/images/productos/<%- products.src + [i+1] + products.extension %>" alt="<%- products.alt + [i+1] %>">
+                                <img src="/images/productos/<%= products[i].categoryProduct + '/' + products[i].image %>" alt="<%= products[i].descriptionProduct + " " + products[i].id %> %>">
                             </div>
                         </a>
                         <div class="main-section-info">
                             <div class="informacion-precio-descuento">
                                 <i class="fa-solid fa-truck"></i>
-                                <p class="precio-producto"><%- products.price %></p>
+                                <p class="precio-producto"><%= "$" + products[i].priceProduct %></p>
                                 <p class="precio-con-descuento"><%- products.priceDisc %></p>
                                 <p class="descuento-producto"><%- products.discount %></p>
                             </div>
                             <div class="section-h3">
-                                <h3><%- products.title + [i+1] %></h3>
+                                <h3><%- products[i].nameProduct %></h3>
                             </div>
                         </div>
                     </article>
