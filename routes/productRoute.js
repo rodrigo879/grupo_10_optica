@@ -37,5 +37,6 @@ router.get('/accesorios', productController.accesorios);
 
 // ProductCart
 router.get('/productCart', productController.productCart);
+router.post('/productCart', productController.calculoEnvio);
 
 module.exports= router;

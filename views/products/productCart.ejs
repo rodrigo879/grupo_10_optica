@@ -61,91 +61,68 @@
                 <a href="/">Inicio</a>/<p>Carrito de compras</p>
             </div>
             <section>
-                <div class="productos">
-                    <div class="container-imagenes">
-                        <img src="/images/productos/lentesRecetados/product-1657110953499.jpg">
-                    </div>
-                    <div class="container-info">
-                        <div class="info-top">
-                            <p>Lentes Recetados 1</p>
-                            <button type="button"><i class="fa-solid fa-trash-can"></i></button>
+                <% for( let i = 0; i < 3; i++ ) { %>
+                    <div class="productos">
+                        <div class="container-imagenes">
+                            <img src="/images/productos/<%= products[i].categoryProduct + '/' + products[i].image %>" alt="<%= products[i].descriptionProduct + " " + products[i].id %>">
                         </div>
-                        <div class="info-bottom">
-                            <div class="btn-controller-cant">
-                                <div class="btn-controller-cant-unid">
-                                    <button type="button">-</button>
-                                    <input type="text" placeholder="1" readonly>
-                                    <button type="button">+</button>
+                        <div class="container-info">
+                            <div class="info-top">
+                                <p><%= products[i].nameProduct %></p>
+                                <button type="button"><i class="fa-solid fa-trash-can"></i></button>
+                            </div>
+                            <div class="info-bottom">
+                                <div class="btn-controller-cant">
+                                    <div class="btn-controller-cant-unid">
+                                        <button type="button">-</button>
+                                        <input type="text" placeholder="1" readonly>
+                                        <button type="button">+</button>
+                                    </div>
+                                    <p><%= "$" + products[i].priceDiscount %></p>
                                 </div>
-                                <p>$ 10.850,00</p>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="productos">
-                    <div class="container-imagenes"><img src="/images/productos/lentesSol/product-1657122832740.jpg"></div>
-                    <div class="container-info">
-                        <div class="info-top">
-                            <p>Lentes Sol 11</p>
-                            <button type="button"><i class="fa-solid fa-trash-can"></i></button>
-                        </div>
-                        <div class="info-bottom">
-                            <div class="btn-controller-cant">
-                                <div class="btn-controller-cant-unid">
-                                    <button type="button">-</button>
-                                    <input type="text" placeholder="1" readonly>
-                                    <button type="button">+</button>
-                                </div>
-                                <p>$ 21.500,00</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="productos">
-                    <div class="container-imagenes"><img src="/images/productos/accesorios/product-1657125067400.jpg"></div>
-                    <div class="container-info">
-                        <div class="info-top">
-                            <p>Accesorio 15</p>
-                            <button type="button"><i class="fa-solid fa-trash-can"></i></button>
-                        </div>
-                        <div class="info-bottom">
-                            <div class="btn-controller-cant">
-                                <div class="btn-controller-cant-unid">
-                                    <button type="button">-</button>
-                                    <input type="text" placeholder="1" readonly>
-                                    <button type="button">+</button>
-                                </div>
-                                <p>$ 13.475,00</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <% } %>
             </section>
             <div class="container-secondary">
                 <div class="subtotal-productos">
                     <h5>
                         <span>Subtotal:</span>
-                        <strong>$ 45.825,00</strong>
+                        <% let subTotal = 0 %> 
+                        <% for( let i = 0; i < 3; i++ ) { %>
+                            <% subTotal += products[i].priceDiscount %> 
+                        <% } %>
+                        <strong><%= "$" + subTotal  %> </strong>
                     </h5>
                 </div>
                 <div class="medios-envio">
                     <div class="cp-calcular-envio">
-                        <div class="codigo-postal">
-                            <input type="text" placeholder="Codigo Postal">
-                        </div>
-                        <div class="calcular-envio">
-                            <button class="btn-calcular">CALCULATE</button>
-                        </div>
+                        <form action="/products/productCart" method="post">
+                            <div class="codigo-postal">
+                                <input type="text" placeholder="Codigo Postal" name="codigoPostal">
+                            </div>
+                            <div class="calcular-envio">
+                                <button class="btn-calcular" type="submit">CALCULAR</button>
+                            </div>
+                        </form>
                     </div>
                     <a href="https://www.correoargentino.com.ar/formularios/cpa" target="_blank">Desconoces tu codigo postal?</a>
-                    <div class="calculo-del-envio">
-                        <!--Aca apareceria el costo del envio, el cual se sumaria al subtotal.-->
-                    </div>
+                    <% if (costo >= 0) { %>
+                        <div class="calculo-del-envio">
+                            <!--Aca apareceria el costo del envio, el cual se sumaria al subtotal.-->
+                            <h5>
+                                <span>Calculo del envio:</span>
+                                <strong><%= '$' + costo %>  </strong>
+                            </h5>
+                        </div>
+                    <% } %>
                 </div>
                 <div class="total-productos-envio">
                     <h5>
                         <span>Total:</span>
-                        <strong>$ 45.825,00</strong>
+                        <% let total = parseFloat(subTotal) + (costo >= 0 ? parseFloat(costo) : 0) %> 
+                        <strong><%= '$' + total.toFixed(2) %> </strong>
                     </h5>
                 </div>
                 <div class="formulario">

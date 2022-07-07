@@ -149,7 +149,9 @@ main {
 section {
     height: 100%;
     margin: 10px;
-    /* color: #ADB2B5; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .productos {
@@ -235,7 +237,7 @@ section {
 
 }
 
-.subtotal-productos h5 {
+.subtotal-productos h5, .calculo-del-envio h5 {
     width: 100%;
     display: flex;
 }
@@ -246,7 +248,7 @@ section {
     color: #ADB2B5;
 }
 
-.subtotal-productos strong {
+.subtotal-productos strong, .calculo-del-envio strong {
     display: flex;
     justify-content: end;
 }
@@ -256,12 +258,18 @@ section {
     justify-content: center;
 } */
 
-.cp-calcular-envio {
+.cp-calcular-envio form {
     display: flex;
     /* box-shadow: 2px 2px 5px #8f8f8f; */
     width: 80%;
     justify-content: center;
     margin: 20px auto 0px;
+}
+
+.calculo-del-envio span, .calculo-del-envio strong {
+    width: 50%;
+    font-size: 18px;
+    color: #B03A2C;
 }
 
 .codigo-postal input {
@@ -300,6 +308,14 @@ section {
     text-decoration: none;
     color: #8f8f8f;
     font-size: 14px
+}
+
+.calculo-del-envio {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    margin: 1vw 1vw 0;
+
 }
 
 .total-productos-envio {
@@ -457,8 +473,7 @@ footer h5 {
     /*--------------------*/
 
     /*----------MAIN----------*/
-    section{
-        display: flex;
+    section {
         flex-direction: column;
         align-items: center;
     }
@@ -671,7 +686,8 @@ footer h5 {
     } */
 
     main {
-        padding-bottom: 1vw;
+        padding-bottom: 0;
+        margin: 0 auto;
     }
 
     section {
@@ -698,6 +714,10 @@ footer h5 {
 
     .formulario {
         margin: 0 auto;
+    }
+
+    .productos {
+        width: 50%;
     }
 
     .subtotal-productos {

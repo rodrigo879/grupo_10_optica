@@ -50,7 +50,29 @@ let productController= {
         res.render('./products/listProducts', {products})
     },
     productCart: (req, res) => {
-        res.render('./products/productCart');
+        let products = productsModel.readFile();
+        let costo = -1
+        res.render('./products/productCart', {products, costo});
+    },
+    calculoEnvio: (req, res) => {
+        let products = productsModel.readFile();
+        if(req.body.codigoPostal){
+            let codigoPostal = req.body.codigoPostal;
+            let costo;
+            if (codigoPostal < 0){
+                costo = -1
+            } else if (0 <= codigoPostal && codigoPostal <= 100) {
+                costo = 0
+            } else if (100 < codigoPostal && codigoPostal <= 1000 ) {
+                costo = (codigoPostal * 1.5).toFixed(2)
+            } else {
+                costo = (codigoPostal * 1.1).toFixed(2)
+            }
+            res.render('./products/productCart', {products, costo});
+        } else {
+            let costo = -1
+            res.render('./products/productCart', {products, costo});
+        }
     }
 }
 

@@ -11,7 +11,8 @@
             <div class="ruta-login">
                 <% for (let i = 0; i < products.length; i++) { %>
                     <% if (idParam == products[i].id) { %>
-                        <a href="/">Inicio</a>/<a href="#"> <%= products[i].descriptionProduct %> </a>/<p> <%= products[i].nameProduct %> </p>
+                        <% let ruta = products[i].categoryProduct == 'lentesRecetados' ? '/products/anteojosRecetados' : products[i].categoryProduct == 'lentesSol' ? '/products/anteojosSol' : products[i].categoryProduct == 'lentesContacto' ? '/products/anteojosLentesContacto' : '/products/accesorios' %> 
+                        <a href="/">Inicio</a>/<a href="<%= ruta %>"> <%= products[i].descriptionProduct %> </a>/<p> <%= products[i].nameProduct %> </p>
                     <% } %>
                 <% } %>
             </div>
