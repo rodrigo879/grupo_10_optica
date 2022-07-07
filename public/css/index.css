@@ -702,6 +702,9 @@ footer h5 {
     .enviamos-tu-compra, .paga-como-quieras {
         border-right: solid 1px;
     }
+    .enviamos-tu-compra, .paga-como-quieras, .compra-con-seguridad {
+        padding: 5vw 3vw;
+    }
 
     .icon-truck {
         font-size: 2vw;

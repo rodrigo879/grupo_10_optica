@@ -21,94 +21,48 @@
                 <li class="punto"></li>
             </ul>
         </div>
-        <div class="secondary-carrousel">
-            <div class="container-info" id="containerInfo">
-                <div class="enviamos-tu-compra">
-                    <div class="icon-truck">
-                        <i class="fa-solid fa-truck"></i>
+        
+        <% let mainContainer = [{div: 'secondary-carrousel'}, {div: 'container-info-desktop'}] %> 
+        <% for( let i = 0; i < mainContainer.length; i++ ) { %>
+            <% let info = [{divContainer: 'enviamos-tu-compra', classI: 'fa-solid fa-truck', copyHeaderH: 'ENVIAMOS TU COMPRA', copyHeaderP: 'Entregas a todo el país'},{divContainer: 'paga-como-quieras', classI: 'fa-regular fa-credit-card', copyHeaderH: 'PAGÁ COMO QUIERAS', copyHeaderP: 'Tarjetas de crédito o efectivo'},{divContainer: 'compra-con-seguridad', classI: 'fa-solid fa-lock', copyHeaderH: 'COMPRÁ CON SEGURIDAD', copyHeaderP: 'Tus datos siempre protegidos'}] %>
+            <div class="<%= mainContainer[i].div %>">
+                <% if (mainContainer[i].div == 'secondary-carrousel') { %>
+                    <div class="container-info" id="containerInfo">
+                <% } %>
+                <% for( let j = 0; j < info.length; j++ ) { %>
+                    <div class="<%= info[j].divContainer %>">
+                        <div class="icon-truck">
+                            <i class="<%= info[j].classI %>"></i>
+                        </div>
+                        <div class="copy-header">
+                            <h6>
+                                <strong><%= info[j].copyHeaderH %> </strong>
+                            </h6>
+                            <p><%= info[j].copyHeaderP %> </p>
+                        </div>
                     </div>
-                    <div class="copy-header">
-                        <h6>
-                            <strong>ENVIAMOS TU COMPRA</strong>
-                        </h6>
-                        <p>Entregas a todo el país</p>
+                <% } %>
+                <% if (mainContainer[i].div == 'secondary-carrousel') { %>
                     </div>
-                </div>
-                <div class="paga-como-quieras">
-                    <div class="icon-truck">
-                        <i class="fa-regular fa-credit-card"></i>
-                    </div>
-                    <div class="copy-header">
-                        <h6>
-                            <strong>PAGÁ COMO QUIERAS</strong>
-                        </h6>
-                        <p>Tarjetas de crédito o efectivo</p>
-                    </div>
-                </div>
-                <div class="compra-con-seguridad">
-                    <div class="icon-truck">
-                        <i class="fa-solid fa-lock"></i>
-                    </div>
-                    <div class="copy-header">
-                        <h6>
-                            <strong>COMPRÁ CON SEGURIDAD</strong>
-                        </h6>
-                        <p>Tus datos siempre protegidos</p>
-                    </div>
-                </div>
+                <% } %>
+                <% if (mainContainer[i].div == 'secondary-carrousel') { %>
+                    <ul class="puntos1">
+                        <li class="punto1 activo1"></li>
+                        <li class="punto1"></li>
+                        <li class="punto1"></li>
+                    </ul>
+                <% } %>
             </div>
-            <ul class="puntos1">
-                <li class="punto1 activo1"></li>
-                <li class="punto1"></li>
-                <li class="punto1"></li>
-            </ul>
-        </div>
-        <div class="container-info-desktop">
-            <div class="enviamos-tu-compra">
-                <div class="icon-truck">
-                    <i class="fa-solid fa-truck"></i>
-                </div>
-                <div class="copy-header">
-                    <h6>
-                        <strong>ENVIAMOS TU COMPRA</strong>
-                    </h6>
-                    <p>Entregas a todo el país</p>
-                </div>
-            </div>
-            <div class="paga-como-quieras">
-                <div class="icon-truck">
-                    <i class="fa-regular fa-credit-card"></i>
-                </div>
-                <div class="copy-header">
-                    <h6>
-                        <strong>PAGÁ COMO QUIERAS</strong>
-                    </h6>
-                    <p>Tarjetas de crédito o efectivo</p>
-                </div>
-            </div>
-            <div class="compra-con-seguridad">
-                <div class="icon-truck">
-                    <i class="fa-solid fa-lock"></i>
-                </div>
-                <div class="copy-header">
-                    <h6>
-                        <strong>COMPRÁ CON SEGURIDAD</strong>
-                    </h6>
-                    <p>Tus datos siempre protegidos</p>
-                </div>
-            </div>
-        </div>
-        <div class="secciones">
+        <% } %>
+
+         <div class="secciones">
             <div class="contenedor-imagenes">
-                <div class="seccion-imagen">
-                    <a href="/products/anteojosSol"><img src="/images/banners/anteojos-para-sol.webp" alt="Imagen 1"></a>
-                </div>
-                <div class="seccion-imagen">
-                    <a href="/products/anteojosRecetados"><img src="/images/banners/anteojos-recetados.webp" alt="Imagen 2"></a>
-                </div>
-                <div class="seccion-imagen">
-                    <a href="/products/anteojosLentesContacto"><img src="/images/banners/lentes-de-contacto.webp" alt="Imagen 3"></a>
-                </div>
+                <% let infoContainerImg = [{href: 'Sol', src: 'anteojos-para-sol.webp', alt: '1'}, {href: 'Recetados', src: 'anteojos-recetados.webp', alt: '2'}, {href: 'LentesContacto', src: 'lentes-de-contacto.webp', alt: '3'}] %>
+                <% for( let i = 0; i < infoContainerImg.length; i++ ) { %>
+                    <div class="seccion-imagen">
+                        <a href="/products/anteojos<%= infoContainerImg[i].href %>"><img src="/images/banners/<%= infoContainerImg[i].src %> " alt="Imagen <%= infoContainerImg[i].alt %> "></a>
+                    </div>                    
+                <% } %>
             </div>
         </div>
         
