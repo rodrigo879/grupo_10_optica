@@ -68,7 +68,7 @@ let productController= {
             } else {
                 costo = (codigoPostal * 1.1).toFixed(2)
             }
-            res.render('./products/productCart', {products, costo});
+            res.render('./products/productCart', {products, costo, codigoPostal});
         } else {
             let costo = -1
             res.render('./products/productCart', {products, costo});
