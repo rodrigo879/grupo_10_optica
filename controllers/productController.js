@@ -30,7 +30,7 @@ let productController= {
             productsCreate.image = req.file.filename;
             productsCreate.priceDiscount = req.body.priceProduct * (100 - productsCreate.discount) / 100;
             productsId = productsModel.create(productsCreate);
-            res.render('./products/create');
+            res.redirect('/');
         }
     },
     accesorios: (req, res) => {
@@ -51,7 +51,7 @@ let productController= {
     },
     productCart: (req, res) => {
         let products = productsModel.readFile();
-        let costo = -1
+        let costo = -1;
         res.render('./products/productCart', {products, costo});
     },
     calculoEnvio: (req, res) => {
