@@ -4,17 +4,17 @@
 <body>
   <%- include('../partials/header')%>
     <main>
-        <form class="form" action="/" method="get">
+        <form class="form" action="/users/login" method="post">
           <div class="ruta-login">
             <a href="/">Inicio</a>/<p>Iniciar Sesion</p>
           </div>
           <div class="form_conteiner">
             <div class="form_group">
-              <input required type="text" id="user" class="form_input" placeholder=" " />
+              <input required type="text" id="user" name="user" class="form_input" placeholder=" " />
               <label for="user" class="form_label">Usuario:</label>              
             </div>
             <div class="form_group">
-              <input required type="password" id="password" class="form_input" placeholder=" "/>
+              <input required type="password" id="password" name="password" class="form_input" placeholder=" "/>
               <label for="password" class="form_label">Contraseña:</label>
               <div class="checkboxPass">
                 <input type="checkbox" id="checkPassword" onclick="mostrarPassword()">

@@ -5,26 +5,36 @@
     <%- include('../partials/header')%>
     <main>
       <!-- ----------------AGREGAR CODIGO NUEVO---------------- -->
-      <form class="form" action="/" method="get">
+      <form class="form" action="/users/register" method="post" enctype="multipart/form-data">
         <div class="ruta-login">
           <a href="/">Inicio</a>/<p>Crear cuenta</p>
         </div>
         <!-- <h2 class="form_title">Optica Riff</h2>  -->
         <div class="form_conteiner">
           <div class="form_group">
-            <input required type="text" id="name" class="form_input" placeholder=" " /> 
-            <label for="name" class="form_label">Nombre y apellido:</label>
+            <input required type="text" id="fullName" name="fullName" class="form_input" placeholder=" " /> 
+            <label for="fullName" class="form_label">Nombre y apellido:</label>
           </div>
           <div class="form_group">
-            <input required type="text" id="user" class="form_input" placeholder=" " />
+            <input required type="text" id="user" name="user" class="form_input" placeholder=" " />
             <label for="user" class="form_label">Usuario:</label>
           </div>
           <div class="form_group">
-            <input required type="email" id="email" class="form_input" placeholder=" " />
+            <input required type="email" id="email" name="email" class="form_input" placeholder=" " />
             <label for="email" class="form_label">Email:</label>
           </div>
           <div class="form_group">
-            <input required type="password" id="password" class="form_input" placeholder=" "/>
+            <input required accept=".png, .jpeg, .jpg" type="file" class="form_input form_input_file" id="imageUser" name="imageUser" placeholder=" "/> 
+            <label for="imageUser" class="form_label">Imagen:</label>
+            <div class="form_input">
+              <label for="imageUser" class="form_imageFile">
+                <i class="fa-solid fa-image"></i>
+                <p>Elegir Imagen</p>
+              </label>
+            </div>
+          </div>
+          <div class="form_group">
+            <input required type="password" id="password" name="password" class="form_input" placeholder=" "/>
             <label for="password" class="form_label">Contraseña:</label>
             <div class="checkboxPass">
               <input type="checkbox" id="checkPassword" onclick="mostrarPassword()">
@@ -35,7 +45,7 @@
             </div>
           </div>
           <div class="form_group">
-            <input required type="password" id="confirmPassword" class="form_input" placeholder=" "/>
+            <input required type="password" id="confirmPassword" name="confirmPassword" class="form_input" placeholder=" "/>
             <label for="confirmPassword" class="form_label">Confirmar contraseña:</label>
             <div class="checkboxPassConfirm">
               <input type="checkbox" id="checkPasswordConfirm" onclick="mostrarConfirmPassword()">
