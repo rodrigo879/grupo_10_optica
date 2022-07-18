@@ -33,6 +33,47 @@ let productController= {
             res.redirect('/');
         }
     },
+    edit: (req,res) => {
+        let idParam= req.params.id;
+        let products= productsModel.readFile();
+        res.render('./products/productEdit', {products, idParam})
+    },
+    update: (req, res) => {
+        if (req.file) { 
+        let idParam= req.params.id;
+        let newProduct= req.body;
+        newProduct.id= idParam;
+        newProduct.image= req.file.filename;
+        let products= productsModel.readFile();
+        let productEdit= products.find(product => product.id == idParam);
+        
+    console.log (newProduct)
+
+        for (let i = 0; i < products.length; i++) {
+            const product = products[i];
+            if (product.id == idParam) {
+                product= newProduct;
+            }
+        }
+        productsModel.writeFile(products)
+        
+        res.redirect ('/')
+
+        
+        }
+    },
+    delete: (req, res) => {
+        let idParam= req.params.id;
+        for (let i = 0; i < products.length; i++) {
+            const product = products[i];
+            if (product.id == idParam) {
+                productsModel.delete(i);
+            } 
+            res.redirect ('/')     
+            }
+            
+
+    },
     accesorios: (req, res) => {
         let products = productsModel.readFile().filter(element => element.categoryProduct == 'accesorios')
         res.render('./products/listProducts', {products})

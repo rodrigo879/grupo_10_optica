@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- HEAD -->
+    <%- include('../partials/head', {variant:'/css/productEdit.css'}) %>
+  <body>
+    <!-- HEADER -->
+    <%- include('../partials/header') %>
+
+    <main>
+      <!-- ----------------AGREGAR CODIGO NUEVO---------------- -->
+      <% for (let i = 0; i < products.length; i++) { %>
+        <% if (idParam == products[i].id) { %>
+
+      <form class="form" action="/products/product/:<%= products[i].id ?? ''%>/edit?_method=PUT" method="post" enctype="multipart/form-data">
+        <div class="ruta-login">
+          <a href="/">Inicio</a>/<p>Editar Producto</p>
+        </div>
+        <!-- <h2 class="form_title">Optica Riff</h2>  -->
+        <div class="form_conteiner">
+          <div class="form_group">
+            <input required type="text" class="form_input" id="nameProduct" name="nameProduct" placeholder= " " value= " <%= products[i].nameProduct %> " >
+            <label for="nameProduct" class="form_label">Nombre del Producto:</label>
+          </div>
+          <div class="form_group">
+            <textarea class="form_input form_textArea" id="descriptionProduct" rows="1" name="descriptionProduct" placeholder= " "> <%=products[i].descriptionProduct%> </textarea>
+            <label for="descriptionProduct" class="form_label">Descripción:</label>
+          </div>
+          <div class="form_group">
+            <input required accept=".png, .jpeg, .jpg" type="file" class="form_input form_input_file" id="imageProduct" name="imageProduct" placeholder=" "> 
+            <label for="imageProduct" class="form_label">Imagen:</label>
+            <div class="product_image"> 
+              <img src="/images/productos/<%= products[i].categoryProduct + '/' + products[i].image %>" alt="<%= products[i].descriptionProduct + " " + products[i].id %>" >
+            </div>
+            <div class="form_input">
+              <label for="imageProduct" class="form_imageFile">
+                <i class="fa-solid fa-image"></i>
+                <p>Cambiar Imagen</p>
+              </label>
+            </div>
+          </div>
+          <div class="form_group">
+            <select name="categoryProduct" id="categoryProduct" class="form_input form_select" value="SELECCIONE UNA CATEGORIA">
+              <option value="lentesSol" <% if(products[i].categoryProduct== "lentesSol") { %> selected <% }  %>> ANTEOJOS PARA SOL</option> 
+              <option value="lentesRecetados" <% if(products[i].categoryProduct== "lentesRecetados" ) { %> selected <% } %> >ANTEOJOS RECETADOS</option>
+              <option value="lentesContacto" <% if(products[i].categoryProduct== "lentesContacto" ) { %> selected <% } %>>LENTES DE CONTACTO</option>
+              <option value="accesorios">ACCESORIOS</option>
+            </select>
+            <label for="categoryProduct" class="form_label">Categoria:</label>
+          </div>
+          <div class="form_group">
+            <input required type="text" class="form_input" id="trademarkProduct" name="trademarkProduct" placeholder= " " value= "<%= products[i].trademarkProduct %>" /> 
+            <label for="trademarkProduct" class="form_label">Marca:</label>
+          </div>
+          <div class="form_group">
+            <input required step="0.01" type="number" class="form_input" id="priceProduct" name="priceProduct" placeholder= " " value = "<%= products[i].priceProduct %>"/> 
+            <label for="priceProduct" class="form_label">Precio:  $</label>
+          </div>
+          <div class="form_group">
+            <input required type="number" class="form_input" id="discount" name="discount" placeholder=" " value= "<%=products[i].discount%>" max="100" min="0"/> 
+            <label for="discount" class="form_label">Descuento:  % </label>
+          </div>
+
+            <% } %>
+                        
+          <% } %>
+
+            <div>
+              <button type= "submit" class="form_submit_post"> MODIFICAR </button>
+            </div>
+        </form>
+
+        <form action="/products/product/:id/edit?_method=DELETE" method="post" enctype="multipart/form-data"> 
+                
+                  <button type= "submit" class="form_submit_delete" >ELIMINAR </button>
+      </form>
+    </main>
+
+    <!-- FOOTER -->
+    <%- include('../partials/footer') %>
+  </body>
+<script src="/js/function.js"></script>
+</html>

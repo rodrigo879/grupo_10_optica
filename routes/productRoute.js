@@ -35,8 +35,13 @@ router.get('/anteojosSol', productController.lentesSol);
 router.get('/anteojosLentesContacto', productController.lentesContacto);
 router.get('/accesorios', productController.accesorios);
 
+router.get('/product/:id/edit', upload.single ('imageProduct'), productController.edit );
+router.post('/product/:id', productController.update)
+router.delete('/product/:id', productController.delete)
+
 // ProductCart
 router.get('/productCart', productController.productCart);
 router.post('/productCart', productController.calculoEnvio);
+
 
 module.exports= router;
