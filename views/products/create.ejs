@@ -23,6 +23,15 @@
             <label for="descriptionProduct" class="form_label">Descripción:</label>
           </div>
           <div class="form_group">
+            <select name="categoryProduct" id="categoryProduct" class="form_input form_select" value="SELECCIONE UNA CATEGORIA">
+              <option value="lentesSol">ANTEOJOS PARA SOL</option>
+              <option value="lentesRecetados">ANTEOJOS RECETADOS</option>
+              <option value="lentesContacto">LENTES DE CONTACTO</option>
+              <option value="accesorios">ACCESORIOS</option>
+            </select>
+            <label for="categoryProduct" class="form_label">Categoria:</label>
+          </div>
+          <div class="form_group">
             <input required accept=".png, .jpeg, .jpg" type="file" class="form_input form_input_file" id="imageProduct" name="imageProduct" placeholder=" "/> 
             <label for="imageProduct" class="form_label">Imagen:</label>
             <div class="form_input">
@@ -31,15 +40,6 @@
                 <p>Elegir Imagen</p>
               </label>
             </div>
-          </div>
-          <div class="form_group">
-            <select name="categoryProduct" id="categoryProduct" class="form_input form_select" value="SELECCIONE UNA CATEGORIA">
-              <option value="lentesSol">ANTEOJOS PARA SOL</option>
-              <option value="lentesRecetados">ANTEOJOS RECETADOS</option>
-              <option value="lentesContacto">LENTES DE CONTACTO</option>
-              <option value="accesorios">ACCESORIOS</option>
-            </select>
-            <label for="categoryProduct" class="form_label">Categoria:</label>
           </div>
           <div class="form_group">
             <input required type="text" class="form_input" id="trademarkProduct" name="trademarkProduct" placeholder=" "/> 

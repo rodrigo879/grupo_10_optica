@@ -1,49 +1,7 @@
 const jsonTable = require('../database/jsonTable');
 
 const productsModel = jsonTable('products')
-
-const imageCarrousel = [
-    {
-        src: 'carrousel-1-movile.jpg',
-        alt: 'Imagen 1',
-        class: 'img-movile-tablet'
-    },
-    {
-        src: 'carrousel-2-movile.jpg',
-        alt: 'Imagen 2',
-        class: 'img-movile-tablet'
-    },
-    {
-        src: 'carrousel-5-movile.jpeg',
-        alt: 'Imagen 3',
-        class: 'img-movile-tablet'
-    },
-    {
-        src: 'carrousel-4-movile.jpg',
-        alt: 'Imagen 4',
-        class: 'img-movile-tablet'
-    },
-    {
-        src: 'carrousel-1-desktop.jpg',
-        alt: 'Imagen 1',
-        class: 'img-desktop'
-    },
-    {
-        src: 'carrousel-2-desktop.jpg',
-        alt: 'Imagen 2',
-        class: 'img-desktop'
-    },
-    {
-        src: 'carrousel-3-desktop.jpg',
-        alt: 'Imagen 3',
-        class: 'img-desktop'
-    },
-    {
-        src: 'carrousel-4-desktop.jpg',
-        alt: 'Imagen 4',
-        class: 'img-desktop'
-    },
-];
+const imgCarrousel = jsonTable('imageCarrousel')
 
 function ramdonResult(products) {
     let result = [];
@@ -62,6 +20,7 @@ function ramdonResult(products) {
 
 let mainController = {
     index: (req, res) => {
+        let imageCarrousel = imgCarrousel.readFile();
         let products = productsModel.readFile();
         let result = ramdonResult(products);
         res.render('index', {imageCarrousel, products, result});
