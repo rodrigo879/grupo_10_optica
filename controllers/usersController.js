@@ -32,8 +32,30 @@ const userController = {
         
 
         res.redirect('/')
+    },
+    profile: (req, res) => {
+        let usersId = req.params.id
+        let users = usersModel.readFile('users.json');
+        let usersFind = users.find(element => element.id == usersId);
+        res.render('./users/profile', {users: usersFind});
+    },
+    editProfile: (req, res) => {
+        let usersId = req.params.id;
+        let users = usersModel.readFile('users.json');
+        let userBody = req.body
+        for(let i = 0; i < users.length; i++) {
+            if(users[i].id == usersId){
+                users[i].fullName = userBody.fullName;
+                users[i].email = userBody.email;
+                users[i].user = userBody.user;
+                users[i].imageUser = req.file.filename;
+                break;
+            }
+        }
+        
+        usersModel.writeFile(users)
+        res.redirect(`/users/profile/${usersId}`);
     }
-
 }
 
 module.exports = userController;
