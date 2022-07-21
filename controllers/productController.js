@@ -34,33 +34,42 @@ let productController= {
         }
     },
     edit: (req,res) => {
-        let idParam= req.params.id;
-        let products= productsModel.readFile();
-        res.render('./products/productEdit', {products, idParam})
+        let idParam = req.params.id;
+        let products = productsModel.readFile();
+        let productFind = products.find(element => element.id == idParam);
+        res.render('./products/productEdit', {productFind, idParam})
     },
     update: (req, res) => {
-        if (req.file) { 
-        let idParam= req.params.id;
-        let newProduct= req.body;
-        newProduct.id= idParam;
-        newProduct.image= req.file.filename;
-        let products= productsModel.readFile();
-        let productEdit= products.find(product => product.id == idParam);
-        
-    console.log (newProduct)
-
-        for (let i = 0; i < products.length; i++) {
-            const product = products[i];
-            if (product.id == idParam) {
-                product= newProduct;
+        let idParam = req.params.id;
+        let products= productsModel.readFile('products.json');
+        let newProduct = req.body;
+        console.log(newProduct);
+        for(let i = 0; i > products.length; i++) {
+            if(products[i].id == idParam) {
+                products[i].nameProduct = newProduct.nameProduct;
+                products[i].descriptionProduct = newProduct.descriptionProduct;
+                products[i].categoryProduct = newProduct.categoryProduct;
+                products[i].trademarkProduct = newProduct.trademarkProduct;
+                products[i].priceProduct = newProduct.priceProduct;
+                if(req.file) {
+                    products[i].image = req.file.filename;
+                }
+                products[i].discount = newProduct.discount;
+                products[i].priceDiscount = newProduct.priceDiscount;
+                break;               
             }
         }
-        productsModel.writeFile(products)
-        
-        res.redirect ('/')
-
-        
-        }
+        //newProduct.id= idParam;
+        //newProduct.image = req.file.filename;
+        //let productEdit= products.find(product => product.id == idParam);     
+        // for (let i = 0; i < products.length; i++) {
+        //     const product = products[i];
+        //     if (product.id == idParam) {
+        //         product= newProduct;
+        //     }
+        // }
+        productsModel.writeFile(products);
+        res.redirect ('/');
     },
     delete: (req, res) => {
         let idParam= req.params.id;

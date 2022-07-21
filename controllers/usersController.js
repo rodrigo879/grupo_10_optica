@@ -28,9 +28,7 @@ const userController = {
         let users = req.body;
         users.imageUser = req.file.filename;
         users.admin = false;
-        let userId = usersModel.create(users);
-        
-
+        usersModel.create(users);
         res.redirect('/')
     },
     profile: (req, res) => {
@@ -48,12 +46,14 @@ const userController = {
                 users[i].fullName = userBody.fullName;
                 users[i].email = userBody.email;
                 users[i].user = userBody.user;
-                users[i].imageUser = req.file.filename;
+                if(req.file) {
+                    users[i].imageUser = req.file.filename;
+                }
                 break;
             }
         }
         
-        usersModel.writeFile(users)
+        usersModel.writeFile(users);
         res.redirect(`/users/profile/${usersId}`);
     }
 }

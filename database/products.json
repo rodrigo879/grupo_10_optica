@@ -526,5 +526,16 @@
   "discount": 0,
   "priceDiscount": 950,
   "id": 48
+ },
+ {
+  "nameProduct": "Prueba Edicion",
+  "descriptionProduct": "Prueba edicion",
+  "categoryProduct": "lentesSol",
+  "trademarkProduct": "ada",
+  "priceProduct": "123",
+  "discount": "11",
+  "image": "product-1658421542144.png",
+  "priceDiscount": 109.47,
+  "id": 49
  }
 ]
