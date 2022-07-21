@@ -41,12 +41,14 @@ let productController= {
     update: (req, res) => {
         if (req.file) { 
         let idParam= req.params.id;
-        let newProduct= req.body;
+        let newProductNombre = req.body.nameProduct;
         newProduct.id= idParam;
         newProduct.image= req.file.filename;
         let products= productsModel.readFile();
         let productEdit= products.find(product => product.id == idParam);
         
+
+        productEdit.nameProduct = newProductNombre
     console.log (newProduct)
 
         for (let i = 0; i < products.length; i++) {
@@ -68,10 +70,11 @@ let productController= {
             const product = products[i];
             if (product.id == idParam) {
                 productsModel.delete(i);
+                break;
             } 
-            res.redirect ('/')     
-            }
-            
+        }
+        
+        res.redirect ('/')     
 
     },
     accesorios: (req, res) => {

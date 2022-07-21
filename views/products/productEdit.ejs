@@ -8,8 +8,8 @@
 
     <main>
       <!-- ----------------AGREGAR CODIGO NUEVO---------------- -->
-      <% for (let i = 0; i < products.length; i++) { %>
-        <% if (idParam == products[i].id) { %>
+      <!-- <% for (let i = 0; i < products.length; i++) { %>
+        <% if (idParam == products[i].id) { %> -->
 
       <form class="form" action="/products/product/:<%= products[i].id ?? ''%>/edit?_method=PUT" method="post" enctype="multipart/form-data">
         <div class="ruta-login">
@@ -59,17 +59,17 @@
             <input required type="number" class="form_input" id="discount" name="discount" placeholder=" " value= "<%=products[i].discount%>" max="100" min="0"/> 
             <label for="discount" class="form_label">Descuento:  % </label>
           </div>
-
+<!-- 
             <% } %>
                         
-          <% } %>
+          <% } %> -->
 
             <div>
-              <button type= "submit" class="form_submit_post"> MODIFICAR </button>
             </div>
+              <button type= "submit" class="form_submit_post"> MODIFICAR </button>
         </form>
 
-        <form action="/products/product/:id/edit?_method=DELETE" method="post" enctype="multipart/form-data"> 
+        <form action="/products/product/:<%= products[i].id ?? ''%>/edit?_method=DELETE" method="post" enctype="multipart/form-data"> 
                 
                   <button type= "submit" class="form_submit_delete" >ELIMINAR </button>
       </form>

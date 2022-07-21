@@ -526,5 +526,16 @@
   "discount": 0,
   "priceDiscount": 950,
   "id": 48
+ },
+ {
+  "nameProduct": "pepito",
+  "descriptionProduct": "prueba borrar",
+  "categoryProduct": "lentesSol",
+  "trademarkProduct": "adsadas",
+  "priceProduct": "123",
+  "discount": "11",
+  "image": "product-1658268338185.png",
+  "priceDiscount": 109.47,
+  "id": 49
  }
 ]
