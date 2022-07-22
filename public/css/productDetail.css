@@ -145,7 +145,47 @@ main .imagen-producto{
     border: solid #ADB2B5 1px;
     width: 45%;
     height: 20%;
+    position: relative;
 }
+
+.container_img {
+    height: 3.5vw;
+}
+
+.imagen-producto i {
+    position: absolute;
+    font-size: 3.5vw;
+    top: 1vw;
+    right: 1vw;
+    z-index: 10;
+}
+
+.imagen-producto .fa-file-pen {
+    right: 5vw;
+}
+
+.imagen-producto a {
+    color: black;
+}
+
+.imagen-producto a:hover {
+    color: #3B5999;
+}
+
+.imagen-producto .fa-trash-can:hover {
+    color: #B03A2C;
+}
+
+.btn-confirm {
+    background-color: #B03A2C!important;
+}
+
+.btn-confirm button{
+    background-color: #B03A2C;
+    color: #FFFFFF;
+    border: none;
+}
+
 
 main .info-producto-principal {
     width: 75%;
@@ -675,6 +715,20 @@ footer h5 {
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
+    }
+
+    .container_img {
+        height: 2.5vw;
+    }
+
+    .imagen-producto i {
+        font-size: 2.5vw;
+        top: 0.75vw;
+        right: 0.75vw;
+    }
+    
+    .imagen-producto .fa-file-pen {
+        right: 3.5vw;
     }
 
     main .imagen-producto{

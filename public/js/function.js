@@ -1,3 +1,4 @@
+// Carrousel Primario. 
 const containerImg = document.getElementById('containerImg');
 const punto = document.querySelectorAll('.punto');
 
@@ -16,6 +17,7 @@ punto.forEach( (cadaPunto, i) => {
     });
 });
 
+// Carrousel Secundario.
 const containerInfo = document.getElementById('containerInfo');
 const punto1 = document.querySelectorAll('.punto1');
 
@@ -31,6 +33,7 @@ punto1.forEach( (cadaPunto, i) => {
     });
 });
 
+//Funcion que despliega menu en vista movile y tablet
 function desplegarMenu() {
     let mainNavbar = document.getElementById("mainNavbar");
     if(mainNavbar.style.display == "flex") {
@@ -40,6 +43,7 @@ function desplegarMenu() {
     }
 }
 
+//Funcion que muestra la contraseña en el input Register y Login
 function mostrarPassword() {
     let inputPassword = document.getElementById("password");
     let checkbox = document.getElementById("checkPassword");
@@ -57,6 +61,7 @@ function mostrarPassword() {
     }
 }
 
+//Funcion que muestra la confirmar contraseña en el input Register y Login
 function mostrarConfirmPassword() {
     let inputConfirmPassword = document.getElementById("confirmPassword");
     let checkboxConfirm = document.getElementById("checkPasswordConfirm");
@@ -73,3 +78,33 @@ function mostrarConfirmPassword() {
         iconEyeConfirm.style.display = "none";
     }
 }
+
+//Alerta al borrar un producto.
+function borrarProducto(id) {
+    Swal.fire({
+        title: 'Borramos el producto?',
+        icon: 'warning',
+        confirmButtonText: 'Borrar',
+        footer: 'Eliminar producto de la base de datos',
+        //width: '50vw',
+        allowOutsideClick: false,
+        allowEscapeKey: false,
+        allowEnterKey: false,
+        showCancelButton: true,
+        customClass: {
+            confirmButton: 'btn-confirm',
+        }
+    }).then((result) => {
+        if(result.isConfirmed) {
+            Swal.fire({
+                title: 'Producto borrado',
+                icon: 'success',
+                html: `<form action="/products/product/${id}?_method=delete" method="post"><button class="btn-confirm swal2-styled swal2-confirm" type= "submit">OK</button></form>`,
+                showConfirmButton: false,
+                allowOutsideClick: false,
+                allowEscapeKey: false,
+                allowEnterKey: false,
+            })
+        }
+    });
+};

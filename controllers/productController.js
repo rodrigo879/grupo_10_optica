@@ -21,7 +21,7 @@ let productController= {
         let products = productsModel.readFile();
         res.render('./products/productDetail' , {products, idParam, result: ramdonResult()});
     },
-    showForm: (req, res) => {
+    showFormCreate: (req, res) => {
         res.render('./products/create')
     },
     create: (req, res) => {
@@ -43,7 +43,11 @@ let productController= {
         let idParam = req.params.id;
         let products= productsModel.readFile();
         let newProduct = req.body;
-        for(let i = 0; i > products.length; i++) {
+        // productsModel.update(newProduct);
+        // res.redirect ('/');
+        console.log(newProduct)
+        console.log(req.file)
+        for(let i = 0; i < products.length; i++) {
             if(products[i].id == idParam) {
                 products[i].nameProduct = newProduct.nameProduct;
                 products[i].descriptionProduct = newProduct.descriptionProduct;
@@ -52,7 +56,7 @@ let productController= {
                 products[i].priceProduct = newProduct.priceProduct;
                 if(req.file) {
                     products[i].image = req.file.filename;
-                }
+                } 
                 products[i].discount = newProduct.discount;
                 products[i].priceDiscount = newProduct.priceDiscount;
                 break;               
@@ -72,12 +76,10 @@ let productController= {
     },
     delete: (req, res) => {
         let idParam = req.params.id;
-        console.log(idParam)
         let products = productsModel.readFile();      
         for (let i = 0; i < products.length; i++) {
             if (products[i].id == idParam) {
                 productsModel.delete(idParam);
-                //productsModel.deleteImage(idParam, `${products.categoryProduct}/${products.image}`);
                 break;
             } 
         }

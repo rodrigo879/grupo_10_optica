@@ -40,7 +40,7 @@
               <option value="lentesSol" <% if(productFind.categoryProduct == "lentesSol") { %> selected <% }  %>> ANTEOJOS PARA SOL</option> 
               <option value="lentesRecetados" <% if(productFind.categoryProduct == "lentesRecetados" ) { %> selected <% } %> >ANTEOJOS RECETADOS</option>
               <option value="lentesContacto" <% if(productFind.categoryProduct == "lentesContacto" ) { %> selected <% } %>>LENTES DE CONTACTO</option>
-              <option value="accesorios">ACCESORIOS</option>
+              <option value="accesorios" <% if(productFind.categoryProduct == "accesorios" ) { %> selected <% } %>>ACCESORIOS</option>
             </select>
             <label for="categoryProduct" class="form_label">Categoria:</label>
           </div>
@@ -58,9 +58,6 @@
           </div>
           <button type="submit" class="form_submit_post"> MODIFICAR </button>
         </div>
-      </form>
-      <form action="/products/product/<%= productFind.id %>?_method=delete" method="post"> 
-        <button type= "submit" class="form_submit_delete" >ELIMINAR </button>
       </form>
     </main>
 

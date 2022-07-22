@@ -526,16 +526,5 @@
   "discount": 0,
   "priceDiscount": 950,
   "id": 48
- },
- {
-  "nameProduct": "prueba",
-  "descriptionProduct": "Eliminar Imagen",
-  "categoryProduct": "lentesRecetados",
-  "trademarkProduct": "Prueba",
-  "priceProduct": "1234",
-  "discount": "10",
-  "image": "product-1658449997090.png",
-  "priceDiscount": 1110.6,
-  "id": 49
  }
 ]

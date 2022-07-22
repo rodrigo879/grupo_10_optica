@@ -9,7 +9,7 @@ const productController= require('../controllers/productController');
 router.get('/product/:id',  productController.product);
 
 //FORMULARIO DE CREACION
-router.get('/create', productController.showForm);
+router.get('/create', productController.showFormCreate);
 router.post('/create', upload.single('imageProduct'), productController.create);
 
 //LISTADO DE PRODUCTOS POR CATEGORIA
