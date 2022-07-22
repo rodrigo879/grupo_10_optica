@@ -60,8 +60,18 @@ let model = function(tableName) {
         delete(id) {
             let rows = this.readFile();
             let updatedRows = rows.filter(oneRow => oneRow.id != id); 
-
             this.writeFile(updatedRows);
+        },
+        deleteImage(id, ruta) {
+            let rows = this.readFile();
+            let findRow = rows.find(oneRow => oneRow.id == id);
+            console.log(findRow)
+            //let imageRow = findRow.image;
+            if(fs.existsSync(__dirname, './images/productos/', ruta)) {
+                fs.unlinkSync('../public/images/productos/', ruta);
+            } else {
+                console.log('No existe la imagen');
+            }
         }
     }
 }

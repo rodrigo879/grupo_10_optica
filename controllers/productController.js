@@ -34,48 +34,54 @@ let productController= {
         }
     },
     edit: (req,res) => {
-        let idParam= req.params.id;
-        let products= productsModel.readFile();
-        res.render('./products/productEdit', {products, idParam})
+        let idParam = req.params.id;
+        let products = productsModel.readFile();
+        let productFind = products.find(element => element.id == idParam);
+        res.render('./products/productEdit', {productFind, idParam})
     },
     update: (req, res) => {
-        if (req.file) { 
-        let idParam= req.params.id;
-        let newProductNombre = req.body.nameProduct;
-        newProduct.id= idParam;
-        newProduct.image= req.file.filename;
+        let idParam = req.params.id;
         let products= productsModel.readFile();
-        let productEdit= products.find(product => product.id == idParam);
-        
-
-        productEdit.nameProduct = newProductNombre
-    console.log (newProduct)
-
-        for (let i = 0; i < products.length; i++) {
-            const product = products[i];
-            if (product.id == idParam) {
-                product= newProduct;
+        let newProduct = req.body;
+        for(let i = 0; i > products.length; i++) {
+            if(products[i].id == idParam) {
+                products[i].nameProduct = newProduct.nameProduct;
+                products[i].descriptionProduct = newProduct.descriptionProduct;
+                products[i].categoryProduct = newProduct.categoryProduct;
+                products[i].trademarkProduct = newProduct.trademarkProduct;
+                products[i].priceProduct = newProduct.priceProduct;
+                if(req.file) {
+                    products[i].image = req.file.filename;
+                }
+                products[i].discount = newProduct.discount;
+                products[i].priceDiscount = newProduct.priceDiscount;
+                break;               
             }
         }
-        productsModel.writeFile(products)
-        
-        res.redirect ('/')
-
-        
-        }
+        //newProduct.id= idParam;
+        //newProduct.image = req.file.filename;
+        //let productEdit= products.find(product => product.id == idParam);     
+        // for (let i = 0; i < products.length; i++) {
+        //     const product = products[i];
+        //     if (product.id == idParam) {
+        //         product= newProduct;
+        //     }
+        // }
+        productsModel.writeFile(products);
+        res.redirect ('/');
     },
     delete: (req, res) => {
-        let idParam= req.params.id;
+        let idParam = req.params.id;
+        console.log(idParam)
+        let products = productsModel.readFile();      
         for (let i = 0; i < products.length; i++) {
-            const product = products[i];
-            if (product.id == idParam) {
-                productsModel.delete(i);
+            if (products[i].id == idParam) {
+                productsModel.delete(idParam);
+                //productsModel.deleteImage(idParam, `${products.categoryProduct}/${products.image}`);
                 break;
             } 
         }
-        
-        res.redirect ('/')     
-
+        res.redirect('/');     
     },
     accesorios: (req, res) => {
         let products = productsModel.readFile().filter(element => element.categoryProduct == 'accesorios')

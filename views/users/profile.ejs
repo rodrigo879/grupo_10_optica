@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/head', { variant: '/css/register.css'})%> 
+<body>
+    <%- include('../partials/header')%>
+    <main>
+        <!-- ----------------AGREGAR CODIGO NUEVO---------------- -->
+        <form class="form" action="/users/profile/<%= users.id %>/edit?_method=put" method="post" enctype="multipart/form-data">
+          <div class="ruta-login">
+            <a href="/">Inicio</a>/<p>Perfil</p>
+          </div>
+          <!-- <h2 class="form_title">Optica Riff</h2>  -->
+          <div class="form_conteiner">
+            <div class="form_group">
+              <input required type="text" id="fullName" name="fullName" value="<%= users.fullName %>" class="form_input" placeholder=" " /> 
+              <label for="fullName" class="form_label">Nombre y apellido:</label>
+            </div>
+            <div class="form_group">
+              <input required type="text" id="user" name="user" value="<%= users.user %>" class="form_input" placeholder=" " />
+              <label for="user" class="form_label">Usuario:</label>
+            </div>
+            <div class="form_group">
+              <input required type="email" id="email" name="email" value="<%= users.email %>" class="form_input" placeholder=" " />
+              <label for="email" class="form_label">Email:</label>
+            </div>
+            <div class="form_group">
+              <input required accept=".png, .jpeg, .jpg" type="file" class="form_input form_input_file" id="imageUser" name="imageUser" value="<%= users.imageUser %>" placeholder=" "/> 
+              <label for="imageUser" class="form_label">Imagen:</label>
+            <div class="user_image_profile"> 
+                <img src="/images/users/<%= users.imageUser %>" alt="<%= "Imagen de usuario" %>">
+            </div>
+              <div class="form_input">
+                <label for="imageUser" class="form_imageFile">
+                  <i class="fa-solid fa-image"></i>
+                  <p>Elegir Imagen</p>
+                </label>
+              </div>
+            </div>
+            <a href="#">Cambiar contraseña</a>
+            <div>
+              <input type="submit" class="form_submit" value="Entrar" />
+            </div>
+          </div>
+        </form>
+      </main>
+    <%- include('../partials/footer')%> 
+
+</body>
+<script src="/js/function.js"></script>
+</html>

@@ -220,7 +220,14 @@
 
   /* ---------------------------------- */
   
-n
+  .product_image {
+    width: 100px;
+    margin: auto;
+  }
+
+  .product_image img {
+    width: 100%;
+  }
 
   .form_input:focus + .form_label {
     /* transform: translateY(-12px) scale(0.7); */

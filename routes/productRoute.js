@@ -19,8 +19,8 @@ router.get('/anteojosLentesContacto', productController.lentesContacto);
 router.get('/accesorios', productController.accesorios);
 
 //EDITAR UN PRODUCTO
-router.get('/product/:id/edit', upload.single ('imageProduct'), productController.edit );
-router.post('/product/:id', productController.update)
+router.get('/product/:id/edit',  productController.edit);
+router.put('/product/:id/update', upload.single ('imageProduct'), productController.update);
 
 //BORRAR UN PRODUCTO
 router.delete('/product/:id', productController.delete)

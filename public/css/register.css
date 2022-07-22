@@ -213,6 +213,15 @@
     padding: 5px;
   }
 
+  .user_image_profile{
+    width: 100px;
+    margin: auto;
+  }
+
+  .user_image_profile img{
+    width: 100%;
+  }
+
   .form_select {
     margin-top: 5px;
   }
