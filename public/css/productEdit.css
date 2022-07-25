@@ -267,6 +267,11 @@
     transition: transform 0.5s, color 0.3s;
   } */
 
+  .select_disabled {
+    pointer-events: none;
+    background-color: #c3c6c8;
+  }
+
   .checkboxPass, .checkboxPassConfirm {
     display: flex;
     align-content: center;

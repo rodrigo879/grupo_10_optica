@@ -36,42 +36,21 @@ let productController= {
     edit: (req,res) => {
         let idParam = req.params.id;
         let products = productsModel.readFile();
-        let productFind = products.find(element => element.id == idParam);
-        res.render('./products/productEdit', {productFind, idParam})
+        res.render('./products/productEdit', {products, idParam})
     },
     update: (req, res) => {
         let idParam = req.params.id;
-        let products= productsModel.readFile();
         let newProduct = req.body;
-        // productsModel.update(newProduct);
-        // res.redirect ('/');
-        console.log(newProduct)
-        console.log(req.file)
-        for(let i = 0; i < products.length; i++) {
-            if(products[i].id == idParam) {
-                products[i].nameProduct = newProduct.nameProduct;
-                products[i].descriptionProduct = newProduct.descriptionProduct;
-                products[i].categoryProduct = newProduct.categoryProduct;
-                products[i].trademarkProduct = newProduct.trademarkProduct;
-                products[i].priceProduct = newProduct.priceProduct;
-                if(req.file) {
-                    products[i].image = req.file.filename;
-                } 
-                products[i].discount = newProduct.discount;
-                products[i].priceDiscount = newProduct.priceDiscount;
-                break;               
-            }
+        newProduct.id = idParam;
+        newProduct.priceDiscount = newProduct.priceProduct * (100 - newProduct.discount) / 100;
+        if(req.file) {
+            newProduct.image = req.file.filename;
+        } else {
+            let products= productsModel.readFile();
+            let productFind = products.find(element => element.id == idParam);
+            newProduct.image = productFind.image;
         }
-        //newProduct.id= idParam;
-        //newProduct.image = req.file.filename;
-        //let productEdit= products.find(product => product.id == idParam);     
-        // for (let i = 0; i < products.length; i++) {
-        //     const product = products[i];
-        //     if (product.id == idParam) {
-        //         product= newProduct;
-        //     }
-        // }
-        productsModel.writeFile(products);
+        productsModel.update(newProduct);
         res.redirect ('/');
     },
     delete: (req, res) => {

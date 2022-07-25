@@ -146,6 +146,7 @@ main .imagen-producto{
     width: 45%;
     height: 20%;
     position: relative;
+    text-align: center;
 }
 
 .container_img {
@@ -308,7 +309,7 @@ section h2 {
 }
 
 section img {
-    width: 100%;
+    width: 80%;
     max-height: 100%;
 }
 
@@ -326,12 +327,13 @@ section img {
     height: 82%;
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 .main-section-info {
     display: flex;
     border-top: #ADB2B5 solid 0.5px;
-    padding-top: 20px;
+    padding-top: 10px;
     margin: 0px 5px;
     flex-wrap: wrap;
 }
@@ -350,7 +352,7 @@ section .precio-con-descuento {
 }
 
 section .descuento-producto {
-    font-size: 16px;
+    font-size: 2.5vw;
     font-weight: bold;
     color: #FFFFFF;
     position: absolute;
@@ -361,7 +363,7 @@ section .descuento-producto {
 }
 
 .section-h3 h3 {
-    font-size: 12px;
+    font-size: 10px;
     font-weight: 300;
     margin-left: 0.5em;
 }
@@ -502,7 +504,7 @@ footer h5 {
     }
     
     .section-h3 h3 {
-        font-size: 16px;
+        font-size: 14px;
         font-weight: 300;
         margin-left: 0.5em;
     }
@@ -755,7 +757,7 @@ footer h5 {
 
     main .nombre-producto{
         font-weight: normal;
-        width: 60%;
+        width: 100%;
         margin: 0px 0px 0px 1.2vw;
         text-align: left;
         font-size: 2.5vw;
@@ -809,7 +811,11 @@ footer h5 {
     }
 
     .main-section-product {
-        height: 40vw;
+        height: 30vw;
+    }
+
+    .main-section-info {
+        padding-top: 25px;
     }
 
     section h2 {
@@ -822,11 +828,15 @@ footer h5 {
     section .precio-con-descuento {
         font-size: 22px;
     }
+    
+    section .descuento-producto {
+        font-size: 18px;
+    }
   
     .section-h3 h3 {
         text-align: left;
         display: block;
-        font-size: 20px;
+        font-size: 14px;
         font-weight: 300;
     }
 
