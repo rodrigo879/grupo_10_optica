@@ -21,3 +21,15 @@ SPRINT 2
     Complicarnos con el codigo.
 5- Dejar de hacer
     Dejar cosas para ultimo momento.
+
+SPRINT 3
+1- Comenzar a hacer 
+    Sumar cantidad de reuniones semanales. Nueva division de tareas donde Rodri tenga un rol de "guia"
+2- Hacer más
+    Actualizar mas seguido el Trello. 
+3- Continuar haciendo
+    Mantener buena armonia y comunicación en el grupo. Agregar detalles extras no pedido en los sprint.
+4- Hacer menos
+    Complicarnos con el codigo.
+5- Dejar de hacer
+    Evitar reuniones largas.
