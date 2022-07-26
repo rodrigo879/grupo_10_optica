@@ -271,6 +271,12 @@
     transition: transform 0.5s, color 0.3s;
   } */
 
+  .div_checkbox {
+    margin-bottom: 40px;
+    text-align: start;
+    font-size: 12px;
+  }
+
   .checkboxPass, .checkboxPassConfirm {
     display: flex;
     align-content: center;
@@ -296,12 +302,27 @@
     right: 15px;
   }
   
-  .form_submit {
+  .form_submit, .form_submit_delete {
     margin: auto;
     width: 50%;
   }
+
+  .form_submit_delete {
+    background-color: #b03a2c!important;
+  }
+
+  .btn-confirm {
+    background-color: #B03A2C!important;
+  }
+
+  .btn-confirm button{
+      background-color: #B03A2C;
+      color: #FFFFFF;
+      border: none;
+  }
   
   .form_submit,
+  .form_submit_delete,
   .button_g,
   .button_i {
     font-family: "Montserrat", sans-serif;
@@ -557,7 +578,7 @@
     }
   
     .main-buscar-carrito {
-        width: 40%;
+        width: 60%;
         height: 5vw;
         align-items: center;
     }

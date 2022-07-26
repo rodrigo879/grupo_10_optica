@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+ <%- include('../partials/head', { variant: '/css/usersList.css'})%> 
+<body>
+  <%- include('../partials/header')%>
+    <main>
+      <div class="ruta-login">
+        <a href="/">Inicio</a>/<p>Listado de Usuario</p>
+      </div>
+      <div class="main_container">
+        <% for( let i = 0; i < users.length; i++ ) { %>
+          <a href="/users/profile/<%= users[i].id %>">
+            <div class="container">
+              <div class="img_container">
+                <img src="/images/users/<%= users[i].imageUser %>" alt="Imagen de Usuario <%= users[i].id %>">
+              </div>
+              <div class="info_container">
+                <ul>
+                  <li><strong>Nombre:</strong> <%= users[i].fullName %> </li>
+                  <li><strong>Usuario:</strong> <%= users[i].user %> </li>
+                  <li><strong>Mail:</strong> <%= users[i].email %> </li>
+                  <li><strong>Admin:</strong> <%= users[i].admin %> </li>
+                </ul>
+              </div>
+            </div>
+          </a>
+        <% } %>
+      </div>
+    </main>
+    <%- include('../partials/footer')%> 
+</body>
+<script src="/js/function.js"></script>
+</html>

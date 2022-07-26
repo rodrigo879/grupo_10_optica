@@ -254,7 +254,7 @@ input[id=checkPassword] {
 
 .div_checkbox {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   margin-top: 10px;
 }
 
@@ -524,7 +524,7 @@ footer h5 {
   }
 
   .main-buscar-carrito {
-      width: 40%;
+      width: 60%;
       height: 5vw;
       align-items: center;
   }

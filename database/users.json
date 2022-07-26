@@ -11,12 +11,32 @@
  },
  {
   "fullName": "Rodrigo Alvarez",
-  "user": "rodrigo879",
+  "user": "rja879",
   "email": "rja@gmail.com",
-  "password": "123",
-  "confirmPassword": "123",
-  "imageUser": "user-1658418910196.png",
+  "password": "rja123",
+  "confirmPassword": "rja123",
+  "imageUser": "user-1658835232480.png",
   "admin": false,
   "id": 2
+ },
+ {
+    "fullName": "Javier",
+    "user": "javito23",
+    "email": "javier@gmail.com",
+    "password": "J123",
+    "confirmPassword": "J123",
+    "imageUser": "user-1657842115311.jpg",
+    "admin": false,
+    "id": 3
+ },
+ {
+    "fullName": "Prueba",
+    "user": "prueba123",
+    "email": "prueba@gmail.com",
+    "password": "12345",
+    "confirmPassword": "12345",
+    "imageUser": "user-1657840666769.jpg",
+    "admin": false,
+    "id": 4
  }
 ]

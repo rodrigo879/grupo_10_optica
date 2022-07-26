@@ -17,4 +17,14 @@ router.post('/register', upload.single('imageUser'), usersController.create);
 router.get('/profile/:id', usersController.profile);
 router.put('/profile/:id/edit', upload.single('imageUser'), usersController.editProfile);
 
+// CAMBIAR LA PASSWORD
+router.get('/profile/:id/password', usersController.password);
+router.put('/profile/:id/passwordEdit', usersController.passwordEdit);
+
+// BORRAR EL USUARIO
+router.delete('/profile/:id', usersController.delete)
+
+// LISTA DE USUARIOS
+router.get('/userList', usersController.userList);
+
 module.exports = router;

@@ -79,6 +79,24 @@ function mostrarConfirmPassword() {
     }
 }
 
+//Funcion que muestra la contraseña actual en el input cambiar contraseña
+function mostrarPasswordActual() {
+    let inputPasswordActual = document.getElementById("passwordActual");
+    let checkboxActual = document.getElementById("checkPasswordActual");
+    let iconEyeSlashActual = document.getElementById("eyeSlashActual");
+    let iconEyeActual = document.getElementById("eyeActual");
+
+    if(inputPasswordActual.type == "password" && checkboxActual.checked){
+        inputPasswordActual.type = "text";
+        iconEyeSlashActual.style.display = "none";
+        iconEyeActual.style.display = "initial";
+    }else{
+        inputPasswordActual.type = "password";
+        iconEyeSlashActual.style.display = "initial";
+        iconEyeActual.style.display = "none";
+    }
+}
+
 //Alerta al borrar un producto.
 function borrarProducto(id) {
     Swal.fire({
@@ -100,6 +118,35 @@ function borrarProducto(id) {
                 title: 'Producto borrado',
                 icon: 'success',
                 html: `<form action="/products/product/${id}?_method=delete" method="post"><button class="btn-confirm swal2-styled swal2-confirm" type= "submit">OK</button></form>`,
+                showConfirmButton: false,
+                allowOutsideClick: false,
+                allowEscapeKey: false,
+                allowEnterKey: false,
+            })
+        }
+    });
+};
+
+//Alerta al borrar un usuario.
+function borrarUsuario(id) {
+    Swal.fire({
+        title: 'Desea eliminar la cuenta?',
+        icon: 'warning',
+        confirmButtonText: 'Borrar',
+        footer: 'Eliminar usuario de la base de datos',
+        allowOutsideClick: false,
+        allowEscapeKey: false,
+        allowEnterKey: false,
+        showCancelButton: true,
+        customClass: {
+            confirmButton: 'btn-confirm',
+        }
+    }).then((result) => {
+        if(result.isConfirmed) {
+            Swal.fire({
+                title: 'Usuario borrado',
+                icon: 'success',
+                html: `<form action="/users/profile/${id}?_method=delete" method="post"><button class="btn-confirm swal2-styled swal2-confirm" type= "submit">OK</button></form>`,
                 showConfirmButton: false,
                 allowOutsideClick: false,
                 allowEscapeKey: false,

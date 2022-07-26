@@ -24,10 +24,10 @@
               <label for="email" class="form_label">Email:</label>
             </div>
             <div class="form_group">
-              <input required accept=".png, .jpeg, .jpg" type="file" class="form_input form_input_file" id="imageUser" name="imageUser" value="<%= users.imageUser %>" placeholder=" "/> 
+              <input accept=".png, .jpeg, .jpg" type="file" class="form_input form_input_file" id="imageUser" name="imageUser" value="<%= users.imageUser %>" placeholder=" "/> 
               <label for="imageUser" class="form_label">Imagen:</label>
             <div class="user_image_profile"> 
-                <img src="/images/users/<%= users.imageUser %>" alt="<%= "Imagen de usuario" %>">
+                <img src="/images/users/<%= users.imageUser %>" alt="Imagen de usuario">
             </div>
               <div class="form_input">
                 <label for="imageUser" class="form_imageFile">
@@ -36,9 +36,13 @@
                 </label>
               </div>
             </div>
-            <a href="#">Cambiar contraseña</a>
+            <a href="/users/profile/<%= users.id %>/password">Cambiar contraseña</a>
             <div>
               <input type="submit" class="form_submit" value="Entrar" />
+            </div>
+            <div>
+              <% let idBorrar = users.id %>
+              <button id="<%- idBorrar %>" type= "button" class="form_submit_delete" onclick="borrarUsuario(id)">Borrar Cuenta</button>
             </div>
           </div>
         </form>
