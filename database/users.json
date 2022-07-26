@@ -20,23 +20,33 @@
   "id": 2
  },
  {
-    "fullName": "Javier",
-    "user": "javito23",
-    "email": "javier@gmail.com",
-    "password": "J123",
-    "confirmPassword": "J123",
-    "imageUser": "user-1657842115311.jpg",
-    "admin": false,
-    "id": 3
+  "fullName": "Javier",
+  "user": "javito23",
+  "email": "javier@gmail.com",
+  "password": "J123",
+  "confirmPassword": "J123",
+  "imageUser": "user-1657842115311.jpg",
+  "admin": false,
+  "id": 3
  },
  {
-    "fullName": "Prueba",
-    "user": "prueba123",
-    "email": "prueba@gmail.com",
-    "password": "12345",
-    "confirmPassword": "12345",
-    "imageUser": "user-1657840666769.jpg",
-    "admin": false,
-    "id": 4
+  "fullName": "Prueba",
+  "user": "prueba123",
+  "email": "prueba@gmail.com",
+  "password": "12345",
+  "confirmPassword": "12345",
+  "imageUser": "user-1657840666769.jpg",
+  "admin": false,
+  "id": 4
+ },
+ {
+  "fullName": "Facundo Sandoval",
+  "user": "facu.sandoval_",
+  "email": "facundofacu100@gmail.com",
+  "password": "hola123",
+  "confirmPassword": "hola123",
+  "imageUser": "user-1658877672192.jpg",
+  "admin": false,
+  "id": 5
  }
 ]

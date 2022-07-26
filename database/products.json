@@ -170,10 +170,10 @@
   "categoryProduct": "lentesSol",
   "trademarkProduct": "VULK",
   "priceProduct": "9817.50",
-  "image": "product-1657122875724.jpg",
-  "discount": 20,
+  "discount": "20",
+  "id": "16",
   "priceDiscount": 7854,
-  "id": 16
+  "image": "product-1658754857736.jpg"
  },
  {
   "nameProduct": "EGO 8511 UV400",
