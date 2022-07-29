@@ -2,6 +2,13 @@ const jsonTable = require('../database/jsonTable');
 
 const productsModel = jsonTable('products')
 
+//Reemplaza el punto de los decimales por una coma en el precio de los productos..
+const toComma = n => n.toString().replace(".", ",");
+
+//Agrega el punto cada 3 caracteres en el precio de los productos..
+const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+
+//Funcion para generar resultados al azar para mostrar como productos opcionales en el detalle de producto..
 function ramdonResult() {
     let result = [];
     let i = 0;
@@ -15,11 +22,11 @@ function ramdonResult() {
     return result
 }
 
-let productController= {
+let productController = {
     product: (req,res) => {
         let idParam= req.params.id
         let products = productsModel.readFile();
-        res.render('./products/productDetail' , {products, idParam, result: ramdonResult()});
+        res.render('./products/productDetail' , {products, idParam, result: ramdonResult(), toThousand, toComma});
     },
     showFormCreate: (req, res) => {
         res.render('./products/create')
@@ -66,24 +73,24 @@ let productController= {
     },
     accesorios: (req, res) => {
         let products = productsModel.readFile().filter(element => element.categoryProduct == 'accesorios')
-        res.render('./products/listProducts', {products})
+        res.render('./products/listProducts', {products, toThousand, toComma})
     },
     lentesSol: (req, res) => {
         let products = productsModel.readFile().filter(element => element.categoryProduct == 'lentesSol')
-        res.render('./products/listProducts', {products})
+        res.render('./products/listProducts', {products, toThousand, toComma})
     },
     lentesRecetado: (req, res) => {
         let products = productsModel.readFile().filter(element => element.categoryProduct == 'lentesRecetados')
-        res.render('./products/listProducts', {products})
+        res.render('./products/listProducts', {products, toThousand, toComma})
     },
     lentesContacto: (req, res) => {
         let products = productsModel.readFile().filter(element => element.categoryProduct == 'lentesContacto')
-        res.render('./products/listProducts', {products})
+        res.render('./products/listProducts', {products, toThousand, toComma})
     },
     productCart: (req, res) => {
         let products = productsModel.readFile();
         let costo = -1;
-        res.render('./products/productCart', {products, costo});
+        res.render('./products/productCart', {products, costo, toThousand, toComma});
     },
     calculoEnvio: (req, res) => {
         let products = productsModel.readFile();
@@ -99,10 +106,10 @@ let productController= {
             } else {
                 costo = (codigoPostal * 1.1).toFixed(2)
             }
-            res.render('./products/productCart', {products, costo, codigoPostal});
+            res.render('./products/productCart', {products, costo, codigoPostal, toThousand, toComma});
         } else {
             let costo = -1
-            res.render('./products/productCart', {products, costo});
+            res.render('./products/productCart', {products, costo, toThousand, toComma});
         }
     }
 }

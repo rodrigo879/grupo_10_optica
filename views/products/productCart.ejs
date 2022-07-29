@@ -32,7 +32,7 @@
                                         <input type="number" id="inputTypeProductCart<%= products[i].id %>" placeholder="1" readonly>
                                         <button type="button">+</button>
                                     </div>
-                                    <p><%= "$" + products[i].priceDiscount %></p>
+                                    <p><%= "$" + toThousand(toComma(products[i].priceDiscount)) %></p>
                                 </div>
                             </div>
                         </div>
@@ -47,7 +47,7 @@
                         <% for( let i = 0; i < 3; i++ ) { %>
                             <% subTotal += products[i].priceDiscount %> 
                         <% } %>
-                        <strong><%= "$" + subTotal  %> </strong>
+                        <strong><%- "$" + toThousand(toComma(subTotal.toFixed(2)))  %> </strong>
                     </h5>
                 </div>
                 <div class="medios-envio">
@@ -61,22 +61,27 @@
                             </div>
                         </form>
                     </div>
+
                     <a href="https://www.correoargentino.com.ar/formularios/cpa" target="_blank">Desconoces tu codigo postal?</a>
+                    
                     <% if (costo >= 0) { %>
                         <div class="calculo-del-envio">
                             <!--Aca apareceria el costo del envio, el cual se sumaria al subtotal.-->
                             <h5>
                                 <span>Calculo del envio:</span>
-                                <strong><%= '$' + costo %>  </strong>
+                                <strong><%- '$' + toThousand(toComma(costo)) %>  </strong>
                             </h5>
                         </div>
                     <% } %>
+                </div>
+                <div class="separador">
+                    <a class = "medios-de-pago" href="#" onclick="mediosDePago()"> VER MEDIOS DE PAGO</a>
                 </div>
                 <div class="total-productos-envio">
                     <h5>
                         <span>Total:</span>
                         <% let total = parseFloat(subTotal) + (costo >= 0 ? parseFloat(costo) : 0) %> 
-                        <strong><%= '$' + total.toFixed(2) %> </strong>
+                        <strong><%= '$' + toThousand(toComma(total.toFixed(2))) %> </strong>
                     </h5>
                 </div>
                 <div class="formulario">
@@ -88,7 +93,7 @@
             </div>    
         </div>
     </main>
-
+ 
     <!-- FOOTER -->
     <%- include('../partials/footer') %>
 

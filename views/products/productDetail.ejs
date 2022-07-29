@@ -32,13 +32,13 @@
                         <div class="info-producto-principal">
                             <div class="info-producto">
                                 <h2 class = "nombre-producto"> <%= products[i].nameProduct %> </h2>
-                                <h2 class="precio-producto"> <%= "$" + products[i].priceDiscount %> </h2>
+                                <h2 class="precio-producto"> <%= "$" + toThousand(toComma(products[i].priceDiscount)) %> </h2>
                             </div>
                                     
                             <div class= "separador">
                                 <div class= "cuotas"> 
                                     <p>6 CUOTAS SIN INTERÉS DE</p> 
-                                    <b><%= "$" + (products[i].priceDiscount / 6).toFixed(2) %></b> 
+                                    <b><%= "$" + toThousand(toComma((products[i].priceDiscount / 6).toFixed(2))) %></b> 
                                 </div>
                                 <a class = "medios-de-pago" href="views/medios-de-pago"> VER MEDIOS DE PAGO</a>
                             </div>
@@ -46,11 +46,11 @@
                             <div class="cantidad">
                                 <p> CANTIDAD</p>
                                 <form class="formulario" action="/carrito" method="POST">
-                                    <input type="number" name="cantidad" min="0" value="1">
+                                    <input type="number" name="cantidad" min="0" max="10" value="1">
                                 </form>
                             </div>
                             <div class ="contenedor-compra"> 
-                                <button class="boton-carrito"> <span> AGREGAR AL CARRITO <span></button>
+                                <button class="boton-carrito"><span>AGREGAR AL CARRITO<span></button>
                             </div>
                         </div>
                     <% } %>               
@@ -72,11 +72,11 @@
                         <div class="main-section-info">
                             <div class="informacion-precio-descuento">
                                 <% if (products[pruebaResult].discount > 0) { %>
-                                    <p class="precio-producto-tachado"><%= "$" + products[pruebaResult].priceProduct %></p>
-                                    <p class="precio-con-descuento"><%= "$" + products[pruebaResult].priceDiscount %></p>
+                                    <p class="precio-producto-tachado"><%= "$" + toThousand(toComma(products[pruebaResult].priceProduct)) %></p>
+                                    <p class="precio-con-descuento"><%= "$" + toThousand(toComma(products[pruebaResult].priceDiscount)) %></p>
                                     <p class="descuento-producto"><%= products[pruebaResult].discount + '% OFF' %></p>
                                 <% } else { %>
-                                    <p class="precio-con-descuento"><%= "$" + products[pruebaResult].priceDiscount %></p>
+                                    <p class="precio-con-descuento"><%= "$" + toThousand(toComma(products[pruebaResult].priceDiscount)) %></p>
                                 <% } %> 
                             </div>
                             <div class="section-h3">

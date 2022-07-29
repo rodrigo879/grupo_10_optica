@@ -315,7 +315,12 @@ section {
     display: flex;
     align-items: center;
     margin: 1vw 1vw 0;
+}
 
+.separador {
+    text-align: center;
+    margin-top: 1.5vw;
+    z-index: 1;
 }
 
 .total-productos-envio {
@@ -324,8 +329,7 @@ section {
     height: 60px;
     display: flex;
     align-items: center;
-    margin: 2vw 10px;
-
+    margin: 0.5vw 10px;
 }
 
 .total-productos-envio h5 {

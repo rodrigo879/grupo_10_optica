@@ -33,11 +33,11 @@
                             <div class="informacion-precio-descuento">
                                 <i class="fa-solid fa-truck"></i>
                                 <% if (products[i].discount > 0) { %>
-                                    <p class="precio-producto"><%= "$" + products[i].priceProduct %></p>
-                                    <p class="precio-con-descuento"><%= "$" + products[i].priceDiscount %></p>
+                                    <p class="precio-producto"><%= "$" + toThousand(toComma(products[i].priceProduct)) %></p>
+                                    <p class="precio-con-descuento"><%= "$" + toThousand(toComma(products[i].priceDiscount)) %></p>
                                     <p class="descuento-producto"><%= products[i].discount + '% OFF' %></p>
                                 <% } else { %>
-                                    <p class="precio-con-descuento"><%= "$" + products[i].priceDiscount %></p>
+                                    <p class="precio-con-descuento"><%= "$" + toThousand(toComma(products[i].priceDiscount)) %></p>
                                 <% } %> 
                             </div>
                             <div class="section-h3">

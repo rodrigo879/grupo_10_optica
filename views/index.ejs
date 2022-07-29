@@ -62,9 +62,9 @@
                     <div class="seccion-imagen">
                         <a href="/products/anteojos<%= infoContainerImg[i].href %>"><img src="/images/banners/<%= infoContainerImg[i].src %> " alt="Imagen <%= infoContainerImg[i].alt %> "></a>
                     </div>                    
-                <% } %>
+                    <% } %>
+                </div>
             </div>
-        </div>
         
         <section>
             <h2 id="ofertas">&#128293 Ofertas &#128293</h2>
@@ -80,8 +80,8 @@
                         <div class="main-section-info">
                             <div class="informacion-precio-descuento">
                                 <i class="fa-solid fa-truck"></i>
-                                    <p class="precio-producto"><%= "$" + products[pruebaResult].priceProduct %></p>
-                                    <p class="precio-con-descuento"><%= "$" + products[pruebaResult].priceDiscount %></p>
+                                    <p class="precio-producto"><%= "$" + toThousand(toComma(products[pruebaResult].priceProduct)) %></p>
+                                    <p class="precio-con-descuento"><%= "$" + toThousand(toComma(products[pruebaResult].priceDiscount)) %></p>
                                     <p class="descuento-producto"><%= products[pruebaResult].discount + '% OFF' %></p>
                             </div>
                             <div class="section-h3">

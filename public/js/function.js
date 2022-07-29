@@ -155,3 +155,25 @@ function borrarUsuario(id) {
         }
     });
 };
+
+//Ventana para ver medios de pagos.
+//Hay que modificarlo para que el estilo quede en la hoja de CSS correspondiente.
+function mediosDePago() {
+    Swal.fire({
+        title: 'MEDIOS DE PAGO',
+        html:   '<div style="display: flex; padding:10px; margin:10px">' + 
+                    '<div style="width:100px; display: flex; justify-content: center; align-content: center; padding: 5px; margin: 10px; border: solid 1px black" class="alert-img"><img style="width: 90%" src="/images/medioDePagos/cordobesa.svg"></div>' +
+                    '<div style="width:100px; display: flex; justify-content: center; align-content: center; padding: 5px; margin: 10px; border: solid 1px black" class="alert-img"><img style="width: 90%" src="/images/medioDePagos/cencosud.svg"></div>' +
+                    '<div style="width:100px; display: flex; justify-content: center; align-content: center; padding: 5px; margin: 10px; border: solid 1px black" class="alert-img"><img style="width: 90%" src="/images/medioDePagos/naranja.svg"></div>' +
+                    '<div style="width:100px; display: flex; justify-content: center; align-content: center; padding: 5px; margin: 10px; border: solid 1px black" class="alert-img"><img style="width: 90%" src="/images/medioDePagos/americanExpress.svg"></div>' +
+                '</div>' + 
+                '<div style="display: flex; padding:10px; margin:10px">' + 
+                    '<div style="width:100px; display: flex; justify-content: center; align-content: center; padding: 5px; margin: 10px; border: solid 1px black" class="alert-img"><img style="width: 90%" src="/images/medioDePagos/rapipago.svg"></div>' +
+                    '<div style="width:100px; display: flex; justify-content: center; align-content: center; padding: 5px; margin: 10px; border: solid 1px black" class="alert-img"><img style="width: 90%" src="/images/medioDePagos/visaDebito.svg"></div>' +
+                    '<div style="width:100px; display: flex; justify-content: center; align-content: center; padding: 5px; margin: 10px; border: solid 1px black" class="alert-img"><img style="width: 90%" src="/images/medioDePagos/masterCardDebito.svg"></div>' +
+                '</div>',
+        showConfirmButton: false,
+        showCloseButton: true,
+        footer: 'Paga con seguridad en todas tus compras',
+    })
+}

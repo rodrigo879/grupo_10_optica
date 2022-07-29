@@ -7,7 +7,7 @@ const userController = {
     },
     logged: (req, res) => {
         let userBody = req.body.user;
-        let users = usersModel.readFile('users.json')
+        let users = usersModel.readFile()
         let userFilter = users.filter(person => person.user == userBody)
         if(userFilter.length > 0){  
             let userPassword = req.body.password;
@@ -33,13 +33,13 @@ const userController = {
     },
     profile: (req, res) => {
         let userId = req.params.id
-        let users = usersModel.readFile('users.json');
+        let users = usersModel.readFile();
         let userFind = users.find(element => element.id == userId);
         res.render('./users/profile', {users: userFind});
     },
     editProfile: (req, res) => {
         let userId = req.params.id;
-        let users = usersModel.readFile('users.json');
+        let users = usersModel.readFile();
         let userFind = users.find(element => element.id == userId);
         let userBody = req.body
         userFind.fullName = userBody.fullName;
@@ -79,7 +79,7 @@ const userController = {
     passwordEdit: (req, res) => {
         let userId = req.params.id;
         let passwordsInfo = req.body;
-        let users = usersModel.readFile('users.json');
+        let users = usersModel.readFile();
         let userFind = users.find(element => element.id == userId);
         if(passwordsInfo.passwordActual == userFind.password) {
             userFind.password = passwordsInfo.password;
@@ -91,7 +91,7 @@ const userController = {
         res.redirect(`/users/profile/${userId}`)
     },
     userList: (req, res) => {
-        let users = usersModel.readFile('users.json');
+        let users = usersModel.readFile();
         res.render('./users/userList', {users})
 
     }
