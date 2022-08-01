@@ -30,10 +30,12 @@ let mainController = {
         let imageCarrousel = imgCarrousel.readFile();
         let products = productsModel.readFile();
         let result = ramdonResult(products);
-        res.render('index', {imageCarrousel, products, result, toThousand, toComma});
+        let userLogged = req.session.user
+        res.render('index', {imageCarrousel, products, result, userLogged, toThousand, toComma});
     },
     contact: (req, res) => {
-        res.render('contact');
+        let userLogged = req.session.user
+        res.render('contact', {userLogged} );
     }
 }
 

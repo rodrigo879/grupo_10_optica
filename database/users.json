@@ -1,12 +1,12 @@
 [
  {
-  "fullName": "nicolas rodriguez",
+  "fullName": "Francisco Leonardo",
   "user": "franleonardo12",
   "email": "fran@hotmail.com",
   "password": "fran",
   "confirmPassword": "fran",
   "imageUser": "user-1658337511865.jpg",
-  "admin": false,
+  "admin": true,
   "id": 1
  },
  {

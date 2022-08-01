@@ -34,6 +34,7 @@ const storage = multer.diskStorage({
     }
 });
 
+
 // SUBE LA IMAGEN
 const upload = multer({ storage })
 

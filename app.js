@@ -3,6 +3,7 @@ const express = require('express');
 const methodOverride = require('method-override')
 const path = require('path')
 const app = express();
+const session = require('express-session');
 
 //ARCHIVOS REQUERIDOS DEL PROYECTO
 const mainRoute = require('./routes/mainRoute');
@@ -25,6 +26,8 @@ app.use(express.json());
 //PARA PODER UTILIZAR PUT DELETE ETC..
 app.use(methodOverride('_method'));
 
+// APLICANDO SESSION
+app.use(session({secret: 'secret'}));
 // PAGINAS MAIN
 app.use('/', mainRoute);
 

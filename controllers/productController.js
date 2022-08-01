@@ -26,10 +26,12 @@ let productController = {
     product: (req,res) => {
         let idParam= req.params.id
         let products = productsModel.readFile();
-        res.render('./products/productDetail' , {products, idParam, result: ramdonResult(), toThousand, toComma});
+        let userLogged = req.session.user
+        res.render('./products/productDetail' , {products, idParam, userLogged, result: ramdonResult(), toThousand, toComma});
     },
     showFormCreate: (req, res) => {
-        res.render('./products/create')
+        let userLogged = req.session.user
+        res.render('./products/create', {userLogged})
     },
     create: (req, res) => {
         if(req.file) {
@@ -43,7 +45,8 @@ let productController = {
     edit: (req,res) => {
         let idParam = req.params.id;
         let products = productsModel.readFile();
-        res.render('./products/productEdit', {products, idParam})
+        let userLogged = req.session.user
+        res.render('./products/productEdit', {products, idParam, userLogged})
     },
     update: (req, res) => {
         let idParam = req.params.id;
@@ -73,27 +76,33 @@ let productController = {
     },
     accesorios: (req, res) => {
         let products = productsModel.readFile().filter(element => element.categoryProduct == 'accesorios')
-        res.render('./products/listProducts', {products, toThousand, toComma})
+        let userLogged = req.session.user
+        res.render('./products/listProducts', {products, userLogged, toThousand, toComma})
     },
     lentesSol: (req, res) => {
         let products = productsModel.readFile().filter(element => element.categoryProduct == 'lentesSol')
-        res.render('./products/listProducts', {products, toThousand, toComma})
+        let userLogged = req.session.user
+        res.render('./products/listProducts', {products, userLogged, toThousand, toComma})
     },
     lentesRecetado: (req, res) => {
         let products = productsModel.readFile().filter(element => element.categoryProduct == 'lentesRecetados')
-        res.render('./products/listProducts', {products, toThousand, toComma})
+        let userLogged = req.session.user
+        res.render('./products/listProducts', {products, userLogged, toThousand, toComma})
     },
     lentesContacto: (req, res) => {
         let products = productsModel.readFile().filter(element => element.categoryProduct == 'lentesContacto')
-        res.render('./products/listProducts', {products, toThousand, toComma})
+        let userLogged = req.session.user
+        res.render('./products/listProducts', {products, userLogged, toThousand, toComma})
     },
     productCart: (req, res) => {
         let products = productsModel.readFile();
         let costo = -1;
-        res.render('./products/productCart', {products, costo, toThousand, toComma});
+        let userLogged = req.session.user
+        res.render('./products/productCart', {products, costo, userLogged, toThousand, toComma});
     },
     calculoEnvio: (req, res) => {
         let products = productsModel.readFile();
+        let userLogged = req.session.user
         if(req.body.codigoPostal){
             let codigoPostal = req.body.codigoPostal;
             let costo;
@@ -106,10 +115,11 @@ let productController = {
             } else {
                 costo = (codigoPostal * 1.1).toFixed(2)
             }
-            res.render('./products/productCart', {products, costo, codigoPostal, toThousand, toComma});
+
+            res.render('./products/productCart', {products, costo, codigoPostal, userLogged, toThousand, toComma});
         } else {
             let costo = -1
-            res.render('./products/productCart', {products, costo, toThousand, toComma});
+            res.render('./products/productCart', {products, costo, userLogged, toThousand, toComma});
         }
     }
 }

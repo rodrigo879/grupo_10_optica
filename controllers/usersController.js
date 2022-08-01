@@ -1,9 +1,11 @@
+const { request } = require('express');
 const usersJson = require('../database/jsonTable');
 const usersModel = usersJson('users')
 
 const userController = {
     login: (req, res) => {
-        res.render('./users/login');
+        let userLogged = req.session.user
+        res.render('./users/login', {userLogged});
     },
     logged: (req, res) => {
         let userBody = req.body.user;
@@ -11,7 +13,8 @@ const userController = {
         let userFilter = users.filter(person => person.user == userBody)
         if(userFilter.length > 0){  
             let userPassword = req.body.password;
-            if(userFilter.password == userPassword){
+            if(userFilter[0].password == userPassword){
+                 req.session.user = userFilter[0];
                 res.redirect('/')
             } else {
                 res.send('Datos incorrectos')
@@ -22,7 +25,8 @@ const userController = {
         }
     },
     register: (req, res) => {
-        res.render('./users/register');
+        let userLogged = req.session.user
+        res.render('./users/register', {userLogged} );
     },
     create: (req, res) => {
         let users = req.body;
@@ -35,7 +39,8 @@ const userController = {
         let userId = req.params.id
         let users = usersModel.readFile();
         let userFind = users.find(element => element.id == userId);
-        res.render('./users/profile', {users: userFind});
+        let userLogged = req.session.user
+        res.render('./users/profile', {users: userFind, userLogged});
     },
     editProfile: (req, res) => {
         let userId = req.params.id;
@@ -74,7 +79,8 @@ const userController = {
     },
     password: (req, res) => {
         let userId = req.params.id;
-        res.render('./users/passwordEdit', {userId})
+        let userLogged = req.session.user
+        res.render('./users/passwordEdit', {userId, userLogged});
     },
     passwordEdit: (req, res) => {
         let userId = req.params.id;
@@ -92,7 +98,8 @@ const userController = {
     },
     userList: (req, res) => {
         let users = usersModel.readFile();
-        res.render('./users/userList', {users})
+        let userLogged = req.session.user
+        res.render('./users/userList', {users, userLogged})
 
     }
 }
