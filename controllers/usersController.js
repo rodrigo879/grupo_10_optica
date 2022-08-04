@@ -1,4 +1,5 @@
 const { request } = require('express');
+const { validationResult } = require('express-validator');
 const usersJson = require('../database/jsonTable');
 const usersModel = usersJson('users')
 
@@ -8,20 +9,24 @@ const userController = {
         res.render('./users/login', {userLogged});
     },
     logged: (req, res) => {
-        let userBody = req.body.user;
-        let users = usersModel.readFile()
-        let userFilter = users.filter(person => person.user == userBody)
-        if(userFilter.length > 0){  
-            let userPassword = req.body.password;
-            if(userFilter[0].password == userPassword){
-                 req.session.user = userFilter[0];
-                res.redirect('/')
+        let errors = validationResult(req);
+        if(errors.isEmpty()) {
+            let userBody = req.body.user;
+            let users = usersModel.readFile()
+            let userFilter = users.filter(person => person.user == userBody)
+            if(userFilter.length > 0){  
+                let userPassword = req.body.password;
+                if(userFilter[0].password == userPassword){
+                    req.session.user = userFilter[0];
+                    res.redirect('/')
+                } else {
+                    res.render('login', {errors: [{msg: 'Credenciales Invalidadas'}]})
+                }
             } else {
-                res.send('Datos incorrectos')
+                res.render('login', {errors: [{msg: 'Credenciales Invalidadas'}]})
             }
         } else {
-            res.send('Datos incorrectos') 
-
+            res.render('login', {errors: [{msg: 'Credenciales Invalidadas'}]})
         }
     },
     register: (req, res) => {
@@ -29,11 +34,16 @@ const userController = {
         res.render('./users/register', {userLogged} );
     },
     create: (req, res) => {
-        let users = req.body;
-        users.imageUser = req.file.filename;
-        users.admin = false;
-        usersModel.create(users);
-        res.redirect('/')
+        let errors = validationResult(req);
+        if(errors.isEmpty()) {
+            let users = req.body;
+            users.imageUser = req.file.filename;
+            users.admin = false;
+            usersModel.create(users);
+            res.redirect('/')
+        } else {
+            res.render('register', {errors: errors.mapped(), oldData: req.body});
+        }
     },
     profile: (req, res) => {
         let userId = req.params.id

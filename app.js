@@ -28,6 +28,7 @@ app.use(methodOverride('_method'));
 
 // APLICANDO SESSION
 app.use(session({secret: 'secret'}));
+
 // PAGINAS MAIN
 app.use('/', mainRoute);
 

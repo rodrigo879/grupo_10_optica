@@ -3,18 +3,18 @@ const router = express.Router();
 
 
 const upload = require('../middleware/multerMiddelware')
-const authMiddleware = require('../middleware/authMiddleware')
+const validatorMiddelware = require('../middleware/validatorMiddelware');
+const authMiddleware = require('../middleware/authMiddleware');
 const guestMiddleware = require('../middleware/guestMiddleware');
-const usersController = require('../controllers/usersController')
+const usersController = require('../controllers/usersController');
 
 // LOGUEARSE
 router.get('/login', guestMiddleware, usersController.login);
-router.post('/login',usersController.logged);
-
+router.post('/login', validatorMiddelware.validacionLoginUsers, usersController.logged);
 
 // REGISTRARSE
 router.get('/register', guestMiddleware, usersController.register);
-router.post('/register', upload.single('imageUser'), usersController.create);
+router.post('/register', upload.single('imageUser'), validatorMiddelware.validacionCreateUsers, usersController.create);
 
 // PROFILE
 router.get('/profile/:id', authMiddleware, usersController.profile);
