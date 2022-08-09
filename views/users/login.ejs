@@ -10,10 +10,10 @@
           </div>
           <div class="form_conteiner">
             <div class="form_group">
-              <input required type="text" id="userName" name="userName" class="form_input" value="<%= locals.oldData ? oldData.userName : null %>"/>
-              <label for="userName" class="form_label">Usuario:</label>     
-              <% if (locals.errors && errors.userName) {  %>
-                <div class = "validation_error"> <%= errors.userName.msg  %>        
+              <input required type="text" id="user" name="user" class="form_input" value="<%= locals.oldData ? oldData.user : null %>"/>
+              <label for="user" class="form_label">Usuario:</label>     
+              <% if (locals.errors && errors.user) {  %>
+                <div class = "validation_error"> <%= errors.user.msg  %>        
                   <% } %>
                 </div>
             

@@ -1,7 +1,9 @@
 const { request } = require('express');
+const bcryptjs= require('bcryptjs');
 const { validationResult } = require('express-validator');
 const usersJson = require('../database/jsonTable');
 const usersModel = usersJson('users');
+
 
 const userController = {
     login: (req, res) => {
@@ -17,9 +19,13 @@ const userController = {
             // if(userFilter.length > 0){  
             //     let userPassword = req.body.password;
             //     if(userFilter[0].password == userPassword){
-            //         req.session.user = req.body;
-             ///       userLogged = req.session.user; {userLogged}
-                    res.redirect('/' )
+                let users= usersModel.readFile();
+                let userFind = users.find(element => element.user == req.body.user)
+                delete userFind.password;
+                delete userFind.confirmPassword;   
+                req.session.user = userFind;
+                userLogged = req.session.user;
+                res.redirect('/' )
             //     } else {
             //         res.render('./users/login', {errors: errors.mapped (), oldData: req.body })
             //     }
@@ -50,13 +56,21 @@ const userController = {
     create: (req, res) => {
         let errors = validationResult(req);
         if(errors.isEmpty()) {
-            let users = req.body;
-            users.imageUser = req.file.filename;
-            users.admin = false;
-            usersModel.create(users);
+            let user = req.body;
+            user.password = bcryptjs.hashSync(req.body.password, 10);
+            user.confirmPassword = bcryptjs.hashSync(req.body.confirmPassword, 10)
+            user.imageUser = req.file.filename;
+            user.admin = false;
+            let users= usersModel.readFile();
+            usersModel.create(user);
+            let userFind = users.find(element => element.user == req.body.user)
+            delete userFind.password;
+            delete userFind.confirmPassword;   
+            req.session.user = userFind;
+            userLogged = req.session.user;
             res.redirect('/')
         } else {
-            res.render('register', {errors: errors.mapped(), oldData: req.body});
+            res.render('./users/register', {errors: errors.mapped(), oldData: req.body});
         }
     },
     profile: (req, res) => {
@@ -64,7 +78,8 @@ const userController = {
         let users = usersModel.readFile();
         let userFind = users.find(element => element.id == userId);
         let userLogged = req.session.user
-        res.render('./users/profile', {users: userFind, userLogged});
+
+        res.render('./users/profile', {user: userLogged});
     },
     editProfile: (req, res) => {
         let userId = req.params.id;

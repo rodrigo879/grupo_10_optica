@@ -48,5 +48,35 @@
   "imageUser": "user-1658877672192.jpg",
   "admin": false,
   "id": 5
+ },
+ {
+  "fullName": "hola ",
+  "user": "hola777",
+  "email": "hola@gmail.com",
+  "password": "$2a$10$ujb/U5AnGx5mmWKJtwUQj.5.85GTD.ChCKd4lr9l7WN0fL2WjfiA.",
+  "confirmPassword": "hola123",
+  "imageUser": "product-1660052606599.jpg",
+  "admin": false,
+  "id": 6
+ },
+ {
+  "fullName": "prueba",
+  "user": "prueba",
+  "email": "prueba@gmail.com",
+  "password": "$2a$10$86Uq96vcdsRHzT2rFqHPCO/qINoibvk2qKBwIRCTCuXm3ArCci9QO",
+  "confirmPassword": "$2a$10$qJGDJ6wvSb0O64OyAmeVs.kwFh.NpJDaytEszmcV.Dvc69K.fvAUq",
+  "imageUser": "user-1660056323659.jpg",
+  "admin": false,
+  "id": 7
+ },
+ {
+  "fullName": "prueba",
+  "user": "prueba",
+  "email": "prueba@gmail.com",
+  "password": "$2a$10$oXNngZ.pfvA8MbeSFgxKMu4A.KFbz7pPGvAbKU2Yi9FLF12r5jsky",
+  "confirmPassword": "$2a$10$5ZCH09lvRmFmIwMSJ64K2eW6lIPA7/bCpe0iBJOOQKIm87X4g5jiO",
+  "imageUser": "user-1660056420065.jpg",
+  "admin": false,
+  "id": 8
  }
 ]

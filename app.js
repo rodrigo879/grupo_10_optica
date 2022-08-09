@@ -27,7 +27,11 @@ app.use(express.json());
 app.use(methodOverride('_method'));
 
 // APLICANDO SESSION
-app.use(session({secret: 'secret'}));
+app.use(session({
+    secret: 'secret',
+    resave: false,
+    saveUninitialized: false,
+}));
 
 // PAGINAS MAIN
 app.use('/', mainRoute);

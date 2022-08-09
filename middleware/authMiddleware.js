@@ -3,7 +3,7 @@ function authMiddleware(req, res, next) {
         next();
     } else {
         res.redirect('/login')
-    }
+   }
 }
 
 module.exports = authMiddleware;

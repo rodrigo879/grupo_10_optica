@@ -5,29 +5,29 @@
     <%- include('../partials/header')%>
     <main>
         <!-- ----------------AGREGAR CODIGO NUEVO---------------- -->
-        <form class="form" action="/users/profile/<%= users.id %>/edit?_method=put" method="post" enctype="multipart/form-data">
+        <form class="form" action="/users/profile/<%= userLogged.id %>/edit?_method=put" method="post" enctype="multipart/form-data">
           <div class="ruta-login">
             <a href="/">Inicio</a>/<p>Perfil</p>
           </div>
           <!-- <h2 class="form_title">Optica Riff</h2>  -->
           <div class="form_conteiner">
             <div class="form_group">
-              <input required type="text" id="fullName" name="fullName" value="<%= users.fullName %>" class="form_input" placeholder=" " /> 
+              <input required type="text" id="fullName" name="fullName" value="<%= userLogged.fullName %>" class="form_input" placeholder=" " /> 
               <label for="fullName" class="form_label">Nombre y apellido:</label>
             </div>
             <div class="form_group">
-              <input required type="text" id="user" name="user" value="<%= users.user %>" class="form_input" placeholder=" " />
+              <input required type="text" id="user" name="user" value="<%= userLogged.user %>" class="form_input" placeholder=" " />
               <label for="user" class="form_label">Usuario:</label>
             </div>
             <div class="form_group">
-              <input required type="email" id="email" name="email" value="<%= users.email %>" class="form_input" placeholder=" " />
+              <input required type="email" id="email" name="email" value="<%= userLogged.email %>" class="form_input" placeholder=" " />
               <label for="email" class="form_label">Email:</label>
             </div>
             <div class="form_group">
-              <input accept=".png, .jpeg, .jpg" type="file" class="form_input form_input_file" id="imageUser" name="imageUser" value="<%= users.imageUser %>" placeholder=" "/> 
+              <input accept=".png, .jpeg, .jpg" type="file" class="form_input form_input_file" id="imageUser" name="imageUser" value="<%= userLogged.imageUser %>" placeholder=" "/> 
               <label for="imageUser" class="form_label">Imagen:</label>
             <div class="user_image_profile"> 
-                <img src="/images/users/<%= users.imageUser %>" alt="Imagen de usuario">
+                <img src="/images/users/<%= userLogged.imageUser %>" alt="Imagen de usuario">
             </div>
               <div class="form_input">
                 <label for="imageUser" class="form_imageFile">
@@ -36,12 +36,12 @@
                 </label>
               </div>
             </div>
-            <a href="/users/profile/<%= users.id %>/password">Cambiar contraseña</a>
+            <a href="/users/profile/<%= userLogged.id %>/password">Cambiar contraseña</a>
             <div>
               <input type="submit" class="form_submit" value="Entrar" />
             </div>
             <div>
-              <% let idBorrar = users.id %>
+              <% let idBorrar = userLogged.id %>
               <button id="<%- idBorrar %>" type= "button" class="form_submit_delete" onclick="borrarUsuario(id)">Borrar Cuenta</button>
             </div>
           </div>

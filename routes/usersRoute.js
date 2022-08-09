@@ -9,11 +9,11 @@ const guestMiddleware = require('../middleware/guestMiddleware');
 const usersController = require('../controllers/usersController');
 
 // LOGUEARSE
-router.get('/login', guestMiddleware, usersController.login);
+router.get('/login', /*guestMiddleware,*/ usersController.login);
 router.post('/login', validatorMiddelware.validacionLoginUsers, usersController.logged);
 
 // REGISTRARSE
-router.get('/register', guestMiddleware, usersController.register);
+router.get('/register', /*guestMiddleware,*/ usersController.register);
 router.post('/register', upload.single('imageUser'), validatorMiddelware.validacionCreateUsers, usersController.create);
 
 // PROFILE
