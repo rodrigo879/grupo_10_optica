@@ -42,9 +42,9 @@
  {
   "fullName": "Facundo Sandoval",
   "user": "facu.sandoval_",
-  "email": "facundofacu100@gmail.com",
-  "password": "hola123",
-  "confirmPassword": "hola123",
+  "email": "facundo100@gmail.com",
+  "password": "hola12345",
+  "confirmPassword": "hola12345",
   "imageUser": "user-1658877672192.jpg",
   "admin": false,
   "id": 5

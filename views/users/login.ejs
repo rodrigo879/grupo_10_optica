@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
- <%- include('../partials/head', { variant: '/css/login.css'})%> 
+ <%- include('../partials/head', { variant: '/css/login.css'});%> 
 <body>
-  <%- include('../partials/header')%>
+  <%- include('../partials/header');%>
     <main>
         <form class="form" action="/users/login" method="post">
           <div class="ruta-login">
@@ -10,11 +10,15 @@
           </div>
           <div class="form_conteiner">
             <div class="form_group">
-              <input required type="text" id="user" name="user" class="form_input" placeholder=" " />
-              <label for="user" class="form_label">Usuario:</label>              
-            </div>
+              <input required type="text" id="userName" name="userName" class="form_input" value="<%= locals.oldData ? oldData.userName : null %>"/>
+              <label for="userName" class="form_label">Usuario:</label>     
+              <% if (locals.errors && errors.userName) {  %>
+                <div class = "validation_error"> <%= errors.userName.msg  %>        
+                  <% } %>
+                </div>
+            
             <div class="form_group">
-              <input required type="password" id="password" name="password" class="form_input" placeholder=" "/>
+              <input required type="password" id="password" name="password" class="form_input"  placeholder=" "/>
               <label for="password" class="form_label">Contraseña:</label>
               <div class="checkboxPass">
                 <input type="checkbox" id="checkPassword" onclick="mostrarPassword()">
@@ -22,7 +26,11 @@
                     <i class="fa-solid fa-eye-slash" id="eyeSlash"></i>
                     <i class="fa-solid fa-eye" id="eye"></i>
                 </label>
-              </div>              
+              </div>      
+              <% if (locals.errors && errors.password) {  %>
+                <div class = "validation_error"> <%= errors.password.msg  %>        
+                  <% } %>
+                </div>        
               <div class="div_checkbox">
                 <a href="#">Olvidaste tu constraseña?</a>
                 <div>

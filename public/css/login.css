@@ -313,11 +313,18 @@ input[id=checkPassword] {
   transition: transform 0.4s;
   /* En conjunto modifica y da transiciones al texto en NOMBRE, USUARIO, CONTRA.*/
 }
+.validation_error {
+  margin: 2%;
+  font-size: medium;
+  color: red;
+
+}
 
 .form_input:focus ~ .form_label,
 .form_input:not(:placeholder-shown) ~ .form_line {
   transform: scale(1);
 }
+
 
 
 

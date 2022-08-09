@@ -11,19 +11,32 @@
         </div>
         <div class="main-buscar-carrito">
             <!-- La lista de usuarios hacerla visible solo para administradores -->
-            <% if(!userLogged){ %>
+           
+                ---------------------------
+
+            <!--  
+                % if(!userLogged){ %> 
+                -->
+
             <p><a href="/users/userList">Lista de Usuarios</a>|<a href="/users/register">Crear Cuenta</a>|<a href="/users/login">Iniciar Sesion</a></p>
-            <% }  else{ %>
-                <p><a href="/users/profile/<%= userLogged.id %>"><%= userLogged.user %></a></p>
+           
+            <!-- % }  else{ %>
+                <p><a href="/users/profile/ %= userLogged.id %>"> %= userLogged.user %></a></p> 
                         
-            <%  }    %>
+            %  }    %> 
+                -->
+
             <a href="#"><i class='fa-solid fa-magnifying-glass'></i></a>
             <a href="/products/productCart"><i class="fa-solid fa-cart-shopping"></i></a>
             <div></div>
             <!-- Hacer visible solo para administrador -->
-            <% if(userLogged && userLogged.admin == true){ %>
+             
+            <!--  
+                % if(userLogged && userLogged.admin == true){ %>
                 <a href="/products/create"><i class="fa-solid fa-box-archive"></i></a>         
-            <% } %>          
+            % } %>        
+            -->  
+
         </div>
     </div>    
     <nav class="main-navbar" id="mainNavbar">
@@ -37,12 +50,14 @@
             <li class="li-hover"><a href="/products/anteojosLentesContacto">Lentes de Contacto</a></li>
             <li class="li-hover"><a href="/products/accesorios">Accesorios</a></li> 
             <li class="li-hover"><a href="/contact">Contacto</a></li>
-            <% if(!userLogged){ %>
+            <!--   % if(!userLogged){ %>
                 <li class="li-hover despliega"><i class="fa-solid fa-user"></i><a href="/users/register">Crear Cuenta</a>|<a href="/users/login">Iniciar Sesion</a></li>
-            <% }  else{ %> 
+            % }  else{ %> 
                         
                 <h2>mi perfil</h2>                        
-            <%    }   %>
+            %    }   %>
+                -->
+
             <!-- Visualizar la lista de usuarios solo para administrador -->
             <li class="li-hover despliega"><a href="/users/userList">Lista de Usuarios</a></li>
             <li class="li-buscar">

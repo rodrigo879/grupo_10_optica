@@ -1,7 +1,7 @@
 const { request } = require('express');
 const { validationResult } = require('express-validator');
 const usersJson = require('../database/jsonTable');
-const usersModel = usersJson('users')
+const usersModel = usersJson('users');
 
 const userController = {
     login: (req, res) => {
@@ -11,23 +11,37 @@ const userController = {
     logged: (req, res) => {
         let errors = validationResult(req);
         if(errors.isEmpty()) {
-            let userBody = req.body.user;
-            let users = usersModel.readFile()
-            let userFilter = users.filter(person => person.user == userBody)
-            if(userFilter.length > 0){  
-                let userPassword = req.body.password;
-                if(userFilter[0].password == userPassword){
-                    req.session.user = userFilter[0];
-                    res.redirect('/')
-                } else {
-                    res.render('login', {errors: [{msg: 'Credenciales Invalidadas'}]})
-                }
-            } else {
-                res.render('login', {errors: [{msg: 'Credenciales Invalidadas'}]})
-            }
+            // let userBody = req.body.user;
+            // let users = usersModel.readFile()
+            // let userFilter = users.filter(person => person.user == userBody)
+            // if(userFilter.length > 0){  
+            //     let userPassword = req.body.password;
+            //     if(userFilter[0].password == userPassword){
+            //         req.session.user = req.body;
+             ///       userLogged = req.session.user; {userLogged}
+                    res.redirect('/' )
+            //     } else {
+            //         res.render('./users/login', {errors: errors.mapped (), oldData: req.body })
+            //     }
+            // } else {
+            //     res.render('./users/login', {errors: errors.mapped (),oldData: req.body})
+            // }
         } else {
-            res.render('login', {errors: [{msg: 'Credenciales Invalidadas'}]})
+            res.render('./users/login', {errors: errors.mapped (),oldData: req.body})
         }
+            
+
+                //     } else {
+                //         res.render('.users/login', {errors: [{msg: 'Credenciales Invalidadas'}]})
+                //     }
+                // } else {
+                //     res.render('./users/login', {errors: [{msg: 'Credenciales Invalidadas'}]})
+                // }
+                // } else {
+                // res.render('./users/login', {errors: [{msg: 'Credenciales Invalidadas'}]})
+                // }
+
+
     },
     register: (req, res) => {
         let userLogged = req.session.user
