@@ -1,9 +1,9 @@
 const express= require ('express');
 const router = express.Router();
 
-const upload = require('../middleware/multerMiddelware');
-const authMiddleware = require('../middleware/authMiddleware')
-const guestMiddleware = require('../middleware/guestMiddleware');
+const upload = require('../middlewares/multerMiddelware');
+const authMiddleware = require('../middlewares/authMiddleware')
+const guestMiddleware = require('../middlewares/guestMiddleware');
 const productController= require('../controllers/productController');
 
 //RUTAS

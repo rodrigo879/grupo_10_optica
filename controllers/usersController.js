@@ -25,6 +25,15 @@ const userController = {
                 delete userFind.confirmPassword;   
                 req.session.user = userFind;
                 userLogged = req.session.user;
+                
+                //Cookie "Recordar Usuario"
+                if (req.body.recordarUsuario != undefined) {
+                    res.cookie ('recordarUsuario', userFind.user, {maxAge: 1000*604800 })
+                }
+
+                console.log (userLogged)
+                
+
                 res.redirect('/' )
             //     } else {
             //         res.render('./users/login', {errors: errors.mapped (), oldData: req.body })

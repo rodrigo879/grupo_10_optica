@@ -11,8 +11,8 @@
         </div>
         <div class="main-buscar-carrito">
             <!-- La lista de usuarios hacerla visible solo para administradores -->
-            <% if(!userLogged){ %> 
-            <p><a href="/users/userList">Lista de Usuarios</a>|<a href="/users/register">Crear Cuenta</a>|<a href="/users/login">Iniciar Sesion</a></p>
+            <% if(userLogged && userLogged.admin===true){ %> 
+            <p><a href="/users/userList">Lista de Usuarios</a>  <% }else if (!userLogged) { %><a href="/users/register">Crear Cuenta</a>  <a href="/users/login">Iniciar Sesion</a></p>
            
             <% }  else{ %>
                 <p><a href="/users/profile/ <%= userLogged.id %>"> <%= userLogged.user %> </a></p> 

@@ -4,11 +4,15 @@ const methodOverride = require('method-override')
 const path = require('path')
 const app = express();
 const session = require('express-session');
+const cookieParser = require('cookie-parser');
 
 //ARCHIVOS REQUERIDOS DEL PROYECTO
 const mainRoute = require('./routes/mainRoute');
 const usersRoute = require('./routes/usersRoute');
 const productRoute= require('./routes/productRoute');
+
+//REQUIRIENDO MIDDLEWARES
+const recordarUsuarioMiddleware = require ('./middlewares/recordarUsuarioMiddleware');
 
 const PORT = process.env.PORT || 3000;
 const HOST = process.env.HOST || 'localhost';
@@ -32,6 +36,12 @@ app.use(session({
     resave: false,
     saveUninitialized: false,
 }));
+
+//PARA UTILIZAR COOKIES
+app.use (cookieParser());
+
+//CRUZANDO MIDDLEWARES
+app.use (recordarUsuarioMiddleware);
 
 // PAGINAS MAIN
 app.use('/', mainRoute);
