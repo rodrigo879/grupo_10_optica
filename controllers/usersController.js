@@ -7,56 +7,36 @@ const usersModel = usersJson('users');
 
 const userController = {
     login: (req, res) => {
-        let userLogged = req.session.user
+        let userLogged = req.session.user;
         res.render('./users/login', {userLogged});
     },
     logged: (req, res) => {
         let errors = validationResult(req);
+        console.log(errors)
+        console.log(req.body)
         if(errors.isEmpty()) {
-            // let userBody = req.body.user;
-            // let users = usersModel.readFile()
-            // let userFilter = users.filter(person => person.user == userBody)
-            // if(userFilter.length > 0){  
-            //     let userPassword = req.body.password;
-            //     if(userFilter[0].password == userPassword){
-                let users= usersModel.readFile();
-                let userFind = users.find(element => element.user == req.body.user)
+            let users = usersModel.readFile();
+            let userFind = users.find(element => element.user == req.body.user)
+            let userPassword = req.body.password;
+            //if(userFind.password == userPassword) {
                 delete userFind.password;
                 delete userFind.confirmPassword;   
                 req.session.user = userFind;
-                userLogged = req.session.user;
-                
+                userLogged = req.session.user;            
+                console.log (userLogged)        
                 //Cookie "Recordar Usuario"
                 if (req.body.recordarUsuario != undefined) {
                     res.cookie ('recordarUsuario', userFind.user, {maxAge: 1000*604800 })
                 }
-
-                console.log (userLogged)
-                
-
-                res.redirect('/' )
-            //     } else {
-            //         res.render('./users/login', {errors: errors.mapped (), oldData: req.body })
-            //     }
+                res.redirect('/')
             // } else {
-            //     res.render('./users/login', {errors: errors.mapped (),oldData: req.body})
-            // }
+            //    let userLogged = req.session.user
+            //    res.render('./users/login', {errors: errors.mapped (), oldData: req.body, userLogged})
+            // }            
         } else {
-            res.render('./users/login', {errors: errors.mapped (),oldData: req.body})
+            let userLogged = req.session.user
+            res.render('./users/login', {errors: errors.mapped (), oldData: req.body, userLogged})
         }
-            
-
-                //     } else {
-                //         res.render('.users/login', {errors: [{msg: 'Credenciales Invalidadas'}]})
-                //     }
-                // } else {
-                //     res.render('./users/login', {errors: [{msg: 'Credenciales Invalidadas'}]})
-                // }
-                // } else {
-                // res.render('./users/login', {errors: [{msg: 'Credenciales Invalidadas'}]})
-                // }
-
-
     },
     register: (req, res) => {
         let userLogged = req.session.user
@@ -65,17 +45,18 @@ const userController = {
     create: (req, res) => {
         let errors = validationResult(req);
         if(errors.isEmpty()) {
-            let user = req.body;
-            user.password = bcryptjs.hashSync(req.body.password, 10);
-            user.confirmPassword = bcryptjs.hashSync(req.body.confirmPassword, 10)
-            user.imageUser = req.file.filename;
-            user.admin = false;
+            let userNew = req.body;
+            userNew.password = bcryptjs.hashSync(req.body.password, 10);
+            userNew.confirmPassword = bcryptjs.hashSync(req.body.confirmPassword, 10)
+            userNew.imageUserNew = req.file.filename;
+            userNew.admin = false;
+            console.log(userNew)
             let users= usersModel.readFile();
-            usersModel.create(user);
-            let userFind = users.find(element => element.user == req.body.user)
-            delete userFind.password;
-            delete userFind.confirmPassword;   
-            req.session.user = userFind;
+            usersModel.create(userNew);
+            //Al crearse una cuenta dejar logueado a ese usuario
+            delete userNew.password;
+            delete userNew.confirmPassword;   
+            req.session.user = userNew;
             userLogged = req.session.user;
             res.redirect('/')
         } else {
@@ -85,9 +66,8 @@ const userController = {
     profile: (req, res) => {
         let userId = req.params.id
         let users = usersModel.readFile();
-        let userFind = users.find(element => element.id == userId);
+        //let userFind = users.find(element => element.id == userId);
         let userLogged = req.session.user
-
         res.render('./users/profile', {user: userLogged});
     },
     editProfile: (req, res) => {
@@ -102,20 +82,6 @@ const userController = {
             userFind.imageUser = req.file.filename;
         }
         usersModel.update(userFind);
-
-        // for(let i = 0; i < users.length; i++) {
-        //     if(users[i].id == usersId){
-        //         users[i].fullName = userBody.fullName;
-        //         users[i].email = userBody.email;
-        //         users[i].user = userBody.user;
-        //         if(req.file) {
-        //             users[i].imageUser = req.file.filename;
-        //         }
-        //         break;
-        //     }
-        // }
-        
-        // usersModel.writeFile(users);
         res.redirect(`/users/profile/${userId}`);
     },
     delete: (req, res) => {
@@ -148,7 +114,11 @@ const userController = {
         let users = usersModel.readFile();
         let userLogged = req.session.user
         res.render('./users/userList', {users, userLogged})
-
+    },
+    logout: (req, res) => {
+        res.clearCookie('recordarUsuario');
+        req.session.destroy();
+        return res.redirect('/')
     }
 }
 

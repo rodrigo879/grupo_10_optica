@@ -23,9 +23,11 @@
                     <% if (idParam == products[i].id) { %>
                         <div class = "imagen-producto">
                             <div class="container_img">
-                                <% let idBorrar = products[i].id %>
-                                <button id="<%- idBorrar %>" type= "button" class="form_submit_delete" onclick="borrarProducto(id)"><i class="fa-solid fa-trash-can"></i></button>
-                                <a href="/products/product/<%= products[i].id %>/edit"><i class="fa-solid fa-file-pen"></i></a>
+                                <% if(userLogged && userLogged.admin == true) { %> 
+                                    <% let idBorrar = products[i].id %>
+                                    <button id="<%- idBorrar %>" type= "button" class="form_submit_delete" onclick="borrarProducto(id)"><i class="fa-solid fa-trash-can"></i></button>
+                                    <a href="/products/product/<%= products[i].id %>/edit"><i class="fa-solid fa-file-pen"></i></a>
+                                <% } %>
                             </div>
                             <img src="/images/productos/<%= products[i].categoryProduct + '/' + products[i].image %>" alt="<%= products[i].descriptionProduct + " " + products[i].id %>">
                          </div>

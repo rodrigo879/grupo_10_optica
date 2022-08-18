@@ -12,6 +12,9 @@ const usersController = require('../controllers/usersController');
 router.get('/login', /*guestMiddleware,*/ usersController.login);
 router.post('/login', validatorMiddelware.validacionLoginUsers, usersController.logged);
 
+// LOGOUT
+router.get('/logout', usersController.logout);
+
 // REGISTRARSE
 router.get('/register', /*guestMiddleware,*/ usersController.register);
 router.post('/register', upload.single('imageUser'), validatorMiddelware.validacionCreateUsers, usersController.create);

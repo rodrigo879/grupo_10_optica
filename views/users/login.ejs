@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
- <%- include('../partials/head', { variant: '/css/login.css'});%> 
+ <%- include('../partials/head', { variant: '/css/login.css'}) %> 
 <body>
-  <%- include('../partials/header');%>
+  <%- include('../partials/header') %>
     <main>
         <form class="form" action="/users/login" method="post">
           <div class="ruta-login">
@@ -12,10 +12,10 @@
             <div class="form_group">
               <input required type="text" id="user" name="user" class="form_input" value="<%= locals.oldData ? oldData.user : null %>"/>
               <label for="user" class="form_label">Usuario:</label>     
-              <% if (locals.errors && errors.user) {  %>
-                <div class = "validation_error"> <%= errors.user.msg  %>        
-                  <% } %>
-                </div>
+              <% if (locals.errors && errors.user) { %>
+                <div class = "validation_error"> <%= errors.user.msg %>        
+              <% } %>
+            </div>
             
             <div class="form_group">
               <input required type="password" id="password" name="password" class="form_input"  placeholder=" "/>
@@ -28,16 +28,17 @@
                 </label>
               </div>      
               <% if (locals.errors && errors.password) {  %>
-                <div class = "validation_error"> <%= errors.password.msg  %>        
-                  <% } %>
+                <div class = "validation_error">
+                   <%= errors.password.msg %>        
                 </div>        
+              <% } %>
               <div class="div_checkbox">
                 <a href="#">Olvidaste tu constraseña?</a>
                 <div>
                   <label for="recordarUsuario" class="form_checkbox"> 
                     Recordar Usuario
                   <input type="checkbox" name="recordarUsuario" />
-                </label>
+                  </label>
                 </div>
               </div>
             </div>

@@ -18,7 +18,7 @@ router.get('/anteojosLentesContacto', productController.lentesContacto);
 router.get('/accesorios', productController.accesorios);
 
 //DETALLE DE UN PRODUCTO
-router.get('/product/:id', guestMiddleware, productController.product);
+router.get('/product/:id', productController.product);
 
 //EDITAR UN PRODUCTO
 router.get('/product/:id/edit',  authMiddleware, productController.edit);

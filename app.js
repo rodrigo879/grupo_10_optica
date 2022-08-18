@@ -38,10 +38,10 @@ app.use(session({
 }));
 
 //PARA UTILIZAR COOKIES
-app.use (cookieParser());
+app.use(cookieParser());
 
 //CRUZANDO MIDDLEWARES
-app.use (recordarUsuarioMiddleware);
+app.use(recordarUsuarioMiddleware);
 
 // PAGINAS MAIN
 app.use('/', mainRoute);
@@ -50,7 +50,7 @@ app.use('/', mainRoute);
 app.use('/users', usersRoute);
 
 //PAGINAS PRODUCT
-app.use ('/products', productRoute);
+app.use('/products', productRoute);
 
 // CUALQUIER DIRECCION QUE NO EXISTA NOS DIRIGE A LA PAGINA DE NOT FOUND.
 app.use((req,res,next) => {res.status(404).render('notFound')});

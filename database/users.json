@@ -16,7 +16,7 @@
   "password": "rja123",
   "confirmPassword": "rja123",
   "imageUser": "user-1658835232480.png",
-  "admin": false,
+  "admin": true,
   "id": 2
  },
  {
@@ -55,7 +55,7 @@
   "email": "hola@gmail.com",
   "password": "$2a$10$ujb/U5AnGx5mmWKJtwUQj.5.85GTD.ChCKd4lr9l7WN0fL2WjfiA.",
   "confirmPassword": "hola123",
-  "imageUser": "product-1660052606599.jpg",
+  "imageUser": "user-1660052606599.jpg",
   "admin": false,
   "id": 6
  },
@@ -108,5 +108,25 @@
   "imageUser": "user-1660148726369.jpg",
   "admin": false,
   "id": 11
+ },
+ {
+  "fullName": "Rodrigo Alvarez",
+  "user": "rja123",
+  "email": "rja@prueba.com",
+  "password": "$2a$10$9y5pPCzdifo5dLi2lamPS.3aTyQdcEroXxgZdFJn3KhOzNi0vQlgO",
+  "confirmPassword": "$2a$10$6gD3osWz0onQ7L3zPCzooux3C2Xyqg7o15kh/rn.dW7RwaTXQrPLC",
+  "imageUser": "user-1658835232480.png",
+  "admin": true,
+  "id": 13
+ },
+ {
+  "fullName": "Javier Alvarez",
+  "user": "javito879",
+  "email": "javito@prueba.com",
+  "password": "$2a$10$NRLXKIc0/43WO2HQejxyK.N/SQujuKPZIDaV7c9oHYaYgJk5u3ui6",
+  "confirmPassword": "$2a$10$j3s3cheRkjC7Q.S.tR2WUemEvC2UJENVcUM52uphIpntSOOxhdN12",
+  "imageUserNew": "user-1657842115311.jpg",
+  "admin": false,
+  "id": 14
  }
 ]

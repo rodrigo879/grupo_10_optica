@@ -3,9 +3,6 @@ const usersJson = require('../database/jsonTable');
 const bcryptjs= require('bcryptjs');
 const usersModel = usersJson('users');
 
-
-
-
 let validatorMiddelware = {
     validacionCreateUsers: [
         body('fullName').notEmpty().withMessage('Debe completar el campo nombre'),
