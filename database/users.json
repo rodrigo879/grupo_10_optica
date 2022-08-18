@@ -128,5 +128,15 @@
   "imageUserNew": "user-1657842115311.jpg",
   "admin": false,
   "id": 14
+ },
+ {
+  "fullName": "Francisco Leonardo ",
+  "user": "franleonardo",
+  "email": "franleonardo33@gmail.com",
+  "password": "$2a$10$cS1y58U.Y9YWNh.6hWvNyevXRX0Tb9Y8CmaxrIMFBd8DYWGZ711PC",
+  "confirmPassword": "$2a$10$xSp8O4cW9mspCYZwyF9vxuGTl9BCr8n.Hjke.JdGjFtEPRE6p1jAu",
+  "imageUserNew": "user-1660861770366.jpg",
+  "admin": false,
+  "id": 15
  }
 ]
