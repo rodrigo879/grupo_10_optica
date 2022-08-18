@@ -12,8 +12,6 @@ const userController = {
     },
     logged: (req, res) => {
         let errors = validationResult(req);
-        console.log(errors)
-        console.log(req.body)
         if(errors.isEmpty()) {
             let users = usersModel.readFile();
             let userFind = users.find(element => element.user == req.body.user)
@@ -22,8 +20,7 @@ const userController = {
                 delete userFind.password;
                 delete userFind.confirmPassword;   
                 req.session.user = userFind;
-                userLogged = req.session.user;            
-                console.log (userLogged)        
+                userLogged = req.session.user;                
                 //Cookie "Recordar Usuario"
                 if (req.body.recordarUsuario != undefined) {
                     res.cookie ('recordarUsuario', userFind.user, {maxAge: 1000*604800 })

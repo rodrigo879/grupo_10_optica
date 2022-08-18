@@ -66,7 +66,7 @@
   "password": "$2a$10$86Uq96vcdsRHzT2rFqHPCO/qINoibvk2qKBwIRCTCuXm3ArCci9QO",
   "confirmPassword": "$2a$10$qJGDJ6wvSb0O64OyAmeVs.kwFh.NpJDaytEszmcV.Dvc69K.fvAUq",
   "imageUser": "user-1660056323659.jpg",
-  "admin": false,
+  "admin": true,
   "id": 7
  },
  {
