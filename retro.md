@@ -33,3 +33,17 @@ SPRINT 3
     Complicarnos con el codigo.
 5- Dejar de hacer
     Evitar reuniones largas.
+
+
+SPRINT 4
+1- Comenzar a hacer 
+    El sprint 6 (Base de datos)
+2- Hacer más
+    Crear vistas nuevas. 
+3- Continuar haciendo
+    Mantener buena armonia y comunicación en el grupo. Agregar detalles extras no pedido en los sprint. 
+4- Hacer menos
+    Bugs! :D
+5- Dejar de hacer
+    Dejar de postergar las reuniones y tratar de que no pase mucho tiempo entre reunión y reunión. 
+  
