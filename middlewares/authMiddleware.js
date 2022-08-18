@@ -4,6 +4,7 @@ function authMiddleware(req, res, next) {
     } else {
         res.redirect('/users/login')
     }
+        res.redirect('/login')
 }
 
 module.exports = authMiddleware;

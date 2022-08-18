@@ -27,6 +27,7 @@ let productController = {
         let idParam= req.params.id
         let products = productsModel.readFile();
         let userLogged = req.session.user
+        console.log (userLogged)
         res.render('./products/productDetail' , {products, idParam, userLogged, result: ramdonResult(), toThousand, toComma});
     },
     showFormCreate: (req, res) => {

@@ -48,5 +48,65 @@
   "imageUser": "user-1658877672192.jpg",
   "admin": false,
   "id": 5
+ },
+ {
+  "fullName": "hola ",
+  "user": "hola777",
+  "email": "hola@gmail.com",
+  "password": "$2a$10$ujb/U5AnGx5mmWKJtwUQj.5.85GTD.ChCKd4lr9l7WN0fL2WjfiA.",
+  "confirmPassword": "hola123",
+  "imageUser": "product-1660052606599.jpg",
+  "admin": false,
+  "id": 6
+ },
+ {
+  "fullName": "prueba",
+  "user": "prueba",
+  "email": "prueba@gmail.com",
+  "password": "$2a$10$86Uq96vcdsRHzT2rFqHPCO/qINoibvk2qKBwIRCTCuXm3ArCci9QO",
+  "confirmPassword": "$2a$10$qJGDJ6wvSb0O64OyAmeVs.kwFh.NpJDaytEszmcV.Dvc69K.fvAUq",
+  "imageUser": "user-1660056323659.jpg",
+  "admin": false,
+  "id": 7
+ },
+ {
+  "fullName": "prueba",
+  "user": "prueba",
+  "email": "prueba@gmail.com",
+  "password": "$2a$10$oXNngZ.pfvA8MbeSFgxKMu4A.KFbz7pPGvAbKU2Yi9FLF12r5jsky",
+  "confirmPassword": "$2a$10$5ZCH09lvRmFmIwMSJ64K2eW6lIPA7/bCpe0iBJOOQKIm87X4g5jiO",
+  "imageUser": "user-1660056420065.jpg",
+  "admin": true,
+  "id": 8
+ },
+ {
+  "fullName": "Cosme Fulanito",
+  "user": "cosme",
+  "email": "cosme@email.com",
+  "password": "$2a$10$AXUC2fEdobxgnATbbCKsdu9BAJeNZe09no64NmxPl2xKHkd3eS116",
+  "confirmPassword": "$2a$10$..9Fq0xL5h9Ab4g21.oBmedlp6S0AbQeRzJqgzQReaBdPrKQ7.ir6",
+  "imageUser": "user-1660148635375.jpg",
+  "admin": false,
+  "id": 9
+ },
+ {
+  "fullName": "cosme fulanito",
+  "user": "cosme",
+  "email": "cosme@email.com",
+  "password": "$2a$10$/VvyRH4k8z1LS/WhR/YzAOmyU4/5F9oyBuiKKgy.vKW1zOpSr0TmC",
+  "confirmPassword": "$2a$10$xxAEoysX4NJMHARdSYnFT.UsdXaURVVYQsOdyE/2JKa5G61iY0Hfm",
+  "imageUser": "user-1660148706069.jpg",
+  "admin": false,
+  "id": 10
+ },
+ {
+  "fullName": "Cosme Fulanito",
+  "user": "cosme",
+  "email": "cosme@email.com",
+  "password": "$2a$10$qITcS.iPg.WFYNrDp5.D0.oFQImQ9mVwG5450YzF1Lse6OQolNfB.",
+  "confirmPassword": "$2a$10$7GEPGN4hNpSZq2y9zX9u7u4VpXCJI9mYXqpe.ChC9dSUd0iIha8PC",
+  "imageUser": "user-1660148726369.jpg",
+  "admin": false,
+  "id": 11
  }
 ]

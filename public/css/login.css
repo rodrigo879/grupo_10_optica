@@ -39,15 +39,24 @@ header {
   display: flex;
   width: 20%;
   height: 10vw;
-  font-size: 4vw;
   justify-content: center;
   flex-wrap: wrap;
   align-content: center;  
 }
 
+.main-hamburguer {
+  font-size: 4vw;
+}
+
+.main-buscar-carrito{
+  font-size: 2vw;
+}
+
 .main-hamburguer a, .main-buscar-carrito a{
   color: #000000;
+  text-decoration: none;
 }
+
 
 .main-hamburguer p {
   font-size: 3vw;
