@@ -16,20 +16,18 @@ const userController = {
             let users = usersModel.readFile();
             let userFind = users.find(element => element.user == req.body.user)
             let userPassword = req.body.password;
-            //if(userFind.password == userPassword) {
-                delete userFind.password;
-                delete userFind.confirmPassword;   
-                req.session.user = userFind;
-                userLogged = req.session.user;                
-                //Cookie "Recordar Usuario"
-                if (req.body.recordarUsuario != undefined) {
-                    res.cookie ('recordarUsuario', userFind.user, {maxAge: 1000*604800 })
-                }
-                res.redirect('/')
-            // } else {
-            //    let userLogged = req.session.user
-            //    res.render('./users/login', {errors: errors.mapped (), oldData: req.body, userLogged})
-            // }            
+
+            //Quitamos las contraseñas para mayor seguridad.
+            delete userFind.password;
+            delete userFind.confirmPassword;   
+            req.session.user = userFind;
+            userLogged = req.session.user;       
+                     
+            //Cookie "Recordar Usuario"
+            if (req.body.recordarUsuario != undefined) {
+                res.cookie ('recordarUsuario', userFind.user, {maxAge: 1000*604800 })
+            }
+            res.redirect('/')
         } else {
             let userLogged = req.session.user
             res.render('./users/login', {errors: errors.mapped (), oldData: req.body, userLogged})

@@ -9,14 +9,14 @@ const guestMiddleware = require('../middlewares/guestMiddleware');
 const usersController = require('../controllers/usersController');
 
 // LOGUEARSE
-router.get('/login', /*guestMiddleware,*/ usersController.login);
+router.get('/login', guestMiddleware, usersController.login);
 router.post('/login', validatorMiddelware.validacionLoginUsers, usersController.logged);
 
 // LOGOUT
 router.get('/logout', usersController.logout);
 
 // REGISTRARSE
-router.get('/register', /*guestMiddleware,*/ usersController.register);
+router.get('/register', guestMiddleware, usersController.register);
 router.post('/register', upload.single('imageUser'), validatorMiddelware.validacionCreateUsers, usersController.create);
 
 // PROFILE
@@ -28,7 +28,7 @@ router.get('/profile/:id/password', authMiddleware, usersController.password);
 router.put('/profile/:id/passwordEdit', usersController.passwordEdit);
 
 // BORRAR EL USUARIO
-router.delete('/profile/:id', usersController.delete)
+router.delete('/profile/:id', authMiddleware, usersController.delete)
 
 // LISTA DE USUARIOS
 router.get('/userList', authMiddleware, usersController.userList);

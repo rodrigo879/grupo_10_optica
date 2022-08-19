@@ -3,7 +3,6 @@ const router = express.Router();
 
 const upload = require('../middlewares/multerMiddelware');
 const authMiddleware = require('../middlewares/authMiddleware')
-const guestMiddleware = require('../middlewares/guestMiddleware');
 const productController= require('../controllers/productController');
 
 //RUTAS
@@ -21,11 +20,11 @@ router.get('/accesorios', productController.accesorios);
 router.get('/product/:id', productController.product);
 
 //EDITAR UN PRODUCTO
-router.get('/product/:id/edit',  authMiddleware, productController.edit);
+router.get('/product/:id/edit', authMiddleware, productController.edit);
 router.put('/product/:id/update', upload.single ('imageProduct'), productController.update);
 
 //BORRAR UN PRODUCTO
-router.delete('/product/:id', productController.delete)
+router.delete('/product/:id', authMiddleware, productController.delete)
 
 //CARRITO DE COMPRAS
 router.get('/productCart', authMiddleware, productController.productCart);
