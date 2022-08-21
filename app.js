@@ -9,7 +9,7 @@ const cookieParser = require('cookie-parser');
 //ARCHIVOS REQUERIDOS DEL PROYECTO
 const mainRoute = require('./routes/mainRoute');
 const usersRoute = require('./routes/usersRoute');
-const productRoute= require('./routes/productRoute');
+const productRoute = require('./routes/productRoute');
 
 //REQUIRIENDO MIDDLEWARES
 const recordarUsuarioMiddleware = require ('./middlewares/recordarUsuarioMiddleware');

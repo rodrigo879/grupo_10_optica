@@ -1,5 +1,5 @@
 
-const usersJson = require('../database/jsonTable');
+const usersJson = require('../jsondatabase/jsonTable');
 const usersModel = usersJson('users');
 
 

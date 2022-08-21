@@ -1,9 +1,9 @@
-const express= require ('express');
+const express = require ('express');
 const router = express.Router();
 
 const upload = require('../middlewares/multerMiddelware');
 const authMiddleware = require('../middlewares/authMiddleware')
-const productController= require('../controllers/productController');
+const productController = require('../controllers/productController');
 
 //RUTAS
 //FORMULARIO DE CREACION
@@ -30,4 +30,4 @@ router.delete('/product/:id', authMiddleware, productController.delete)
 router.get('/productCart', authMiddleware, productController.productCart);
 router.post('/productCart', productController.calculoEnvio);
 
-module.exports= router;
+module.exports = router;

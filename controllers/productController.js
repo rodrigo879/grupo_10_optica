@@ -1,4 +1,4 @@
-const jsonTable = require('../database/jsonTable');
+const jsonTable = require('../jsondatabase/jsonTable');
 
 const productsModel = jsonTable('products')
 

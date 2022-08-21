@@ -1,5 +1,5 @@
 const { body } = require('express-validator')
-const usersJson = require('../database/jsonTable');
+const usersJson = require('../jsondatabase/jsonTable');
 const bcryptjs= require('bcryptjs');
 const usersModel = usersJson('users');
 
