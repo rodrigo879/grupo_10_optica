@@ -17,3 +17,20 @@ CREATE TABLE `images_products` (
   `name` varchar(200) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `users`
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `fullName` varchar(50) NOT NULL,
+  `user` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `id_imageUser` int NOT NULL,
+  `id_authority` int NOT NULL 
+) ENGINE=InnoDB DEFAULT CHARSET=UTF8;
+
+DROP TABLE IF EXISTS `imageUser`
+CREATE TABLE `imageUser`(
+  `id` int NOT NULL,
+  `name` varchar(200) -- DEFAULT (image_default) ??
+) ENGINE=InnoDB DEFAULT CHARSET=UTF8;
