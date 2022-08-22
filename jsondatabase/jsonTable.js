@@ -3,7 +3,7 @@ const path = require('path');
 
 let model = function(tableName) {
     return {
-        filePath: path.join(__dirname, '../database/' + tableName + '.json'),
+        filePath: path.join(__dirname, '../jsondatabase/' + tableName + '.json'),
         readFile() {
             let fileContents = fs.readFileSync(this.filePath, 'utf8');
         
