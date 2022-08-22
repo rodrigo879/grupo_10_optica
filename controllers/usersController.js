@@ -43,7 +43,7 @@ const userController = {
             let userNew = req.body;
             userNew.password = bcryptjs.hashSync(req.body.password, 10);
             userNew.confirmPassword = bcryptjs.hashSync(req.body.confirmPassword, 10)
-            userNew.imageUserNew = req.file.filename;
+            userNew.imageUser = req.file.filename;
             userNew.admin = false;
             console.log(userNew)
             let users= usersModel.readFile();

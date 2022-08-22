@@ -15,7 +15,7 @@
   "email": "rja@gmail.com",
   "password": "rja123",
   "confirmPassword": "rja123",
-  "imageUser": "user-1658835232480.png",
+  "imageUser": "user-1661201133357.png",
   "admin": true,
   "id": 2
  },
@@ -125,7 +125,7 @@
   "email": "javito@prueba.com",
   "password": "$2a$10$NRLXKIc0/43WO2HQejxyK.N/SQujuKPZIDaV7c9oHYaYgJk5u3ui6",
   "confirmPassword": "$2a$10$j3s3cheRkjC7Q.S.tR2WUemEvC2UJENVcUM52uphIpntSOOxhdN12",
-  "imageUserNew": "user-1657842115311.jpg",
+  "imageUser": "user-1657842115311.jpg",
   "admin": false,
   "id": 14
  },
@@ -135,7 +135,7 @@
   "email": "franleonardo33@gmail.com",
   "password": "$2a$10$cS1y58U.Y9YWNh.6hWvNyevXRX0Tb9Y8CmaxrIMFBd8DYWGZ711PC",
   "confirmPassword": "$2a$10$xSp8O4cW9mspCYZwyF9vxuGTl9BCr8n.Hjke.JdGjFtEPRE6p1jAu",
-  "imageUserNew": "user-1660861770366.jpg",
+  "imageUser": "user-1660861770366.jpg",
   "admin": false,
   "id": 15
  }
