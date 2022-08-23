@@ -32,5 +32,5 @@ CREATE TABLE `users` (
 DROP TABLE IF EXISTS `imageUser`
 CREATE TABLE `imageUser`(
   `id` int NOT NULL,
-  `name` varchar(200) -- DEFAULT (image_default) ??
+  `name` varchar(200) DEFAULT (`default-avatar-profile.jpg`)
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8;
