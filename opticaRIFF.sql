@@ -34,3 +34,21 @@ CREATE TABLE `imageUser`(
   `id` int NOT NULL,
   `name` varchar(200) DEFAULT (`default-avatar-profile.jpg`)
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8;
+
+
+-- authorities
+DROP TABLE IF EXISTS `authorities`
+CREATE TABLE `authorities` (
+    `id` INT NOT NULL AUTO_INCREMENT,
+    `role` VARCHAR(200) NOT NULL default role_user,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=UTF8;
+
+-- users_authorities
+DROP TABLE IF EXISTS `users_authorities`
+CREATE TABLE `users_authorities` (
+    `id` INT NOT NULL,
+    `id_user` INT NOT NULL AUTO_INCREMENT,
+    `id_authority` INT NOT NULL AUTO_INCREMENT 
+    PRIMARY KEY (`id`) 
+) ENGINE=InnoDB DEFAULT CHARSET=UTF8; 
