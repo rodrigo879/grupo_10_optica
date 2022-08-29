@@ -39,14 +39,16 @@ CREATE TABLE `users` (
   `email` VARCHAR(50) NOT NULL,
   `password` VARCHAR(50) NOT NULL,
   `id_imageUser` INT NOT NULL,
-  `id_authority` INT NOT NULL 
+  `id_authority` INT NOT NULL, 
+    PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8;
 
 -- image user
   DROP TABLE IF EXISTS `image_user`;
   CREATE TABLE `image_user` (
     `id` INT NOT NULL,
-    `name` VARCHAR(200) NOT NULL DEFAULT "default-avatar-profile.jpg"
+    `name` VARCHAR(200) NOT NULL DEFAULT "default-avatar-profile.jpg",
+    PRIMARY KEY (`id`)
   ) ENGINE=InnoDB DEFAULT CHARSET=UTF8;
 
 
