@@ -10,7 +10,7 @@
       <!-- ----------------AGREGAR CODIGO NUEVO---------------- -->
       <% for (let i = 0; i < products.length; i++) { %>
         <% if (idParam == products[i].id) { %>
-          <form class="form" action="/products/product/<%= products[i].id ?? "undefined" %>/update?_method=put" method="post" enctype="multipart/form-data">
+          <form class="form" action="/products/<%= products[i].id ?? "undefined" %>/update?_method=put" method="post" enctype="multipart/form-data">
             <div class="ruta-login">
               <a href="/">Inicio</a>/<p>Editar Producto</p>
             </div>

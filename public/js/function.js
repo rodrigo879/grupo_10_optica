@@ -117,7 +117,7 @@ function borrarProducto(id) {
             Swal.fire({
                 title: 'Producto borrado',
                 icon: 'success',
-                html: `<form action="/products/product/${id}?_method=delete" method="post"><button class="btn-confirm swal2-styled swal2-confirm" type= "submit">OK</button></form>`,
+                html: `<form action="/products/${id}?_method=delete" method="post"><button class="btn-confirm swal2-styled swal2-confirm" type= "submit">OK</button></form>`,
                 showConfirmButton: false,
                 allowOutsideClick: false,
                 allowEscapeKey: false,

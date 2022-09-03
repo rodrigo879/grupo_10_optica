@@ -72,7 +72,7 @@
                 <% for(let i = 0; i < 12; i++) { %>
                     <% let pruebaResult = result[i] %> 
                     <article class="main-section-product">
-                        <a href="/products/product/<%- products[pruebaResult].id %> ">
+                        <a href="/products/<%- products[pruebaResult].id %> ">
                             <div class="main-section-img">
                                 <img src="/images/productos/<%= products[pruebaResult].categoryProduct + '/' + products[pruebaResult].image %>" alt="<%= products[pruebaResult].descriptionProduct + " " + products[pruebaResult].id %>">
                             </div>

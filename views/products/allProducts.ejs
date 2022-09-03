@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+ <%- include('../partials/head', { variant: '/css/usersList.css'})%> 
+<body>
+  <%- include('../partials/header')%>
+    <main>
+      <div class="ruta-login">
+        <a href="/">Inicio</a>/<p>Listado de Productos</p>
+      </div>
+      <div class="main_container">
+        <% for( let i = 0; i < products.length; i++ ) { %>
+          <a href="/products/<%= products[i].id %>">
+            <% if (products.length == products[i].id) { %>
+              <p>Ultimo Producto Agregado</p>  
+							<div class="container lastProduct">
+            <% } else { %>
+                <div class="container">
+            <% } %>
+              <div class="img_container">
+                <img src="/images/productos/<%= products[i].categoryProduct %>/<%= products[i].image %>" alt="Imagen de Usuario <%= products[i].id %>">
+              </div>
+              <div class="info_container">
+                <ul>
+									<li><strong>Nombre:</strong> <%= products[i].nameProduct %> </li>
+									<li><strong>Categoria:</strong> <%= products[i].categoryProduct %> </li>
+									<li><strong>Marca:</strong> <%= products[i].trademarkProduct %> </li>
+                </ul>
+              </div>
+            </div>
+          </a>
+        <% } %>
+      </div>
+    </main>
+    <%- include('../partials/footer')%> 
+</body>
+<script src="/js/function.js"></script>
+</html>

@@ -21,7 +21,8 @@
                             <img style="width: 100%" src="/images/users/<%= userLogged.imageUser != undefined ? userLogged.imageUser : 'default-avatar-profile.jpg' %>" alt="Imagen de Usuario">
                         </div>
                     </a>
-                    <a href="/users/userList">Lista de Usuarios</a>
+                    <a href="/users/userList"><i class="fa-solid fa-users"></i></a>
+                    <a href="/products/all"><i class="fa-solid fa-box-open"></i></a>
                 </p>            
             <% } else { %>
                 <p>
@@ -33,7 +34,6 @@
                     </a>
                 </p>        
             <% } %> 
-
             <a href="#"><i class='fa-solid fa-magnifying-glass'></i></a>
             <a href="/products/productCart"><i class="fa-solid fa-cart-shopping"></i></a>
             <!-- Hacer visible solo para administrador -->

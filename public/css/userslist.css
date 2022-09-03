@@ -194,6 +194,16 @@ main {
     font-size: 15px;
 }
 
+.main_container p {
+    color: green;
+    text-align: center;
+    font-weight: bold;
+}
+
+.lastProduct {
+    border: solid green 5px!important;
+}
+
 /*----------Footer----------*/
 
 footer {

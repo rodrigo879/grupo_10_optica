@@ -10,24 +10,27 @@ const productController = require('../controllers/productController');
 router.get('/create', authMiddleware, productController.showFormCreate);
 router.post('/create', upload.single('imageProduct'), productController.create);
 
+//LISTADO DE TODOS LOS PRODUCTOS AGREGADOS
+router.get('/all', productController.allProducts);
+
 //LISTADO DE PRODUCTOS POR CATEGORIA
 router.get('/anteojosRecetados', productController.lentesRecetado);
 router.get('/anteojosSol', productController.lentesSol);
 router.get('/anteojosLentesContacto', productController.lentesContacto);
 router.get('/accesorios', productController.accesorios);
 
-//DETALLE DE UN PRODUCTO
-router.get('/product/:id', productController.product);
-
 //EDITAR UN PRODUCTO
-router.get('/product/:id/edit', authMiddleware, productController.edit);
-router.put('/product/:id/update', upload.single ('imageProduct'), productController.update);
+router.get('/:id/edit', authMiddleware, productController.edit);
+router.put('/:id/update', upload.single ('imageProduct'), productController.update);
 
 //BORRAR UN PRODUCTO
-router.delete('/product/:id', authMiddleware, productController.delete)
+router.delete('/:id', authMiddleware, productController.delete)
 
 //CARRITO DE COMPRAS
 router.get('/productCart', authMiddleware, productController.productCart);
 router.post('/productCart', productController.calculoEnvio);
+
+//DETALLE DE UN PRODUCTO
+router.get('/:id', productController.product);
 
 module.exports = router;

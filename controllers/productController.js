@@ -39,8 +39,14 @@ let productController = {
             productsCreate.image = req.file.filename;
             productsCreate.priceDiscount = req.body.priceProduct * (100 - productsCreate.discount) / 100;
             productsId = productsModel.create(productsCreate);
-            res.redirect('/');
+            res.redirect('/products/all');
         }
+    },
+    allProducts: (req, res) => {
+        let products = productsModel.readFile().sort((a, b) => {return b.id - a.id});
+        //let products = productsOriginal.sort((a, b) => {return b.id - a.id})
+        let userLogged = req.session.user
+        res.render('./products/allProducts', {products, userLogged, toThousand, toComma});
     },
     edit: (req,res) => {
         let idParam = req.params.id;
@@ -51,7 +57,7 @@ let productController = {
     update: (req, res) => {
         let idParam = req.params.id;
         let newProduct = req.body;
-        newProduct.id = idParam;
+        newProduct.id = parseInt(idParam);
         newProduct.priceDiscount = newProduct.priceProduct * (100 - newProduct.discount) / 100;
         if(req.file) {
             newProduct.image = req.file.filename;
@@ -124,4 +130,4 @@ let productController = {
     }
 }
 
-module.exports= productController;
+module.exports = productController;
