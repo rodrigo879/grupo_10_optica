@@ -138,5 +138,15 @@
   "imageUser": "user-1660861770366.jpg",
   "admin": false,
   "id": 15
+ },
+ {
+  "fullName": "Facundo Sandoval",
+  "user": "facuu",
+  "email": "facu@mail.com",
+  "password": "$2a$10$uEg3gJ437DodgL7.ZcXJIewG8aVfShHHbsf1wo7qXfTszi74aDydm",
+  "confirmPassword": "$2a$10$UfkOGH0GKKY3wFmExQcxmeODVaPB253xWkwkEkOqbmZ6FO8rdkwJa",
+  "imageUser": "user-1662133463627.jpg",
+  "admin": true,
+  "id": 16
  }
 ]
