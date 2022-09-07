@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `optica_riff`
 --
+CREATE DATABASE IF NOT EXISTS `optica_riff`;
+USE `optica_riff`;
 
 -- --------------------------------------------------------
 
@@ -275,24 +277,23 @@ INSERT INTO `products` (`id`, `name`, `descrption`, `price`, `id_category`, `id_
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
-  `fullName` varchar(50) NOT NULL,
+  `fullname` varchar(50) NOT NULL,
   `user` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
   `password` text NOT NULL,
-  `id_imageUser` int(11) DEFAULT NULL,
-  `id_authority` int(11) DEFAULT NULL
+  `id_imageUser` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `users`
 --
 
-INSERT INTO `users` (`id`, `fullName`, `user`, `email`, `password`, `id_imageUser`, `id_authority`) VALUES
-(16, 'Francisco LeonardO', 'franleonardo12', 'fran@hotmail.com', '$2a$10$cS1y58U.Y9YWNh.6hWvNyevXRX0Tb9Y8CmaxrIMFBd8DYWGZ711PC', 1, 1),
-(17, 'Rodrigo Alvarez', 'rja123', 'rja@prueba.com', '$2a$10$9y5pPCzdifo5dLi2lamPS.3aTyQdcEroXxgZdFJn3KhOzNi0vQlgO', 3, 2),
-(18, 'Javier Alvarez', 'javito879', 'javito@prueba.com', '$2a$10$NRLXKIc0/43WO2HQejxyK.N/SQujuKPZIDaV7c9oHYaYgJk5u3ui6', 4, 4),
-(21, 'prueba', 'prueba', 'prueba@gmail.com', '$2a$10$86Uq96vcdsRHzT2rFqHPCO/qINoibvk2qKBwIRCTCuXm3ArCci9QO', 2, 3),
-(22, 'Facundo Sandoval', 'facuu', 'facu@mail.com', '$2a$10$uEg3gJ437DodgL7.ZcXJIewG8aVfShHHbsf1wo7qXfTszi74aDydm', 5, 5);
+INSERT INTO `users` (`id`, `fullname`, `user`, `email`, `password`, `id_imageUser`, `id_authority`) VALUES
+(16, 'Francisco Leonardo', 'franleonardo12', 'fran@hotmail.com', '$2a$10$cS1y58U.Y9YWNh.6hWvNyevXRX0Tb9Y8CmaxrIMFBd8DYWGZ711PC', 1),
+(17, 'Rodrigo Alvarez', 'rja123', 'rja@prueba.com', '$2a$10$9y5pPCzdifo5dLi2lamPS.3aTyQdcEroXxgZdFJn3KhOzNi0vQlgO', 3),
+(18, 'Javier Alvarez', 'javito879', 'javito@prueba.com', '$2a$10$NRLXKIc0/43WO2HQejxyK.N/SQujuKPZIDaV7c9oHYaYgJk5u3ui6', 4),
+(21, 'Prueba', 'prueba', 'prueba@gmail.com', '$2a$10$86Uq96vcdsRHzT2rFqHPCO/qINoibvk2qKBwIRCTCuXm3ArCci9QO', 2),
+(22, 'Facundo Sandoval', 'facuu', 'facu@mail.com', '$2a$10$uEg3gJ437DodgL7.ZcXJIewG8aVfShHHbsf1wo7qXfTszi74aDydm', 5);
 
 -- --------------------------------------------------------
 
