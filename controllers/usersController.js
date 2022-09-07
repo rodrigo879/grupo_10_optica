@@ -3,6 +3,7 @@ const bcryptjs= require('bcryptjs');
 const { validationResult } = require('express-validator');
 const usersJson = require('../jsondatabase/jsonTable');
 const usersModel = usersJson('users');
+const db = require('../database/models');
 
 
 const userController = {
@@ -106,9 +107,14 @@ const userController = {
         res.redirect(`/users/profile/${userId}`)
     },
     userList: (req, res) => {
-        let users = usersModel.readFile();
+        // let users = usersModel.readFile();
+        // let userLogged = req.session.user
+        // res.render('./users/userList', {users, userLogged})
         let userLogged = req.session.user
-        res.render('./users/userList', {users, userLogged})
+        db.User.findAll()
+            .then(users => {
+                res.render('./users/userList', {users, userLogged})
+            });
     },
     logout: (req, res) => {
         res.clearCookie('recordarUsuario');
