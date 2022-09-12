@@ -1,5 +1,6 @@
 const jsonTable = require('../jsondatabase/jsonTable');
 const db = require('../database/models');
+const sequelize = db.sequelize
 
 // const productsModel = jsonTable('products')
 const imgCarrousel = jsonTable('imageCarrousel')
@@ -31,7 +32,7 @@ let mainController = {
         let imageCarrousel = imgCarrousel.readFile();
         // let products = productsModel.readFile();
         let userLogged = req.session.user
-        db.Product.findAll({include: ['categories','images_products', 'brands']})
+        db.Products.findAll({include: ['categories','images_products', 'brands']})
             .then((products) => {      
                 let result = ramdonResult(products);
                 res.render('index', {imageCarrousel, products, result, userLogged, toThousand, toComma});

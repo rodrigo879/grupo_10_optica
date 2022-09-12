@@ -1,12 +1,14 @@
 module.exports = (sequelize, dataTypes) =>{
-    let alias = 'Brand';
+    let alias = 'Brands';
     let cols = {
         id:{
             type: dataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true
         },
-        name: dataTypes.STRING(200),
+        name: { 
+            type: dataTypes.STRING(200)
+        }
     };
     let config = {
         tableName: 'brands',
@@ -16,7 +18,7 @@ module.exports = (sequelize, dataTypes) =>{
     const Brand = sequelize.define(alias, cols, config);
 
     Brand.associate = function(models) {
-		Brand.hasMany(models.Product, {
+		Brand.hasMany(models.Products, {
 			as: "products",
 			foreignKey: "id_brand"
 		});

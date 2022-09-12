@@ -6,7 +6,9 @@ module.exports = (sequelize, dataTypes) =>{
             primaryKey: true,
             autoIncrement: true
         },
-        name: dataTypes.STRING(200),
+        name:{ 
+            type: dataTypes.STRING(200)
+        }
     };
     let config = {
         tableName: 'image_users',
@@ -16,7 +18,7 @@ module.exports = (sequelize, dataTypes) =>{
     const ImageUser = sequelize.define(alias, cols, config);
 
     ImageUser.associate = function(models) {
-        ImageUser.belongsTo(models.User, {
+        ImageUser.belongsTo(models.Users, {
             as: "users",
             foreignKey: "id_imageUser"
         });
