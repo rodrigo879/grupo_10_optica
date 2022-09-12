@@ -9,80 +9,71 @@
     <main>
         <section>
             <div class="ruta-login">
-                <% for (let i = 0; i < products.length; i++) { %>
-                    <% if (idParam == products[i].id) { %>
-                        <% let ruta = products[i].categoryProduct == 'lentesRecetados' ? '/products/anteojosRecetados' : products[i].categoryProduct == 'lentesSol' ? '/products/anteojosSol' : products[i].categoryProduct == 'lentesContacto' ? '/products/anteojosLentesContacto' : '/products/accesorios' %> 
-                        <% let nombreRuta = products[i].categoryProduct == 'lentesRecetados' ? 'Anteojos Recetados' : products[i].categoryProduct == 'lentesSol' ? 'Anteojos de Sol' : products[i].categoryProduct == 'lentesContacto' ? 'Lentes de Contacto' : 'Accesorios' %> 
-                        <a href="/">Inicio</a>/<a href="<%= ruta %>"> <%= nombreRuta %> </a>/<p> <%= products[i].nameProduct %> </p>
-                    <% } %>
-                <% } %>
+                <% let ruta = products.categoryProduct == 'lentesRecetados' ? '/products/anteojosRecetados' : products.categoryProduct == 'lentesSol' ? '/products/anteojosSol' : products.categoryProduct == 'lentesContacto' ? '/products/anteojosLentesContacto' : '/products/accesorios' %> 
+                <% let nombreRuta = products.categoryProduct == 'lentesRecetados' ? 'Anteojos Recetados' : products.categoryProduct == 'lentesSol' ? 'Anteojos de Sol' : products.categoryProduct == 'lentesContacto' ? 'Lentes de Contacto' : 'Accesorios' %> 
+                <a href="/">Inicio</a>/<a href="<%= ruta %>"> <%= nombreRuta %> </a>/<p> <%= products.nameProduct %> </p>
             </div>
 
             <div class ="produto-principal"> 
-                <% for (let i = 0; i < products.length; i++) { %>
-                    <% if (idParam == products[i].id) { %>
-                        <div class = "imagen-producto">
-                            <div class="container_img">
-                                <% if(userLogged && userLogged.admin == true) { %> 
-                                    <% let idBorrar = products[i].id %>
-                                    <button id="<%- idBorrar %>" type= "button" class="form_submit_delete" onclick="borrarProducto(id)"><i class="fa-solid fa-trash-can"></i></button>
-                                    <a href="/products/<%= products[i].id %>/edit"><i class="fa-solid fa-file-pen"></i></a>
-                                <% } %>
-                            </div>
-                            <img src="/images/productos/<%= products[i].categoryProduct + '/' + products[i].image %>" alt="<%= products[i].descriptionProduct + " " + products[i].id %>">
-                         </div>
-                        <div class="info-producto-principal">
-                            <div class="info-producto">
-                                <h2 class = "nombre-producto"> <%= products[i].nameProduct %> </h2>
-                                <h2 class="precio-producto"> <%= "$" + toThousand(toComma(products[i].priceDiscount)) %> </h2>
-                            </div>
-                                    
-                            <div class= "separador">
-                                <div class= "cuotas"> 
-                                    <p>6 CUOTAS SIN INTERÉS DE</p> 
-                                    <b><%= "$" + toThousand(toComma((products[i].priceDiscount / 6).toFixed(2))) %></b> 
-                                </div>
-                                <a class = "medios-de-pago" href="views/medios-de-pago"> VER MEDIOS DE PAGO</a>
-                            </div>
-                                    
-                            <div class="cantidad">
-                                <p> CANTIDAD</p>
-                                <form class="formulario" action="/carrito" method="POST">
-                                    <input type="number" name="cantidad" min="0" max="10" value="1">
-                                </form>
-                            </div>
-                            <div class ="contenedor-compra"> 
-                                <button class="boton-carrito"><span>AGREGAR AL CARRITO<span></button>
-                            </div>
+                <div class = "imagen-producto">
+                    <div class="container_img">
+                        <% if(userLogged && userLogged.admin == true) { %> 
+                            <% let idBorrar = products.id %>
+                            <button id="<%- idBorrar %>" type= "button" class="form_submit_delete" onclick="borrarProducto(id)"><i class="fa-solid fa-trash-can"></i></button>
+                            <a href="/products/<%= products.id %>/edit"><i class="fa-solid fa-file-pen"></i></a>
+                        <% } %>
+                    </div>
+                    <img src="/images/productos/<%= products.categoryProduct + '/' + products.image %>" alt="<%= products.descriptionProduct + " " + products.id %>">
+                    </div>
+                <div class="info-producto-principal">
+                    <div class="info-producto">
+                        <h2 class = "nombre-producto"> <%= products.nameProduct %> </h2>
+                        <h2 class="precio-producto"> <%= "$" + toThousand(toComma(products.priceDiscount)) %> </h2>
+                    </div>
+                            
+                    <div class= "separador">
+                        <div class= "cuotas"> 
+                            <p>6 CUOTAS SIN INTERÉS DE</p> 
+                            <b><%= "$" + toThousand(toComma((products.priceDiscount / 6).toFixed(2))) %></b> 
                         </div>
-                    <% } %>               
-                <% } %>
+                        <a class = "medios-de-pago" href="#"> VER MEDIOS DE PAGO</a>
+                    </div>
+                            
+                    <div class="cantidad">
+                        <p> CANTIDAD</p>
+                        <form class="formulario" action="/carrito" method="POST">
+                            <input type="number" name="cantidad" min="0" max="10" value="1">
+                        </form>
+                    </div>
+                    <div class ="contenedor-compra"> 
+                        <button class="boton-carrito"><span>AGREGAR AL CARRITO<span></button>
+                    </div>
+                </div>
             </div>
         </section>
             
         <section>
             <h2 class="otros-productos"> Otros Productos </h2>
             <div class="main-section-div">
-                <% for(let i = 0; i < 3; i++) { %>
-                    <% let pruebaResult = result[i] %> 
+                <% for(let i = 0; i < productsRandom.length; i++) { %>                    
                     <article class="main-section-product">
-                        <a href="/products/<%- products[pruebaResult].id %>">
+                        <a href="/products/<%- productsRandom[i].id %>">
                             <div class="main-section-img">
-                                <img src="/images/productos/<%= products[pruebaResult].categoryProduct + '/' + products[pruebaResult].image %>" alt="<%= products[pruebaResult].descriptionProduct + " " + products[pruebaResult].id %>">
+                                <img src="/images/productos/<%= productsRandom[i].categories.name + '/' + productsRandom[i].images_products.name %>" alt="<%= productsRandom[i].description + " " + productsRandom[i].id %>">
                             </div>
                         </a>
                         <div class="main-section-info">
                             <div class="informacion-precio-descuento">
-                                <% if (products[pruebaResult].discount > 0) { %>
-                                    <p class="precio-producto-tachado"><%= "$" + toThousand(toComma(products[pruebaResult].priceProduct)) %></p>
-                                    <p class="precio-con-descuento"><%= "$" + toThousand(toComma(products[pruebaResult].priceDiscount)) %></p>
-                                    <p class="descuento-producto"><%= products[pruebaResult].discount + '% OFF' %></p>
+                                <% if (productsRandom[i].discount > 0) { %>
+                                    <p class="precio-producto-tachado"><%= "$" + toThousand(toComma(productsRandom[i].price)) %></p>
+                                    <p class="precio-con-descuento"><%= "$" + toThousand(toComma(productsRandom[i].price * (100 - 10) / 100)) %></p>
+                                    <p class="descuento-producto"><%= productsRandom[i].discount + '% OFF' %></p>
                                 <% } else { %>
-                                    <p class="precio-con-descuento"><%= "$" + toThousand(toComma(products[pruebaResult].priceDiscount)) %></p>
+                                    <p class="precio-con-descuento"><%= "$" + toThousand(toComma(productsRandom[i].price * (100 - 10) / 100)) %></p>
                                 <% } %> 
                             </div>
                             <div class="section-h3">
-                                <h3><%= products[pruebaResult].nameProduct %></h3>
+                                <h3><%= productsRandom[i].name %></h3>
                             </div>
                         </div>                    
                     </article>

@@ -207,8 +207,9 @@ DROP TABLE IF EXISTS `products`;
 CREATE TABLE `products` (
   `id` int(11) NOT NULL,
   `name` varchar(100) NOT NULL,
-  `descrption` text NOT NULL,
+  `description` varchar(200) NOT NULL,
   `price` double NOT NULL,
+  `discount` double NOT NULL,
   `id_category` int(11) NOT NULL,
   `id_brand` int(11) NOT NULL,
   `id_image_product` int(11) NOT NULL
@@ -218,55 +219,55 @@ CREATE TABLE `products` (
 -- Volcado de datos para la tabla `products`
 --
 
-INSERT INTO `products` (`id`, `name`, `descrption`, `price`, `id_category`, `id_brand`, `id_image_product`) VALUES
-(98, 'EGO 3272 UV400', 'Lente Recetado', 4062, 3, 1, 1),
-(99, 'CX 1003', 'Lente Recetado', 6590, 1, 4, 2),
-(100, 'ANDREA K 3019', 'Lente Recetado', 8295, 1, 5, 3),
-(101, 'AY NOT DEAD 691\"3', 'Lente Recetado', 18880, 1, 6, 4),
-(102, 'VULK NYC', 'Lente Recetado', 12400, 1, 1, 5),
-(103, 'VULK ELUSIVE', 'Lente Recetado', 10540, 1, 1, 6),
-(104, 'SATURDAY SL 021', 'Lente Recetado', 9200, 1, 7, 7),
-(105, 'PUCCINI OR 080', 'Lente Recetado', 10222.5, 1, 8, 8),
-(106, 'ATLANTIS XC 62010', 'Lente Recetado', 13464, 1, 9, 9),
-(107, 'VULK ANGELO', 'Lente Recetado', 18800, 1, 1, 10),
-(108, 'CIMA CI 041 273', 'Lente Recetado', 16920, 1, 10, 11),
-(109, 'CIMA CI 004 306', 'Lente Recetado', 23600, 1, 10, 12),
-(110, 'RUSTY JIMMY', 'Lente Sol', 12647.25, 2, 2, 12),
-(111, 'UNION PACIFIC 9610', 'Lente Sol', 13300, 2, 11, 13),
-(112, 'JORDAN NEW', 'Lente Sol', 9900, 2, 12, 14),
-(113, 'VULK GEES', 'Lente Sol', 9817.5, 2, 1, 15),
-(114, 'EGO 8511 UV400', 'Lente Sol', 2938.95, 2, 3, 16),
-(115, 'SATURDAY 16626 POLARIZADO', 'Lente Sol', 5145, 2, 7, 17),
-(116, 'JORDAN RONY', 'Lente Sol', 9900, 2, 12, 18),
-(117, 'JORDAN NICK', 'Lente Sol', 9900, 2, 12, 19),
-(118, 'EGO 8505', 'Lente Sol', 10890, 2, 3, 20),
-(119, 'EGO 2618', 'Lente Sol', 7900, 2, 3, 21),
-(120, 'VULK ANIMA', 'Lente Sol', 10890, 2, 1, 22),
-(121, 'VIV 2507', 'Lente Sol', 11900, 2, 13, 23),
-(122, 'ACUVUE OASYS 6 PACK', 'Lente Contacto', 5600, 3, 14, 24),
-(123, 'ACUVUE VITA', 'Lente Contacto', 6380, 3, 14, 25),
-(124, 'ACUVUE TRANSITIONS', 'Lente Contacto', 7100, 3, 14, 26),
-(125, 'ACUVUE TRANSITION PROMO 3+1', 'Lente Contacto', 25500, 3, 14, 27),
-(126, 'ACUVUE MOIST 30 PACK', 'Lente Contacto', 12000, 3, 14, 28),
-(127, 'ACUVUE OASYS DAY 30 PACK', 'Lente Contacto', 12800, 3, 14, 29),
-(128, 'AIR OPTIX PLUS HYDRAGLYDE', 'Lente Contacto', 8100, 3, 15, 30),
-(129, 'FRESHLOOK COLORBLENDS NEUTROS', 'Lente Contacto', 6600, 3, 16, 31),
-(130, 'PROCLEAR', 'Lente Contacto', 14800, 3, 17, 32),
-(131, 'BIOFINITY', 'Lente Contacto', 12400, 3, 18, 33),
-(132, 'BIOMEDICS 55', 'Lente Contacto', 7800, 3, 19, 34),
-(133, 'SOFLENS STARCOLORS II NEUTROS', 'Lente Contacto', 6300, 3, 20, 35),
-(134, 'HOLDER CADENA SUJETADORA', 'Accesorio', 485, 4, 21, 36),
-(135, 'WOLF', 'Accesorio', 590, 4, 22, 37),
-(136, 'SKALA SUJETADOR', 'Accesorio', 320, 4, 23, 38),
-(137, 'ARIANA CADENA SUJETADORA', 'Accesorio', 760, 4, 24, 39),
-(138, 'PARAISO CORDON SUJETADOR', 'Accesorio', 1590, 4, 25, 40),
-(139, 'INFINIT SUJETADOR LENTES', 'Accesorio', 1500, 4, 26, 41),
-(140, 'KTI SUJETADOR REGULABLE', 'Accesorio', 1391, 4, 27, 42),
-(141, 'PARAISO SUJETADOR ANTEOJO MOSTASILLA', 'Accesorio', 440, 4, 25, 43),
-(142, 'SKALA SUJETADOR DECORADO', 'Accesorio', 405, 4, 23, 44),
-(143, 'HOLDER SUJETADOR ANTEOJOS', 'Accesorio', 715, 4, 21, 45),
-(144, 'ARIANA CADENA METAL MOSTASILLAS', 'Accesorio', 760, 4, 24, 46),
-(145, 'PARAISO SUJETADOR ANTEOJOS DECORADO', 'Accesorio', 950, 4, 25, 47);
+INSERT INTO `products` (`id`, `name`, `description`, `price`, `discount`, `id_category`, `id_brand`, `id_image_product`) VALUES
+(98, 'EGO 3272 UV400', 'Lente Recetado', 4062, 10, 1, 1, 1),
+(99, 'CX 1003', 'Lente Recetado', 6590, 11, 1, 4, 2),
+(100, 'ANDREA K 3019', 'Lente Recetado', 8295, 15, 1, 5, 3),
+(101, 'AY NOT DEAD 691\"3', 'Lente Recetado', 18880, 10, 1, 6, 4),
+(102, 'VULK NYC', 'Lente Recetado', 12400, 0, 1, 1, 5),
+(103, 'VULK ELUSIVE', 'Lente Recetado', 10540, 8, 1, 1, 6),
+(104, 'SATURDAY SL 021', 'Lente Recetado', 9200, 14, 1, 7, 7),
+(105, 'PUCCINI OR 080', 'Lente Recetado', 10222.5, 0, 1, 8, 8),
+(106, 'ATLANTIS XC 62010', 'Lente Recetado', 13464, 0, 1, 9, 9),
+(107, 'VULK ANGELO', 'Lente Recetado', 18800, 10, 1, 1, 10),
+(108, 'CIMA CI 041 273', 'Lente Recetado', 16920, 12, 1, 10, 11),
+(109, 'CIMA CI 004 306', 'Lente Recetado', 23600, 26, 1, 10, 12),
+(110, 'RUSTY JIMMY', 'Lente Sol', 12647.25, 10, 2, 2, 13),
+(111, 'UNION PACIFIC 9610', 'Lente Sol', 13300, 10, 2, 11, 14),
+(112, 'JORDAN NEW', 'Lente Sol', 9900, 0, 2, 12, 15),
+(113, 'VULK GEES', 'Lente Sol', 9817.5, 20, 2, 1, 16),
+(114, 'EGO 8511 UV400', 'Lente Sol', 2938.95, 12, 2, 3, 17),
+(115, 'SATURDAY 16626 POLARIZADO', 'Lente Sol', 5145, 10, 2, 7, 18),
+(116, 'JORDAN RONY', 'Lente Sol', 9900, 0, 2, 12, 19),
+(117, 'JORDAN NICK', 'Lente Sol', 9900, 0, 2, 12, 20),
+(118, 'EGO 8505', 'Lente Sol', 10890, 14, 2, 3, 21),
+(119, 'EGO 2618', 'Lente Sol', 7900, 11, 2, 3, 22),
+(120, 'VULK ANIMA', 'Lente Sol', 10890, 10, 2, 1, 23),
+(121, 'VIV 2507', 'Lente Sol', 11900, 12, 2, 13, 24),
+(122, 'ACUVUE OASYS 6 PACK', 'Lente Contacto', 5600, 5, 3, 14, 25),
+(123, 'ACUVUE VITA', 'Lente Contacto', 6380, 5, 3, 14, 26),
+(124, 'ACUVUE TRANSITIONS', 'Lente Contacto', 7100, 10, 3, 14, 27),
+(125, 'ACUVUE TRANSITION PROMO 3+1', 'Lente Contacto', 25500, 15, 3, 14, 28),
+(126, 'ACUVUE MOIST 30 PACK', 'Lente Contacto', 12000, 14, 3, 14, 29),
+(127, 'ACUVUE OASYS DAY 30 PACK', 'Lente Contacto', 12800, 12, 3, 14, 30),
+(128, 'AIR OPTIX PLUS HYDRAGLYDE', 'Lente Contacto', 8100, 11, 3, 15, 31),
+(129, 'FRESHLOOK COLORBLENDS NEUTROS', 'Lente Contacto', 6600, 11, 3, 16, 32),
+(130, 'PROCLEAR', 'Lente Contacto', 14800, 15, 3, 17, 33),
+(131, 'BIOFINITY', 'Lente Contacto', 12400, 12, 3, 18, 34),
+(132, 'BIOMEDICS 55', 'Lente Contacto', 7800, 0, 3, 19, 35),
+(133, 'SOFLENS STARCOLORS II NEUTROS', 'Lente Contacto', 6300, 20, 3, 20, 36),
+(134, 'HOLDER CADENA SUJETADORA', 'Accesorio', 485, 0, 4, 21, 37),
+(135, 'WOLF', 'Accesorio', 590, 0, 4, 22, 38),
+(136, 'SKALA SUJETADOR', 'Accesorio', 320, 0, 4, 23, 39),
+(137, 'ARIANA CADENA SUJETADORA', 'Accesorio', 760, 0, 4, 24, 40),
+(138, 'PARAISO CORDON SUJETADOR', 'Accesorio', 1590, 0, 4, 25, 41),
+(139, 'INFINIT SUJETADOR LENTES', 'Accesorio', 1500, 0, 4, 26, 42),
+(140, 'KTI SUJETADOR REGULABLE', 'Accesorio', 1391, 10, 4, 27, 43),
+(141, 'PARAISO SUJETADOR ANTEOJO MOSTASILLA', 'Accesorio', 440, 0, 4, 25, 44),
+(142, 'SKALA SUJETADOR DECORADO', 'Accesorio', 405, 0, 4, 23, 45),
+(143, 'HOLDER SUJETADOR ANTEOJOS', 'Accesorio', 715, 0, 4, 21, 46),
+(144, 'ARIANA CADENA METAL MOSTASILLAS', 'Accesorio', 760, 0, 4, 24, 47),
+(145, 'PARAISO SUJETADOR ANTEOJOS DECORADO', 'Accesorio', 950, 5, 4, 25, 48);
 
 -- --------------------------------------------------------
 
@@ -288,11 +289,11 @@ CREATE TABLE `users` (
 -- Volcado de datos para la tabla `users`
 --
 
-INSERT INTO `users` (`id`, `fullname`, `user`, `email`, `password`, `id_imageUser`, `id_authority`) VALUES
-(16, 'Francisco Leonardo', 'franleonardo12', 'fran@hotmail.com', '$2a$10$cS1y58U.Y9YWNh.6hWvNyevXRX0Tb9Y8CmaxrIMFBd8DYWGZ711PC', 1),
+INSERT INTO `users` (`id`, `fullName`, `user`, `email`, `password`, `id_imageUser`) VALUES
+(16, 'Francisco LeonardO', 'franleonardo12', 'fran@hotmail.com', '$2a$10$cS1y58U.Y9YWNh.6hWvNyevXRX0Tb9Y8CmaxrIMFBd8DYWGZ711PC', 1),
 (17, 'Rodrigo Alvarez', 'rja123', 'rja@prueba.com', '$2a$10$9y5pPCzdifo5dLi2lamPS.3aTyQdcEroXxgZdFJn3KhOzNi0vQlgO', 3),
 (18, 'Javier Alvarez', 'javito879', 'javito@prueba.com', '$2a$10$NRLXKIc0/43WO2HQejxyK.N/SQujuKPZIDaV7c9oHYaYgJk5u3ui6', 4),
-(21, 'Prueba', 'prueba', 'prueba@gmail.com', '$2a$10$86Uq96vcdsRHzT2rFqHPCO/qINoibvk2qKBwIRCTCuXm3ArCci9QO', 2),
+(21, 'prueba', 'prueba', 'prueba@gmail.com', '$2a$10$86Uq96vcdsRHzT2rFqHPCO/qINoibvk2qKBwIRCTCuXm3ArCci9QO', 2),
 (22, 'Facundo Sandoval', 'facuu', 'facu@mail.com', '$2a$10$uEg3gJ437DodgL7.ZcXJIewG8aVfShHHbsf1wo7qXfTszi74aDydm', 5);
 
 -- --------------------------------------------------------
@@ -367,7 +368,6 @@ ALTER TABLE `products`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `id_authority` (`id_authority`),
   ADD KEY `id_imageUser` (`id_imageUser`);
 
 --
@@ -375,7 +375,7 @@ ALTER TABLE `users`
 --
 ALTER TABLE `users_authorities`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `id_user_2` (`id_user`),
+  ADD KEY `id_user` (`id_user`),
   ADD KEY `id_authority` (`id_authority`);
 
 --
@@ -446,7 +446,6 @@ ALTER TABLE `products`
 -- Filtros para la tabla `users`
 --
 ALTER TABLE `users`
-  ADD CONSTRAINT `users_ibfk_4` FOREIGN KEY (`id_authority`) REFERENCES `users_authorities` (`id`) ON UPDATE CASCADE,
   ADD CONSTRAINT `users_ibfk_5` FOREIGN KEY (`id_imageUser`) REFERENCES `image_users` (`id`) ON UPDATE CASCADE;
 
 --

@@ -1,14 +1,15 @@
 const jsonTable = require('../jsondatabase/jsonTable');
+const db = require('../database/models');
 
 const productsModel = jsonTable('products')
 
-//Reemplaza el punto de los decimales por una coma en el precio de los productos..
+// Reemplaza el punto de los decimales por una coma en el precio de los productos..
 const toComma = n => n.toString().replace(".", ",");
 
-//Agrega el punto cada 3 caracteres en el precio de los productos..
+// Agrega el punto cada 3 caracteres en el precio de los productos..
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
-//Funcion para generar resultados al azar para mostrar como productos opcionales en el detalle de producto..
+// Funcion para generar resultados al azar para mostrar como productos opcionales en el detalle de producto..
 function ramdonResult() {
     let result = [];
     let i = 0;
@@ -18,16 +19,47 @@ function ramdonResult() {
             result.push(ramdomI)
             i = i + 1;
         }
-    } while (i < 12);
+    } while (i < 3);
     return result
 }
 
 let productController = {
     product: (req,res) => {
-        let idParam= req.params.id
-        let products = productsModel.readFile();
+        let idParam = req.params.id
         let userLogged = req.session.user
-        res.render('./products/productDetail' , {products, idParam, userLogged, result: ramdonResult(), toThousand, toComma});
+        // let products = productsModel.readFile();
+        db.Product.findAll({include: ['categories','images_products', 'brands']})
+            .then((product) => {
+                // Almacenamos el indice al cual corresponde el id del producto igual al pasado por parametro en la URL.
+                let indice = product.findIndex((element) => {
+                    return element.id == idParam;
+                })
+                // Creamos una variable con los datos que devuelve la promesa, ajustado a como habiamos hecho la vista inicialmente.
+                let products = {
+                    id: product[indice].id,
+                    nameProduct: product[indice].name,
+                    descriptionProduct: product[indice].description,
+                    categoryProduct: product[indice].categories.name,
+                    trademarkProduct: product[indice].brands.name,
+                    priceProduct: product[indice].price,
+                    image: product[indice].images_products.name,
+                    discount: product[indice].discount,
+                    priceDiscount: product[indice].price * (100 - 10) / 100
+                }
+                // Creamos un Array con 3 productos al azar.
+                let resultRandom = ramdonResult();
+                let productsRandom = [];
+                for (let i = 0; i < resultRandom.length; i++) {
+                    productsRandom.push(product[resultRandom[i]]);                    
+                }  
+                // Retornamos el renderizado de la vista Detalle de un producto, con todas las variables utilizadas.     
+                return res.render('./products/productDetail' , {products, idParam, userLogged, productsRandom, toThousand, toComma});
+            })
+            .catch(error => res.json(
+                error = {
+                    msj: "Producto no encontrado"
+                }
+            ));
     },
     showFormCreate: (req, res) => {
         let userLogged = req.session.user
