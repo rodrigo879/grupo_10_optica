@@ -28,7 +28,7 @@ let productController = {
         let idParam = req.params.id
         let userLogged = req.session.user
         // let products = productsModel.readFile();
-        db.Product.findAll({include: ['categories','images_products', 'brands']})
+        db.Products.findAll({include: ['categories','images_products', 'brands']})
             .then((product) => {
                 // Almacenamos el indice al cual corresponde el id del producto igual al pasado por parametro en la URL.
                 let indice = product.findIndex((element) => {
