@@ -54,7 +54,7 @@ DROP TABLE IF EXISTS `brands`;
 CREATE TABLE `brands` (
   `id` int(11) NOT NULL,
   `name` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `brands`
@@ -118,7 +118,7 @@ DROP TABLE IF EXISTS `images_products`;
 CREATE TABLE `images_products` (
   `id` int(11) NOT NULL,
   `name` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `images_products`
@@ -214,7 +214,7 @@ CREATE TABLE `products` (
   `id_category` int(11) NOT NULL,
   `id_brand` int(11) NOT NULL,
   `id_image_product` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `products`
@@ -429,7 +429,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `users_authorities`
 --
 ALTER TABLE `users_authorities`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Restricciones para tablas volcadas
@@ -449,7 +449,7 @@ ALTER TABLE `products`
 ALTER TABLE `users`
   ADD CONSTRAINT `users_ibfk_5` FOREIGN KEY (`id_imageUser`) REFERENCES `image_users` (`id`) ON UPDATE CASCADE;
 
---
+-- --
 -- Filtros para la tabla `users_authorities`
 --
 ALTER TABLE `users_authorities`

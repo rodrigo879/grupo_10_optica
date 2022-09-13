@@ -6,7 +6,9 @@ module.exports = (sequelize, dataTypes) =>{
             primaryKey: true,
             autoIncrement: true
         },
-        role: dataTypes.STRING(200),
+        role: { 
+            type: dataTypes.STRING(200) 
+        }
     };
     let config = {
         tableName: 'authorities',
@@ -16,7 +18,7 @@ module.exports = (sequelize, dataTypes) =>{
     const Authority = sequelize.define(alias, cols, config);
 
     Authority.associate = function(models) {
-        Authority.belongsToMany(models.User, {
+        Authority.belongsToMany(models.Users, {
             as: "users",
             through: "users_authorities",
             foreignKey: "id_authority",
