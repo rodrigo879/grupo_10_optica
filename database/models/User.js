@@ -1,4 +1,4 @@
-module.exports = (sequelize, dataTypes) =>{
+module.exports = (sequelize, dataTypes) => {
     let alias = 'Users';
     let cols = {
         id:{
@@ -32,7 +32,7 @@ module.exports = (sequelize, dataTypes) =>{
     User.associate = function(models) {
         User.belongsToMany(models.Authorities, {
             as: "authorities",
-            through: "users_authorities",
+            through: models.UserAuthority,
             foreignKey: "id_user",
             otherKey: "id_authority",
             timestamps: false

@@ -20,7 +20,7 @@ module.exports = (sequelize, dataTypes) =>{
     Authority.associate = function(models) {
         Authority.belongsToMany(models.Users, {
             as: "users",
-            through: "users_authorities",
+            through: models.UserAuthority,
             foreignKey: "id_authority",
             otherKey: "id_user",
             timestamps: false

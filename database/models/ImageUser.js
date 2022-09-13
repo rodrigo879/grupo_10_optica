@@ -18,11 +18,10 @@ module.exports = (sequelize, dataTypes) =>{
     const ImageUser = sequelize.define(alias, cols, config);
 
     ImageUser.associate = function(models) {
-        ImageUser.hasMany(models.User, {
+        ImageUser.hasMany(models.Users, {
             as: "users",
             foreignKey: "id_imageUser"
         });
     }
-
     return ImageUser;
 }

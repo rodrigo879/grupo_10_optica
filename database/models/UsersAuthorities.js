@@ -18,7 +18,7 @@ module.exports = (sequelize, dataTypes) =>{
             type: dataTypes.INTEGER,
             allowNull: false,
             references: {
-                model: 'Athority',
+                model: 'Authority',
                 key: 'id'
             }
         },
@@ -31,13 +31,13 @@ module.exports = (sequelize, dataTypes) =>{
     const UserAuthority = sequelize.define(alias, cols, config);
 
     UserAuthority.associate = function(models) {
-        UserAuthority.belongsTo(models.User, {
+        UserAuthority.belongsTo(models.Users, {
             foreignKey: 'id_user',
-            as: 'user'
+            as: 'users'
         });
         UserAuthority.belongsTo(models.Authorities, {
             foreignKey: 'id_authority',
-            as: 'authority'
+            as: 'authorities'
         });
     }
     return UserAuthority;
