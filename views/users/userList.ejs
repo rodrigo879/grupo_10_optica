@@ -12,14 +12,14 @@
           <a><!-- <a href="/users/profile/<%= users[i].id %>"> -->
             <div class="container">
               <div class="img_container">
-                <img src="/images/users/<%= users[i].imageUser %>" alt="Imagen de Usuario <%= users[i].id %>">
+                <img src="/images/users/<%= users[i].image_users.name %>" alt="Imagen de Usuario <%= users[i].id %>">
               </div>
               <div class="info_container">
                 <ul>
                   <li><strong>Nombre:</strong> <%= users[i].fullName %> </li>
                   <li><strong>Usuario:</strong> <%= users[i].user %> </li>
                   <li><strong>Mail:</strong> <%= users[i].email %> </li>
-                  <li><strong>Admin:</strong> <%= users[i].admin %> </li>
+                  <li><strong>Admin:</strong> <%= users[i].authorities[0].role %> </li>
                 </ul>
               </div>
             </div>

@@ -17,7 +17,7 @@
             <div class ="produto-principal"> 
                 <div class = "imagen-producto">
                     <div class="container_img">
-                        <% if(userLogged && userLogged.admin == true) { %> 
+                        <% if(userLogged && userLogged.authorities[0].role == 'role_admin') { %> 
                             <% let idBorrar = products.id %>
                             <button id="<%- idBorrar %>" type= "button" class="form_submit_delete" onclick="borrarProducto(id)"><i class="fa-solid fa-trash-can"></i></button>
                             <a href="/products/<%= products.id %>/edit"><i class="fa-solid fa-file-pen"></i></a>

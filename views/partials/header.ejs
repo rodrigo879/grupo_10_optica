@@ -13,12 +13,12 @@
             <!-- La lista de usuarios hacerla visible solo para administradores -->  
             <% if(!userLogged) { %> 
                 <p><a href="/users/register">Crear Cuenta</a>|<a href="/users/login">Iniciar Sesion</a></p>
-            <% } else if(userLogged && userLogged.admin == true) { %>
+            <% } else if(userLogged && userLogged.authorities[0].role == 'role_admin') { %>
                 <p>
                     <a href="/users/profile/<%= userLogged.id %>">
                         <%= userLogged.user %>
                         <div style="width: 25px">
-                            <img style="width: 100%" src="/images/users/<%= userLogged.imageUser != undefined ? userLogged.imageUser : 'default-avatar-profile.jpg' %>" alt="Imagen de Usuario">
+                            <img style="width: 100%" src="/images/users/<%= userLogged.image_users.name != undefined ? userLogged.image_users.name : 'default-avatar-profile.jpg' %>" alt="Imagen de Usuario">
                         </div>
                     </a>
                     <a href="/users/userList"><i class="fa-solid fa-users"></i></a>
@@ -29,7 +29,7 @@
                     <a href="/users/profile/<%= userLogged.id %>">
                         <%= userLogged.user %>
                         <div style="width: 25px">
-                            <img style="width: 100%" src="/images/users/<%= userLogged.imageUser != undefined ? userLogged.imageUser : 'default-avatar-profile.jpg' %>" alt="Imagen de Usuario">
+                            <img style="width: 100%" src="/images/users/<%= userLogged.image_users.name != undefined ? userLogged.image_users.name : 'default-avatar-profile.jpg' %>" alt="Imagen de Usuario">
                         </div>
                     </a>
                 </p>        
@@ -37,7 +37,7 @@
             <a href="#"><i class='fa-solid fa-magnifying-glass'></i></a>
             <a href="/products/productCart"><i class="fa-solid fa-cart-shopping"></i></a>
             <!-- Hacer visible solo para administrador -->
-            <% if(userLogged && userLogged.admin == true){ %>
+            <% if(userLogged && userLogged.authorities[0].role == 'role_admin'){ %>
                 <a href="/products/create"><i class="fa-solid fa-box-archive"></i></a>         
             <% } %>
             <% if(userLogged){ %>
@@ -58,12 +58,12 @@
             <li class="li-hover"><a href="/contact">Contacto</a></li>
             <% if(!userLogged) { %>
                 <li class="li-hover despliega"><i class="fa-solid fa-user"></i><a href="/users/register">Crear Cuenta</a>|<a href="/users/login">Iniciar Sesion</a></li>
-            <% } else if(userLogged && userLogged.admin == true) { %> 
+            <% } else if(userLogged && userLogged.authorities[0].role == 'role_admin') { %> 
                 <li class="li-hover despliega"><a href="/users/userList">Lista de Usuarios</a></li>
                 <li class="li-hover despliega">
                     <a href="/users/profile/<%= userLogged.id %>">
                         <div style="width: 25px;display: flex; align-items: center;">
-                            <img src="/images/users/<%= userLogged.imageUser %>" style="width: 100%;">
+                            <img src="/images/users/<%= userLogged.image_users.name %>" style="width: 100%;">
                             <p><%= userLogged.user %></p>
                         </div>
                     </a>
@@ -72,7 +72,7 @@
                 <li class="li-hover despliega">
                     <a href="/users/profile/<%= userLogged.id %>">
                         <div style="width: 25px;">
-                            <img src="/images/users/<%= userLogged.imageUser %>" style="width: 100%;">
+                            <img src="/images/users/<%= userLogged.image_users.name %>" style="width: 100%;">
                         </div>
                         <%= userLogged.user %>
                     </a>

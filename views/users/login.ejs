@@ -9,8 +9,13 @@
             <a href="/">Inicio</a>/<p>Iniciar Sesion</p>
           </div>
           <div class="form_conteiner">
+            <% if (locals.errors && errors.credInv) {  %>
+              <div class = "validation_error">
+                 <%= errors.credInv.msg %>        
+              </div>        
+            <% } %>
             <div class="form_group">
-              <input required type="text" id="user" name="user" class="form_input" value="<%= locals.oldData ? oldData.user : null %>"/>
+              <input  type="text" id="user" name="user" class="form_input" value="<%= locals.oldData ? oldData.user : null %>"/>
               <label for="user" class="form_label">Usuario:</label>     
               <% if (locals.errors && errors.user) { %>
                 <div class = "validation_error"> <%= errors.user.msg %>        
@@ -18,7 +23,7 @@
             </div>
             
             <div class="form_group">
-              <input required type="password" id="password" name="password" class="form_input"  placeholder=" "/>
+              <input  type="password" id="password" name="password" class="form_input"  placeholder=" "/>
               <label for="password" class="form_label">Contraseña:</label>
               <div class="checkboxPass">
                 <input type="checkbox" id="checkPassword" onclick="mostrarPassword()">

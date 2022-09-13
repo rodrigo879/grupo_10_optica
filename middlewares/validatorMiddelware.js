@@ -5,38 +5,34 @@ const usersModel = usersJson('users');
 
 let validatorMiddelware = {
     validacionCreateUsers: [
-        body('fullName').notEmpty().withMessage('Debe completar el campo nombre'),
-        body('user').notEmpty().withMessage('Debe completar el campo User'),
+        body('fullName').notEmpty().withMessage('Debe ingresar su nombre'),
+        body('user').notEmpty().withMessage('Debe ingresar un nombre de usuario'),
+        body('email').notEmpty().withMessage('Debe ingresar un email valido'),
         body('password').isLength({min: 6}).withMessage('La contraseña debe ser mayor a 6 caracteres'),
-        body('confirmPassword').isLength({min: 6}).withMessage('La confirmacion de contraseña debe ser mayor a 6 caracteres'),
-        body('image')
-    ],
+        body('confirmPassword').isLength({min: 6}).withMessage('La contraseña debe ser mayor a 6 caracteres')    ],
     validacionLoginUsers: [
-        body('user')
-        .notEmpty().withMessage('Debe completar este campo').bail()
-        .custom((value, {req}) => {
-            let user= value;
-            let users = usersModel.readFile();
-            let userFilter = users.filter(person => person.user == user)
-            if(userFilter.length == 0){ 
-                throw new Error ('El nombre de usuario que has introducido no pertenece a ninguna cuenta')
-                }
-                return true;
-        }).bail(),
+        body('user').notEmpty().withMessage('Debe completar este campo').bail(),
+        // .custom((value, {req}) => {
+        //     let user= value;
+        //     let users = usersModel.readFile();
+        //     let userFilter = users.filter(person => person.user == user)
+        //     if(userFilter.length == 0){ 
+        //         throw new Error ('El nombre de usuario que has introducido no pertenece a ninguna cuenta')
+        //         }
+        //         return true;
+        //}).bail(),
 
-        body('password')
+        body('password').notEmpty().withMessage('Debe completar este campo').bail()       
         //.isLength({min: 6}).withMessage('La contraseña debe tener al menos 6 caracteres').bail()
-            .custom((value, {req}) => {
-            let password= value;
-            let users = usersModel.readFile();
-            let userFilter = users.filter(person => bcryptjs.compareSync (password, person.password) == true)
-            if(userFilter.length == 0){  
-                throw new Error ('La contraseña es incorrecta')
-                }
-                return true;
-        })
-
-
+        //     .custom((value, {req}) => {
+        //     let password= value;
+        //     let users = usersModel.readFile();
+        //     let userFilter = users.filter(person => bcryptjs.compareSync (password, person.password) == true)
+        //     if(userFilter.length == 0){  
+        //         throw new Error ('La contraseña es incorrecta')
+        //         }
+        //         return true;
+        // })
     ]
 }
 

@@ -191,11 +191,12 @@ CREATE TABLE `image_users` (
 --
 
 INSERT INTO `image_users` (`id`, `name`) VALUES
-(1, 'user-1660861770366.jpg'),
-(2, 'user-1660056323659.jpg'),
-(3, 'user-1658835232480.png'),
-(4, 'user-1657842115311.jpg'),
-(5, 'user-1662133463627.jpg');
+(1, 'default-avatar-profile.jpg'),
+(2, 'user-1660861770366.jpg'),
+(3, 'user-1660056323659.jpg'),
+(4, 'user-1658835232480.png'),
+(5, 'user-1657842115311.jpg'),
+(6, 'user-1662133463627.jpg');
 
 -- --------------------------------------------------------
 
@@ -282,7 +283,7 @@ CREATE TABLE `users` (
   `user` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
   `password` text NOT NULL,
-  `id_imageUser` int(11) DEFAULT NULL
+  `id_imageUser` int(11) DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -290,11 +291,11 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `fullName`, `user`, `email`, `password`, `id_imageUser`) VALUES
-(16, 'Francisco LeonardO', 'franleonardo12', 'fran@hotmail.com', '$2a$10$cS1y58U.Y9YWNh.6hWvNyevXRX0Tb9Y8CmaxrIMFBd8DYWGZ711PC', 1),
-(17, 'Rodrigo Alvarez', 'rja123', 'rja@prueba.com', '$2a$10$9y5pPCzdifo5dLi2lamPS.3aTyQdcEroXxgZdFJn3KhOzNi0vQlgO', 3),
-(18, 'Javier Alvarez', 'javito879', 'javito@prueba.com', '$2a$10$NRLXKIc0/43WO2HQejxyK.N/SQujuKPZIDaV7c9oHYaYgJk5u3ui6', 4),
-(21, 'prueba', 'prueba', 'prueba@gmail.com', '$2a$10$86Uq96vcdsRHzT2rFqHPCO/qINoibvk2qKBwIRCTCuXm3ArCci9QO', 2),
-(22, 'Facundo Sandoval', 'facuu', 'facu@mail.com', '$2a$10$uEg3gJ437DodgL7.ZcXJIewG8aVfShHHbsf1wo7qXfTszi74aDydm', 5);
+(16, 'Francisco LeonardO', 'franleonardo12', 'fran@hotmail.com', '$2a$10$cS1y58U.Y9YWNh.6hWvNyevXRX0Tb9Y8CmaxrIMFBd8DYWGZ711PC', 2),
+(17, 'Rodrigo Alvarez', 'rja123', 'rja@prueba.com', '$2a$10$4A0Ua/gYOT1WtqZQjNwhdOkA4vvn.ga2kflAnNT98kOBPOp8whTdG', 4),
+(18, 'Javier Alvarez', 'javito879', 'javito@prueba.com', '$2a$10$NRLXKIc0/43WO2HQejxyK.N/SQujuKPZIDaV7c9oHYaYgJk5u3ui6', 5),
+(21, 'prueba', 'prueba', 'prueba@gmail.com', '$2a$10$86Uq96vcdsRHzT2rFqHPCO/qINoibvk2qKBwIRCTCuXm3ArCci9QO', 3),
+(22, 'Facundo Sandoval', 'facuu', 'facu@mail.com', '$2a$10$uEg3gJ437DodgL7.ZcXJIewG8aVfShHHbsf1wo7qXfTszi74aDydm', 6);
 
 -- --------------------------------------------------------
 

@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
 
-
 const upload = require('../middlewares/multerMiddelware')
 const validatorMiddelware = require('../middlewares/validatorMiddelware');
 const authMiddleware = require('../middlewares/authMiddleware');
 const guestMiddleware = require('../middlewares/guestMiddleware');
+const adminMiddleware = require('../middlewares/adminMiddleware');
 const usersController = require('../controllers/usersController');
 
 // LOGUEARSE
@@ -31,6 +31,6 @@ router.put('/profile/:id/passwordEdit', usersController.passwordEdit);
 router.delete('/profile/:id', authMiddleware, usersController.delete)
 
 // LISTA DE USUARIOS
-router.get('/userList', authMiddleware, usersController.userList);
+router.get('/userList', adminMiddleware, usersController.userList);
 
 module.exports = router;
