@@ -34,8 +34,9 @@ let productController = {
         // Creamos un Array con 3 productos al azar.
         let productsRandom = ramdonResult(allProducts);
         // Almacenamos el indice al cual corresponde el id del producto igual al pasado por parametro en la URL.
-        let indice = allProducts.findIndex((element) => {return element.id == idParam;})
-        if(indice > 0) {
+        let indice = allProducts.findIndex((element) => {return element.id == idParam})
+        console.log(indice)
+        if(indice >= 0) {
             // Creamos una variable con los datos que devuelve la promesa, ajustado a como habiamos hecho la vista inicialmente.
             let products = {
                 id: allProducts[indice].id,
@@ -94,33 +95,95 @@ let productController = {
     },
     delete: (req, res) => {
         let idParam = req.params.id;
-        let products = productsModel.readFile();      
-        for (let i = 0; i < products.length; i++) {
-            if (products[i].id == idParam) {
-                productsModel.delete(idParam);
-                break;
-            } 
-        }
-        res.redirect('/');     
+        db.Products.destroy({ where: { id: idParam}})
+        res.redirect('/');            
     },
-    accesorios: (req, res) => {
-        let products = productsModel.readFile().filter(element => element.categoryProduct == 'accesorios')
-        let userLogged = req.session.user
+    accesorios: async (req, res) => {
+        let accesoryProduct = await db.Products.findAll({ 
+            include: ['categories','images_products', 'brands'],
+            where: {id_category: 4}
+        });
+        let products = [];
+        accesoryProduct.forEach(element => {
+            let product = {
+                id: element.id,
+                nameProduct: element.name,
+                descriptionProduct: element.description,
+                categoryProduct: element.categories.name,
+                trademarkProduct: element.brands.name,
+                priceProduct: element.price,
+                image: element.images_products.name,
+                discount: element.discount,
+                priceDiscount: element.price * (100 - 10) / 100
+            }   
+            products.push(product)
+        });
         res.render('./products/listProducts', {products, userLogged, toThousand, toComma})
     },
-    lentesSol: (req, res) => {
-        let products = productsModel.readFile().filter(element => element.categoryProduct == 'lentesSol')
-        let userLogged = req.session.user
+    lentesRecetado: async (req, res) => {
+        let recetadoProduct = await db.Products.findAll({ 
+            include: ['categories','images_products', 'brands'],
+            where: {id_category: 1}
+        });
+        let products = [];
+        recetadoProduct.forEach(element => {
+            let product = {
+                id: element.id,
+                nameProduct: element.name,
+                descriptionProduct: element.description,
+                categoryProduct: element.categories.name,
+                trademarkProduct: element.brands.name,
+                priceProduct: element.price,
+                image: element.images_products.name,
+                discount: element.discount,
+                priceDiscount: element.price * (100 - 10) / 100
+            }   
+            products.push(product)
+        });
         res.render('./products/listProducts', {products, userLogged, toThousand, toComma})
     },
-    lentesRecetado: (req, res) => {
-        let products = productsModel.readFile().filter(element => element.categoryProduct == 'lentesRecetados')
-        let userLogged = req.session.user
+    lentesSol: async (req, res) => {
+        let solProduct = await db.Products.findAll({ 
+            include: ['categories','images_products', 'brands'],
+            where: {id_category: 2}
+        });
+        let products = [];
+        solProduct.forEach(element => {
+            let product = {
+                id: element.id,
+                nameProduct: element.name,
+                descriptionProduct: element.description,
+                categoryProduct: element.categories.name,
+                trademarkProduct: element.brands.name,
+                priceProduct: element.price,
+                image: element.images_products.name,
+                discount: element.discount,
+                priceDiscount: element.price * (100 - 10) / 100
+            }   
+            products.push(product)
+        });
         res.render('./products/listProducts', {products, userLogged, toThousand, toComma})
     },
-    lentesContacto: (req, res) => {
-        let products = productsModel.readFile().filter(element => element.categoryProduct == 'lentesContacto')
-        let userLogged = req.session.user
+    lentesContacto: async (req, res) => {
+        let contactoProduct = await db.Products.findAll({ 
+            include: ['categories','images_products', 'brands'],
+            where: {id_category: 3}
+        });
+        let products = [];
+        contactoProduct.forEach(element => {
+            let product = {
+                id: element.id,
+                nameProduct: element.name,
+                descriptionProduct: element.description,
+                categoryProduct: element.categories.name,
+                trademarkProduct: element.brands.name,
+                priceProduct: element.price,
+                image: element.images_products.name,
+                discount: element.discount,
+                priceDiscount: element.price * (100 - 10) / 100
+            }   
+            products.push(product)
+        });
         res.render('./products/listProducts', {products, userLogged, toThousand, toComma})
     },
     productCart: (req, res) => {
