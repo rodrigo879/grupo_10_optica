@@ -103,28 +103,9 @@ let productController = {
         }
         res.redirect('/');     
     },
-    accesorios: async (req, res) => {
-        //let products = productsModel.readFile().filter(element => element.categoryProduct == 'accesorios')
-        let accesoryProduct = await db.Products.findAll({ 
-            include: ['categories','images_products', 'brands'],
-            where: {id_category: 4}
-        });
-        let products = [];
-        accesoryProduct.forEach(element => {
-            let product = {
-                id: element.id,
-                nameProduct: element.name,
-                descriptionProduct: element.description,
-                categoryProduct: element.categories.name,
-                trademarkProduct: element.brands.name,
-                priceProduct: element.price,
-                image: element.images_products.name,
-                discount: element.discount,
-                priceDiscount: element.price * (100 - 10) / 100
-            }   
-            products.push(product)
-        });
-        console.log("Productos traidos de la BD: ", products)
+    accesorios: (req, res) => {
+        let products = productsModel.readFile().filter(element => element.categoryProduct == 'accesorios')
+        let userLogged = req.session.user
         res.render('./products/listProducts', {products, userLogged, toThousand, toComma})
     },
     lentesSol: (req, res) => {
