@@ -55,19 +55,20 @@
             </div>
         <% } %>
 
-         <div class="secciones">
+        <div class="secciones">
             <div class="contenedor-imagenes">
                 <% let infoContainerImg = [{href: 'Sol', src: 'anteojos-para-sol.webp', alt: '1'}, {href: 'Recetados', src: 'anteojos-recetados.webp', alt: '2'}, {href: 'LentesContacto', src: 'lentes-de-contacto.webp', alt: '3'}] %>
                 <% for( let i = 0; i < infoContainerImg.length; i++ ) { %>
                     <div class="seccion-imagen">
                         <a href="/products/anteojos<%= infoContainerImg[i].href %>"><img src="/images/banners/<%= infoContainerImg[i].src %> " alt="Imagen <%= infoContainerImg[i].alt %> "></a>
                     </div>                    
-                    <% } %>
-                </div>
+                <% } %>
             </div>
-        
+            <hr id="ofertas"> 
+        </div>
+               
         <section>
-            <h2 id="ofertas">&#128293 Ofertas &#128293</h2>
+            <h2>&#128293 Ofertas &#128293</h2>
             <div class="main-section-div">
                 <% for(let i = 0; i < 12; i++) { %>
                     <% let pruebaResult = result[i] %> 

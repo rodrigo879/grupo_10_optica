@@ -8,8 +8,11 @@ let validatorMiddelware = {
         body('fullName').notEmpty().withMessage('Debe ingresar su nombre'),
         body('user').notEmpty().withMessage('Debe ingresar un nombre de usuario'),
         body('email').notEmpty().withMessage('Debe ingresar un email valido'),
-        body('password').isLength({min: 6}).withMessage('La contraseña debe ser mayor a 6 caracteres'),
-        body('confirmPassword').isLength({min: 6}).withMessage('La contraseña debe ser mayor a 6 caracteres')    ],
+        body('password').notEmpty().withMessage('Debe ingresar una contraseña').bail()
+        .isLength({min: 6}).withMessage('La contraseña debe ser mayor a 6 caracteres'),
+        body('confirmPassword').notEmpty().withMessage('Debe confirmar la contraseña').bail()
+        .isLength({min: 6}).withMessage('La contraseña debe ser mayor a 6 caracteres')
+    ],
     validacionLoginUsers: [
         body('user').notEmpty().withMessage('Debe completar este campo').bail(),
         // .custom((value, {req}) => {
@@ -33,6 +36,13 @@ let validatorMiddelware = {
         //         }
         //         return true;
         // })
+    ],
+    validacionChangePass: [
+        body('passwordActual').notEmpty().withMessage('Completa este campo'),
+        body('password').notEmpty().withMessage('Completa este campo').bail()
+        .isLength({min: 6}).withMessage('La contraseña debe ser mayor a 6 caracteres'),
+        body('confirmPassword').notEmpty().withMessage('Completa este campo').bail()
+        .isLength({min: 6}).withMessage('La contraseña debe ser mayor a 6 caracteres')
     ]
 }
 

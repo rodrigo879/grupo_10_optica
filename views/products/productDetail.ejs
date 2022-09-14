@@ -8,48 +8,54 @@
  
     <main>
         <section>
-            <div class="ruta-login">
-                <% let ruta = products.categoryProduct == 'lentesRecetados' ? '/products/anteojosRecetados' : products.categoryProduct == 'lentesSol' ? '/products/anteojosSol' : products.categoryProduct == 'lentesContacto' ? '/products/anteojosLentesContacto' : '/products/accesorios' %> 
-                <% let nombreRuta = products.categoryProduct == 'lentesRecetados' ? 'Anteojos Recetados' : products.categoryProduct == 'lentesSol' ? 'Anteojos de Sol' : products.categoryProduct == 'lentesContacto' ? 'Lentes de Contacto' : 'Accesorios' %> 
-                <a href="/">Inicio</a>/<a href="<%= ruta %>"> <%= nombreRuta %> </a>/<p> <%= products.nameProduct %> </p>
-            </div>
+            <% if (locals.products && products) { %>
+                <div class="ruta-login">
+                    <% let ruta = products.categoryProduct == 'lentesRecetados' ? '/products/anteojosRecetados' : products.categoryProduct == 'lentesSol' ? '/products/anteojosSol' : products.categoryProduct == 'lentesContacto' ? '/products/anteojosLentesContacto' : '/products/accesorios' %> 
+                    <% let nombreRuta = products.categoryProduct == 'lentesRecetados' ? 'Anteojos Recetados' : products.categoryProduct == 'lentesSol' ? 'Anteojos de Sol' : products.categoryProduct == 'lentesContacto' ? 'Lentes de Contacto' : 'Accesorios' %> 
+                    <a href="/">Inicio</a>/<a href="<%= ruta %>"> <%= nombreRuta %> </a>/<p> <%= products.nameProduct %> </p>
+                </div>
 
-            <div class ="produto-principal"> 
-                <div class = "imagen-producto">
-                    <div class="container_img">
-                        <% if(userLogged && userLogged.authorities[0].role == 'role_admin') { %> 
-                            <% let idBorrar = products.id %>
-                            <button id="<%- idBorrar %>" type= "button" class="form_submit_delete" onclick="borrarProducto(id)"><i class="fa-solid fa-trash-can"></i></button>
-                            <a href="/products/<%= products.id %>/edit"><i class="fa-solid fa-file-pen"></i></a>
-                        <% } %>
-                    </div>
-                    <img src="/images/productos/<%= products.categoryProduct + '/' + products.image %>" alt="<%= products.descriptionProduct + " " + products.id %>">
-                    </div>
-                <div class="info-producto-principal">
-                    <div class="info-producto">
-                        <h2 class = "nombre-producto"> <%= products.nameProduct %> </h2>
-                        <h2 class="precio-producto"> <%= "$" + toThousand(toComma(products.priceDiscount)) %> </h2>
-                    </div>
-                            
-                    <div class= "separador">
-                        <div class= "cuotas"> 
-                            <p>6 CUOTAS SIN INTERÉS DE</p> 
-                            <b><%= "$" + toThousand(toComma((products.priceDiscount / 6).toFixed(2))) %></b> 
+                <div class ="produto-principal"> 
+                    <div class = "imagen-producto">
+                        <div class="container_img">
+                            <% if(locals.userLogged && userLogged.authorities[0].role == 'role_admin') { %> 
+                                <% let idBorrar = products.id %>
+                                <button id="<%- idBorrar %>" type= "button" class="form_submit_delete" onclick="borrarProducto(id)"><i class="fa-solid fa-trash-can"></i></button>
+                                <a href="/products/<%= products.id %>/edit"><i class="fa-solid fa-file-pen"></i></a>
+                            <% } %>
                         </div>
-                        <a class = "medios-de-pago" href="#"> VER MEDIOS DE PAGO</a>
+                        <img src="/images/productos/<%= products.categoryProduct + '/' + products.image %>" alt="<%= products.descriptionProduct + " " + products.id %>">
                     </div>
-                            
-                    <div class="cantidad">
-                        <p> CANTIDAD</p>
-                        <form class="formulario" action="/carrito" method="POST">
-                            <input type="number" name="cantidad" min="0" max="10" value="1">
-                        </form>
-                    </div>
-                    <div class ="contenedor-compra"> 
-                        <button class="boton-carrito"><span>AGREGAR AL CARRITO<span></button>
+                    <div class="info-producto-principal">
+                        <div class="info-producto">
+                            <h2 class = "nombre-producto"> <%= products.nameProduct %> </h2>
+                            <h2 class="precio-producto"> <%= "$" + toThousand(toComma(products.priceDiscount)) %> </h2>
+                        </div>
+                                
+                        <div class= "separador">
+                            <div class= "cuotas"> 
+                                <p>6 CUOTAS SIN INTERÉS DE</p> 
+                                <b><%= "$" + toThousand(toComma((products.priceDiscount / 6).toFixed(2))) %></b> 
+                            </div>
+                            <a class = "medios-de-pago" href="#"> VER MEDIOS DE PAGO</a>
+                        </div>
+                                
+                        <div class="cantidad">
+                            <p> CANTIDAD</p>
+                            <form class="formulario" action="/carrito" method="POST">
+                                <input type="number" name="cantidad" min="0" max="10" value="1">
+                            </form>
+                        </div>
+                        <div class ="contenedor-compra"> 
+                            <button class="boton-carrito"><span>AGREGAR AL CARRITO<span></button>
+                        </div>
                     </div>
                 </div>
-            </div>
+            <% } else { %>
+                <div class="ruta-login">
+                    <h2 style="color: lightgray;">Producto no encontrado</h3>
+                </div>
+            <% } %>    
         </section>
             
         <section>

@@ -1,13 +1,9 @@
 const jsonTable = require('../jsondatabase/jsonTable');
 const db = require('../database/models');
-const sequelize = db.sequelize
 
-// const productsModel = jsonTable('products')
 const imgCarrousel = jsonTable('imageCarrousel')
-
 // Reemplaza el punto de los decimales por una coma en el precio de los productos..
 const toComma = n => n.toString().replace(".", ",");
-
 // Agrega el punto cada 3 caracteres en el precio de los productos..
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
@@ -26,12 +22,11 @@ function ramdonResult(products) {
     } while (i < 12);
     return result
 }
+let userLogged;
 
 let mainController = {
     index: (req, res) => {
         let imageCarrousel = imgCarrousel.readFile();
-        // let products = productsModel.readFile();
-        let userLogged = req.session.user
         db.Products.findAll({include: ['categories','images_products', 'brands']})
             .then((products) => {      
                 let result = ramdonResult(products);
@@ -44,7 +39,6 @@ let mainController = {
             ));
     },
     contact: (req, res) => {
-        let userLogged = req.session.user
         res.render('contact', {userLogged} );
     }
 }

@@ -11,9 +11,7 @@
         </div>
         <div class="main-buscar-carrito">
             <!-- La lista de usuarios hacerla visible solo para administradores -->  
-            <% if(!userLogged) { %> 
-                <p><a href="/users/register">Crear Cuenta</a>|<a href="/users/login">Iniciar Sesion</a></p>
-            <% } else if(userLogged && userLogged.authorities[0].role == 'role_admin') { %>
+            <% if(locals.userLogged && userLogged.authorities[0].role == 'role_admin') { %>
                 <p>
                     <a href="/users/profile/<%= userLogged.id %>">
                         <%= userLogged.user %>
@@ -23,8 +21,8 @@
                     </a>
                     <a href="/users/userList"><i class="fa-solid fa-users"></i></a>
                     <a href="/products/all"><i class="fa-solid fa-box-open"></i></a>
-                </p>            
-            <% } else { %>
+                </p> 
+            <% } else if(locals.userLogged && userLogged) { %>
                 <p>
                     <a href="/users/profile/<%= userLogged.id %>">
                         <%= userLogged.user %>
@@ -32,15 +30,17 @@
                             <img style="width: 100%" src="/images/users/<%= userLogged.image_users.name != undefined ? userLogged.image_users.name : 'default-avatar-profile.jpg' %>" alt="Imagen de Usuario">
                         </div>
                     </a>
-                </p>        
+                </p>      
+            <% } else { %>
+                <p><a href="/users/register">Crear Cuenta</a>|<a href="/users/login">Iniciar Sesion</a></p>
             <% } %> 
             <a href="#"><i class='fa-solid fa-magnifying-glass'></i></a>
             <a href="/products/productCart"><i class="fa-solid fa-cart-shopping"></i></a>
             <!-- Hacer visible solo para administrador -->
-            <% if(userLogged && userLogged.authorities[0].role == 'role_admin'){ %>
+            <% if(locals.userLogged && userLogged.authorities[0].role == 'role_admin'){ %>
                 <a href="/products/create"><i class="fa-solid fa-box-archive"></i></a>         
             <% } %>
-            <% if(userLogged){ %>
+            <% if(locals.userLogged && userLogged){ %>
                 <a href="/users/logout"><i class="fa-solid fa-power-off"></i></a> 
             <% } %>
         </div>
@@ -56,9 +56,7 @@
             <li class="li-hover"><a href="/products/anteojosLentesContacto">Lentes de Contacto</a></li>
             <li class="li-hover"><a href="/products/accesorios">Accesorios</a></li> 
             <li class="li-hover"><a href="/contact">Contacto</a></li>
-            <% if(!userLogged) { %>
-                <li class="li-hover despliega"><i class="fa-solid fa-user"></i><a href="/users/register">Crear Cuenta</a>|<a href="/users/login">Iniciar Sesion</a></li>
-            <% } else if(userLogged && userLogged.authorities[0].role == 'role_admin') { %> 
+            <% if(locals.userLogged && userLogged.authorities[0].role == 'role_admin') { %>
                 <li class="li-hover despliega"><a href="/users/userList">Lista de Usuarios</a></li>
                 <li class="li-hover despliega">
                     <a href="/users/profile/<%= userLogged.id %>">
@@ -67,8 +65,8 @@
                             <p><%= userLogged.user %></p>
                         </div>
                     </a>
-                </li>
-            <% } else { %> 
+                </li>              
+            <% } else if(locals.userLogged && userLogged) { %> 
                 <li class="li-hover despliega">
                     <a href="/users/profile/<%= userLogged.id %>">
                         <div style="width: 25px;">
@@ -76,7 +74,9 @@
                         </div>
                         <%= userLogged.user %>
                     </a>
-                </li>                        
+                </li>   
+            <% } else { %> 
+                <li class="li-hover despliega"><i class="fa-solid fa-user"></i><a href="/users/register">Crear Cuenta</a>|<a href="/users/login">Iniciar Sesion</a></li>               
             <% } %>
 
             <!-- Visualizar la lista de usuarios solo para administrador -->
