@@ -25,17 +25,16 @@ function ramdonResult(productos) {
     } 
     return productsRandom
 }
-let userLogged;
 
 let productController = {
     product: async (req,res) => {
+        let userLogged = req.session.user;
         let idParam = req.params.id
         let allProducts = await db.Products.findAll({include: ['categories','images_products', 'brands']})
         // Creamos un Array con 3 productos al azar.
         let productsRandom = ramdonResult(allProducts);
         // Almacenamos el indice al cual corresponde el id del producto igual al pasado por parametro en la URL.
         let indice = allProducts.findIndex((element) => {return element.id == idParam})
-        console.log(indice)
         if(indice >= 0) {
             // Creamos una variable con los datos que devuelve la promesa, ajustado a como habiamos hecho la vista inicialmente.
             let products = {
@@ -55,6 +54,7 @@ let productController = {
         }
     },
     showFormCreate: (req, res) => {
+        let userLogged = req.session.user;
         res.render('./products/create', {userLogged})
     },
     create: (req, res) => {
@@ -67,15 +67,15 @@ let productController = {
         }
     },
     allProducts: (req, res) => {
+        let userLogged = req.session.user;
         let products = productsModel.readFile().sort((a, b) => {return b.id - a.id});
         //let products = productsOriginal.sort((a, b) => {return b.id - a.id})
-        let userLogged = req.session.user
         res.render('./products/allProducts', {products, userLogged, toThousand, toComma});
     },
     edit: (req,res) => {
+        let userLogged = req.session.user;
         let idParam = req.params.id;
         let products = productsModel.readFile();
-        let userLogged = req.session.user
         res.render('./products/productEdit', {products, idParam, userLogged})
     },
     update: (req, res) => {
@@ -99,6 +99,7 @@ let productController = {
         res.redirect('/');            
     },
     accesorios: async (req, res) => {
+        let userLogged = req.session.user;
         let accesoryProduct = await db.Products.findAll({ 
             include: ['categories','images_products', 'brands'],
             where: {id_category: 4}
@@ -121,6 +122,7 @@ let productController = {
         res.render('./products/listProducts', {products, userLogged, toThousand, toComma})
     },
     lentesRecetado: async (req, res) => {
+        let userLogged = req.session.user;
         let recetadoProduct = await db.Products.findAll({ 
             include: ['categories','images_products', 'brands'],
             where: {id_category: 1}
@@ -143,6 +145,7 @@ let productController = {
         res.render('./products/listProducts', {products, userLogged, toThousand, toComma})
     },
     lentesSol: async (req, res) => {
+        let userLogged = req.session.user;
         let solProduct = await db.Products.findAll({ 
             include: ['categories','images_products', 'brands'],
             where: {id_category: 2}
@@ -165,6 +168,7 @@ let productController = {
         res.render('./products/listProducts', {products, userLogged, toThousand, toComma})
     },
     lentesContacto: async (req, res) => {
+        let userLogged = req.session.user;
         let contactoProduct = await db.Products.findAll({ 
             include: ['categories','images_products', 'brands'],
             where: {id_category: 3}
@@ -187,14 +191,14 @@ let productController = {
         res.render('./products/listProducts', {products, userLogged, toThousand, toComma})
     },
     productCart: (req, res) => {
+        let userLogged = req.session.user;
         let products = productsModel.readFile();
         let costo = -1;
-        let userLogged = req.session.user
         res.render('./products/productCart', {products, costo, userLogged, toThousand, toComma});
     },
     calculoEnvio: (req, res) => {
+        let userLogged = req.session.user;
         let products = productsModel.readFile();
-        let userLogged = req.session.user
         if(req.body.codigoPostal){
             let codigoPostal = req.body.codigoPostal;
             let costo;

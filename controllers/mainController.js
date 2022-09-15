@@ -22,10 +22,11 @@ function ramdonResult(products) {
     } while (i < 12);
     return result
 }
-let userLogged;
 
 let mainController = {
     index: (req, res) => {
+        let userLogged = req.session.user;        
+        console.log(userLogged)
         let imageCarrousel = imgCarrousel.readFile();
         db.Products.findAll({include: ['categories','images_products', 'brands']})
             .then((products) => {      
@@ -39,6 +40,7 @@ let mainController = {
             ));
     },
     contact: (req, res) => {
+        let userLogged = req.session.user;
         res.render('contact', {userLogged} );
     }
 }

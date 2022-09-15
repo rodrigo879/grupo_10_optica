@@ -156,6 +156,22 @@ function borrarUsuario(id) {
     });
 };
 
+function apagarInputRadioCrearProducto() {
+    let radioExistsBrands = document.getElementById('radio_existsBrands')
+    let radioNewBrands = document.getElementById('radio_newBrands')
+    let divRadioExists = document.getElementById('div_radio_exists')
+    let divRadioNew = document.getElementById('div_radio_new')
+    
+    if(radioExistsBrands.checked) {
+        divRadioNew.classList.add('select_disabled')
+        divRadioExists.classList.remove('select_disabled')
+    }
+    if(radioNewBrands.checked) {
+        divRadioExists.classList.add('select_disabled')
+        divRadioNew.classList.remove('select_disabled')
+    } 
+}
+
 //Ventana para ver medios de pagos.
 //Hay que modificarlo para que el estilo quede en la hoja de CSS correspondiente.
 function mediosDePago() {

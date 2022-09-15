@@ -3,7 +3,6 @@ const { validationResult } = require('express-validator');
 const db = require('../database/models');
 const { Op } = require('Sequelize');
 
-let userLogged;
 let crearError = (msg, param) => { 
     let error = {
         msg: msg,
@@ -14,6 +13,7 @@ let crearError = (msg, param) => {
 
 const userController = {
     login: (req, res) => {
+        let userLogged = req.session.user;
         res.render('./users/login', {userLogged});
     },
     logged: async (req, res) => {
@@ -52,9 +52,11 @@ const userController = {
         }
     },
     register: (req, res) => {
+        let userLogged = req.session.user;
         res.render('./users/register', {userLogged} );
     },
     create: async (req, res) => {
+        let userLogged = req.session.user;
         let errors = validationResult(req);
         if(errors.isEmpty()) {
             // Buscamos si existe un registro en la BD con el email ingresado.
@@ -107,6 +109,7 @@ const userController = {
         }
     },
     profile: async (req, res) => {
+        let userLogged = req.session.user;
         let userProfile = await db.Users.findByPk(req.params.id, { include: 'image_users' })
         return res.render('./users/profile', {user: userProfile, userLogged});
     },
@@ -146,10 +149,12 @@ const userController = {
         res.redirect('/');   
     },
     password: (req, res) => {
+        let userLogged = req.session.user;
         let userId = req.params.id;
         res.render('./users/passwordEdit', {userId, userLogged});
     },
     passwordEdit: async (req, res) => {
+        let userLogged = req.session.user;
         let userId = req.params.id;
         let errors = validationResult(req);
         if(errors.isEmpty()) {
@@ -174,6 +179,7 @@ const userController = {
         }
     },
     userList: async (req, res) => {
+        let userLogged = req.session.user;
         let usersAll = await db.Users.findAll({ include: ['image_users','authorities'] })
         res.render('./users/userList', {users: usersAll, userLogged})
     },
