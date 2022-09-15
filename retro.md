@@ -46,4 +46,16 @@ SPRINT 4
     Bugs! :D
 5- Dejar de hacer
     Dejar de postergar las reuniones y tratar de que no pase mucho tiempo entre reunión y reunión. 
-  
+
+
+SPRINT 5
+1- Comenzar a hacer 
+    El sprint 7 
+2- Hacer más
+    Motivacion entre compañeros de equipo. 
+3- Continuar haciendo
+    Mantener buena armonia y comunicación en el grupo. Reuniones semanales.
+4- Hacer menos
+    Frustraciones. 
+5- Dejar de hacer
+    Mejorar la organización del tiempo de tareas por hacer.
