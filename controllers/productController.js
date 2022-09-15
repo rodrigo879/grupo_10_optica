@@ -90,11 +90,23 @@ let productController = {
                 }
             ));
         },
-    edit: (req,res) => {
-        let userLogged = req.session.user;
-        let idParam = req.params.id;
-        let products = productsModel.readFile();
-        res.render('./products/productEdit', {products, idParam, userLogged})
+        edit: async (req,res) => {
+            let userLogged = req.session.user;
+            let idParam = req.params.id
+            let product = await db.Products.findByPk( idParam, {include: ['categories','images_products', 'brands']})
+                // Creamos una variable con los datos que devuelve la promesa, ajustado a como habiamos hecho la vista inicialmente.
+                let products = {
+                    id: product.id,
+                    nameProduct: product.name,
+                    descriptionProduct: product.description,
+                    categoryProduct: product.categories.name,
+                    trademarkProduct: product.brands.name,
+                    priceProduct: product.price,
+                    image: product.images_products.name,
+                    discount: product.discount,
+                    priceDiscount: product.price * (100 - 10) / 100
+                }
+                return res.render('./products/productEdit' , {products, idParam, userLogged, toThousand, toComma});
     },
     update: (req, res) => {
         let idParam = req.params.id;
