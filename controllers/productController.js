@@ -1,10 +1,5 @@
 const jsonTable = require('../jsondatabase/jsonTable');
 const db = require('../database/models');
-<<<<<<< HEAD
-const { BLOB } = require('sequelize');
-
-=======
->>>>>>> 0474ada2bbc704558812046cf40404a0b88fcece
 const productsModel = jsonTable('products')
 
 // Reemplaza el punto de los decimales por una coma en el precio de los productos..
@@ -118,19 +113,8 @@ let productController = {
     },
     delete: (req, res) => {
         let idParam = req.params.id;
-<<<<<<< HEAD
-        let products = productsModel.readFile();
-        for (let i = 0; i < products.length; i++) {
-            if (products[i].id == idParam) {
-                productsModel.delete(idParam);
-                break;
-            }
-        }
-        res.redirect('/');
-=======
         db.Products.destroy({ where: { id: idParam}})
         res.redirect('/');            
->>>>>>> 0474ada2bbc704558812046cf40404a0b88fcece
     },
     accesorios: async (req, res) => {
         let userLogged = req.session.user;

@@ -26,7 +26,6 @@ function ramdonResult(products) {
 let mainController = {
     index: (req, res) => {
         let userLogged = req.session.user;        
-        console.log(userLogged)
         let imageCarrousel = imgCarrousel.readFile();
         db.Products.findAll({include: ['categories','images_products', 'brands']})
             .then((products) => {      
