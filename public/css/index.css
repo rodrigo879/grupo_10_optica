@@ -39,7 +39,7 @@ header {
     display: flex;
     width: 20%;
     height: 10vw;
-    justify-content: center;
+    justify-content: end;
     flex-wrap: wrap;
     align-content: center;  
 }
@@ -729,8 +729,14 @@ footer h5 {
 
     /*------------------------*/
 
-    section h2 {
-        margin: 1.5em;
+    .secciones {
+        position: relative;
+    }
+
+    hr {
+        position: absolute;
+        bottom: 110px;
+        visibility: hidden;
     }
 
     .main-section-div {

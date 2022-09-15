@@ -234,6 +234,15 @@
     margin-top: 5px;
   }
 
+  .select_disabled {
+    pointer-events: none;
+    background-color: #c3c6c8;
+  }
+
+  .radio_buttom {
+    margin-left: 225px ;
+  }
+
   /* ---------------------------------- */
   
   .form_input:not(:placeholder-shown) ~ .form_line {
