@@ -526,5 +526,16 @@
   "discount": 0,
   "priceDiscount": 950,
   "id": 48
+ },
+ {
+  "nameProduct": "lala",
+  "descriptionProduct": "rap",
+  "categoryProduct": "lentesSol",
+  "trademarkProduct": "lele",
+  "priceProduct": "120",
+  "discount": "12",
+  "image": "product-1663092410042.jpg",
+  "priceDiscount": 105.6,
+  "id": 49
  }
 ]

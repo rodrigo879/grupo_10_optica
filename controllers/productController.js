@@ -1,5 +1,6 @@
 const jsonTable = require('../jsondatabase/jsonTable');
 const db = require('../database/models');
+const { BLOB } = require('sequelize');
 
 const productsModel = jsonTable('products')
 
@@ -24,62 +25,69 @@ function ramdonResult() {
 }
 
 let productController = {
-    product: (req,res) => {
-        let idParam = req.params.id
-        let userLogged = req.session.user
-        // let products = productsModel.readFile();
-        db.Products.findAll({include: ['categories','images_products', 'brands']})
-            .then((product) => {
-                // Almacenamos el indice al cual corresponde el id del producto igual al pasado por parametro en la URL.
-                let indice = product.findIndex((element) => {
-                    return element.id == idParam;
+        product: (req,res) => {
+            let idParam = req.params.id
+            let userLogged = req.session.user
+            // let products = productsModel.readFile();
+            db.Products.findAll({include: ['categories','images_products', 'brands']})
+                .then((product) => {
+                    // Almacenamos el indice al cual corresponde el id del producto igual al pasado por parametro en la URL.
+                    let indice = product.findIndex((element) => {
+                        return element.id == idParam;
+                    })
+                    // Creamos una variable con los datos que devuelve la promesa, ajustado a como habiamos hecho la vista inicialmente.
+                    let products = {
+                        id: product[indice].id,
+                        nameProduct: product[indice].name,
+                        descriptionProduct: product[indice].description,
+                        categoryProduct: product[indice].categories.name,
+                        trademarkProduct: product[indice].brands.name,
+                        priceProduct: product[indice].price,
+                        image: product[indice].images_products.name,
+                        discount: product[indice].discount,
+                        priceDiscount: product[indice].price * (100 - 10) / 100
+                    }
+                    // Creamos un Array con 3 productos al azar.
+                    let resultRandom = ramdonResult();
+                    let productsRandom = [];
+                    for (let i = 0; i < resultRandom.length; i++) {
+                        productsRandom.push(product[resultRandom[i]]);                    
+                    }  
+                    // Retornamos el renderizado de la vista Detalle de un producto, con todas las variables utilizadas.     
+                    return res.render('./products/productDetail' , {products, idParam, userLogged, productsRandom, toThousand, toComma});
                 })
-                // Creamos una variable con los datos que devuelve la promesa, ajustado a como habiamos hecho la vista inicialmente.
-                let products = {
-                    id: product[indice].id,
-                    nameProduct: product[indice].name,
-                    descriptionProduct: product[indice].description,
-                    categoryProduct: product[indice].categories.name,
-                    trademarkProduct: product[indice].brands.name,
-                    priceProduct: product[indice].price,
-                    image: product[indice].images_products.name,
-                    discount: product[indice].discount,
-                    priceDiscount: product[indice].price * (100 - 10) / 100
-                }
-                // Creamos un Array con 3 productos al azar.
-                let resultRandom = ramdonResult();
-                let productsRandom = [];
-                for (let i = 0; i < resultRandom.length; i++) {
-                    productsRandom.push(product[resultRandom[i]]);                    
-                }  
-                // Retornamos el renderizado de la vista Detalle de un producto, con todas las variables utilizadas.     
-                return res.render('./products/productDetail' , {products, idParam, userLogged, productsRandom, toThousand, toComma});
+                .catch(error => res.json(
+                    error = {
+                        msj: "Producto no encontrado"
+                    }
+                ));
+        },
+        showFormCreate: (req, res) => {
+            let userLogged = req.session.user
+            res.render('./products/create', {userLogged})
+        },
+        create: (req, res) => {
+            if(req.file) {
+                let productsCreate = req.body;
+                productsCreate.image = req.file.filename;
+                productsCreate.priceDiscount = req.body.priceProduct * (100 - productsCreate.discount) / 100;
+                productsId = productsModel.create(productsCreate);
+                res.redirect('/products/all');
+            }
+        },
+        allProducts: (req, res) => {
+            db.Products.findAll({include: ['categories','images_products', 'brands']},
+            {order: [ ["id", "DESC"] ]})
+            .then((products) => {      
+                let userLogged = req.session.user
+                res.render('./products/allProducts', {products, userLogged, toThousand, toComma});
             })
             .catch(error => res.json(
                 error = {
-                    msj: "Producto no encontrado"
+                    msj: "Problemas en el servidor"
                 }
             ));
-    },
-    showFormCreate: (req, res) => {
-        let userLogged = req.session.user
-        res.render('./products/create', {userLogged})
-    },
-    create: (req, res) => {
-        if(req.file) {
-            let productsCreate = req.body;
-            productsCreate.image = req.file.filename;
-            productsCreate.priceDiscount = req.body.priceProduct * (100 - productsCreate.discount) / 100;
-            productsId = productsModel.create(productsCreate);
-            res.redirect('/products/all');
-        }
-    },
-    allProducts: (req, res) => {
-        let products = productsModel.readFile().sort((a, b) => {return b.id - a.id});
-        //let products = productsOriginal.sort((a, b) => {return b.id - a.id})
-        let userLogged = req.session.user
-        res.render('./products/allProducts', {products, userLogged, toThousand, toComma});
-    },
+        },
     edit: (req,res) => {
         let idParam = req.params.id;
         let products = productsModel.readFile();
@@ -103,14 +111,14 @@ let productController = {
     },
     delete: (req, res) => {
         let idParam = req.params.id;
-        let products = productsModel.readFile();      
+        let products = productsModel.readFile();
         for (let i = 0; i < products.length; i++) {
             if (products[i].id == idParam) {
                 productsModel.delete(idParam);
                 break;
-            } 
+            }
         }
-        res.redirect('/');     
+        res.redirect('/');
     },
     accesorios: (req, res) => {
         let products = productsModel.readFile().filter(element => element.categoryProduct == 'accesorios')

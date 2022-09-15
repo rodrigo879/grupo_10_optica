@@ -17,13 +17,13 @@
                 <div class="container">
             <% } %>
               <div class="img_container">
-                <img src="/images/productos/<%= products[i].categoryProduct %>/<%= products[i].image %>" alt="Imagen de Usuario <%= products[i].id %>">
+                <img src="/images/productos/<%= products[i].categories.name + '/' + products[i].images_products.name %>" alt="<%= products[i].description + products[i].id %>">
               </div>
               <div class="info_container">
                 <ul>
-									<li><strong>Nombre:</strong> <%= products[i].nameProduct %> </li>
-									<li><strong>Categoria:</strong> <%= products[i].categoryProduct %> </li>
-									<li><strong>Marca:</strong> <%= products[i].trademarkProduct %> </li>
+									<li><strong>Nombre:</strong> <%= products[i].name %> </li>
+									<li><strong>Categoria:</strong> <%= products[i].categories.name %> </li>
+									<li><strong>Marca:</strong> <%= products[i].brands.name %> </li>
                 </ul>
               </div>
             </div>
