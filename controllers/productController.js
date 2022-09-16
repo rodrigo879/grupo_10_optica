@@ -1,5 +1,6 @@
 const jsonTable = require('../jsondatabase/jsonTable');
 const db = require('../database/models');
+const req = require('express/lib/request');
 const productsModel = jsonTable('products')
 
 // Reemplaza el punto de los decimales por una coma en el precio de los productos..
@@ -54,17 +55,42 @@ let productController = {
             return res.render('./products/productDetail' , {userLogged, productsRandom, toThousand, toComma});
         }
     },
-    showFormCreate: (req, res) => {
+    showFormCreate: async (req, res) => {
+        let brands = await db.Brands.findAll();
         let userLogged = req.session.user
-        res.render('./products/create', {userLogged})
+        res.render('./products/create', {userLogged, brands})
     },
-    create: (req, res) => {
+    create: async (req, res) => {
         if(req.file) {
-            let productsCreate = req.body;
-            productsCreate.image = req.file.filename;
-            productsCreate.priceDiscount = req.body.priceProduct * (100 - productsCreate.discount) / 100;
-            productsId = productsModel.create(productsCreate);
-            res.redirect('/products/all');
+            if(req.body.radio_trademark == 1) {
+                let brand = await db.Brands.findByPk(req.body.trademarkProductExist);
+                let categories = await db.Categories.findOne({ where: {name: req.body.categoryProduct}});
+                let newImage = await db.ImagesProducts.create( { name: req.file.filename});
+                let newProduct = await db.Products.create({
+                    name: req.body.nameProduct,
+                    description: req.body.descriptionProduct,
+                    price: req.body.priceProduct,
+                    discount: req.body.discount,
+                    id_category: categories.id,
+                    id_brand: brand.id,
+                    id_image_product: newImage.id
+                })
+                res.redirect('/products/all');
+            } else if (req.body.radio_trademark == 2) {
+                let brands = await db.Brands.create( { name: req.body.trademarkProduct });
+                let categories = await db.Categories.findOne({ where: {name: req.body.categoryProduct}});
+                let newImage = await db.ImagesProducts.create( { name: req.file.filename});
+                let newProduct = await db.Products.create({
+                    name: req.body.nameProduct,
+                    description: req.body.descriptionProduct,
+                    price: req.body.priceProduct,
+                    discount: req.body.discount,
+                    id_category: categories.id,
+                    id_brand: brands.id,
+                    id_image_product: newImage.id
+                });
+                res.redirect('/products/all');
+            }
         }
     },
     allProducts: (req, res) => {
@@ -86,20 +112,37 @@ let productController = {
         let products = productsModel.readFile();
         res.render('./products/productEdit', {products, idParam, userLogged})
     },
-    update: (req, res) => {
-        let idParam = req.params.id;
-        let newProduct = req.body;
-        newProduct.id = parseInt(idParam);
-        newProduct.priceDiscount = newProduct.priceProduct * (100 - newProduct.discount) / 100;
+    update: async (req, res) => {
+        let productId = req.params.id;
         if(req.file) {
-            newProduct.image = req.file.filename;
+            let newImage = await db.ImagesProducts.create( { name: req.file.filename } );
+            let newBrand = await db.Brands.create( { name: req.file.trademarkProduct} );
+            db.Products.update(
+                {
+                    name: req.body.nameProduct,
+                    description: req.body.descriptionProduct,
+                    price: req.body.priceProduct,
+                    discount: req.body.discount,
+                    id_brand: newBrand.id,
+                    id_image_product: newImage.id,
+                },
+                { where: { id: productId } }
+            );
+            return res.redirect(`/products/productEdit/${productId}`)
         } else {
-            let products= productsModel.readFile();
-            let productFind = products.find(element => element.id == idParam);
-            newProduct.image = productFind.image;
+            let newBrand = await db.Brands.create( { name: req.file.trademarkProduct} );
+            db.Products.update(
+                {
+                    name: req.body.nameProduct,
+                    description: req.body.descriptionProduct,
+                    price: req.body.priceProduct,
+                    discount: req.body.discount,
+                    id_brand: newBrand.id,
+                },
+                { where: { id: productId } }
+            );
+            return res.redirect(`/products/productEdit/${productId}`)
         }
-        productsModel.update(newProduct);
-        res.redirect ('/');
     },
     delete: (req, res) => {
         let idParam = req.params.id;

@@ -34,7 +34,7 @@ const userController = {
                     userLogged = req.session.user;
                     //Cookie "Recordar Usuario"
                     if (req.body.recordarUsuario != undefined) {
-                        res.cookie ('recordarUsuario', userLog.user, {maxAge: 1000*604800 })
+                        res.cookie ('recordarUsuario', userLogged, {maxAge: 1000*604800 })
                     }
                     return res.redirect('/')
                 } else {
