@@ -8,28 +8,26 @@
 
     <main>
       <!-- ----------------AGREGAR CODIGO NUEVO---------------- -->
-      <% for (let i = 0; i < products.length; i++) { %>
-        <% if (idParam == products[i].id) { %>
-          <form class="form" action="/products/<%= products[i].id ?? "undefined" %>/update?_method=put" method="post" enctype="multipart/form-data">
+          <form class="form" action="/products/<%= products.id ?? "undefined" %>/update?_method=put" method="post" enctype="multipart/form-data">
             <div class="ruta-login">
               <a href="/">Inicio</a>/<p>Editar Producto</p>
             </div>
             <!-- <h2 class="form_title">Optica Riff</h2>  -->
             <div class="form_conteiner">
               <div class="form_group">
-                <input required type="text" class="form_input" id="nameProduct" name="nameProduct" placeholder= " " value="<%= products[i].nameProduct %>" >
+                <input required type="text" class="form_input" id="nameProduct" name="nameProduct" placeholder= " " value="<%= products.nameProduct %>" >
                 <label for="nameProduct" class="form_label">Nombre del Producto:</label>
               </div>
               <div class="form_group">
-                <textarea class="form_input form_textArea" id="descriptionProduct" rows="1" name="descriptionProduct" placeholder= " " ><%= products[i].descriptionProduct %></textarea>
+                <textarea class="form_input form_textArea" id="descriptionProduct" rows="1" name="descriptionProduct" placeholder= " " ><%= products.descriptionProduct %></textarea>
                 <label for="descriptionProduct" class="form_label">Descripción:</label>
               </div>
               <div class="form_group">
                 <select name="categoryProduct" id="categoryProduct" class="form_input form_select select_disabled" value="SELECCIONE UNA CATEGORIA" aria-readonly="true">
-                  <option value="lentesSol" <% if(products[i].categoryProduct == "lentesSol") { %> selected <% }  %>> ANTEOJOS PARA SOL</option> 
-                  <option value="lentesRecetados" <% if(products[i].categoryProduct == "lentesRecetados" ) { %> selected <% } %> >ANTEOJOS RECETADOS</option>
-                  <option value="lentesContacto" <% if(products[i].categoryProduct == "lentesContacto" ) { %> selected <% } %>>LENTES DE CONTACTO</option>
-                  <option value="accesorios" <% if(products[i].categoryProduct == "accesorios" ) { %> selected <% } %>>ACCESORIOS</option>
+                  <option value="lentesSol" <% if(products.categoryProduct == "lentesSol") { %> selected <% }  %>> ANTEOJOS PARA SOL</option> 
+                  <option value="lentesRecetados" <% if(products.categoryProduct == "lentesRecetados" ) { %> selected <% } %> >ANTEOJOS RECETADOS</option>
+                  <option value="lentesContacto" <% if(products.categoryProduct == "lentesContacto" ) { %> selected <% } %>>LENTES DE CONTACTO</option>
+                  <option value="accesorios" <% if(products.categoryProduct == "accesorios" ) { %> selected <% } %>>ACCESORIOS</option>
                 </select>
                 <label for="categoryProduct" class="form_label">Categoria:</label>
               </div>
@@ -37,7 +35,7 @@
                 <input accept=".png, .jpeg, .jpg" type="file" class="form_input form_input_file" id="imageProduct" name="imageProduct" placeholder=" "> 
                 <label for="imageProduct" class="form_label">Imagen:</label>
                 <div class="product_image"> 
-                  <img src="/images/productos/<%= products[i].categoryProduct + '/' + products[i].image %>" alt="<%= products[i].descriptionProduct + " " + products[i].id %>" >
+                  <img src="/images/productos/<%= products.categoryProduct + '/' + products.image %>" alt="<%= products.descriptionProduct + " " + products.id %>" >
                 </div>
                 <div class="form_input">
                   <label for="imageProduct" class="form_imageFile">
@@ -47,22 +45,20 @@
                 </div>
               </div>
               <div class="form_group">
-                <input required type="text" class="form_input" id="trademarkProduct" name="trademarkProduct" placeholder= " " value= "<%= products[i].trademarkProduct %>" /> 
+                <input required type="text" class="form_input" id="trademarkProduct" name="trademarkProduct" placeholder= " " value= "<%= products.trademarkProduct %>" /> 
                 <label for="trademarkProduct" class="form_label">Marca:</label>
               </div>
               <div class="form_group">
-                <input required step="0.01" type="number" class="form_input" id="priceProduct" name="priceProduct" placeholder= " " value = "<%= products[i].priceProduct %>"/> 
+                <input required step="0.01" type="number" class="form_input" id="priceProduct" name="priceProduct" placeholder= " " value = "<%= products.priceProduct %>"/> 
                 <label for="priceProduct" class="form_label">Precio($):</label>
               </div>
               <div class="form_group">
-                <input required type="number" class="form_input" id="discount" name="discount" placeholder=" " value= "<%=products[i].discount%>" max="100" min="0"/> 
+                <input required type="number" class="form_input" id="discount" name="discount" placeholder=" " value= "<%=products.discount%>" max="100" min="0"/> 
                 <label for="discount" class="form_label">Descuento(%):</label>
               </div>
               <button type="submit" class="form_submit_post"> MODIFICAR </button>
             </div>
           </form>
-        <% } %>               
-      <% } %>
     </main>
 
     <!-- FOOTER -->

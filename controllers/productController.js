@@ -94,9 +94,11 @@ let productController = {
         }
     },
     allProducts: (req, res) => {
-        db.Products.findAll({include: ['categories','images_products', 'brands']},
-        {order: [ ["id", "DESC"] ]})
-        .then((products) => {      
+        db.Products.findAll({
+            include: ['categories','images_products', 'brands'],
+            order: [ ["id", "DESC"] ]
+        })
+        .then((products) => {
             let userLogged = req.session.user
             res.render('./products/allProducts', {products, userLogged, toThousand, toComma});
         })
@@ -106,17 +108,29 @@ let productController = {
             }
         ));
     },
-    edit: (req,res) => {
+    edit: async (req,res) => {
         let userLogged = req.session.user;
-        let idParam = req.params.id;
-        let products = productsModel.readFile();
-        res.render('./products/productEdit', {products, idParam, userLogged})
+        let idParam = req.params.id
+        let product = await db.Products.findByPk( idParam, {include: ['categories','images_products', 'brands']})
+            // Creamos una variable con los datos que devuelve la promesa, ajustado a como habiamos hecho la vista inicialmente.
+            let products = {
+                id: product.id,
+                nameProduct: product.name,
+                descriptionProduct: product.description,
+                categoryProduct: product.categories.name,
+                trademarkProduct: product.brands.name,
+                priceProduct: product.price,
+                image: product.images_products.name,
+                discount: product.discount,
+                priceDiscount: product.price * (100 - 10) / 100
+            }
+            return res.render('./products/productEdit' , {products, idParam, userLogged, toThousand, toComma});
     },
     update: async (req, res) => {
         let productId = req.params.id;
         if(req.file) {
             let newImage = await db.ImagesProducts.create( { name: req.file.filename } );
-            let newBrand = await db.Brands.create( { name: req.file.trademarkProduct} );
+            let newBrand = await db.Brands.create( { name: req.body.trademarkProduct} );
             db.Products.update(
                 {
                     name: req.body.nameProduct,
@@ -128,9 +142,9 @@ let productController = {
                 },
                 { where: { id: productId } }
             );
-            return res.redirect(`/products/productEdit/${productId}`)
+            return res.redirect(`/products/${productId}/edit`)
         } else {
-            let newBrand = await db.Brands.create( { name: req.file.trademarkProduct} );
+            let newBrand = await db.Brands.create( { name: req.body.trademarkProduct} );
             db.Products.update(
                 {
                     name: req.body.nameProduct,
@@ -141,7 +155,7 @@ let productController = {
                 },
                 { where: { id: productId } }
             );
-            return res.redirect(`/products/productEdit/${productId}`)
+            return res.redirect(`/products/${productId}/edit`)
         }
     },
     delete: (req, res) => {

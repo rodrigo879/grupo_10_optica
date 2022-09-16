@@ -9,8 +9,8 @@
       </div>
       <div class="main_container">
         <% for( let i = 0; i < products.length; i++ ) { %>
-          <a href="/products/<%= products[i].id %>">
-            <% if (products.length == products[i].id) { %>
+          <a href="/products/<%- products[i].id %>">
+            <% if (i == 0) { %>
               <p>Ultimo Producto Agregado</p>  
 							<div class="container lastProduct">
             <% } else { %>
