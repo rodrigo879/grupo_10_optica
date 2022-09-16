@@ -29,7 +29,6 @@
               <option value="lentesContacto">LENTES DE CONTACTO</option>
               <option value="accesorios">ACCESORIOS</option>
             </select>
-            <label for="categoryProduct" class="form_label">Categoria:</label>
           </div>
           <div class="form_group">
             <input required accept=".png, .jpeg, .jpg" type="file" class="form_input form_input_file" id="imageProduct" name="imageProduct" placeholder=" "/> 
@@ -45,8 +44,10 @@
             <input type="radio" onclick="apagarInputRadioCrearProducto()" class="form_input radio_buttom" id="radio_existsBrands" name="radio_trademark" value="1" checked/>
             <label for="radio_existsBrands" class="form_label">Marca Existente:</label>
             <div class="form_group" id="div_radio_exists">
-              <select name="categoryProduct" id="categoryProduct" class="form_input form_select" value="SELECCIONE UNA CATEGORIA">
-                <option value="lentesSol">Marcas de la BD</option>
+              <select name="trademarkProduct id="trademarkProduct" class="form_input form_select" value="SELECCIONE UNA CATEGORIA">
+                <% for (let i=0; i < brands.length; i++) { %> 
+                <option value="trademarkProduct"> <%= brands[i].name  %> </option>
+                  <% }   %> 
               </select>
             </div>
           </div>
@@ -54,8 +55,7 @@
             <input type="radio" onclick="apagarInputRadioCrearProducto()" class="form_input radio_buttom" id="radio_newBrands" name="radio_trademark" value="2" />
             <label for="radio_newBrands" class="form_label">Marca Nueva:</label>
             <div class="form_group select_disabled" id="div_radio_new">
-              <input required type="text" class="form_input" id="trademarkProduct" name="trademarkProduct" placeholder=" "/> 
-              <label for="trademarkProduct" class="form_label"></label>
+              <input required type="text" class="form_input" id="newTrademarkProduct" name="newTrademarkProduct" placeholder=" "/>
             </div>
           </div>
           <div class="form_group">
