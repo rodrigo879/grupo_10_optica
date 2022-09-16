@@ -56,7 +56,11 @@ let productController = {
     },
     showFormCreate: (req, res) => {
         let userLogged = req.session.user
-        res.render('./products/create', {userLogged})
+        db.Brands.findAll()
+        .then ((brands) => {
+            res.render('./products/create', {brands, userLogged})
+
+        })
     },
     create: (req, res) => {
         if(req.file) {
