@@ -39,7 +39,7 @@ header {
   display: flex;
   width: 20%;
   height: 10vw;
-  justify-content: center;
+  justify-content: end;
   flex-wrap: wrap;
   align-content: center;  
 }
@@ -633,5 +633,13 @@ footer h5 {
       width: 50%;
       margin: 2% auto;
     }
+
+  .form-submit {
+      visibility: hidden;
+  }
+
+  .glass {
+      visibility: initial;
+  }
 
 }

@@ -39,7 +39,7 @@
     display: flex;
     width: 20%;
     height: 10vw;
-    justify-content: center;
+    justify-content: end;
     flex-wrap: wrap;
     align-content: center;  
 }
@@ -240,7 +240,16 @@
   }
 
   .radio_buttom {
-    margin-left: 225px ;
+    position: absolute;
+    width: 10%;
+    left: -37px;
+    top: -16px;
+  }
+
+  .option_select {
+    text-align: start!important;
+    top: -20.5px!important;
+    transform: none!important;
   }
 
   /* ---------------------------------- */
@@ -688,5 +697,13 @@
         width: 50%;
         margin: 2% auto;
       }
+
+    .form-submit {
+        visibility: hidden;
+    }
+
+    .glass {
+        visibility: initial;
+    }
   
   }

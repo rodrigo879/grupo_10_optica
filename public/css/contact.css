@@ -40,7 +40,7 @@ header {
     width: 20%;
     height: 10vw;
     font-size: 4vw;
-    justify-content: center;
+    justify-content: end;
     flex-wrap: wrap;
     align-content: center;  
 }
@@ -553,5 +553,13 @@ footer h5 {
 
     .datos-contacto i {
         margin: 0 10px;
+    }
+
+    .form-submit {
+        visibility: hidden;
+    }
+
+    .glass {
+        visibility: initial;
     }
 }

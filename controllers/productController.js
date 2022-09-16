@@ -1,7 +1,6 @@
 const jsonTable = require('../jsondatabase/jsonTable');
-const db = require('../database/models');
-const req = require('express/lib/request');
 const productsModel = jsonTable('products')
+const db = require('../database/models');
 
 // Reemplaza el punto de los decimales por una coma en el precio de los productos..
 const toComma = n => n.toString().replace(".", ",");
@@ -36,7 +35,6 @@ let productController = {
         let productsRandom = ramdonResult(allProducts);
         // Almacenamos el indice al cual corresponde el id del producto igual al pasado por parametro en la URL.
         let indice = allProducts.findIndex((element) => {return element.id == idParam})
-        console.log(indice)
         if(indice >= 0) {
             // Creamos una variable con los datos que devuelve la promesa, ajustado a como habiamos hecho la vista inicialmente.
             let products = {
@@ -57,8 +55,9 @@ let productController = {
     },
     showFormCreate: async (req, res) => {
         let brands = await db.Brands.findAll();
+        let categories = await db.Categories.findAll();
         let userLogged = req.session.user
-        res.render('./products/create', {userLogged, brands})
+        res.render('./products/create', {userLogged, brands, categories})
     },
     create: async (req, res) => {
         if(req.file) {
@@ -91,6 +90,15 @@ let productController = {
                 });
                 res.redirect('/products/all');
             }
+        } else {
+            let brands = await db.Brands.findAll();
+            let categories = await db.Categories.findAll();
+            let errors = {
+                msg: "Debe ingresar una imagen",
+                param: "credInvImg"
+            }
+            console.log(errors)
+            res.render('./products/create', {errors, brands, categories, oldData: req.body, userLogged});
         }
     },
     allProducts: (req, res) => {
@@ -111,20 +119,21 @@ let productController = {
     edit: async (req,res) => {
         let userLogged = req.session.user;
         let idParam = req.params.id
+        let brands = await db.Brands.findAll();
         let product = await db.Products.findByPk( idParam, {include: ['categories','images_products', 'brands']})
-            // Creamos una variable con los datos que devuelve la promesa, ajustado a como habiamos hecho la vista inicialmente.
-            let products = {
-                id: product.id,
-                nameProduct: product.name,
-                descriptionProduct: product.description,
-                categoryProduct: product.categories.name,
-                trademarkProduct: product.brands.name,
-                priceProduct: product.price,
-                image: product.images_products.name,
-                discount: product.discount,
-                priceDiscount: product.price * (100 - 10) / 100
-            }
-            return res.render('./products/productEdit' , {products, idParam, userLogged, toThousand, toComma});
+        // Creamos una variable con los datos que devuelve la promesa, ajustado a como habiamos hecho la vista inicialmente.
+        let products = {
+            id: product.id,
+            nameProduct: product.name,
+            descriptionProduct: product.description,
+            categoryProduct: product.categories.name,
+            trademarkProduct: product.brands.name,
+            priceProduct: product.price,
+            image: product.images_products.name,
+            discount: product.discount,
+            priceDiscount: product.price * (100 - 10) / 100
+        }
+        return res.render('./products/productEdit' , {products, idParam, brands, userLogged, toThousand, toComma});
     },
     update: async (req, res) => {
         let productId = req.params.id;

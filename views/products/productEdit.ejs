@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <!-- HEAD -->
-    <%- include('../partials/head', {variant:'/css/productEdit.css'}) %>
+    <%- include('../partials/head', {variant:'/css/register.css'}) %>
   <body>
     <!-- HEADER -->
     <%- include('../partials/header') %>
@@ -23,13 +23,11 @@
                 <label for="descriptionProduct" class="form_label">Descripción:</label>
               </div>
               <div class="form_group">
+                <label for="categoryProduct" class="form_label option_select">Categoria:</label>
                 <select name="categoryProduct" id="categoryProduct" class="form_input form_select select_disabled" value="SELECCIONE UNA CATEGORIA" aria-readonly="true">
-                  <option value="lentesSol" <% if(products.categoryProduct == "lentesSol") { %> selected <% }  %>> ANTEOJOS PARA SOL</option> 
-                  <option value="lentesRecetados" <% if(products.categoryProduct == "lentesRecetados" ) { %> selected <% } %> >ANTEOJOS RECETADOS</option>
-                  <option value="lentesContacto" <% if(products.categoryProduct == "lentesContacto" ) { %> selected <% } %>>LENTES DE CONTACTO</option>
-                  <option value="accesorios" <% if(products.categoryProduct == "accesorios" ) { %> selected <% } %>>ACCESORIOS</option>
+                  <% let categoriaDescription = (products.categoryProduct == "lentesRecetados") ? "ANTEOJOS RECETADOS" : (products.categoryProduct == "lentesSol") ? "ANTEOJOS PARA SOL" : (products.categoryProduct == "lentesContacto") ? "LENTES DE CONTACTO" : "ACCESORIOS" %> 
+                  <option value="<%- products.categoryProduct %>" selected><%= categoriaDescription %></option> 
                 </select>
-                <label for="categoryProduct" class="form_label">Categoria:</label>
               </div>
               <div class="form_group">
                 <input accept=".png, .jpeg, .jpg" type="file" class="form_input form_input_file" id="imageProduct" name="imageProduct" placeholder=" "> 
@@ -44,9 +42,24 @@
                   </label>
                 </div>
               </div>
+              <div class="form_group" >
+                <input type="radio" onclick="apagarInputRadioCrearProducto()" class="form_input radio_buttom" id="radio_existsBrands" name="radio_trademark" value="1" checked/>
+                <label for="radio_existsBrands" class="form_label option_select">Marca Existente:</label>
+                <div class="form_group" id="div_radio_exists">
+                  <select name="trademarkProductExist" id="trademarkProduct" class="form_input form_select" value="SELECCIONE UNA Marca">
+                    <% for( let i = 0; i < brands.length; i++ ) { %>   
+                      <option value="<%- brands[i].id %>" ><%- brands[i].name %></option>
+                    <% } %>
+                  </select>
+                </div>
+              </div>
               <div class="form_group">
-                <input required type="text" class="form_input" id="trademarkProduct" name="trademarkProduct" placeholder= " " value= "<%= products.trademarkProduct %>" /> 
-                <label for="trademarkProduct" class="form_label">Marca:</label>
+                <input type="radio" onclick="apagarInputRadioCrearProducto()" class="form_input radio_buttom" id="radio_newBrands" name="radio_trademark" value="2" />
+                <label for="radio_newBrands" class="form_label option_select">Marca Nueva:</label>
+                <div class="form_group select_disabled" id="div_radio_new">
+                  <input type="text" class="form_input" id="trademarkProduct" name="trademarkProduct" placeholder=" "/> 
+                  <label for="trademarkProduct" class="form_label"></label>
+                </div>
               </div>
               <div class="form_group">
                 <input required step="0.01" type="number" class="form_input" id="priceProduct" name="priceProduct" placeholder= " " value = "<%= products.priceProduct %>"/> 
@@ -56,7 +69,9 @@
                 <input required type="number" class="form_input" id="discount" name="discount" placeholder=" " value= "<%=products.discount%>" max="100" min="0"/> 
                 <label for="discount" class="form_label">Descuento(%):</label>
               </div>
-              <button type="submit" class="form_submit_post"> MODIFICAR </button>
+              <div>
+                <input type="submit" class="form_submit" value="Modificar" />
+              </div>
             </div>
           </form>
     </main>

@@ -39,7 +39,7 @@ header {
     display: flex;
     width: 20%;
     height: 10vw;
-    justify-content: center;
+    justify-content: end;
     flex-wrap: wrap;
     align-content: center;  
 }
@@ -161,12 +161,17 @@ main .imagen-producto{
     height: 3.5vw;
 }
 
+.form_submit_delete {
+    visibility: hidden;
+}
+
 .imagen-producto i {
     position: absolute;
     font-size: 3.5vw;
     top: 1vw;
     right: 1vw;
     z-index: 10;
+    visibility: initial;
 }
 
 .imagen-producto .fa-file-pen {
@@ -850,5 +855,13 @@ footer h5 {
 
     main section .ver-mas .link-home {
         padding: 3%;
+    }
+
+    .form-submit {
+        visibility: hidden;
+    }
+
+    .glass {
+        visibility: initial;
     }
 }

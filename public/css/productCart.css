@@ -38,7 +38,7 @@ header {
     display: flex;
     width: 20%;
     height: 10vw;
-    justify-content: center;
+    justify-content: end;
     flex-wrap: wrap;
     align-content: center;  
 }
@@ -751,6 +751,14 @@ footer h5 {
 
     .btn-agregarProductos, .btn-finalizar {
         margin: 20px 0 0;
+    }
+
+    .form-submit {
+        visibility: hidden;
+    }
+
+    .glass {
+        visibility: initial;
     }
 
 }

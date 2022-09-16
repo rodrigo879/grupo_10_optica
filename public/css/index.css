@@ -753,4 +753,12 @@ footer h5 {
         /* border: none; */
     }
 
+    .form-submit {
+        visibility: hidden;
+    }
+
+    .glass {
+        visibility: initial;
+    }
+
 }
