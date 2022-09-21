@@ -24,20 +24,20 @@
                 <% for(let i = 0; i < 12; i++) { %>
                     <!-- accesorios/accesorios1.jpg -->
                     <article class="main-section-product">
-                        <a href="/products/<%- products[i].id %> ">
+                        <a id="enlace_detalle" href="/products/<%- products[i].id %>">
                             <div class="main-section-img">
                                 <img src="/images/productos/<%= products[i].categoryProduct + '/' + products[i].image %>" alt="<%= products[i].descriptionProduct + " " + products[i].id %> %>">
                             </div>
                         </a>
                         <div class="main-section-info">
                             <div class="informacion-precio-descuento">
-                                <i class="fa-solid fa-truck"></i>
+                                <button class="button_truck"><i class="fa-solid fa-truck i_truck"></i></button>
                                 <% if (products[i].discount > 0) { %>
-                                    <p class="precio-producto"><%= "$" + toThousand(toComma(products[i].priceProduct)) %></p>
-                                    <p class="precio-con-descuento"><%= "$" + toThousand(toComma(products[i].priceDiscount)) %></p>
+                                    <p class="precio-producto"><%= "$" + toThousand(toComma(products[i].priceProduct.toFixed(2))) %></p>
+                                    <p class="precio-con-descuento"><%= "$" + toThousand(toComma(products[i].priceDiscount.toFixed(2))) %></p>
                                     <p class="descuento-producto"><%= products[i].discount + '% OFF' %></p>
                                 <% } else { %>
-                                    <p class="precio-con-descuento"><%= "$" + toThousand(toComma(products[i].priceDiscount)) %></p>
+                                    <p class="precio-con-descuento"><%= "$" + toThousand(toComma(products[i].priceDiscount.toFixed(2))) %></p>
                                 <% } %> 
                             </div>
                             <div class="section-h3">
@@ -53,4 +53,5 @@
     <%- include('../partials/footer') %>
 </body>
 <script src="/js/function.js"></script>
+<script src="/js/addProductCart.js"></script>
 </html>

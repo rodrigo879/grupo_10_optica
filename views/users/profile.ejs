@@ -11,6 +11,11 @@
           </div>
           <!-- <h2 class="form_title">Optica Riff</h2>  -->
           <div class="form_conteiner">
+            <% if(locals.userLogged && userLogged.authorities[0].role == 'role_admin') { %>
+              <div>
+                <a href="" class="form_submit btn_authority">Cambiar Authority</a>
+              </div>
+            <% } %>            
             <div class="form_group">
               <input required type="text" id="fullName" name="fullName" value="<%= user.fullName %>" class="form_input" placeholder=" " /> 
               <label for="fullName" class="form_label">Nombre y apellido:</label>

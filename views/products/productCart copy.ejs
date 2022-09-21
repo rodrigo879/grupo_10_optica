@@ -12,13 +12,42 @@
                 <a href="/">Inicio</a>/<p>Carrito de compras</p>
             </div>
             <section>
-                <h3 class="sin_productos_en_el_carrito">No hay productos en el carrito</h3>
+                <% for( let i = 0; i < 3; i++ ) { %>
+                    <div class="productos">
+                        <div class="container-imagenes">
+                            <a id="a_product_id" href="/products/product/<%= products[i].id %> ">
+                                <img id="img_product_image" src="/images/productos/<%= products[i].categoryProduct + '/' + products[i].image %>" alt="<%= products[i].descriptionProduct + " " + products[i].id %>">
+                            </a>    
+                        </div>
+                        <div class="container-info">
+                            <div class="info-top">
+                                <p id="p_product_name"><%= products[i].nameProduct %></p>
+                                <button type="button"><i class="fa-solid fa-trash-can"></i></button>
+                            </div>
+                            <div class="info-bottom">
+                                <div class="btn-controller-cant">
+                                    <div class="btn-controller-cant-unid">
+                                        <!-- FALTA AGREGAR PARA QUE FUNCIONEN LOS BOTONES -->
+                                        <button type="button">-</button>
+                                        <input type="number" id="inputTypeProductCart<%= products[i].id %>" placeholder="1" readonly>
+                                        <button type="button">+</button>
+                                    </div>
+                                    <p id="p_product_price"><%= "$" + toThousand(toComma(products[i].priceDiscount)) %></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <% } %>
             </section>
             <div class="container-secondary">
                 <div class="subtotal-productos">
                     <h5>
                         <span>Subtotal:</span>
-                        <strong id="subtotal"></strong>
+                        <% let subTotal = 0 %> 
+                        <% for( let i = 0; i < 3; i++ ) { %>
+                            <% subTotal += products[i].priceDiscount %> 
+                        <% } %>
+                        <strong><%- "$" + toThousand(toComma(subTotal.toFixed(2)))  %> </strong>
                     </h5>
                 </div>
                 <div class="medios-envio">
@@ -40,7 +69,7 @@
                             <!--Aca apareceria el costo del envio, el cual se sumaria al subtotal.-->
                             <h5>
                                 <span>Calculo del envio:</span>
-                                <strong id="costo_del_envio"><%- '$' + toThousand(toComma(costo)) %></strong>
+                                <strong><%- '$' + toThousand(toComma(costo)) %>  </strong>
                             </h5>
                         </div>
                     <% } %>
@@ -51,12 +80,13 @@
                 <div class="total-productos-envio">
                     <h5>
                         <span>Total:</span>
-                        <strong id="total"></strong>
+                        <% let total = parseFloat(subTotal) + (costo >= 0 ? parseFloat(costo) : 0) %> 
+                        <strong><%= '$' + toThousand(toComma(total.toFixed(2))) %> </strong>
                     </h5>
                 </div>
                 <div class="formulario">
                     <div class="btn-agregarProductos-finalizar">
-                        <a class="btn_enlace" href="/#ofertas"><button id="btn-agregarProductos" class="btn-agregarProductos" type="button">AGREGAR MAS PRODUCTOS</button></a>
+                        <button id="btn-agregarProductos" class="btn-agregarProductos" type="button">AGREGAR MAS PRODUCTOS</button>
                         <button id="btn-finalizar" class="btn-finalizar" type="button">FINALIZAR</i></button>
                     </div>
                 </div>
@@ -69,5 +99,4 @@
 
 </body>
 <script src="/js/function.js"></script>
-<script src="/js/showProductCart.js"></script>
 </html>

@@ -37,19 +37,16 @@ header {
 
 .main-hamburguer, .main-buscar-carrito {
   display: flex;
-  width: 20%;
+  width: 25%;
   height: 10vw;
-  justify-content: end;
+  font-size: 4vw;
+  justify-content: center;
   flex-wrap: wrap;
   align-content: center;  
 }
 
-.main-hamburguer {
-  font-size: 4vw;
-}
-
-.main-buscar-carrito{
-  font-size: 2vw;
+.ocultar {
+  display: none;
 }
 
 .main-hamburguer a, .main-buscar-carrito a{
@@ -99,7 +96,7 @@ header {
 
 .main-navbar .btn {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
 }
 
 .main-navbar li {
@@ -118,10 +115,6 @@ header {
   background-color: white;
   border: none;
   font-weight: 900;
-}
-
-.main-navbar .despliega a {
-  margin: 18px;
 }
 
 /*----------Main----------*/
@@ -540,10 +533,11 @@ footer h5 {
   }
 
   .main-buscar-carrito {
-      width: 60%;
-      height: 5vw;
-      align-items: center;
-  }
+    width: 60%;
+    height: 5vw;
+    align-items: center;
+    justify-content: flex-end;
+}
 
   .main-buscar-carrito i {
       font-size: 2.5vw;
@@ -640,6 +634,10 @@ footer h5 {
 
   .glass {
       visibility: initial;
+  }
+
+  .ocultar {
+    display: initial;
   }
 
 }

@@ -73,16 +73,16 @@
                 <% for(let i = 0; i < 12; i++) { %>
                     <% let pruebaResult = result[i] %> 
                     <article class="main-section-product">
-                        <a href="/products/<%- products[pruebaResult].id %> ">
+                        <a id="enlace_detalle" href="/products/<%- products[pruebaResult].id %>">
                             <div class="main-section-img">
                                 <img src="/images/productos/<%= products[pruebaResult].categories.name + '/' + products[pruebaResult].images_products.name %>" alt="<%= products[pruebaResult].description + " " + products[pruebaResult].id %>">
                             </div>
                         </a>
                         <div class="main-section-info">
                             <div class="informacion-precio-descuento">
-                                <i class="fa-solid fa-truck"></i>
+                                <button class="button_truck"><i class="fa-solid fa-truck i_truck"></i></button>
                                     <p class="precio-producto"><%= "$" + toThousand(toComma(products[pruebaResult].price)) %></p>
-                                    <p class="precio-con-descuento"><%= "$" + toThousand(toComma(products[pruebaResult].price * (100 - 10) / 100)) %></p>
+                                    <p class="precio-con-descuento"><%= "$" + toThousand(toComma((products[pruebaResult].price * (100 - 10) / 100).toFixed(2))) %></p>
                                     <p class="descuento-producto"><%= products[pruebaResult].discount + '% OFF' %></p>
                             </div>
                             <div class="section-h3">
@@ -99,4 +99,5 @@
     <%- include('./partials/footer') %>
 </body>
 <script src="/js/function.js"></script>
+<script src="/js/addProductCart.js"></script>
 </html>

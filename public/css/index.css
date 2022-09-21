@@ -37,19 +37,16 @@ header {
 
 .main-hamburguer, .main-buscar-carrito {
     display: flex;
-    width: 20%;
+    width: 25%;
     height: 10vw;
-    justify-content: end;
+    font-size: 4vw;
+    justify-content: center;
     flex-wrap: wrap;
     align-content: center;  
 }
 
-.main-hamburguer {
-    font-size: 4vw;
-}
-
-.main-buscar-carrito{
-    font-size: 2vw;
+.ocultar {
+    display: none;
 }
 
 .main-hamburguer a, .main-buscar-carrito a{
@@ -81,6 +78,18 @@ header {
     display: none!important;
 }
 
+.cart_product {
+    position: relative;
+}
+
+.p_cart_product {
+    font-size: 10px!important; 
+    position: absolute; 
+    color: white; 
+    left: 50%; 
+    top: 38%;
+}
+
 .main-navbar {
     display: none;
     flex-direction: column;
@@ -98,7 +107,7 @@ header {
 
 .main-navbar .btn {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
 }
 
 .main-navbar li {
@@ -117,10 +126,6 @@ header {
     background-color: white;
     border: none;
     font-weight: 900;
-}
-
-.main-navbar .despliega a {
-    margin: 18px;
 }
 
 /*----------Main----------*/
@@ -335,13 +340,21 @@ section img {
     padding: 5px;
     width: 30px;
     height: 30px;
-    color: #ADB2B5;
+    color: #43C474;
     border: 1px solid #ADB2B5;
     background-color: #FFF;
     border-radius: 50%;
     position: absolute;
     right: 15px;
     top: 15px;
+}
+
+.button_truck {
+    visibility: hidden;
+}
+
+.i_truck {
+    visibility: initial;
 }
 
 section p {
@@ -606,6 +619,7 @@ footer h5 {
         width: 60%;
         height: 5vw;
         align-items: center;
+        justify-content: flex-end;
     }
 
     .main-buscar-carrito i {
@@ -759,6 +773,10 @@ footer h5 {
 
     .glass {
         visibility: initial;
+    }
+
+    .ocultar {
+        display: initial;
     }
 
 }

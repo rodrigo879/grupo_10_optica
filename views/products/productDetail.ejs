@@ -16,20 +16,21 @@
                 </div>
 
                 <div class ="produto-principal"> 
-                    <div class = "imagen-producto">
+                    <div class = "imagen-producto main-section-img">
                         <div class="container_img">
+                            <a style="visibility: hidden;" id="enlace_detalle" href="/products/<%= products.id %>"></a>
                             <% if(locals.userLogged && userLogged.authorities[0].role == 'role_admin') { %> 
                                 <% let idBorrar = products.id %>
                                 <button id="<%- idBorrar %>" type= "button" class="form_submit_delete" onclick="borrarProducto(id)"><i class="fa-solid fa-trash-can"></i></button>
-                                <a href="/products/<%= products.id %>/edit"><i class="fa-solid fa-file-pen"></i></a>
+                                <a id="enlace_detalle" href="/products/<%= products.id %>/edit"><i class="fa-solid fa-file-pen"></i></a>
                             <% } %>
                         </div>
                         <img src="/images/productos/<%= products.categoryProduct + '/' + products.image %>" alt="<%= products.descriptionProduct + " " + products.id %>">
                     </div>
                     <div class="info-producto-principal">
                         <div class="info-producto">
-                            <h2 class = "nombre-producto"> <%= products.nameProduct %> </h2>
-                            <h2 class="precio-producto"> <%= "$" + toThousand(toComma(products.priceDiscount)) %> </h2>
+                            <h3 class="nombre-producto section-h3"> <%= products.nameProduct %> </h3>
+                            <h2 class="precio-producto precio-con-descuento"> <%= "$" + toThousand(toComma(products.priceDiscount.toFixed(2))) %> </h2>
                         </div>
                                 
                         <div class= "separador">
@@ -37,17 +38,10 @@
                                 <p>6 CUOTAS SIN INTERÉS DE</p> 
                                 <b><%= "$" + toThousand(toComma((products.priceDiscount / 6).toFixed(2))) %></b> 
                             </div>
-                            <a class = "medios-de-pago" href="#"> VER MEDIOS DE PAGO</a>
-                        </div>
-                                
-                        <div class="cantidad">
-                            <p> CANTIDAD</p>
-                            <form class="formulario" action="/carrito" method="POST">
-                                <input type="number" name="cantidad" min="0" max="10" value="1">
-                            </form>
+                            <a class = "medios-de-pago" href="#" onclick="mediosDePago()"> VER MEDIOS DE PAGO</a>
                         </div>
                         <div class ="contenedor-compra"> 
-                            <button class="boton-carrito"><span>AGREGAR AL CARRITO<span></button>
+                            <button class="boton-carrito button_truck"><span>AGREGAR AL CARRITO<span></button>
                         </div>
                     </div>
                 </div>
@@ -98,4 +92,5 @@
     <%- include('../partials/footer') %>
 </body>
 <script src="/js/function.js"></script>
+<script src="/js/addProductCart.js"></script>
 </html>

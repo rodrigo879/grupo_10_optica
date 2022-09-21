@@ -17,6 +17,7 @@ const userController = {
         res.render('./users/login', {userLogged});
     },
     logged: async (req, res) => {
+        let userLogged = req.session.user;
         let errors = validationResult(req);
         if(errors.isEmpty()) {
             // Consulta a la base de datos        

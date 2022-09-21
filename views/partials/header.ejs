@@ -13,18 +13,18 @@
             <!-- La lista de usuarios hacerla visible solo para administradores -->  
             <% if(locals.userLogged && userLogged.authorities[0].role == 'role_admin') { %>
                 <p>
-                    <a href="/users/profile/<%= userLogged.id %>">
+                    <a class="ocultar" href="/users/profile/<%= userLogged.id %>">
                         <%= userLogged.user %>
                         <div style="width: 25px">
                             <img style="width: 100%" src="/images/users/<%= userLogged.image_users.name != undefined ? userLogged.image_users.name : 'default-avatar-profile.jpg' %>" alt="Imagen de Usuario">
                         </div>
                     </a>
-                    <a href="/users/userList"><i class="fa-solid fa-users"></i></a>
-                    <a href="/products/all"><i class="fa-solid fa-box-open"></i></a>
+                    <a class="ocultar" href="/users/userList"><i class="fa-solid fa-users"></i></a>
+                    <a class="ocultar" href="/products/all"><i class="fa-solid fa-box-open"></i></a>
                 </p> 
             <% } else if(locals.userLogged && userLogged) { %>
                 <p>
-                    <a href="/users/profile/<%= userLogged.id %>">
+                    <a class="ocultar" href="/users/profile/<%= userLogged.id %>">
                         <%= userLogged.user %>
                         <div style="width: 25px">
                             <img style="width: 100%" src="/images/users/<%= userLogged.image_users.name != undefined ? userLogged.image_users.name : 'default-avatar-profile.jpg' %>" alt="Imagen de Usuario">
@@ -35,20 +35,30 @@
                 <p><a href="/users/register">Crear Cuenta</a>|<a href="/users/login">Iniciar Sesion</a></p>
             <% } %> 
             <a href="#"><i class='fa-solid fa-magnifying-glass'></i></a>
-            <a href="/products/productCart"><i class="fa-solid fa-cart-shopping"></i></a>
+            <a href="/products/productCart"><i class="fa-solid fa-cart-shopping cart_product"><p class="p_cart_product"></p></i></a>
             <!-- Hacer visible solo para administrador -->
             <% if(locals.userLogged && userLogged.authorities[0].role == 'role_admin'){ %>
-                <a href="/products/create"><i class="fa-solid fa-box-archive"></i></a>         
+                <a class="ocultar" href="/products/create"><i class="fa-solid fa-box-archive"></i></a>         
             <% } %>
             <% if(locals.userLogged && userLogged){ %>
-                <a href="/users/logout"><i class="fa-solid fa-power-off"></i></a> 
+                <a class="ocultar" href="/users/logout"><i class="fa-solid fa-power-off"></i></a> 
             <% } %>
         </div>
     </div>    
     <nav class="main-navbar" id="mainNavbar">
         <ul class="navbar">
             <!--Aca ya estan creados algunos de los links que vamos a poner, hay que ver bien los nombre y ponerlos-->
-            <li class="li-hover btn"><button class="btn-cerrar" onclick="desplegarMenu()" type="button">X</button></li>
+            <li class="li-hover btn">
+                <% if(locals.userLogged && userLogged) { %>
+                    <a href="/users/profile/<%= userLogged.id %>">
+                        <div style="width: 25px; display: flex;">
+                            <img src="/images/users/<%= userLogged.image_users.name %>" style="width: 100%; margin-right: 15px;">
+                            <p><%= userLogged.user %></p>
+                        </div>
+                    </a>
+                <% } %>
+                <button class="btn-cerrar" onclick="desplegarMenu()" type="button">X</button>
+            </li>
             <li class="li-hover"><a href="/">Inicio</a></li>
             <li class="li-hover"><a href="/#ofertas">Ofertas</a></li>
             <li class="li-hover"><a href="/products/anteojosRecetados">Anteojos Recetados</a></li>
@@ -56,25 +66,13 @@
             <li class="li-hover"><a href="/products/anteojosLentesContacto">Lentes de Contacto</a></li>
             <li class="li-hover"><a href="/products/accesorios">Accesorios</a></li> 
             <li class="li-hover"><a href="/contact">Contacto</a></li>
+            <li class="li-hover despliega"><a href="/products/all">Listado de Productos</a></li>
             <% if(locals.userLogged && userLogged.authorities[0].role == 'role_admin') { %>
+                <li class="li-hover despliega"><a href="/products/create">Crear un producto</a></li>
                 <li class="li-hover despliega"><a href="/users/userList">Lista de Usuarios</a></li>
-                <li class="li-hover despliega">
-                    <a href="/users/profile/<%= userLogged.id %>">
-                        <div style="width: 25px;display: flex; align-items: center;">
-                            <img src="/images/users/<%= userLogged.image_users.name %>" style="width: 100%;">
-                            <p><%= userLogged.user %></p>
-                        </div>
-                    </a>
-                </li>              
-            <% } else if(locals.userLogged && userLogged) { %> 
-                <li class="li-hover despliega">
-                    <a href="/users/profile/<%= userLogged.id %>">
-                        <div style="width: 25px;">
-                            <img src="/images/users/<%= userLogged.image_users.name %>" style="width: 100%;">
-                        </div>
-                        <%= userLogged.user %>
-                    </a>
-                </li>   
+                <li class="li-hover despliega"><a href="/users/logout">Cerrar Sesion</a></li>              
+            <% } else if(locals.userLogged && userLogged) { %>   
+                <li class="li-hover despliega"><a href="/users/logout">Cerrar Sesion</a></li> 
             <% } else { %> 
                 <li class="li-hover despliega"><i class="fa-solid fa-user"></i><a href="/users/register">Crear Cuenta</a>|<a href="/users/login">Iniciar Sesion</a></li>               
             <% } %>

@@ -266,30 +266,27 @@ let productController = {
     },
     productCart: (req, res) => {
         let userLogged = req.session.user;
-        let products = productsModel.readFile();
         let costo = -1;
-        res.render('./products/productCart', {products, costo, userLogged, toThousand, toComma});
+        res.render('./products/productCart', {costo, userLogged, toThousand, toComma});
     },
     calculoEnvio: (req, res) => {
         let userLogged = req.session.user;
-        let products = productsModel.readFile();
-        if(req.body.codigoPostal){
-            let codigoPostal = req.body.codigoPostal;
+        let codigoPostal = req.body.codigoPostal;
+        if(codigoPostal){
             let costo;
             if (codigoPostal < 0){
                 costo = -1
             } else if (0 <= codigoPostal && codigoPostal <= 100) {
                 costo = 0
             } else if (100 < codigoPostal && codigoPostal <= 1000 ) {
-                costo = (codigoPostal * 1.5).toFixed(2)
+                costo = (codigoPostal * 1.5).toFixed(2);
             } else {
-                costo = (codigoPostal * 1.1).toFixed(2)
+                costo = (codigoPostal * 1.1).toFixed(2);
             }
-
-            res.render('./products/productCart', {products, costo, codigoPostal, userLogged, toThousand, toComma});
+            res.render('./products/productCart', {costo, codigoPostal, userLogged, toThousand, toComma});
         } else {
             let costo = -1
-            res.render('./products/productCart', {products, costo, userLogged, toThousand, toComma});
+            res.render('./products/productCart', {costo, userLogged, toThousand, toComma});
         }
     }
 }
