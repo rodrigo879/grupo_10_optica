@@ -43,7 +43,19 @@ let validatorMiddelware = {
         .isLength({min: 6}).withMessage('La contraseña debe ser mayor a 6 caracteres'),
         body('confirmPassword').notEmpty().withMessage('Completa este campo').bail()
         .isLength({min: 6}).withMessage('La contraseña debe ser mayor a 6 caracteres')
+    ],
+    validacionProduct:[
+        body('nameProduct').notEmpty().withMessage('Debes completar el nombre del producto').bail()
+        .isLength({min: 5}).withMessage ('El nombre del producto debe tener más de 5 caracteres'),
+        body('descriptionProduct').notEmpty().withMessage ('Debes completar este campo'). bail()
+        .isLength({min:20}).withMessage('La descripción debe tener más de 20 caracteres'),
+        body("priceProduct").notEmpty().withMessage("Debe ingresar un precio").bail(),
+        body("discount").notEmpty().withMessage("Debe ingresar un descuento")
+    ],
+    validacionModifyProduct: [
+        
     ]
+
 }
 
 module.exports = validatorMiddelware;

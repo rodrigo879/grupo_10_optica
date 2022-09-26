@@ -36,6 +36,27 @@ const storage = multer.diskStorage({
 
 
 // SUBE LA IMAGEN
-const upload = multer({ storage })
+const upload = multer({ 
+    storage
+    // : storage
+    // fileFilter: function (req, file, cb) {
+    //     checkFileType(file,cb);
+    // }   
+})
+
+// Chequea el formato de la imagen
+
+// function checkFileType (file, cb) {
+//     const filetypes = /jpg|jpeg|png|gif/
+//     const extname= filetypes.test(path.extname(file.originalname).toLowerCase);
+//     const mimetype= filetypes.test (file.mimetype);
+
+//     if (mimetype && extname) {
+//         return cb (null, true);
+//     }else {
+//         return cb (null, false);
+//         // return cb(new Error ('Debes ingresar un formato de imagen válido (JPG, JPEG, PNG, GIF).'))
+//     }
+// }
 
 module.exports = upload;

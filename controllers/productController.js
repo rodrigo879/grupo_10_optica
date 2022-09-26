@@ -1,6 +1,8 @@
 const jsonTable = require('../jsondatabase/jsonTable');
 const productsModel = jsonTable('products')
 const db = require('../database/models');
+const { validationResult } = require('express-validator');
+const multer = require('multer');
 
 // Reemplaza el punto de los decimales por una coma en el precio de los productos..
 const toComma = n => n.toString().replace(".", ",");
@@ -59,8 +61,12 @@ let productController = {
         let userLogged = req.session.user
         res.render('./products/create', {userLogged, brands, categories})
     },
-    create: async (req, res) => {
+    create: async (req, res) => { 
+        let userLogged = req.session.user
+        let errors = validationResult(req);
         if(req.file) {
+            res.render('./products/create', {errorInvalidImageFormat, brands, categories, oldData: req.body, userLogged});
+            if (errors.isEmpty()){ 
             if(req.body.radio_trademark == 1) {
                 let brand = await db.Brands.findByPk(req.body.trademarkProductExist);
                 let categories = await db.Categories.findOne({ where: {name: req.body.categoryProduct}});
@@ -89,16 +95,19 @@ let productController = {
                     id_image_product: newImage.id
                 });
                 res.redirect('/products/all');
-            }
-        } else {
+                }
+            } else {
             let brands = await db.Brands.findAll();
             let categories = await db.Categories.findAll();
-            let errors = {
+            res.render('./products/create', {errors:errors.mapped (), brands, categories, oldData: req.body, userLogged});} 
+        } else {       
+            let brands = await db.Brands.findAll();
+            let categories = await db.Categories.findAll(); 
+            let error = {
                 msg: "Debe ingresar una imagen",
                 param: "credInvImg"
             }
-            console.log(errors)
-            res.render('./products/create', {errors, brands, categories, oldData: req.body, userLogged});
+            res.render('./products/create', {error, brands, categories, oldData: req.body, userLogged});
         }
     },
     allProducts: (req, res) => {
@@ -120,6 +129,7 @@ let productController = {
         let userLogged = req.session.user;
         let idParam = req.params.id
         let brands = await db.Brands.findAll();
+        let categories = await db.Categories.findAll();
         let product = await db.Products.findByPk( idParam, {include: ['categories','images_products', 'brands']})
         // Creamos una variable con los datos que devuelve la promesa, ajustado a como habiamos hecho la vista inicialmente.
         let products = {
@@ -133,10 +143,12 @@ let productController = {
             discount: product.discount,
             priceDiscount: product.price * (100 - 10) / 100
         }
-        return res.render('./products/productEdit' , {products, idParam, brands, userLogged, toThousand, toComma});
+        return res.render('./products/productEdit' , {products, idParam, brands, categories, userLogged, toThousand, toComma});
     },
-    update: async (req, res) => {
+        update: async (req, res) => {
         let productId = req.params.id;
+        let errors = validationResult(req)
+        if (errors.isEmpty()) {
         if(req.file) {
             let newImage = await db.ImagesProducts.create( { name: req.file.filename } );
             let newBrand = await db.Brands.create( { name: req.body.trademarkProduct} );
@@ -165,6 +177,25 @@ let productController = {
                 { where: { id: productId } }
             );
             return res.redirect(`/products/${productId}/edit`)
+        }
+        }else{
+            let userLogged = req.session.user;
+            let idParam = req.params.id
+            let brands = await db.Brands.findAll();
+            let categories = await db.Categories.findAll();
+            let product = await db.Products.findByPk( idParam, {include: ['categories','images_products', 'brands']})
+            let products = {
+                id: product.id,
+                nameProduct: product.name,
+                descriptionProduct: product.description,
+                categoryProduct: product.categories.name,
+                trademarkProduct: product.brands.name,
+                priceProduct: product.price,
+                image: product.images_products.name,
+                discount: product.discount,
+                priceDiscount: product.price * (100 - 10) / 100
+            }
+            res.render('./products/productEdit' , { errors:errors.mapped (), userLogged, oldData: req.body, products, idParam, brands, categories, userLogged, toThousand, toComma});
         }
     },
     delete: (req, res) => {

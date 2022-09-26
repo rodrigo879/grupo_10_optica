@@ -2,13 +2,14 @@ const express = require ('express');
 const router = express.Router();
 
 const upload = require('../middlewares/multerMiddelware');
-const authMiddleware = require('../middlewares/authMiddleware')
+const authMiddleware = require('../middlewares/authMiddleware');
+const {validacionProduct} = require('../middlewares/validatorMiddelware');
 const productController = require('../controllers/productController');
 
 //RUTAS
 //FORMULARIO DE CREACION
 router.get('/create', authMiddleware, productController.showFormCreate);
-router.post('/create', upload.single('imageProduct'), productController.create);
+router.post('/create', upload.single('imageProduct'), validacionProduct, productController.create);
 
 //LISTADO DE TODOS LOS PRODUCTOS AGREGADOS
 router.get('/all', productController.allProducts);
@@ -21,7 +22,7 @@ router.get('/accesorios', productController.accesorios);
 
 //EDITAR UN PRODUCTO
 router.get('/:id/edit', authMiddleware, productController.edit);
-router.put('/:id/update', upload.single ('imageProduct'), productController.update);
+router.put('/:id/update', upload.single ('imageProduct'), validacionProduct, productController.update);
 
 //BORRAR UN PRODUCTO
 router.delete('/:id', authMiddleware, productController.delete)
