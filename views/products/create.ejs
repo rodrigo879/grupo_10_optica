@@ -17,10 +17,20 @@
           <div class="form_group">
             <input required type="text" class="form_input" id="nameProduct" name="nameProduct" placeholder=" " value="<%= locals.oldData ? oldData.nameProduct : null %>"/> 
             <label for="nameProduct" class="form_label">Nombre del Producto:</label>
+            <% if (locals.errors && errors.nameProduct) {%> 
+              <div class = "validation_error" style="color: red;">
+                <%= errors.nameProduct.msg  %> 
+              </div>
+              <% } %> 
           </div>
           <div class="form_group">
             <textarea class="form_input form_textArea" id="descriptionProduct" rows="1" name="descriptionProduct" placeholder=" " value="<%= locals.oldData ? oldData.descriptionProduct : null %>"></textarea>
             <label for="descriptionProduct" class="form_label">Descripción:</label>
+            <% if (locals.errors && errors.descriptionProduct) {%> 
+              <div class = "validation_error" style="color: red;">
+                <%= errors.descriptionProduct.msg  %> 
+              </div>
+              <% } %> 
           </div>
           <div class="form_group">
             <label for="categoryProduct" class="form_label option_select">Categoria:</label>
@@ -40,11 +50,11 @@
                 <p>Elegir Imagen</p>
               </label>
             </div>
-            <% if (locals.errors && errors.param) {  %>
+            <% if (locals.error && error.param) {  %>
               <div class = "validation_error" style="color: red;">
-                 <%= errors.msg %>        
+                 <%= error.msg %>        
               </div>        
-            <% } %>
+            <% } %> 
           </div>
           <div class="form_group" >
             <input type="radio" onclick="apagarInputRadioCrearProducto()" class="form_input radio_buttom" id="radio_existsBrands" name="radio_trademark" value="1" checked/>
@@ -68,10 +78,20 @@
           <div class="form_group">
             <input required step="0.01" type="number" class="form_input" id="priceProduct" name="priceProduct" placeholder=" " value="<%= locals.oldData ? oldData.priceProduct : null %>"/> 
             <label for="priceProduct" class="form_label">Precio($):</label>
+            <% if (locals.errors && errors.priceProduct) {%> 
+              <div class = "validation_error" style="color: red;">
+                <%= errors.priceProduct.msg  %> 
+              </div>
+              <% } %> 
           </div>
           <div class="form_group">
             <input required type="number" class="form_input" id="discount" name="discount" placeholder=" " max="100" min="0" value="<%= locals.oldData ? oldData.discount : null %>"/> 
             <label for="discount" class="form_label">Descuento(%):</label>
+            <% if (locals.errors && errors.discount) {%> 
+              <div class = "validation_error" style="color: red;">
+                <%= errors.discount.msg  %> 
+              </div>
+              <% } %> 
           </div>
           <div>
             <input type="submit" class="form_submit" value="ACEPTAR" />
