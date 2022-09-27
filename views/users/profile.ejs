@@ -5,7 +5,7 @@
     <%- include('../partials/header')%>
     <main>
         <!-- ----------------AGREGAR CODIGO NUEVO---------------- -->
-        <form class="form" action="/users/profile/<%= user.id %>/edit?_method=put" method="post" enctype="multipart/form-data">
+        <form id="formulario" class="form" action="/users/profile/<%= user.id %>/edit?_method=put" method="post" enctype="multipart/form-data">
           <div class="ruta-login">
             <a href="/">Inicio</a>/<p>Perfil</p>
           </div>
@@ -17,16 +17,22 @@
               </div>
             <% } %>            
             <div class="form_group">
+              <i class="fa-regular fa-circle-xmark error"></i>
               <input required type="text" id="fullName" name="fullName" value="<%= user.fullName %>" class="form_input" placeholder=" " /> 
               <label for="fullName" class="form_label">Nombre y apellido:</label>
+              <div class = "validation_error"></div>
             </div>
             <div class="form_group">
+              <i class="fa-regular fa-circle-xmark error"></i>
               <input required type="text" id="user" name="user" value="<%= user.user %>" class="form_input" placeholder=" " />
               <label for="user" class="form_label">Usuario:</label>
+              <div class = "validation_error"></div>
             </div>
             <div class="form_group">
+              <i class="fa-regular fa-circle-xmark error"></i>
               <input required type="email" id="email" name="email" value="<%= user.email %>" class="form_input" placeholder=" " />
               <label for="email" class="form_label">Email:</label>
+              <div class = "validation_error"></div>
             </div>
             <div class="form_group">
               <input accept=".png, .jpeg, .jpg" type="file" class="form_input form_input_file" id="imageUser" name="imageUser" value="<%= user.imageUser %>" placeholder=" "/> 
@@ -49,6 +55,7 @@
               <% let idBorrar = user.id %>
               <button id="<%- idBorrar %>" type= "button" class="form_submit_delete" onclick="borrarUsuario(id)">Borrar Cuenta</button>
             </div>
+            <div class = "validation_error"></div>
           </div>
         </form>
       </main>
@@ -56,4 +63,5 @@
 
 </body>
 <script src="/js/function.js"></script>
+<script src="/js/usersValidation/profileEdit.js"></script>
 </html>

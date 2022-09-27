@@ -5,45 +5,44 @@
     <%- include('../partials/header')%>
     <main>
       <!-- ----------------AGREGAR CODIGO NUEVO---------------- -->
-      <form class="form" action="/users/register" method="post" enctype="multipart/form-data">
+      <form id="formulario" class="form" action="/users/register" method="post" enctype="multipart/form-data">
         <div class="ruta-login">
           <a href="/">Inicio</a>/<p>Crear cuenta</p>
         </div>
         <div class="form_conteiner">
-          <div class="form_group">
-            <input  type="text" id="fullName" name="fullName" class="form_input" placeholder=" " value="<%= locals.oldData ? oldData.fullName : null %>" /> 
-            <label for="fullName" class="form_label">Nombre y apellido:</label>
-            <% if (locals.errors && errors.fullName) {  %>
-              <div class = "validation_error" style="color: red;">
-                 <%= errors.fullName.msg %>        
-              </div>        
-            <% } %>
+          <div class="form_group div_fullname" >
+            <i class="fa-regular fa-circle-xmark error"></i>
+            <input type="text" id="fullName" name="fullName" class="form_input" placeholder=" " value="<%= locals.oldData ? oldData.fullName : null %>" /> 
+            <label  for="fullName" class="form_label">Nombre y apellido:</label>
+            <div class = "validation_error">
+              <% if (locals.errors && errors.fullName) {  %>
+                  <%= errors.fullName.msg %>        
+              <% } %>
+            </div>        
           </div>
           <div class="form_group">
+            <i class="fa-regular fa-circle-xmark error"></i>
             <input  type="text" id="user" name="user" class="form_input" placeholder=" " value="<%= locals.oldData ? oldData.user : null %>"/>
             <label for="user" class="form_label">Usuario:</label>
-            <% if (locals.errors && errors.user) {  %>
-              <div class = "validation_error" style="color: red;">
+            <div class = "validation_error">
+              <% if (locals.errors && errors.user) {  %>
                 <%= errors.user.msg %>        
-              </div>     
-            <% } else if (locals.errors && errors.credInvUser) { %>
-              <div class = "validation_error" style="color: red;">
+              <% } else if (locals.errors && errors.credInvUser) { %>
                 <%= errors.credInvUser.msg %>        
-              </div>   
-            <% } %>
+              <% } %>
+            </div>   
           </div>
           <div class="form_group">
+            <i class="fa-regular fa-circle-xmark error"></i>
             <input  type="email" id="email" name="email" class="form_input" placeholder=" " value="<%= locals.oldData ? oldData.email : null %>"/>
             <label for="email" class="form_label">Email:</label>
-            <% if (locals.errors && errors.email) {  %>
-              <div class = "validation_error" style="color: red;">
-                <%= errors.email.msg %>        
-              </div>     
-            <% } else if (locals.errors && errors.credInvEmail) { %>
-              <div class = "validation_error" style="color: red;">
-                <%= errors.credInvEmail.msg %>        
-              </div>   
-            <% } %>
+            <div class = "validation_error">
+              <% if (locals.errors && errors.email) {  %>
+                  <%= errors.email.msg %>             
+              <% } else if (locals.errors && errors.credInvEmail) { %>
+                  <%= errors.credInvEmail.msg %>        
+              <% } %>
+            </div>   
           </div>
           <div class="form_group">
             <input  accept=".png, .jpeg, .jpg" type="file" class="form_input form_input_file" id="imageUser" name="imageUser" placeholder=" "/> 
@@ -56,6 +55,7 @@
             </div>
           </div>
           <div class="form_group">
+            <i class="fa-regular fa-circle-xmark error"></i>
             <input  type="password" id="password" name="password" class="form_input" placeholder=" "/>
             <label for="password" class="form_label">Contraseña:</label>
             <div class="checkboxPass">
@@ -65,17 +65,16 @@
                   <i class="fa-solid fa-eye" id="eye"></i>
               </label>
             </div>
-            <% if (locals.errors && errors.password) {  %>
-              <div class = "validation_error" style="color: red;">
+            <div class = "validation_error">
+              <% if (locals.errors && errors.password) {  %>
                  <%= errors.password.msg %>        
-              </div>        
               <% } else if (locals.errors && errors.credInvPass) { %>
-                <div class = "validation_error" style="color: red;">
                   <%= errors.credInvPass.msg %>        
-                </div>   
               <% } %>
+            </div>   
           </div>
           <div class="form_group">
+            <i class="fa-regular fa-circle-xmark error"></i>
             <input  type="password" id="confirmPassword" name="confirmPassword" class="form_input" placeholder=" "/>
             <label for="confirmPassword" class="form_label">Confirmar contraseña:</label>
             <div class="checkboxPassConfirm">
@@ -85,18 +84,17 @@
                 <i class="fa-solid fa-eye" id="eyeConfirm"></i>
               </label>
             </div>
-            <% if (locals.errors && errors.confirmPassword) {  %>
-              <div class = "validation_error" style="color: red;">
+            <div class = "validation_error">
+              <% if (locals.errors && errors.confirmPassword) {  %>
                  <%= errors.confirmPassword.msg %>        
-              </div>        
-            <% } else if (locals.errors && errors.credInvPass) { %>
-              <div class = "validation_error" style="color: red;">
+              <% } else if (locals.errors && errors.credInvPass) { %>
                 <%= errors.credInvPass.msg %>        
-              </div>   
-            <% } %>
+              <% } %>
+            </div>   
           </div>
+          <div class = "validation_error" id="div_formulario"></div>
           <div>
-            <input type="submit" class="form_submit" value="Registrarse" />
+            <input id="btn_submit_register" type="submit" class="form_submit" value="Registrarse" />
           </div>
           <p class="main-paragraph-first">
             ¿Ya tenés una cuenta?
@@ -108,5 +106,6 @@
     <%- include('../partials/footer')%> 
   </body>
 <script src="/js/function.js"></script>
+<script src="/js/usersValidation/register.js"></script>
 </html>
 
