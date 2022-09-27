@@ -5,13 +5,14 @@ const usersModel = usersJson('users');
 
 let validatorMiddelware = {
     validacionCreateUsers: [
-        body('fullName').notEmpty().withMessage('Debe ingresar su nombre'),
+        body('fullName').notEmpty().isLength({min: 2}).withMessage('Debe ingresar su nombre'),
         body('user').notEmpty().withMessage('Debe ingresar un nombre de usuario'),
-        body('email').notEmpty().withMessage('Debe ingresar un email valido'),
+        body('email').isEmail().notEmpty().withMessage('Debe ingresar un email valido'),
         body('password').notEmpty().withMessage('Debe ingresar una contraseña').bail()
-        .isLength({min: 6}).withMessage('La contraseña debe ser mayor a 6 caracteres'),
+        .isLength({min: 8}).isLowercase({min:1}).isUppercase({min:1}).isNumeric({min: 1}).withMessage('La contraseña debe ser mayor a 6 caracteres'),
         body('confirmPassword').notEmpty().withMessage('Debe confirmar la contraseña').bail()
-        .isLength({min: 6}).withMessage('La contraseña debe ser mayor a 6 caracteres')
+        .isLength({min: 8}).isLowercase({min:1}).isUppercase({min:1}).isNumeric({min: 1}).withMessage('La contraseña debe ser mayor a 6 caracteres'),
+        // body('imageUser') falta validar
     ],
     validacionLoginUsers: [
         body('user').notEmpty().withMessage('Debe completar este campo').bail(),
@@ -40,9 +41,9 @@ let validatorMiddelware = {
     validacionChangePass: [
         body('passwordActual').notEmpty().withMessage('Completa este campo'),
         body('password').notEmpty().withMessage('Completa este campo').bail()
-        .isLength({min: 6}).withMessage('La contraseña debe ser mayor a 6 caracteres'),
+        .isLength({min: 8}).withMessage('La contraseña debe ser mayor a 6 caracteres'),
         body('confirmPassword').notEmpty().withMessage('Completa este campo').bail()
-        .isLength({min: 6}).withMessage('La contraseña debe ser mayor a 6 caracteres')
+        .isLength({min: 8}).withMessage('La contraseña debe ser mayor a 6 caracteres')
     ],
     validacionProduct:[
         body('nameProduct').notEmpty().withMessage('Debes completar el nombre del producto').bail()
