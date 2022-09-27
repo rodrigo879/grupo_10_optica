@@ -5,38 +5,17 @@ const usersModel = usersJson('users');
 
 let validatorMiddelware = {
     validacionCreateUsers: [
-        body('fullName').notEmpty().isLength({min: 2}).withMessage('Debe ingresar su nombre'),
-        body('user').notEmpty().withMessage('Debe ingresar un nombre de usuario'),
-        body('email').isEmail().notEmpty().withMessage('Debe ingresar un email valido'),
+        body('fullName').notEmpty().withMessage('Debe ingresar su nombre').bail().isLength({min: 3}).withMessage('Debe contener minimo 3 caracteres'),
+        body('user').notEmpty().withMessage('Debe ingresar un nombre de usuario').bail().isLength({min: 3}).withMessage('Debe contener minimo 3 caracteres'),
+        body('email').notEmpty().withMessage('Debe ingresar un email valido').bail().isEmail().withMessage('Debe ser de formato em@il'),
         body('password').notEmpty().withMessage('Debe ingresar una contraseña').bail()
-        .isLength({min: 8}).isLowercase({min:1}).isUppercase({min:1}).isNumeric({min: 1}).withMessage('La contraseña debe ser mayor a 6 caracteres'),
+        .isLength({min: 6}).isLowercase({min:1}).isUppercase({min:1}).isNumeric({min: 1}).withMessage('La contraseña debe ser mayor a 6 caracteres'),
         body('confirmPassword').notEmpty().withMessage('Debe confirmar la contraseña').bail()
-        .isLength({min: 8}).isLowercase({min:1}).isUppercase({min:1}).isNumeric({min: 1}).withMessage('La contraseña debe ser mayor a 6 caracteres'),
-        // body('imageUser') falta validar
+        .isLength({min: 6}).isLowercase({min:1}).isUppercase({min:1}).isNumeric({min: 1}).withMessage('La contraseña debe ser mayor a 6 caracteres, incluir una letra mayúscula, una minúscula, y al menos un número'),
     ],
     validacionLoginUsers: [
         body('user').notEmpty().withMessage('Debe completar este campo').bail(),
-        // .custom((value, {req}) => {
-        //     let user= value;
-        //     let users = usersModel.readFile();
-        //     let userFilter = users.filter(person => person.user == user)
-        //     if(userFilter.length == 0){ 
-        //         throw new Error ('El nombre de usuario que has introducido no pertenece a ninguna cuenta')
-        //         }
-        //         return true;
-        //}).bail(),
-
-        body('password').notEmpty().withMessage('Debe completar este campo').bail()       
-        //.isLength({min: 6}).withMessage('La contraseña debe tener al menos 6 caracteres').bail()
-        //     .custom((value, {req}) => {
-        //     let password= value;
-        //     let users = usersModel.readFile();
-        //     let userFilter = users.filter(person => bcryptjs.compareSync (password, person.password) == true)
-        //     if(userFilter.length == 0){  
-        //         throw new Error ('La contraseña es incorrecta')
-        //         }
-        //         return true;
-        // })
+        body('password').notEmpty().withMessage('Debe completar este campo').bail()
     ],
     validacionChangePass: [
         body('passwordActual').notEmpty().withMessage('Completa este campo'),
