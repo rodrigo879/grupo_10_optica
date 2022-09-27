@@ -4,25 +4,28 @@
 <body>
   <%- include('../partials/header') %>
     <main>
-        <form class="form" action="/users/login" method="post">
+        <form id="formulario" class="form" action="/users/login" method="post">
           <div class="ruta-login">
             <a href="/">Inicio</a>/<p>Iniciar Sesion</p>
           </div>
           <div class="form_conteiner">
             <% if (locals.errors && errors.credInv) {  %>
               <div class = "validation_error">
-                 <%= errors.credInv.msg %>        
+                <%= errors.credInv.msg %>        
               </div>        
             <% } %>
             <div class="form_group">
+              <i class="fa-regular fa-circle-xmark error"></i>
               <input  type="text" id="user" name="user" class="form_input" value="<%= locals.oldData ? oldData.user : null %>"/>
               <label for="user" class="form_label">Usuario:</label>     
-              <% if (locals.errors && errors.user) { %>
-                <div class = "validation_error"> <%= errors.user.msg %>        
-              <% } %>
+              <div class = "validation_error"> 
+                <% if (locals.errors && errors.user) { %>
+                  <%= errors.user.msg %>        
+                <% } %>
+              </div>
             </div>
-            
             <div class="form_group">
+              <i class="fa-regular fa-circle-xmark error"></i>
               <input  type="password" id="password" name="password" class="form_input"  placeholder=" "/>
               <label for="password" class="form_label">Contraseña:</label>
               <div class="checkboxPass">
@@ -32,11 +35,11 @@
                     <i class="fa-solid fa-eye" id="eye"></i>
                 </label>
               </div>      
-              <% if (locals.errors && errors.password) {  %>
-                <div class = "validation_error">
-                   <%= errors.password.msg %>        
-                </div>        
-              <% } %>
+              <div class = "validation_error">
+                <% if (locals.errors && errors.password) {  %>
+                  <%= errors.password.msg %>        
+                <% } %>
+              </div>        
               <div class="div_checkbox">
                 <a href="#">Olvidaste tu constraseña?</a>
                 <div>
@@ -47,6 +50,7 @@
                 </div>
               </div>
             </div>
+            <div class = "validation_error"></div>
             <div>
               <input type="submit" class="form_submit" value="Entrar" />
               <div class="div_button">
@@ -68,4 +72,5 @@
     <%- include('../partials/footer')%> 
 </body>
 <script src="/js/function.js"></script>
+<script src="/js/usersValidation/login.js"></script>
 </html>

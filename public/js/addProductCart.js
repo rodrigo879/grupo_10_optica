@@ -5,8 +5,9 @@ window.addEventListener('load', (e) => {
     let imgProduct = document.querySelectorAll(".main-section-img img");
     let nameProduct = document.querySelectorAll(".section-h3 h3")
     let priceProduct = document.querySelectorAll(".precio-con-descuento")
-    let carritoCart = document.querySelector(".p_cart_product")
+    let carritoCart = document.querySelector(".p_cart_product")    
     let acumulador = 0
+    carritoCart.innerHTML = sessionStorage.getItem('acumulador');
 
     for (let i = 0; i < buttonTruck.length; i++) {
         buttonTruck[i].addEventListener('click', (e) => {
@@ -39,11 +40,9 @@ window.addEventListener('load', (e) => {
                     priceList += shoppingList[j].price;
                     sessionStorage.setItem('shoppingList', JSON.stringify(shoppingList));
                     sessionStorage.setItem('priceList', JSON.stringify(priceList))
-                    console.log("sume al value")
                     return;
                 } 
             }
-            console.log("ademas sume uno nuevo")
             shoppingList.push(newProduct);
             priceList += shoppingList[shoppingList.length - 1].price;
             sessionStorage.setItem('shoppingList', JSON.stringify(shoppingList));

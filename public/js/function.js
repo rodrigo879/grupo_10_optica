@@ -198,7 +198,25 @@ function mediosDePago() {
                     '<div style="width:100px; display: flex; justify-content: center; align-content: center; padding: 5px; margin: 10px; border: solid 1px black" class="alert-img"><img style="width: 90%" src="/images/medioDePagos/cencosud.svg"></div>' +
                 '</div>',
         showConfirmButton: false,
-        showCloseButton: true,
         footer: 'Paga con seguridad en todas tus compras',
+    })
+}
+
+function finalizar() {
+    Swal.fire({
+        title: 'OPERACIÓN EXITOSA',
+        html: '<h3>Gracias por visitar</h3>' + '<img style="width:330px;" src="/images/logos/logo.png" alt="Optica RIFF">',
+        icon: 'success',
+        showConfirmButton: true,
+        confirmButtonColor: '#30653C',
+        confirmButtonText: 'OK',
+        allowOutsideClick: false,
+        allowEscapeKey: false,
+        allowEnterKey: false,
+        footer: 'Te esperamos pronto para tu proxima compra',
+    }).then(() => {
+        sessionStorage.removeItem('shoppingList');
+        sessionStorage.removeItem('priceList')
+        window.location.replace('http://localhost:3000/');
     })
 }
