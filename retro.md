@@ -34,7 +34,6 @@ SPRINT 3
 5- Dejar de hacer
     Evitar reuniones largas.
 
-
 SPRINT 4
 1- Comenzar a hacer 
     El sprint 6 (Base de datos)
@@ -47,7 +46,6 @@ SPRINT 4
 5- Dejar de hacer
     Dejar de postergar las reuniones y tratar de que no pase mucho tiempo entre reunión y reunión. 
 
-
 SPRINT 5
 1- Comenzar a hacer 
     El sprint 7 
@@ -59,3 +57,27 @@ SPRINT 5
     Frustraciones. 
 5- Dejar de hacer
     Mejorar la organización del tiempo de tareas por hacer.
+
+SPRINT 6
+1- Comenzar a hacer 
+    Avisarnos cuando comenzas a programar, asi no pisamos cambios.
+2- Hacer más
+    Consultar dudas y preguntas respecto a los temas que faltan profundizar. 
+3- Continuar haciendo
+    Dividir las tareas por sprint.
+4- Hacer menos
+    Dejar cosas para ultimo momento, y tener que andar a las corridas. 
+5- Dejar de hacer
+    No cumplir con lo pactado, y dejar para ultimo momento el aviso.
+
+SPRINT 7
+1- Comenzar a hacer 
+    El sprint 8.
+2- Hacer más
+    Motivacion entre compañeros de equipo. Aumentar un poco las pilas en el ultimo tiron. Llevar al dia modificaciones del proyecto
+3- Continuar haciendo
+    Mantener buena armonia y comunicación en el grupo. Cumpliendo entrega a entrega.
+4- Hacer menos
+    Dejar para ultimo momento el proyecto. 
+5- Dejar de hacer
+    Bajar los brazos.

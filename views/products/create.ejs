@@ -8,29 +8,30 @@
 
     <main>
       <!-- ----------------AGREGAR CODIGO NUEVO---------------- -->
-      <form class="form" action="/products/create" method="post" enctype="multipart/form-data">
+      <form id="formulario" class="form" action="/products/create" method="post" enctype="multipart/form-data">
         <div class="ruta-login">
           <a href="/">Inicio</a>/<p>Crear Producto</p>
         </div>
-        <!-- <h2 class="form_title">Optica Riff</h2>  -->
         <div class="form_conteiner">
           <div class="form_group">
+            <i class="fa-regular fa-circle-xmark error"></i>
             <input required type="text" class="form_input" id="nameProduct" name="nameProduct" placeholder=" " value="<%= locals.oldData ? oldData.nameProduct : null %>"/> 
             <label for="nameProduct" class="form_label">Nombre del Producto:</label>
-            <% if (locals.errors && errors.nameProduct) {%> 
-              <div class = "validation_error" style="color: red;">
+            <div class = "validation_error">
+              <% if (locals.errors && errors.nameProduct) {%> 
                 <%= errors.nameProduct.msg  %> 
-              </div>
               <% } %> 
+            </div>
           </div>
           <div class="form_group">
+            <i class="fa-regular fa-circle-xmark error"></i>
             <textarea class="form_input form_textArea" id="descriptionProduct" rows="1" name="descriptionProduct" placeholder=" " value="<%= locals.oldData ? oldData.descriptionProduct : null %>"></textarea>
             <label for="descriptionProduct" class="form_label">Descripción:</label>
-            <% if (locals.errors && errors.descriptionProduct) {%> 
-              <div class = "validation_error" style="color: red;">
+            <div class = "validation_error">
+              <% if (locals.errors && errors.descriptionProduct) {%> 
                 <%= errors.descriptionProduct.msg  %> 
-              </div>
               <% } %> 
+            </div>
           </div>
           <div class="form_group">
             <label for="categoryProduct" class="form_label option_select">Categoria:</label>
@@ -42,25 +43,26 @@
             </select>
           </div>
           <div class="form_group">
+            <i class="fa-regular fa-circle-xmark error"></i>
             <input accept=".png, .jpeg, .jpg" type="file" class="form_input form_input_file" id="imageProduct" name="imageProduct" placeholder=" "/> 
             <label for="imageProduct" class="form_label">Imagen:</label>
-            <div class="form_input">
+            <div class="form_input div_image">
               <label for="imageProduct" class="form_imageFile">
                 <i class="fa-solid fa-image"></i>
                 <p>Elegir Imagen</p>
               </label>
             </div>
-            <% if (locals.error && error.param) {  %>
-              <div class = "validation_error" style="color: red;">
+            <div class = "validation_error">
+              <% if (locals.error && error.param) {  %>
                  <%= error.msg %>        
-              </div>        
-            <% } %> 
+              <% } %> 
+            </div>        
           </div>
           <div class="form_group" >
             <input type="radio" onclick="apagarInputRadioCrearProducto()" class="form_input radio_buttom" id="radio_existsBrands" name="radio_trademark" value="1" checked/>
             <label for="radio_existsBrands" class="form_label option_select">Marca Existente:</label>
             <div class="form_group" id="div_radio_exists">
-              <select name="trademarkProductExist" id="trademarkProduct" class="form_input form_select" value="SELECCIONE UNA Marca">
+              <select name="trademarkProductExist" class="form_input form_select" value="SELECCIONE UNA MARCA">
                 <% for( let i = 0; i < brands.length; i++ ) { %>   
                   <option value="<%- brands[i].id %>" ><%- brands[i].name %></option>
                 <% } %>
@@ -68,31 +70,40 @@
             </div>
           </div>
           <div class="form_group">
+            <i class="fa-regular fa-circle-xmark error"></i>
             <input type="radio" onclick="apagarInputRadioCrearProducto()" class="form_input radio_buttom" id="radio_newBrands" name="radio_trademark" value="2" />
             <label for="radio_newBrands" class="form_label option_select">Marca Nueva:</label>
             <div class="form_group select_disabled" id="div_radio_new">
               <input type="text" class="form_input" id="trademarkProduct" name="trademarkProduct" placeholder=" " value="<%= locals.oldData ? oldData.trademarkProduct : null %>"/> 
               <label for="trademarkProduct" class="form_label"></label>
+              <div class = "validation_error">
+                <% if (locals.error && error.param) {  %>
+                  <%= error.msg %>        
+                <% } %> 
+              </div>
             </div>
           </div>
           <div class="form_group">
+            <i class="fa-regular fa-circle-xmark error"></i>
             <input required step="0.01" type="number" class="form_input" id="priceProduct" name="priceProduct" placeholder=" " value="<%= locals.oldData ? oldData.priceProduct : null %>"/> 
             <label for="priceProduct" class="form_label">Precio($):</label>
-            <% if (locals.errors && errors.priceProduct) {%> 
-              <div class = "validation_error" style="color: red;">
+            <div class = "validation_error">
+              <% if (locals.errors && errors.priceProduct) {%> 
                 <%= errors.priceProduct.msg  %> 
-              </div>
               <% } %> 
+            </div>
           </div>
           <div class="form_group">
+            <i class="fa-regular fa-circle-xmark error"></i>
             <input required type="number" class="form_input" id="discount" name="discount" placeholder=" " max="100" min="0" value="<%= locals.oldData ? oldData.discount : null %>"/> 
             <label for="discount" class="form_label">Descuento(%):</label>
-            <% if (locals.errors && errors.discount) {%> 
-              <div class = "validation_error" style="color: red;">
+            <div class = "validation_error">
+              <% if (locals.errors && errors.discount) {%> 
                 <%= errors.discount.msg  %> 
-              </div>
               <% } %> 
+            </div>
           </div>
+          <div class = "validation_error"></div>
           <div>
             <input type="submit" class="form_submit" value="ACEPTAR" />
           </div>
@@ -104,4 +115,5 @@
     <%- include('../partials/footer') %>
   </body>
 <script src="/js/function.js"></script>
+<script src="/js/productsValidation/createProduct.js"></script>
 </html>

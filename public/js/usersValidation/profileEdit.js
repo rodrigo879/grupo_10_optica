@@ -19,7 +19,7 @@ window.addEventListener('load', (e) => {
     formulario.addEventListener('submit', (e) => {
         if(!inputsOk.fullName || !inputsOk.user || !inputsOk.email) {
             e.preventDefault();
-            divError[3].innerHTML = '<h3>No puede dejar campos vacios</h3>';
+            divError[3].innerHTML = '<h3>Hay campos vacios o con errores</h3>';
         }
     });
     
@@ -43,13 +43,11 @@ window.addEventListener('load', (e) => {
             iconError[i].style.visibility = 'visible';
             divError[i].innerText = mensaje;
             inputsOk[campo] = false;
-            console.log(inputsOk)
         } else {
             document.getElementById(campo).classList.remove('is_invalid'); 
             iconError[i].style.visibility = 'hidden';
             divError[i].innerText = '';
             inputsOk[campo] = true;
-            console.log(inputsOk);
         }
     }
 

@@ -28,7 +28,7 @@ router.put('/:id/update', upload.single ('imageProduct'), validacionProduct, pro
 router.delete('/:id', authMiddleware, productController.delete)
 
 //CARRITO DE COMPRAS
-router.get('/productCart', /*authMiddleware,*/ productController.productCart);
+router.get('/productCart', authMiddleware, productController.productCart);
 router.post('/productCart', productController.calculoEnvio);
 
 //DETALLE DE UN PRODUCTO

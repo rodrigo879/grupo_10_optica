@@ -73,6 +73,10 @@ header {
     width: 100%;
 }
 
+.check_addProduct {
+    display: none!important;
+}
+
 .main-buscar-carrito p, .main-navbar .li-buscar {
     display: none!important;
 }

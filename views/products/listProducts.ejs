@@ -32,6 +32,7 @@
                         <div class="main-section-info">
                             <div class="informacion-precio-descuento">
                                 <button class="button_truck"><i class="fa-solid fa-truck i_truck"></i></button>
+                                <span><i class="fa-regular fa-circle-check check">Producto Agregado</i></span>
                                 <% if (products[i].discount > 0) { %>
                                     <p class="precio-producto"><%= "$" + toThousand(toComma(products[i].priceProduct.toFixed(2))) %></p>
                                     <p class="precio-con-descuento"><%= "$" + toThousand(toComma(products[i].priceDiscount.toFixed(2))) %></p>

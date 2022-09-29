@@ -9,6 +9,9 @@
         <div class="main-logo">
             <a href="/"><img src="/images/logos/logo.png" alt="Optica RIFF"></a>
         </div>
+        <div class="check_addProduct">
+            <i class="fa-regular fa-circle-check"><h4>Producto Agregado</h4></i>
+        </div>
         <div class="main-buscar-carrito">
             <!-- La lista de usuarios hacerla visible solo para administradores -->  
             <% if(locals.userLogged && userLogged.authorities[0].role == 'role_admin') { %>

@@ -76,7 +76,6 @@ header {
   text-decoration: none;
 }
 
-
 .main-hamburguer p {
   font-size: 3vw;
   color: #ADB2B5;
@@ -91,6 +90,10 @@ header {
   width: 50%;
   margin: auto;
   /* border: solid; */
+}
+
+.check_addProduct {
+  display: none!important;
 }
 
 .main-logo img {

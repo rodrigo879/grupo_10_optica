@@ -2,7 +2,7 @@ window.addEventListener('load', (e) => {
     const expresiones = {
         fullName: /^[a-zA-ZÀ-ÿ\s]{3,40}$/,
         user: /^[a-zA-Z0-9\_\-]{3,15}$/,
-        password: /^.{6,14}$/,
+        password: /^(?=(?:.*\d){1})(?=(?:.*[A-Z]){1})(?=(?:.*[a-z]){1})(?=(?:.*[@$?¡\-_]){1})\S{6,16}$/,
         email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/
     }
     
@@ -22,7 +22,7 @@ window.addEventListener('load', (e) => {
     formulario.addEventListener('submit', (e) => {
         if(!inputsOk.fullName || !inputsOk.user || !inputsOk.email || !inputsOk.password || !inputsOk.confirmPassword) {
             e.preventDefault();
-            divError[5].innerHTML = '<h3>Complete el formulario correctamente</h3>';
+            divError[5].innerHTML = '<h3>Hay campos vacios o con errores</h3>';
         }
     });
     
@@ -38,7 +38,7 @@ window.addEventListener('load', (e) => {
                 validarCampo(expresiones.email, evt.target, 'email', 2, 'Ingrese un email de formato valido');
             break;
             case "password":
-                validarCampo(expresiones.password, evt.target, 'password', 3, 'Ingrese una contraseña (mayor a 6 caracteres)');
+                validarCampo(expresiones.password, evt.target, 'password', 3, 'Ingrese una contraseña (mayor a 6 caracteres, debe incluir Mayusculas, minisculas y numeros)');
             break;
             case "confirmPassword":
                 validarCoincidenciaPassword();

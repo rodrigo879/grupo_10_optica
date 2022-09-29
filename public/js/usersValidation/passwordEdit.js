@@ -1,6 +1,6 @@
 window.addEventListener('load', (e) => {
     const expresiones = {
-        password: /^.{6,14}$/
+        password: /^(?=(?:.*\d){1})(?=(?:.*[A-Z]){1})(?=(?:.*[a-z]){1})(?=(?:.*[@$?¡\-_]){1})\S{6,16}$/,
     }
     
     let inputsOk = {
@@ -17,7 +17,7 @@ window.addEventListener('load', (e) => {
     formulario.addEventListener('submit', (e) => {
         if(!inputsOk.passwordActual && !inputsOk.password && !inputsOk.confirmPassword) {
             e.preventDefault();
-            divError[3].innerHTML = '<h3>Complete los campos correctamente</h3>';
+            divError[3].innerHTML = '<h3>Hay campos vacios o con errores</h3>';
         }
     });
     

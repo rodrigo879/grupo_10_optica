@@ -75,6 +75,10 @@ header {
     width: 100%;
 }
 
+.check_addProduct {
+    display: none!important;
+}
+
 .main-buscar-carrito p, .main-navbar .li-buscar {
     display: none!important;
 }
@@ -223,6 +227,16 @@ section img {
     top: 15px;
 }
 
+.check {
+    font-size: 10px!important;
+    top: 4px!important;
+    left: 67px!important;
+    z-index: 10;
+    position: absolute!important;
+    border: none!important;
+    visibility: hidden;
+}
+
 .button_truck {
     visibility: hidden;
 }
@@ -243,7 +257,7 @@ section .precio-producto {
 }
 
 section .precio-con-descuento {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bold;
 }
 
@@ -363,6 +377,10 @@ footer h5 {
         height: 45vw;
     }
 
+    .check {
+        left: 90px!important;
+    }
+
     /*--------------------*/
 
     /*----------Footer----------*/
@@ -429,11 +447,35 @@ footer h5 {
 
     .main-header {
         justify-content: space-between;
+        align-items: center;
     }
 
     .main-logo {
         width: 30%;
         margin-left: 0px;
+    }
+
+    .check {
+        display: none!important;
+    }
+
+    .check_addProduct {
+        display: flex!important;
+        align-items: center;
+        border: 2px solid black;
+        border-radius: 10px;
+        padding: 5px;
+        height: 40px;
+        visibility: hidden;
+    }
+
+    .check_addProduct i {
+        display: flex;
+        color: #43C474;
+    }
+
+    .check_addProduct h4 {
+        padding: 0 5px;
     }
 
     .main-buscar-carrito .fa-magnifying-glass {
@@ -472,7 +514,7 @@ footer h5 {
     }
 
     .main-buscar-carrito {
-        width: 60%;
+        width: 42%;
         height: 5vw;
         align-items: center;
         justify-content: flex-end;

@@ -83,7 +83,7 @@
                                 <button class="button_truck"><i class="fa-solid fa-truck i_truck"></i></button>
                                     <p class="precio-producto"><%= "$" + toThousand(toComma(products[pruebaResult].price)) %></p>
                                     <p class="precio-con-descuento"><%= "$" + toThousand(toComma((products[pruebaResult].price * (100 - 10) / 100).toFixed(2))) %></p>
-                                    <p class="descuento-producto"><%= products[pruebaResult].discount + '% OFF' %></p>
+                                    <p class="descuento-producto"><%= products[pruebaResult].discount + '% OFF' %><span><i class="fa-regular fa-circle-check check">Producto Agregado</i></span></p>
                             </div>
                             <div class="section-h3">
                                 <h3><%= products[pruebaResult].name %></h3>

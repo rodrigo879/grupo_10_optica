@@ -64,51 +64,51 @@ let productController = {
     create: async (req, res) => { 
         let userLogged = req.session.user
         let errors = validationResult(req);
-        if(req.file) {
-            res.render('./products/create', {errorInvalidImageFormat, brands, categories, oldData: req.body, userLogged});
-            if (errors.isEmpty()){ 
-            if(req.body.radio_trademark == 1) {
-                let brand = await db.Brands.findByPk(req.body.trademarkProductExist);
-                let categories = await db.Categories.findOne({ where: {name: req.body.categoryProduct}});
-                let newImage = await db.ImagesProducts.create( { name: req.file.filename});
-                let newProduct = await db.Products.create({
-                    name: req.body.nameProduct,
-                    description: req.body.descriptionProduct,
-                    price: req.body.priceProduct,
-                    discount: req.body.discount,
-                    id_category: categories.id,
-                    id_brand: brand.id,
-                    id_image_product: newImage.id
-                })
-                res.redirect('/products/all');
-            } else if (req.body.radio_trademark == 2) {
-                let brands = await db.Brands.create( { name: req.body.trademarkProduct });
-                let categories = await db.Categories.findOne({ where: {name: req.body.categoryProduct}});
-                let newImage = await db.ImagesProducts.create( { name: req.file.filename});
-                let newProduct = await db.Products.create({
-                    name: req.body.nameProduct,
-                    description: req.body.descriptionProduct,
-                    price: req.body.priceProduct,
-                    discount: req.body.discount,
-                    id_category: categories.id,
-                    id_brand: brands.id,
-                    id_image_product: newImage.id
-                });
-                res.redirect('/products/all');
+        if (errors.isEmpty()){ 
+            if(req.file) {
+                if(req.body.radio_trademark == 1) {
+                    let brand = await db.Brands.findByPk(req.body.trademarkProductExist);
+                    let categories = await db.Categories.findOne({ where: {name: req.body.categoryProduct}});
+                    let newImage = await db.ImagesProducts.create( { name: req.file.filename});
+                    let newProduct = await db.Products.create({
+                        name: req.body.nameProduct,
+                        description: req.body.descriptionProduct,
+                        price: req.body.priceProduct,
+                        discount: req.body.discount,
+                        id_category: categories.id,
+                        id_brand: brand.id,
+                        id_image_product: newImage.id
+                    })
+                    res.redirect('/products/all');
+                } else if (req.body.radio_trademark == 2) {
+                    let brands = await db.Brands.create( { name: req.body.trademarkProduct });
+                    let categories = await db.Categories.findOne({ where: {name: req.body.categoryProduct}});
+                    let newImage = await db.ImagesProducts.create( { name: req.file.filename});
+                    let newProduct = await db.Products.create({
+                        name: req.body.nameProduct,
+                        description: req.body.descriptionProduct,
+                        price: req.body.priceProduct,
+                        discount: req.body.discount,
+                        id_category: categories.id,
+                        id_brand: brands.id,
+                        id_image_product: newImage.id
+                    });
+                    res.redirect('/products/all');
+                } 
+            } else {       
+                let brands = await db.Brands.findAll();
+                let categories = await db.Categories.findAll(); 
+                let error = {
+                    msg: "Debe ingresar una imagen",
+                    param: "credInvImg"
                 }
-            } else {
+            res.render('./products/create', {error, brands, categories, oldData: req.body, userLogged});
+            }
+        } else {
             let brands = await db.Brands.findAll();
             let categories = await db.Categories.findAll();
-            res.render('./products/create', {errors:errors.mapped (), brands, categories, oldData: req.body, userLogged});} 
-        } else {       
-            let brands = await db.Brands.findAll();
-            let categories = await db.Categories.findAll(); 
-            let error = {
-                msg: "Debe ingresar una imagen",
-                param: "credInvImg"
-            }
-            res.render('./products/create', {error, brands, categories, oldData: req.body, userLogged});
-        }
+            res.render('./products/create', {errors:errors.mapped (), brands, categories, oldData: req.body, userLogged});
+        } 
     },
     allProducts: (req, res) => {
         db.Products.findAll({
@@ -145,40 +145,40 @@ let productController = {
         }
         return res.render('./products/productEdit' , {products, idParam, brands, categories, userLogged, toThousand, toComma});
     },
-        update: async (req, res) => {
+    update: async (req, res) => {
         let productId = req.params.id;
         let errors = validationResult(req)
-        if (errors.isEmpty()) {
-        if(req.file) {
-            let newImage = await db.ImagesProducts.create( { name: req.file.filename } );
-            let newBrand = await db.Brands.create( { name: req.body.trademarkProduct} );
-            db.Products.update(
-                {
-                    name: req.body.nameProduct,
-                    description: req.body.descriptionProduct,
-                    price: req.body.priceProduct,
-                    discount: req.body.discount,
-                    id_brand: newBrand.id,
-                    id_image_product: newImage.id,
-                },
-                { where: { id: productId } }
-            );
-            return res.redirect(`/products/${productId}/edit`)
+        if(errors.isEmpty()) {
+            if(req.file) {
+                let newImage = await db.ImagesProducts.create( { name: req.file.filename } );
+                let newBrand = await db.Brands.create( { name: req.body.trademarkProduct} );
+                db.Products.update(
+                    {
+                        name: req.body.nameProduct,
+                        description: req.body.descriptionProduct,
+                        price: req.body.priceProduct,
+                        discount: req.body.discount,
+                        id_brand: newBrand.id,
+                        id_image_product: newImage.id,
+                    },
+                    { where: { id: productId } }
+                );
+                return res.redirect(`/products/${productId}/edit`)
+            } else {
+                let newBrand = await db.Brands.create( { name: req.body.trademarkProduct} );
+                db.Products.update(
+                    {
+                        name: req.body.nameProduct,
+                        description: req.body.descriptionProduct,
+                        price: req.body.priceProduct,
+                        discount: req.body.discount,
+                        id_brand: newBrand.id,
+                    },
+                    { where: { id: productId } }
+                );
+                return res.redirect(`/products/${productId}/edit`)
+            }
         } else {
-            let newBrand = await db.Brands.create( { name: req.body.trademarkProduct} );
-            db.Products.update(
-                {
-                    name: req.body.nameProduct,
-                    description: req.body.descriptionProduct,
-                    price: req.body.priceProduct,
-                    discount: req.body.discount,
-                    id_brand: newBrand.id,
-                },
-                { where: { id: productId } }
-            );
-            return res.redirect(`/products/${productId}/edit`)
-        }
-        }else{
             let userLogged = req.session.user;
             let idParam = req.params.id
             let brands = await db.Brands.findAll();
