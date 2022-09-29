@@ -10,14 +10,19 @@
 - Ofrecemos venta de anteojos de sol, recetados, lentes de contactos para publico en general.
 
 # Listado de Paginas Referentes
--[Multiopticas](https://multiopticas.com.ar/)
--[Optical](https://www.tiendadelentes.com.ar/)
--[Glasses](https://www.glasses.com/)
--[Smart_Glasses](https://www.smartbuyglasses.com.ar/)
--[WarbyParker](https://www.warbyparker.com/)
+- [Optical](https://www.tiendadelentes.com.ar/)
+- [Multiopticas](https://multiopticas.com.ar/)
+- [Glasses](https://www.glasses.com/)
+- [Smart_Glasses](https://www.smartbuyglasses.com.ar/)
+- [WarbyParker](https://www.warbyparker.com/)
 
 # Listado del grupo con una breve descripción
 * Alvarez Rodrigo: Loquito barbaro
 * Leonardo Francisco: Loading programmer;
 * Sandoval Facundo: Futuro politólogo estudiando programación web full stack;
 * Roman Ivan: Hincha de Boca. estudiante de programación.
+
+# Para utilizar nuestro E-COMMERCE:
+* Clonar el repositorio: "git clone https://github.com/rodrigo879/grupo_10_optica.git"
+* Instale las dependencias: "npm i"
+* Ejecutarlo con "npm run dev" (verifíquelo en localhost: 3000).
