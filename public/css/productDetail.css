@@ -220,6 +220,7 @@ main .cuotas p, main .cuotas b, main .medios-de-pago {
 }
 
 main .nombre-producto{
+    text-align: center;
     font-weight: normal;
     padding-bottom: 5px;
     font-size: 3.5vw;

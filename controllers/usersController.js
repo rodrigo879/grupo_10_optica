@@ -142,7 +142,10 @@ const userController = {
     },
     delete: (req, res) => {
         let userId = req.params.id;
+        let userLogged = req.session.user;
         db.Users.destroy({ where: { id: userId}})
+        console.log(userId);
+        console.log(userLogged.id)
         if(userId == userLogged.id) {
             res.clearCookie('recordarUsuario');
             req.session.destroy();

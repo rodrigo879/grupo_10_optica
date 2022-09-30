@@ -9,20 +9,20 @@ window.addEventListener('load', (e) => {
     let checkIcon = document.querySelectorAll(".check");
     let checkAddProducto = document.querySelector(".check_addProduct")
     let acumulador = 0
-    //carritoCart.innerHTML = sessionStorage.getItem('acumulador');
-    console.log('Truck', buttonTruck);
-    console.log('Check', checkIcon);
+
     for (let i = 0; i < buttonTruck.length; i++) {
         buttonTruck[i].addEventListener('click', (e) => {
             acumulador ++;
             carritoCart.innerHTML = acumulador;
             addProductList(i);
-            checkIcon[i].style.visibility = 'visible';
-            checkAddProducto.style.visibility = 'visible';
-            setTimeout(() => {
-                checkIcon[i].style.visibility = 'hidden';
-                checkAddProducto.style.visibility = 'hidden';
-            }, 1000);
+            if(buttonTruck[0].classList[0] != 'boton-carrito') {
+                checkIcon[i].style.visibility = 'visible';
+                checkAddProducto.style.visibility = 'visible';
+                setTimeout(() => {
+                    checkIcon[i].style.visibility = 'hidden';
+                    checkAddProducto.style.visibility = 'hidden';
+                }, 1000);
+            }
         })
     }
 

@@ -12,7 +12,7 @@ function ramdonResult(products) {
     let result = [];
     let i = 0;
     do {
-        let ramdomI = Math.floor(Math.random() * 48)
+        let ramdomI = Math.floor(Math.random() * products.length)
         if(products[ramdomI].discount > 0) {
             if(result.find(element => element == ramdomI) == undefined) {
                 result.push(ramdomI)
@@ -24,19 +24,19 @@ function ramdonResult(products) {
 }
 
 let mainController = {
-    index: (req, res) => {
+    index: async (req, res) => {
         let userLogged = req.session.user;   
         let imageCarrousel = imgCarrousel.readFile();
-        db.Products.findAll({include: ['categories','images_products', 'brands']})
-            .then((products) => {      
-                let result = ramdonResult(products);
-                res.render('index', {imageCarrousel, products, result, userLogged, toThousand, toComma});
-            })
-            .catch(error => res.json(
+        try {
+            let products = await db.Products.findAll({include: ['categories','images_products', 'brands']});
+            let result = ramdonResult(products);
+            res.render('index', {imageCarrousel, products, result, userLogged, toThousand, toComma});
+        } catch(error) {
+            res.json(
                 error = {
                     msj: "Problemas en el servidor"
                 }
-            ));
+        )}    
     },
     contact: (req, res) => {
         let userLogged = req.session.user;

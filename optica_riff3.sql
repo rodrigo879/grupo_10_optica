@@ -292,8 +292,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `fullName`, `user`, `email`, `password`, `id_imageUser`) VALUES
 (16, 'Francisco LeonardO', 'franleonardo12', 'fran@hotmail.com', '$2a$10$cS1y58U.Y9YWNh.6hWvNyevXRX0Tb9Y8CmaxrIMFBd8DYWGZ711PC', 2),
-(17, 'Rodrigo Alvarez', 'rja123', 'rja@prueba.com', '$2a$10$4A0Ua/gYOT1WtqZQjNwhdOkA4vvn.ga2kflAnNT98kOBPOp8whTdG', 4),
-(18, 'Javier Alvarez', 'javito879', 'javito@prueba.com', '$2a$10$NRLXKIc0/43WO2HQejxyK.N/SQujuKPZIDaV7c9oHYaYgJk5u3ui6', 5),
+(17, 'Rodrigo Alvarez', 'rja123', 'rja@prueba.com', '$2a$10$/vRJNXiRfeAjeRn/HP5qVenDRC/vRRnzww4oAFolsme10nkfqkKhC', 4),
+(18, 'Javier Alvarez', 'javito879', 'javito@prueba.com', '$2a$10$/vRJNXiRfeAjeRn/HP5qVenDRC/vRRnzww4oAFolsme10nkfqkKhC', 5),
 (21, 'prueba', 'prueba', 'prueba@gmail.com', '$2a$10$86Uq96vcdsRHzT2rFqHPCO/qINoibvk2qKBwIRCTCuXm3ArCci9QO', 3),
 (22, 'Facundo Sandoval', 'facuu', 'facu@mail.com', '$2a$10$uEg3gJ437DodgL7.ZcXJIewG8aVfShHHbsf1wo7qXfTszi74aDydm', 6);
 
@@ -453,8 +453,8 @@ ALTER TABLE `users`
 -- Filtros para la tabla `users_authorities`
 --
 ALTER TABLE `users_authorities`
-  ADD CONSTRAINT `users_authorities_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `users_authorities_ibfk_2` FOREIGN KEY (`id_authority`) REFERENCES `authorities` (`id`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `users_authorities_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `users_authorities_ibfk_2` FOREIGN KEY (`id_authority`) REFERENCES `authorities` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

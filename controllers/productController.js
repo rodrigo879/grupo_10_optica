@@ -15,7 +15,7 @@ function ramdonResult(productos) {
     let result = [];
     let i = 0;
     do {
-        let ramdomI = Math.floor(Math.random() * 36)
+        let ramdomI = Math.floor(Math.random() * productos.length)
         if(result.find(element => element == ramdomI) == undefined) {
             result.push(ramdomI)
             i = i + 1;
