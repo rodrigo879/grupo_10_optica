@@ -11,9 +11,9 @@ const mainRoute = require('./routes/mainRoute');
 const usersRoute = require('./routes/usersRoute');
 const productRoute = require('./routes/productRoute');
 
-//Router Apis
-const usersApiRoute = require('./routes/api/usersApiRoute');
-const productsApiRoute = require('./routes/api/productsApiRoute');
+//REQUIRIENDO APIS
+const apiProductsRoute= require ('./routes/api/product');
+const apiUsersRoute= require ('./routes/api/usersApiRoute');
 
 //REQUIRIENDO MIDDLEWARES
 const recordarUsuarioMiddleware = require ('./middlewares/recordarUsuarioMiddleware');
@@ -47,6 +47,7 @@ app.use(cookieParser());
 //CRUZANDO MIDDLEWARES
 app.use(recordarUsuarioMiddleware);
 
+
 // PAGINAS MAIN
 app.use('/', mainRoute);
 
@@ -56,9 +57,9 @@ app.use('/users', usersRoute);
 //PAGINAS PRODUCT
 app.use('/products', productRoute);
 
-//Endpoints de Apis
-app.use('/api/users', usersApiRoute);
-app.use('/api/products', productsApiRoute);
+//PARA USAR APIS
+app.use (('/api/products'), apiProductsRoute)
+app.use('/api/users', apiUsersRoute);
 
 // CUALQUIER DIRECCION QUE NO EXISTA NOS DIRIGE A LA PAGINA DE NOT FOUND.
 app.use((req,res,next) => {res.status(404).render('notFound')});
