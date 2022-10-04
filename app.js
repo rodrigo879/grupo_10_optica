@@ -13,6 +13,8 @@ const productRoute = require('./routes/productRoute');
 
 //REQUIRIENDO APIS
 const apiProductsRoute= require ('./routes/api/product');
+const apiUsersRoute = require('./routes/api/users');
+
 
 //REQUIRIENDO MIDDLEWARES
 const recordarUsuarioMiddleware = require ('./middlewares/recordarUsuarioMiddleware');
@@ -58,6 +60,7 @@ app.use('/products', productRoute);
 
 //PARA USAR APIS
 app.use (('/api/products'), apiProductsRoute)
+app.use ('/api/users', apiUsersRoute)
 
 // CUALQUIER DIRECCION QUE NO EXISTA NOS DIRIGE A LA PAGINA DE NOT FOUND.
 app.use((req,res,next) => {res.status(404).render('notFound')});
