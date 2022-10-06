@@ -13,7 +13,7 @@ const productRoute = require('./routes/productRoute');
 
 //REQUIRIENDO APIS
 const apiProductsRoute= require ('./routes/api/productsApiRoute');
-const apiUsersRoute = require('./routes/api/users');
+const apiUsersRoute = require('./routes/api/usersApiRoute');
 
 
 //REQUIRIENDO MIDDLEWARES
