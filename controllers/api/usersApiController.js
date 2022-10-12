@@ -1,4 +1,4 @@
-const db = require('../../database/models');
+const db = require("../../database/models");
 
 let usersApiController = { 
     list: async (req, res) => {
