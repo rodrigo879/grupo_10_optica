@@ -5,6 +5,7 @@ const path = require('path')
 const app = express();
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
+const cors = require('cors')
 
 //ARCHIVOS REQUERIDOS DEL PROYECTO
 const mainRoute = require('./routes/mainRoute');
@@ -18,11 +19,14 @@ const apiUsersRoute = require('./routes/api/usersApiRoute');
 //REQUIRIENDO MIDDLEWARES
 const recordarUsuarioMiddleware = require ('./middlewares/recordarUsuarioMiddleware');
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3030;
 const HOST = process.env.HOST || 'localhost';
 
 //CONFIGURACION DEL EJS
 app.set('view engine', 'ejs');
+
+//COMPARTIR LA API CON CUALQUIER PROGRAMA EXTERNO
+app.use(cors());
 
 //ARCHIVOS ESTATICOS (PUBLIC)
 app.use(express.static(path.resolve(__dirname,'./public')));
