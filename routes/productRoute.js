@@ -31,6 +31,9 @@ router.delete('/:id', authMiddleware, productController.delete)
 router.get('/productCart', authMiddleware, productController.productCart);
 router.post('/productCart', productController.calculoEnvio);
 
+//BUSCAR UN PRODUCTO
+router.get('/search', productController.searchProduct);
+
 //DETALLE DE UN PRODUCTO
 router.get('/:id', productController.product);
 

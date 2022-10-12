@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+ <%- include('../partials/head', { variant: '/css/usersList.css'})%> 
+<body>
+  <%- include('../partials/header')%>
+    <main>
+      <div class="ruta-login">
+        <a href="/">Inicio</a>/<p>Productos Encontrados</p>
+      </div>
+      <div class="main_container">
+        <% for( let i = 0; i < products.length; i++ ) { %>
+          <a href="/products/<%- products[i].id %>">
+            <div class="container">
+              <div class="img_container">
+                <img src="/images/productos/<%= products[i].categories.name + '/' + products[i].images_products.name %>" alt="<%= products[i].description + products[i].id %>">
+              </div>
+              <div class="info_container">
+                <ul>
+									<li><strong>Nombre:</strong> <%= products[i].name %> </li>
+									<li><strong>Categoria:</strong> <%= products[i].categories.name %> </li>
+									<li><strong>Marca:</strong> <%= products[i].brands.name %> </li>
+                </ul>
+              </div>
+            </div>
+          </a>
+        <% } %>
+      </div>
+    </main>
+    <%- include('../partials/footer')%> 
+</body>
+<script src="/js/function.js"></script>
+</html>

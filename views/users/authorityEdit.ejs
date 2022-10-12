@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/head', { variant: '/css/register.css'})%> 
+<body>
+    <%- include('../partials/header')%>
+    <main>
+        <!-- ----------------AGREGAR CODIGO NUEVO---------------- -->
+        <form id="formulario" class="form" action="/users/changeAuthority/<%= user.id %>/edit?_method=put" method="post">
+          <div class="ruta-login">
+            <a href="/">Inicio</a>/<p>Roles</p>
+          </div>
+          <!-- <h2 class="form_title">Optica Riff</h2>  -->
+          <div class="form_conteiner">           
+            <div class="form_group">
+              <input required type="text" id="user" name="user" value="<%= user.user %>" class="form_input" disabled />
+              <label for="user" class="form_label">Usuario:</label>
+            </div>
+            <div class="form_group">
+              <label for="authorityUser" class="form_label option_select">Rol:</label>
+              <select name="authorityUser" id="authorityUser" class="form_input form_select" value="SELECCIONE UN ROL">
+                <% for( let i = 0; i < authoritiesUser.length; i++ ) { %>
+                  <% if (idUserAuthority.id_authority == authoritiesUser[i].id) { %>
+                    <option selected value="<%- authoritiesUser[i].id %>"><%= authoritiesUser[i].role %> </option> 
+                  <% } else { %>
+                    <option value="<%- authoritiesUser[i].id %>"><%= authoritiesUser[i].role %> </option> 
+                  <% } %>
+                <% } %>
+              </select>
+            </div>
+            <div>
+              <input type="submit" class="form_submit" value="Editar" />
+            </div>
+          </div>
+        </form>
+      </main>
+    <%- include('../partials/footer')%> 
+
+</body>
+<script src="/js/function.js"></script>
+</html>

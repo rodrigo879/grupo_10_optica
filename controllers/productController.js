@@ -1,8 +1,7 @@
-const jsonTable = require('../jsondatabase/jsonTable');
-const productsModel = jsonTable('products')
 const db = require('../database/models');
+const { Op } = require('Sequelize');
 const { validationResult } = require('express-validator');
-const multer = require('multer');
+
 
 // Reemplaza el punto de los decimales por una coma en el precio de los productos..
 const toComma = n => n.toString().replace(".", ",");
@@ -54,6 +53,19 @@ let productController = {
         } else {
             return res.render('./products/productDetail' , {userLogged, productsRandom, toThousand, toComma});
         }
+    },
+    searchProduct: async (req, res) => {
+        let userLogged = req.session.user;
+        let productoBuscado = req.query.buscarProductos;
+        let products = await db.Products.findAll({
+            include: ['categories','images_products', 'brands'],  
+            where: {
+                    name: {
+                        [Op.like]: `%${productoBuscado.toUpperCase()}%`
+                    }
+                }
+        });
+        res.render('./products/searchProducts', {products, userLogged});
     },
     showFormCreate: async (req, res) => {
         let brands = await db.Brands.findAll();
@@ -143,7 +155,7 @@ let productController = {
             discount: product.discount,
             priceDiscount: product.price * (100 - 10) / 100
         }
-        return res.render('./products/productEdit' , {products, idParam, brands, categories, userLogged, toThousand, toComma});
+        return res.render('./products/productEdit' , {products, product, idParam, brands, categories, userLogged, toThousand, toComma});
     },
     update: async (req, res) => {
         let productId = req.params.id;

@@ -12,8 +12,8 @@ const usersRoute = require('./routes/usersRoute');
 const productRoute = require('./routes/productRoute');
 
 //REQUIRIENDO APIS
-const apiProductsRoute= require ('./routes/api/product');
-const apiUsersRoute= require ('./routes/api/usersApiRoute');
+const apiProductsRoute= require ('./routes/api/productApiRoute');
+const apiUsersRoute = require('./routes/api/usersApiRoute');
 
 //REQUIRIENDO MIDDLEWARES
 const recordarUsuarioMiddleware = require ('./middlewares/recordarUsuarioMiddleware');
@@ -47,7 +47,6 @@ app.use(cookieParser());
 //CRUZANDO MIDDLEWARES
 app.use(recordarUsuarioMiddleware);
 
-
 // PAGINAS MAIN
 app.use('/', mainRoute);
 
@@ -59,7 +58,7 @@ app.use('/products', productRoute);
 
 //PARA USAR APIS
 app.use (('/api/products'), apiProductsRoute)
-app.use('/api/users', apiUsersRoute);
+app.use ('/api/users', apiUsersRoute)
 
 // CUALQUIER DIRECCION QUE NO EXISTA NOS DIRIGE A LA PAGINA DE NOT FOUND.
 app.use((req,res,next) => {res.status(404).render('notFound')});
@@ -68,4 +67,3 @@ app.use((req,res,next) => {res.status(404).render('notFound')});
 app.listen(PORT, function(){
     console.log(`listening on http://localhost:${PORT}`);
 })
-

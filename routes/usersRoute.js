@@ -28,7 +28,11 @@ router.get('/profile/:id/password', authMiddleware, usersController.password);
 router.put('/profile/:id/passwordEdit', validacionChangePass, usersController.passwordEdit);
 
 // BORRAR EL USUARIO
-router.delete('/profile/:id', authMiddleware, usersController.delete)
+router.delete('/profile/:id', authMiddleware, usersController.delete);
+
+// CAMBIAR EL ROL DE USUARIO
+router.get('/changeAuthority/:id', usersController.changeAuthority);
+router.put('/changeAuthority/:id/edit', usersController.updateAuthority);
 
 // LISTA DE USUARIOS
 router.get('/userList', adminMiddleware, usersController.userList);

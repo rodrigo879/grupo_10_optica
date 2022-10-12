@@ -37,7 +37,7 @@
             <% } else { %>
                 <p><a href="/users/register">Crear Cuenta</a>|<a href="/users/login">Iniciar Sesion</a></p>
             <% } %> 
-            <a href="#"><i class='fa-solid fa-magnifying-glass'></i></a>
+            <a id="a_buscador" onclick="buscadorMovileTablet()"><i class='fa-solid fa-magnifying-glass'></i></a>
             <a href="/products/productCart"><i class="fa-solid fa-cart-shopping cart_product"><p class="p_cart_product"></p></i></a>
             <!-- Hacer visible solo para administrador -->
             <% if(locals.userLogged && userLogged.authorities[0].role == 'role_admin'){ %>
@@ -48,6 +48,16 @@
             <% } %>
         </div>
     </div>    
+    <div id="divBuscador" class="div-form-buscar-productos" style="display: none;">
+        <form id="formMovileTablet" action="/products/search" method="get" style="text-align: center;">
+            <input 
+                style="border-radius: 10px;
+                padding: 10px;
+                width: 75%;
+                height: 30px;" 
+                name="buscarProductos" class="inputTextSearch buscar-productos" value="" type="text" placeholder="Buscar productos..">
+        </form>
+    </div>
     <nav class="main-navbar" id="mainNavbar">
         <ul class="navbar">
             <!--Aca ya estan creados algunos de los links que vamos a poner, hay que ver bien los nombre y ponerlos-->
@@ -83,10 +93,10 @@
             <!-- Visualizar la lista de usuarios solo para administrador -->
             
             <li class="li-buscar">
-                <form action="/" method="get">
+                <form id="formDesktop" action="/products/search" method="get">
                     <div class="div-form-buscar-productos">
                         <label>
-                            <input name="buscar-productos" class="buscar-productos" value="" type="text" placeholder="Buscar productos..">
+                            <input name="buscarProductos" class="buscar-productos inputDesktop" value="" type="text" placeholder="Buscar productos..">
                             <button type="submit" class="form-submit"><i class='fa-solid fa-magnifying-glass glass'></i></button>
                         </label>
                     </div>

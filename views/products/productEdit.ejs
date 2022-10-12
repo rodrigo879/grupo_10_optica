@@ -35,10 +35,10 @@
               </div>
               <div class="form_group">
                 <label for="categoryProduct" class="form_label option_select">Categoria:</label>
-                <select name="categoryProduct" id="categoryProduct" class="form_input form_select select" value="SELECCIONE UNA CATEGORIA">
+                <select disabled name="categoryProduct" id="categoryProduct" class="form_input form_select select" value="SELECCIONE UNA CATEGORIA">
                   <% for( let i = 0; i < categories.length; i++ ) { %>
-                    <% let categoriaDescription = (categories[i].id == 1) ? "ANTEOJOS RECETADOS" : (categories[i].id == 2) ? "ANTEOJOS PARA SOL" : (categories[i].id == 3) ? "LENTES DE CONTACTO" : "ACCESORIOS" %> 
-                    <option value="<%- categories[i].name %>"> <%= categoriaDescription %> </option> 
+                    <% let categoriaDescription = (product.id_category == 1) ? "ANTEOJOS RECETADOS" : (product.id_category == 2) ? "ANTEOJOS PARA SOL" : (product.id_category == 3) ? "LENTES DE CONTACTO" : "ACCESORIOS" %> 
+                    <option value="<%- products.categoryProduct %>"> <%= categoriaDescription %> </option> 
                   <% } %>
                 </select>
               </div>

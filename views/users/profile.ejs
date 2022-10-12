@@ -13,7 +13,7 @@
           <div class="form_conteiner">
             <% if(locals.userLogged && userLogged.authorities[0].role == 'role_admin') { %>
               <div>
-                <a href="" class="form_submit btn_authority">Cambiar Authority</a>
+                <a href="/users/changeAuthority/<%= user.id %>" class="form_submit btn_authority">Cambiar Authority</a>
               </div>
             <% } %>            
             <div class="form_group">

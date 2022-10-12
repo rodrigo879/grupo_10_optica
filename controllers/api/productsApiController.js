@@ -1,40 +1,61 @@
 const db = require('../../database/models');
-const { lentesContacto } = require('../productController');
 
 let productsApiController = {
-    list: async (req,res) => {
-        let products=  await db.Products.findAll({
-            include: ['categories','images_products', 'brands'],
-            order: [ ["id", "ASC"] ]      
-        })   
-        
-
-        let cuentaLentesRecetado = await db.Products.count ({ where: { id_category : 1} });
-        let cuentaLentesSol = await db.Products.count({ where: { id_category : 2} });
-        let cuentaLentesContacto = await db.Products.count({ where: { id_category : 3} });
-        let cuentaAccesorios = await db.Products.count({ where: { id_category : 4} });
-
-            return res.json ({
-            code:200,
-            countByCategory: {lentesContacto: cuentaLentesContacto, lentesRecetado: cuentaLentesRecetado, lentesSol: cuentaLentesSol, accesorios: cuentaAccesorios}, 
-            msg: "success",
-            count: products.length,
-            data: products
+    list: async (req, res) => {
+        try {
+            let products = await db.Products.findAll({include: ['categories','images_products', 'brands']})   
+            let countByCategory = await db.Products.count({
+                include: ['categories'],
+                attributes: ['categories.name'],
+                group: 'id_category'
             })
-        },
-    detail: (req, res) => {
-        let idParam = req.params.id;
-        db.Products.findByPk (idParam, { include: ['categories','images_products', 'brands']})
-        .then(product => { 
-        return res.json ({
-            code:200,
-            msg: "success",
-            data: product
-        });
-        })
+            let countByBrand = await db.Products.count({
+                include: ['brands'],
+                attributes: ['brands.name'],
+                group: 'id_brand'
+            })
+            products.forEach(element => {
+                delete element.dataValues.id_category;
+                delete element.dataValues.id_brand;
+                delete element.dataValues.id_image_product;
+                element.dataValues.images = `/images/productos/${element.categories.name}/${element.images_products.name}`;
+                element.dataValues.detail = `/api/products/${element.id}`;
+            });
+            return res.json ({
+                code: 200,
+                msg: "success",
+                count: products.length,
+                countByCategory: countByCategory,
+                countByBrand: countByBrand,
+                data: products             
+            });
+        } catch (error) {
+            res.json({
+                code: 500,
+                msg: error
+            });
+        }
+    },
+    detail: async (req, res) => {
+        try {
+            let idParam = req.params.id;
+            let product = await db.Products.findByPk (idParam, { include: ['categories','images_products', 'brands']});
+            delete product.dataValues.id_category;
+            delete product.dataValues.id_brand;
+            delete product.dataValues.id_image_product;
+            product.dataValues.images = `/images/productos/${product.categories.name}/${product.images_products.name}`;
+            return res.json ({
+                code:200,
+                msg: "success",
+                data: product
+            });    
+        } catch (error) {
+            res.json({
+                code: 500,
+                msg: error
+            });
+        }
     }
-
-    }
-
+}
 
 module.exports = productsApiController;

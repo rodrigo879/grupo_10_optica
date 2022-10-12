@@ -12,10 +12,10 @@
         <div class="menu-desplegable">
             <form>
                 <label for="ordenar">Ordenar por:</label>
-                <select name="ordenar">
-                    <option value="">Novedades</option>
-                    <option value="">Menor Precio</option>
-                    <option value="">Mayor Precio</option>
+                <select name="ordenar" id="selectSortProducts" onchange="sortProducts()">
+                    <option value="1">Novedades</option>
+                    <option value="2">Menor Precio</option>
+                    <option value="3">Mayor Precio</option>
                 </select>
             </form>
         </div>

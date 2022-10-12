@@ -1,7 +1,7 @@
 const bcryptjs= require('bcryptjs');
 const { validationResult } = require('express-validator');
 const db = require('../database/models');
-const { Op } = require('Sequelize');
+//const { Op } = require('Sequelize');
 
 let crearError = (msg, param) => { 
     let error = {
@@ -144,8 +144,6 @@ const userController = {
         let userId = req.params.id;
         let userLogged = req.session.user;
         db.Users.destroy({ where: { id: userId}})
-        console.log(userId);
-        console.log(userLogged.id)
         if(userId == userLogged.id) {
             res.clearCookie('recordarUsuario');
             req.session.destroy();
@@ -169,7 +167,7 @@ const userController = {
                         { password: bcryptjs.hashSync(req.body.password, 10)},
                         { where: { id: req.params.id }}
                     );
-                    res.redirect(`/users/profile/${userId}`)
+                    res.redirect(`/users/profile/${userId}`);
                 }
                 // Las nuevas contraseñas no coinciden, generamos el error y se lo mostramos al usuario.
                 errors.errors.push(crearError('Las contraseñas no coinciden', 'credInvPass'));
@@ -184,8 +182,24 @@ const userController = {
     },
     userList: async (req, res) => {
         let userLogged = req.session.user;
-        let usersAll = await db.Users.findAll({ include: ['image_users','authorities'] })
-        res.render('./users/userList', {users: usersAll, userLogged})
+        let usersAll = await db.Users.findAll({ include: ['image_users','authorities'] });
+        res.render('./users/userList', {users: usersAll, userLogged});
+    },
+    changeAuthority: async (req, res) => {
+        let userLogged = req.session.user;
+        let idUser = req.params.id;
+        let user = await db.Users.findByPk(idUser, { include: ['authorities'] });
+        let authoritiesUser = await db.Authorities.findAll();
+        let idUserAuthority = await db.UserAuthority.findOne({where: { id_user: idUser }});
+        res.render('./users/authorityEdit', {user, authoritiesUser, idUserAuthority, userLogged})
+    },
+    updateAuthority: async (req, res) => {
+        let idUser = req.params.id;
+        db.UserAuthority.update(
+            { id_authority: req.body.authorityUser},
+            { where: { id_user: idUser }}
+        );
+        res.redirect(`/users/profile/${idUser}`);
     },
     logout: (req, res) => {
         res.clearCookie('recordarUsuario');
