@@ -241,7 +241,7 @@ function finalizar() {
     }).then(() => {
         sessionStorage.removeItem('shoppingList');
         sessionStorage.removeItem('priceList')
-        window.location.replace('http://localhost:3000/');
+        window.location.replace('http://localhost:3030/');
     })
 }
 

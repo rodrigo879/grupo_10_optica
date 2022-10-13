@@ -7,8 +7,8 @@ let usersApiController = {
             users.forEach(element => {
                 delete element.dataValues.password;
                 delete element.dataValues.id_imageUser;
-                element.dataValues.image = `/images/users/${element.image_users.name}`;
-                element.dataValues.detail = `/api/users/${element.id}`
+                element.dataValues.image = `http://localhost:3030/images/users/${element.image_users.name}`;
+                element.dataValues.detail = `http://localhost:3030/api/users/${element.id}`
             });
             return res.json({
                 status: 200,
@@ -28,7 +28,7 @@ let usersApiController = {
             let user = await db.Users.findByPk(req.params.id, {include: ['image_users']});
             delete user.dataValues.password;
             delete user.dataValues.id_imageUser;
-            user.dataValues.image = `/images/users/${user.image_users.name}`;
+            user.dataValues.image = `http://localhost:3030/images/users/${user.image_users.name}`;
             return res.json({
                 status: 200,
                 msg: 'success',
