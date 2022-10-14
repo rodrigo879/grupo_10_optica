@@ -25,4 +25,4 @@
 # Para utilizar nuestro E-COMMERCE:
 * Clonar el repositorio: "git clone https://github.com/rodrigo879/grupo_10_optica.git"
 * Instale las dependencias: "npm i"
-* Ejecutarlo con "npm run dev" (verifíquelo en localhost: 3000).
+* Ejecutarlo con "npm run dev" (verifíquelo en localhost: 3030).

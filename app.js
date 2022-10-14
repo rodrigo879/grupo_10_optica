@@ -48,7 +48,7 @@ app.use(session({
 //PARA UTILIZAR COOKIES
 app.use(cookieParser());
 
-//CRUZANDO MIDDLEWARES
+//CRUZANDO MIDDLEWARES (Recordar Usuario)
 app.use(recordarUsuarioMiddleware);
 
 // PAGINAS MAIN

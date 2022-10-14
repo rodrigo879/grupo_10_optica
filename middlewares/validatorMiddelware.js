@@ -1,7 +1,5 @@
 const { body } = require('express-validator')
-const usersJson = require('../jsondatabase/jsonTable');
-const bcryptjs= require('bcryptjs');
-const usersModel = usersJson('users');
+const path = require('path')
 
 let validatorMiddelware = {
     validacionCreateUsers: [
@@ -36,12 +34,11 @@ let validatorMiddelware = {
         body('priceProduct').notEmpty().withMessage('Debe ingresar un precio').bail().isDecimal().withMessage('El precio debe contener 2 decimales'),
         body('discount').notEmpty().withMessage('Debe completar el campo descuento').isLength({min:1, max:2}).withMessage('El descuento puede ser 1 o 2 digitos'),
         body('image').custom((value, { req }) => {
-            let file = req.file;
             let extension = ['.jpeg', '.jpg','.png'];
-            if (!file){
+            if (!req.file){
                 throw new Error('Falta cargar una imagen');
             } else {
-                let fileExtension = path.extname(file.originalname);
+                let fileExtension = path.extname(req.file.originalname);
                 if(!extension.includes(fileExtension)) {
                     throw new Error('Debe ingresar una imagen de formato valida (JPEG, JPG, PNG)');
                 }

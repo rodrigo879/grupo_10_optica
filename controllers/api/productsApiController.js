@@ -6,7 +6,7 @@ let productsApiController = {
             let products = await db.Products.findAll({include: ['categories','images_products', 'brands']})   
             let countByCategory = await db.Products.count({
                 include: ['categories'],
-                attributes: ['categories.name'],
+                attributes: ['categories.name', 'categories.id'],
                 group: 'id_category'
             })
             let countByBrand = await db.Products.count({
@@ -101,6 +101,39 @@ let productsApiController = {
                 msg: "success",
                 data: products             
             });
+        } catch (error) {
+            res.json({
+                code: 500,
+                msg: error
+            });
+        }
+    },
+    paginatedProduct: async (req, res) => {
+        try {
+            let pag = Number(req.query.pagina) || 0;
+            let countForPage = 4;
+            let initial = 4
+            let products = await db.Products.findAll({
+                include: ['categories','images_products', 'brands'], 
+                limit: countForPage,
+                offset: (initial * pag)
+            })
+            let countProducts = await db.Products.count();
+            products.forEach(element => {
+                delete element.dataValues.id_category;
+                delete element.dataValues.id_brand;
+                delete element.dataValues.id_image_product;
+                element.dataValues.images = `http://localhost:3030/images/productos/${element.categories.name}/${element.images_products.name}`;
+                element.dataValues.detail = `http://localhost:3030/api/products/${element.id}`;
+            });     
+            return res.json ({
+                code: 200,
+                msg: "success",
+                data: products,
+                count: countProducts,
+                countForPage: countForPage,
+                initial: initial
+            });       
         } catch (error) {
             res.json({
                 code: 500,

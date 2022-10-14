@@ -107,7 +107,7 @@ let productController = {
                     });
                     res.redirect('/products/all');
                 } 
-            } else {       
+            } else {
                 let brands = await db.Brands.findAll();
                 let categories = await db.Categories.findAll(); 
                 let error = {
