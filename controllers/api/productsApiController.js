@@ -114,11 +114,12 @@ let productsApiController = {
             let countForPage = 4;
             let initial = 4
             let products = await db.Products.findAll({
-                include: ['categories','images_products', 'brands'], 
+                include: ['categories','images_products', 'brands'],
+                where: {id_category: req.params.id},
                 limit: countForPage,
                 offset: (initial * pag)
             })
-            let countProducts = await db.Products.count();
+            let countProducts = await db.Products.count({where: {id_category: req.params.id}});
             products.forEach(element => {
                 delete element.dataValues.id_category;
                 delete element.dataValues.id_brand;
