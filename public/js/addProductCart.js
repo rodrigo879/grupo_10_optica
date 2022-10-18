@@ -5,15 +5,11 @@ window.addEventListener('load', (e) => {
     let imgProduct = document.querySelectorAll(".main-section-img img");
     let nameProduct = document.querySelectorAll(".section-h3 h3");
     let priceProduct = document.querySelectorAll(".precio-con-descuento");
-    let carritoCart = document.querySelector(".p_cart_product");
     let checkIcon = document.querySelectorAll(".check");
-    let checkAddProducto = document.querySelector(".check_addProduct")
-    let acumulador = 0
+    let checkAddProducto = document.querySelector(".check_addProduct");
 
     for (let i = 0; i < buttonTruck.length; i++) {
         buttonTruck[i].addEventListener('click', (e) => {
-            acumulador ++;
-            carritoCart.innerHTML = acumulador;
             addProductList(i);
             if(buttonTruck[0].classList[0] != 'boton-carrito') {
                 checkIcon[i].style.visibility = 'visible';

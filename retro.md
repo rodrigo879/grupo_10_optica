@@ -75,14 +75,3 @@
     Dejar para ultimo momento el proyecto. 
 - 5 Dejar de hacer:
     Bajar los brazos.
-
-# SPRINT 8
-- 1 Comenzar a hacer: 
-
-- 2 Hacer más:
-
-- 3 Continuar haciendo:
-
-- 4 Hacer menos:
-
-- 5 Dejar de hacer:

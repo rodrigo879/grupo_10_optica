@@ -47,7 +47,7 @@ let productController = {
                 priceProduct: allProducts[indice].price,
                 image: allProducts[indice].images_products.name,
                 discount: allProducts[indice].discount,
-                priceDiscount: allProducts[indice].price * (100 - 10) / 100
+                priceDiscount: allProducts[indice].price * (100 - allProducts[indice].discount) / 100
             }
             return res.render('./products/productDetail' , {products, idParam, userLogged, productsRandom, toThousand, toComma});
         } else {
@@ -122,26 +122,25 @@ let productController = {
             res.render('./products/create', {errors:errors.mapped (), brands, categories, oldData: req.body, userLogged});
         } 
     },
-    allProducts: (req, res) => {
-        db.Products.findAll({
-            include: ['categories','images_products', 'brands'],
-            order: [ ["id", "DESC"] ]
-        })
-        .then((products) => {
-            let userLogged = req.session.user
-            res.render('./products/allProducts', {products, userLogged, toThousand, toComma});
-        })
-        .catch(error => res.json(
-            error = {
-                msj: "Problemas en el servidor"
-            }
-        ));
+    allProducts: async (req, res) => {
+        let userLogged = req.session.user
+        try {
+            let products = await db.Products.findAll({
+                include: ['categories','images_products', 'brands'],
+                order: [ ["id", "DESC"] ]
+            });
+            res.render('./products/allProducts', {products, userLogged, toThousand, toComma});            
+        } catch(error) {
+            res.json(
+                error = {
+                    msj: "Problemas en el servidor"
+                }
+        )};
     },
     edit: async (req,res) => {
         let userLogged = req.session.user;
         let idParam = req.params.id
         let brands = await db.Brands.findAll();
-        let categories = await db.Categories.findAll();
         let product = await db.Products.findByPk( idParam, {include: ['categories','images_products', 'brands']})
         // Creamos una variable con los datos que devuelve la promesa, ajustado a como habiamos hecho la vista inicialmente.
         let products = {
@@ -153,42 +152,75 @@ let productController = {
             priceProduct: product.price,
             image: product.images_products.name,
             discount: product.discount,
-            priceDiscount: product.price * (100 - 10) / 100
+            priceDiscount: product.price * (100 - product.discount) / 100,
+            id_category: product.id_category
         }
-        return res.render('./products/productEdit' , {products, product, idParam, brands, categories, userLogged, toThousand, toComma});
+        return res.render('./products/productEdit' , {products, idParam, brands, userLogged, toThousand, toComma});
     },
     update: async (req, res) => {
         let productId = req.params.id;
         let errors = validationResult(req)
         if(errors.isEmpty()) {
             if(req.file) {
-                let newImage = await db.ImagesProducts.create( { name: req.file.filename } );
-                let newBrand = await db.Brands.create( { name: req.body.trademarkProduct} );
-                db.Products.update(
-                    {
-                        name: req.body.nameProduct,
-                        description: req.body.descriptionProduct,
-                        price: req.body.priceProduct,
-                        discount: req.body.discount,
-                        id_brand: newBrand.id,
-                        id_image_product: newImage.id,
-                    },
-                    { where: { id: productId } }
-                );
-                return res.redirect(`/products/${productId}/edit`)
+                if(req.body.radio_trademark == 1) {
+                    let newImage = await db.ImagesProducts.create( { name: req.file.filename } );
+                    let brand = await db.Brands.findByPk(req.body.trademarkProductExist);
+                    db.Products.update(
+                        {
+                            name: req.body.nameProduct,
+                            description: req.body.descriptionProduct,
+                            price: req.body.priceProduct,
+                            discount: req.body.discount,
+                            id_brand: brand.id,
+                            id_image_product: newImage.id,
+                        },
+                        { where: { id: productId } }
+                    );
+                    return res.redirect('/products/all')
+                } else if (req.body.radio_trademark == 2) { 
+                    let newImage = await db.ImagesProducts.create( { name: req.file.filename } );
+                    let newBrand = await db.Brands.create( { name: req.body.trademarkProduct} );
+                    db.Products.update(
+                        {
+                            name: req.body.nameProduct,
+                            description: req.body.descriptionProduct,
+                            price: req.body.priceProduct,
+                            discount: req.body.discount,
+                            id_brand: newBrand.id,
+                            id_image_product: newImage.id,
+                        },
+                        { where: { id: productId } }
+                    );
+                    return res.redirect('/products/all')
+                }
             } else {
-                let newBrand = await db.Brands.create( { name: req.body.trademarkProduct} );
-                db.Products.update(
-                    {
-                        name: req.body.nameProduct,
-                        description: req.body.descriptionProduct,
-                        price: req.body.priceProduct,
-                        discount: req.body.discount,
-                        id_brand: newBrand.id,
-                    },
-                    { where: { id: productId } }
-                );
-                return res.redirect(`/products/${productId}/edit`)
+                if(req.body.radio_trademark == 1) {
+                    let brand = await db.Brands.findByPk(req.body.trademarkProductExist);
+                    db.Products.update(
+                        {
+                            name: req.body.nameProduct,
+                            description: req.body.descriptionProduct,
+                            price: req.body.priceProduct,
+                            discount: req.body.discount,
+                            id_brand: brand.id,
+                        },
+                        { where: { id: productId } }
+                    );
+                    return res.redirect('/products/all')
+                } else if (req.body.radio_trademark == 2) { 
+                    let newBrand = await db.Brands.create( { name: req.body.trademarkProduct} );
+                    db.Products.update(
+                        {
+                            name: req.body.nameProduct,
+                            description: req.body.descriptionProduct,
+                            price: req.body.priceProduct,
+                            discount: req.body.discount,
+                            id_brand: newBrand.id,
+                        },
+                        { where: { id: productId } }
+                    );
+                    return res.redirect('/products/all')
+                }
             }
         } else {
             let userLogged = req.session.user;
@@ -205,7 +237,7 @@ let productController = {
                 priceProduct: product.price,
                 image: product.images_products.name,
                 discount: product.discount,
-                priceDiscount: product.price * (100 - 10) / 100
+                priceDiscount: product.price * (100 - product.discount) / 100
             }
             res.render('./products/productEdit' , { errors:errors.mapped (), userLogged, oldData: req.body, products, idParam, brands, categories, userLogged, toThousand, toComma});
         }
@@ -232,7 +264,7 @@ let productController = {
                 priceProduct: element.price,
                 image: element.images_products.name,
                 discount: element.discount,
-                priceDiscount: element.price * (100 - 10) / 100
+                priceDiscount: element.price * (100 - element.discount) / 100
             }   
             products.push(product)
         });
@@ -255,7 +287,7 @@ let productController = {
                 priceProduct: element.price,
                 image: element.images_products.name,
                 discount: element.discount,
-                priceDiscount: element.price * (100 - 10) / 100
+                priceDiscount: element.price * (100 - element.discount) / 100
             }   
             products.push(product)
         });
@@ -278,7 +310,7 @@ let productController = {
                 priceProduct: element.price,
                 image: element.images_products.name,
                 discount: element.discount,
-                priceDiscount: element.price * (100 - 10) / 100
+                priceDiscount: element.price * (100 - element.discount) / 100
             }   
             products.push(product)
         });
@@ -301,7 +333,7 @@ let productController = {
                 priceProduct: element.price,
                 image: element.images_products.name,
                 discount: element.discount,
-                priceDiscount: element.price * (100 - 10) / 100
+                priceDiscount: element.price * (100 - element.discount) / 100
             }   
             products.push(product)
         });

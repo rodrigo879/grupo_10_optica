@@ -26,7 +26,7 @@ let validatorMiddelware = {
         .isStrongPassword({minLength:6, minLowercase:1, minUppercase: 1, minNumbers: 1, minSymbols: 1})
         .withMessage('La contraseña debe ser mayor a 6 caracteres, incluir una letra mayúscula, una minúscula, un caracter especial y al menos un número'),
     ],
-    validacionProduct:[
+    validacionProductCreate:[
         body('nameProduct').notEmpty().withMessage('Debes completar el nombre del producto').bail()
         .isLength({min: 5, max:40}).withMessage ('El nombre del producto debe tener de 5 a 40 caracteres'),
         body('descriptionProduct').notEmpty().withMessage ('Debes completar la descripcion del producto'). bail()
@@ -45,6 +45,14 @@ let validatorMiddelware = {
             }
             return true;
         })
+    ],
+    validacionProductUpdate:[
+        body('nameProduct').notEmpty().withMessage('Debes completar el nombre del producto').bail()
+        .isLength({min: 5, max:40}).withMessage ('El nombre del producto debe tener de 5 a 40 caracteres'),
+        body('descriptionProduct').notEmpty().withMessage ('Debes completar la descripcion del producto'). bail()
+        .isLength({min:10, max:200}).withMessage('La descripción debe tener de 20 a 200 caracteres'),
+        body('priceProduct').notEmpty().withMessage('Debe ingresar un precio').bail().isDecimal().withMessage('El precio debe contener 2 decimales'),
+        body('discount').notEmpty().withMessage('Debe completar el campo descuento').isLength({min:1, max:2}).withMessage('El descuento puede ser 1 o 2 digitos')
     ]
 }
 

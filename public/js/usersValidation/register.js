@@ -38,7 +38,7 @@ window.addEventListener('load', (e) => {
                 validarCampo(expresiones.email, evt.target, 'email', 2, 'Ingrese un email de formato valido');
             break;
             case "password":
-                validarCampo(expresiones.password, evt.target, 'password', 3, 'Ingrese una contraseña (mayor a 6 caracteres, debe incluir Mayusculas, minisculas y numeros)');
+                validarCampo(expresiones.password, evt.target, 'password', 3, 'Ingrese una contraseña (mayor a 6 caracteres, debe incluir mayusculas, minisculas, numeros y simbolos)');
             break;
             case "confirmPassword":
                 validarCoincidenciaPassword();

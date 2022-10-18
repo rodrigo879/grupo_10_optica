@@ -2,6 +2,7 @@
 
 - URL REPO https://github.com/rodrigo879/grupo_10_optica.git
 - URL TABLERO https://trello.com/b/kVvPG0Gz/proyectointegradorgrupo10optica
+- URL DASHBOARD https://github.com/rodrigo879/dashboard_Optica_RIFF.git
 
 # Tematica del sitio
 - E-Commerce. Tienda virtual de lentes (anteojeos de sol y recetados)
@@ -25,4 +26,5 @@
 # Para utilizar nuestro E-COMMERCE:
 * Clonar el repositorio: "git clone https://github.com/rodrigo879/grupo_10_optica.git"
 * Instale las dependencias: "npm i"
+* Configure la base de datos
 * Ejecutarlo con "npm run dev" (verifíquelo en localhost: 3030).

@@ -8,21 +8,28 @@
         <a href="/">Inicio</a>/<p>Productos Encontrados</p>
       </div>
       <div class="main_container">
-        <% for( let i = 0; i < products.length; i++ ) { %>
-          <a href="/products/<%- products[i].id %>">
-            <div class="container">
-              <div class="img_container">
-                <img src="/images/productos/<%= products[i].categories.name + '/' + products[i].images_products.name %>" alt="<%= products[i].description + products[i].id %>">
+        <% if (!products.length) { %>
+          <section style="text-align: center;">
+            <h3 class="sin_productos_en_el_carrito">No se encontro el producto buscado</h3>
+            <img style="width: 90%;" src="/images/notFoundProduct.jpg" alt="Producto No Encontrado">
+          </section>
+        <% } else { %>
+          <% for( let i = 0; i < products.length; i++ ) { %>
+            <a href="/products/<%- products[i].id %>">
+              <div class="container">
+                <div class="img_container">
+                  <img src="/images/productos/<%= products[i].categories.name + '/' + products[i].images_products.name %>" alt="<%= products[i].description + products[i].id %>">
+                </div>
+                <div class="info_container">
+                  <ul>
+                    <li><strong>Nombre:</strong> <%= products[i].name %> </li>
+                    <li><strong>Categoria:</strong> <%= products[i].categories.name %> </li>
+                    <li><strong>Marca:</strong> <%= products[i].brands.name %> </li>
+                  </ul>
+                </div>
               </div>
-              <div class="info_container">
-                <ul>
-									<li><strong>Nombre:</strong> <%= products[i].name %> </li>
-									<li><strong>Categoria:</strong> <%= products[i].categories.name %> </li>
-									<li><strong>Marca:</strong> <%= products[i].brands.name %> </li>
-                </ul>
-              </div>
-            </div>
-          </a>
+            </a>
+          <% } %>
         <% } %>
       </div>
     </main>

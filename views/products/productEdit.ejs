@@ -35,10 +35,14 @@
               </div>
               <div class="form_group">
                 <label for="categoryProduct" class="form_label option_select">Categoria:</label>
-                <select disabled name="categoryProduct" id="categoryProduct" class="form_input form_select select" value="SELECCIONE UNA CATEGORIA">
-                  <% for( let i = 0; i < categories.length; i++ ) { %>
-                    <% let categoriaDescription = (product.id_category == 1) ? "ANTEOJOS RECETADOS" : (product.id_category == 2) ? "ANTEOJOS PARA SOL" : (product.id_category == 3) ? "LENTES DE CONTACTO" : "ACCESORIOS" %> 
-                    <option value="<%- products.categoryProduct %>"> <%= categoriaDescription %> </option> 
+                <select name="categoryProduct" id="categoryProduct" class="form_input form_select select" value="">
+                  <% let categoriaDescription = ["ANTEOJOS RECETADOS", "ANTEOJOS PARA SOL", "LENTES DE CONTACTO", "ACCESORIOS"] %> 
+                  <% for( let i = 0; i < categoriaDescription.length; i++ ) { %>
+                    <% if (products.id_category == (i + 1)) { %>
+                      <option selected value="<%- products.categoryProduct %>"> <%= categoriaDescription[i] %> </option>                       
+                    <% } else { %>
+                      <option value="<%- products.categoryProduct %>"> <%= categoriaDescription[i] %> </option> 
+                    <% } %>
                   <% } %>
                 </select>
               </div>
@@ -67,7 +71,11 @@
                 <div class="form_group" id="div_radio_exists">
                   <select name="trademarkProductExist" class="form_input form_select" value="SELECCIONE UNA MARCA">
                     <% for( let i = 0; i < brands.length; i++ ) { %>   
-                      <option value="<%- brands[i].id %>" ><%- brands[i].name %></option>
+                      <% if (products.trademarkProduct == brands[i].name) { %>
+                        <option selected value="<%- brands[i].id %>" ><%- brands[i].name %></option>
+                      <% } else { %>
+                        <option value="<%- brands[i].id %>" ><%- brands[i].name %></option>
+                      <% } %>
                     <% } %>
                   </select>
                 </div>

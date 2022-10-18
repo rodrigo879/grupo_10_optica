@@ -79,15 +79,15 @@
             <li class="li-hover"><a href="/products/anteojosLentesContacto">Lentes de Contacto</a></li>
             <li class="li-hover"><a href="/products/accesorios">Accesorios</a></li> 
             <li class="li-hover"><a href="/contact">Contacto</a></li>
-            <li class="li-hover despliega"><a href="/products/all">Listado de Productos</a></li>
             <% if(locals.userLogged && userLogged.authorities[0].role == 'role_admin') { %>
+                <li class="li-hover despliega"><a href="/products/all">Listado de Productos</a></li>
                 <li class="li-hover despliega"><a href="/products/create">Crear un producto</a></li>
                 <li class="li-hover despliega"><a href="/users/userList">Lista de Usuarios</a></li>
                 <li class="li-hover despliega"><a href="/users/logout">Cerrar Sesion</a></li>              
             <% } else if(locals.userLogged && userLogged) { %>   
                 <li class="li-hover despliega"><a href="/users/logout">Cerrar Sesion</a></li> 
             <% } else { %> 
-                <li class="li-hover despliega"><i class="fa-solid fa-user"></i><a href="/users/register">Crear Cuenta</a>|<a href="/users/login">Iniciar Sesion</a></li>               
+                <li class="li-hover despliega"><i class="fa-solid fa-user"></i><a href="/users/register"> Crear Cuenta </a> | <a href="/users/login"> Iniciar Sesion</a></li>               
             <% } %>
 
             <!-- Visualizar la lista de usuarios solo para administrador -->

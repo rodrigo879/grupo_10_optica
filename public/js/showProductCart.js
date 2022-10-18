@@ -7,6 +7,7 @@ window.addEventListener('load', (e) => {
 
     let sinProductos = document.querySelector('.sin_productos_en_el_carrito');
     let section = document.querySelector('section');
+    let carritoVacio = document.querySelector('section img')
     let subtotal = document.getElementById('subtotal');
     let costoDelEnvio = document.getElementById('costo_del_envio');
     let total = document.getElementById('total');
@@ -18,6 +19,7 @@ window.addEventListener('load', (e) => {
         total.innerHTML = "$0";
     } else {
         sinProductos.style.display = "none";
+        carritoVacio.style.display = "none";
         let shoppingList = JSON.parse(sessionStorage.getItem('shoppingList'));
         let priceList = JSON.parse(sessionStorage.getItem('priceList'));
         subtotal.innerHTML = `$${toThousand(toComma(priceList.toFixed(2)))}`;
