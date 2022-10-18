@@ -38,7 +38,7 @@
               <input accept=".png, .jpeg, .jpg" type="file" class="form_input form_input_file" id="imageUser" name="imageUser" value="<%= user.imageUser %>" placeholder=" "/> 
               <label for="imageUser" class="form_label">Imagen:</label>
             <div class="user_image_profile"> 
-                <img src="/images/users/<%= user.image_users.name %>" alt="Imagen de usuario <%= user.id %>">
+                <img src="/images/users/<%= userLogged.image_users != null ? userLogged.image_users.name : 'default-avatar-profile.jpg' %>" alt="Imagen de usuario <%= user.id %>">
             </div>
               <div class="form_input">
                 <label for="imageUser" class="form_imageFile">

@@ -30,7 +30,7 @@
                     <a class="ocultar" href="/users/profile/<%= userLogged.id %>">
                         <%= userLogged.user %>
                         <div style="width: 25px">
-                            <img style="width: 100%" src="/images/users/<%= userLogged.image_users.name != undefined ? userLogged.image_users.name : 'default-avatar-profile.jpg' %>" alt="Imagen de Usuario">
+                            <img style="width: 100%" src="/images/users/<%= userLogged.image_users != null ? userLogged.image_users.name : 'default-avatar-profile.jpg' %>" alt="Imagen de Usuario">
                         </div>
                     </a>
                 </p>      
@@ -65,7 +65,7 @@
                 <% if(locals.userLogged && userLogged) { %>
                     <a href="/users/profile/<%= userLogged.id %>">
                         <div style="width: 25px; display: flex;">
-                            <img src="/images/users/<%= userLogged.image_users.name %>" style="width: 100%; margin-right: 15px;">
+                            <img src="/images/users/<%= userLogged.image_users != null ? userLogged.image_users.name : 'default-avatar-profile.jpg' %>" style="width: 100%; margin-right: 15px;">
                             <p><%= userLogged.user %></p>
                         </div>
                     </a>
