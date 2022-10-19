@@ -1,7 +1,7 @@
 module.exports = {
   "development": {
     "username": "root",
-    "password": "5826",
+    "password": "",
     "database": "optica_riff",
     "host": "127.0.0.1",
     "dialect": "mysql"
